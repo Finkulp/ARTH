@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import img from '../../Images/Logo.png';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -44,19 +45,20 @@ const Navbar = () => {
                             </ul>
                         </nav>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-                            <a
-                                href="/#"
+                            <Link to='/login'>
+                            <span
                                 className="px-7 py-3 text-base font-medium text-dark hover:text-primary "
                             >
                                 Sign in
-                            </a>
-
+                            </span>
+                            </Link>
+                            <Link to='/signup'>
                             <a
-                                href="/#"
                                 className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90"
                             >
                                 Sign Up
                             </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
