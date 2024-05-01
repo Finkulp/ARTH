@@ -6,6 +6,8 @@ import YouGet from './YouGet'
 import StepPage from "./StepPage";
 import Stats from "./Stats";
 import Stats2 from "./Stats2";
+import WhatPeopleSay from "./whatPeopleSay";
+import FAQ from './FAQ'
 const Home = () => {
   return (
     <>
@@ -69,21 +71,13 @@ const Home = () => {
       <YouGet></YouGet>
       <Stats></Stats>
       <Stats2></Stats2>
+      <WhatPeopleSay></WhatPeopleSay>
+      <FAQ></FAQ>
     </>
   );
 };
 
 export default Home;
-
-const SingleImage = ({ href, imgSrc }) => {
-  return (
-    <>
-      <a href={href} className="flex w-full items-center justify-center">
-        <img src={imgSrc} alt="brand image" className="h-10 w-full" />
-      </a>
-    </>
-  );
-};
 
 
 
