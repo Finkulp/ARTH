@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import vid from '../../Animations/landingpage1.mp4'
 import Lottie from "lottie-react";
 import animationData from "../../Animations/landingpage.json";
+import YouGet from './YouGet'
 import StepPage from "./StepPage";
 const Home = () => {
   return (
@@ -63,6 +64,7 @@ const Home = () => {
         </div>
       </div>
       <StepPage></StepPage>
+      <YouGet></YouGet>
     </>
   );
 };
