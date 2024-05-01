@@ -3,6 +3,7 @@ import Home from "./components/Non-logged/Home";
 import Navbar from "./components/Non-logged/Nevbar";
 import Footer from "./components/Non-logged/Footer";
 import {Routes,BrowserRouter,Route} from 'react-router-dom';
+import StepPage from './components/Non-logged/StepPage';
 function App() {
   return (
     <>
