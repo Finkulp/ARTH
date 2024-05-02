@@ -1,6 +1,6 @@
 import React from 'react';
 import TradingStrategyTemplate from './TradingStratgeyTemplate'
-
+import Home from './Home';
 const companyInfoArray = [
     {
         name: "ABC Corp",
@@ -62,6 +62,7 @@ const companyInfoArray = [
 export default function TradingStrategy() {
     return (
         <>
+         <Home name="Arun Rathaur"></Home>
         <div style={{alignItems:'center',fontWeight:"600",fontSize:"34px",textAlign:'center',padding:"20px"}}>Trading Strategy</div>
         <div style={{display:'flex',justifyContent:"center"}}>
         <div style={{display:"flex", gap:"50px",flexWrap:'wrap',width:"90%"}}>
@@ -71,6 +72,10 @@ export default function TradingStrategy() {
                     name={companyInfo.name}
                     riskLevel={companyInfo.riskLevel}
                     overview={companyInfo.overview}
+                    creator={companyInfo.creator}
+                    earningPotential={companyInfo.earningPotential}
+                    benchmark={companyInfo.benchmark}
+                    recommendedDuration={companyInfo.recommendedDuration}
                 />
             ))}
         </div>

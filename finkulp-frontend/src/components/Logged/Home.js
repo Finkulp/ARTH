@@ -1,8 +1,10 @@
 import React from "react";
+import Navbar from "./NevBar";
 
 const Home = (props) => {
   return (
     <>
+    <Navbar></Navbar>
       <section className="relative z-10 bg-primary py-[120px]">
         <div >
         

@@ -39,14 +39,14 @@ const Navbar = () => {
                                 } lg:block`}
                         >
                             <ul className="block lg:flex">
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Home</ListItem>
+                              <Link to='/loggedhome'> <ListItem NavLink="/#" style={{ color: "black" }}>Home</ListItem></Link> 
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Dashboard</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>AlgoShopping</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Trades</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Add Broker</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Courses</ListItem>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>FAQ</ListItem>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Subscription</ListItem>
+                               <Link to='/faqlogged'> <ListItem NavLink="/#" style={{ color: "black" }}>FAQ</ListItem></Link>
+                                <Link to="/subscription"><ListItem NavLink="/#" style={{ color: "black" }}>Subscription</ListItem></Link>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Setting</ListItem>
                             </ul>
                         </nav>
