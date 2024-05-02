@@ -8,9 +8,11 @@ import Stats from "./Stats";
 import Stats2 from "./Stats2";
 import WhatPeopleSay from "./whatPeopleSay";
 import FAQ from './FAQ'
+import Navbar from "./Nevbar";
 const Home = () => {
   return (
     <>
+     <Navbar></Navbar>
       <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]" style={{position:"relative",zIndex:1}}>
       <video
                 autoPlay
