@@ -11,6 +11,11 @@ import Mycoures from "./components/Logged/MyCourses/Mycoures";
 import ExploreCourses from "./components/Logged/ExploreCourses/ExploreCourses";
 import Zerodha from "./components/Logged/AddBroker/zerodtha";
 import AliceBlu from "./components/Logged/AddBroker/AliceBlue";
+import Paisa from "./components/Logged/AddBroker/5paisa";
+import AngleOne from "./components/Logged/AddBroker/AngleOne";
+import Kotak from "./components/Logged/AddBroker/Kotak";
+import Motilal from "./components/Logged/AddBroker/Motilal";
+import Upstocks from "./components/Logged/AddBroker/Upstock";
 function App() {
   return (
     <>
@@ -26,6 +31,11 @@ function App() {
     <Route path='/explore-courses' element={<ExploreCourses></ExploreCourses>}></Route>
     <Route path='/zerodtha' element={<Zerodha></Zerodha>}></Route>
     <Route path='/Alice-Blue' element={<AliceBlu></AliceBlu>}></Route>
+    <Route path="/Upstocks" element={<Upstocks></Upstocks>}></Route>
+    <Route path="/Angle-One" element={<AngleOne></AngleOne>}></Route>
+    <Route path="/Kotak" element={<Kotak></Kotak>}></Route>
+    <Route path="/Motilal" element={<Motilal></Motilal>}></Route>
+    <Route path="/5paisa" element={<Paisa></Paisa>}></Route>
     </Routes>
     <Footer></Footer>
     </BrowserRouter>
