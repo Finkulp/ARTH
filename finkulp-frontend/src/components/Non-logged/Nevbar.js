@@ -7,7 +7,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className={`absolute left-0 top-0 z-20 flex w-full items-center`} style={{ background: "white", color: "black" }}>
+        <header className={`absolute left-0 top-0 z-20 flex w-full items-center`} style={{ background: "white" }}>
             <div className="container">
                 <div className="relative -mx-4 flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
@@ -39,7 +39,7 @@ const Navbar = () => {
                                 } lg:block`}
                         >
                             <ul className="block lg:flex">
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Choose strategies</ListItem>
+                                <ListItem NavLink="/#" style={{ color: "blue" }}>Choose strategies</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Features</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Resources</ListItem>
                             </ul>

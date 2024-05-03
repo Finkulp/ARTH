@@ -33,7 +33,6 @@ const data = [
 export default function Mycoures() {
   return (   
     <>
-  <Navbar />
   <h1 style={{textAlign:"center",marginTop:"200px",fontSize:"30px",fontWeight:"600"}}>My Course</h1>
   <form class="max-w-md mx-auto" style={{marginTop:"50px"}}>   
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

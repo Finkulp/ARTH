@@ -1,10 +1,8 @@
 import React from "react";
 import AngleOne_image from '../../../Images/Angleone.jpeg'
-import Navbar from "../NevBar";
 const AngleOne = () => {
   return (
     <>
-    <Navbar></Navbar>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
         <div className="container" style={{paddingTop:"100px"}}>
           <div className="-mx-4 flex flex-wrap lg:justify-between">

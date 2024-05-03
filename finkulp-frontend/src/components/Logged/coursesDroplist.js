@@ -34,7 +34,7 @@ const Courses = () => {
         <ul className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-lg">
           <li>
             <Link
-              to="/my-courses"
+              to="/loggedhome/my-courses"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               My Courses
@@ -42,7 +42,7 @@ const Courses = () => {
           </li>
           <li>
             <Link
-              to="/explore-courses"
+              to="/loggedhome/explore-courses"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Explore Courses

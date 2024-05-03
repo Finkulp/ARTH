@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../NevBar';
 import ExploreCourseTemplate from './ExploreCoursesTemplate';
 
 const data = [
@@ -33,7 +32,6 @@ const data = [
 export default function ExploreCourses() {
   return (   
     <>
-  <Navbar />
   <h1 style={{textAlign:"center",marginTop:"200px",fontSize:"30px",fontWeight:"600"}}>Explore Course</h1>
   <form class="max-w-md mx-auto" style={{marginTop:"50px"}}>   
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

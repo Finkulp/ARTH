@@ -1,10 +1,8 @@
 import React from "react";
 import Paisa_image from '../../../Images/5paisa.jpg'
-import Navbar from "../NevBar";
 const  Paisa= () => {
   return (
     <>
-    <Navbar></Navbar>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
         <div className="container" style={{paddingTop:"100px"}}>
           <div className="-mx-4 flex flex-wrap lg:justify-between">

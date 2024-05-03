@@ -46,7 +46,7 @@ const Broker = () => {
         <ul className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-lg">
           <li>
             <Link
-              to="/zerodtha"
+              to="/loggedhome/zerodtha"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Zerodha
@@ -54,7 +54,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/Alice-Blue"
+              to="/loggedhome/Alice-Blue"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Alice Blue
@@ -62,7 +62,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/Upstocks"
+              to="/loggedhome/Upstocks"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Upstocks
@@ -70,7 +70,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/Angle-One"
+              to="/loggedhome/Angle-One"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Angle One
@@ -78,7 +78,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/Kotak"
+              to="/loggedhome/Kotak"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Kotak
@@ -86,7 +86,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/HDFC-Sky"
+              to="/loggedhome/HDFC-Sky"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               HDFC Sky
@@ -94,7 +94,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/Motilal"
+              to="/loggedhome/Motilal"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Motilal
@@ -102,7 +102,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/5paisa"
+              to="/loggedhome/5paisa"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               5Paisa

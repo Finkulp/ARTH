@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./components/Non-logged/Home";
 import Footer from "./components/Non-logged/Footer";
-import {Routes,BrowserRouter,Route} from 'react-router-dom';
+import { Routes, BrowserRouter, Route } from 'react-router-dom';
 import SignUP from './components/Non-logged/SignUP';
 import Login from "./components/Non-logged/Login";
 import Loggedin from "./components/Logged/loggedin";
@@ -16,29 +16,33 @@ import AngleOne from "./components/Logged/AddBroker/AngleOne";
 import Kotak from "./components/Logged/AddBroker/Kotak";
 import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
+import TradingStrategy from "./components/Logged/TradingStrategy";
+
 function App() {
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-    <Route path='/' element={<Home></Home>}></Route>
-    <Route path="/login" element={<Login></Login>}></Route>
-    <Route path="/signup" element={<SignUP></SignUP>}></Route>
-    <Route path='/loggedhome' element={<Loggedin></Loggedin>}></Route>
-    <Route path="/subscription" element={<Pricing></Pricing>}></Route>
-    <Route path="/faqlogged" element={<FAQlogged></FAQlogged>}></Route>
-    <Route path="/my-courses" element={<Mycoures></Mycoures>}></Route>
-    <Route path='/explore-courses' element={<ExploreCourses></ExploreCourses>}></Route>
-    <Route path='/zerodtha' element={<Zerodha></Zerodha>}></Route>
-    <Route path='/Alice-Blue' element={<AliceBlu></AliceBlu>}></Route>
-    <Route path="/Upstocks" element={<Upstocks></Upstocks>}></Route>
-    <Route path="/Angle-One" element={<AngleOne></AngleOne>}></Route>
-    <Route path="/Kotak" element={<Kotak></Kotak>}></Route>
-    <Route path="/Motilal" element={<Motilal></Motilal>}></Route>
-    <Route path="/5paisa" element={<Paisa></Paisa>}></Route>
-    </Routes>
-    <Footer></Footer>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<SignUP />}></Route>
+          <Route path='/loggedhome' element={<Loggedin />}>
+            <Route path="tradingStrategy" element={<TradingStrategy></TradingStrategy>}></Route>
+            <Route path="subscription" element={<Pricing />}></Route>
+            <Route path="faqlogged" element={<FAQlogged />}></Route>
+            <Route path="my-courses" element={<Mycoures />}></Route>
+            <Route path='explore-courses' element={<ExploreCourses />}></Route>
+            <Route path='zerodtha' element={<Zerodha />}></Route>
+            <Route path='Alice-Blue' element={<AliceBlu />}></Route>
+            <Route path="Upstocks" element={<Upstocks />}></Route>
+            <Route path="Angle-One" element={<AngleOne />}></Route>
+            <Route path="Kotak" element={<Kotak />}></Route>
+            <Route path="Motilal" element={<Motilal />}></Route>
+            <Route path="5paisa" element={<Paisa />}></Route>
+          </Route>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
