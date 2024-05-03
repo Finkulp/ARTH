@@ -27,6 +27,7 @@ const YouGet = () => {
               animation={LearningProgram}
               CardTitle="Learning Programs"
               CardDescription="Empower yourself with essential trading knowledge through our comprehensive courses. Learn, practice, and master the art of trading at your own pace."
+
             />
           </div>
         </div>
@@ -48,7 +49,7 @@ const SingleCard = ({
   return (
     <>
       <div className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3  ">
-        <Lottie animationData={animation} />
+        <Lottie animationData={animation} style={{height:"300px"}}/>
         <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
           <h3>
             <a

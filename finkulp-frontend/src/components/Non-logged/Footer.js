@@ -3,7 +3,11 @@ import Logo from '../../Images/Logo.png'
 const Footer = () => {
   return (
     <>
+   
       <footer className="relative z-10 bg-white pb-10 pt-20  lg:pb-20 lg:pt-[120px]">
+        <div style={{display:'flex',justifyContent:"center"}}>
+      <hr style={{ height: "10px", borderColor: "black" ,position:"relative",top:"0px",width:'90%'}} />
+      </div>
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
@@ -81,7 +85,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </div>
-                <p className="text-base text-body-color ">
+                <p className="text-base text-body-color " style={{fontSize:'12px'}}>
                   &copy; 2024 Finkulp
                 </p>
               </div>
@@ -110,7 +114,7 @@ const Footer = () => {
                   y2="1.22829e-05"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#3056D3" stopOpacity="0.08" />
+                  <stop stopColor="#3056D3" stopOpacity="0.3" />
                   <stop offset={1} stopColor="#C4C4C4" stopOpacity={0} />
                 </linearGradient>
               </defs>
@@ -144,16 +148,13 @@ const Footer = () => {
             </svg>
           </span>
         </div>
+        <div style={{display:'flex',justifyContent:"center"}}>
+      <hr style={{ height: "10px", borderColor: "black" ,position:"relative",top:"0px",width:'90%'}} />
+      </div>
         <div>
-        <div style={{paddingLeft:'20px',paddingRight:'20px',fontSize:'12px'}}>
-        Finkulp Tech Consulting Services LLP ("Finkulp") warns that trading products on margin carries a significant risk of losses exceeding deposited funds, not suitable for all investors. Informational Purpose: Content provided is for informational purposes only, not an offer to sell or solicit investment.
-        </div>
-        <div style={{paddingLeft:'20px',paddingRight:'20px',fontSize:'12px'}}>
-        Investments in securities are subject to market risks arising from various factors, past performance does not guarantee future returns.
-No assurance or guarantee of achieving objectives or returns on investments provided.
-        </div>
-        <div  style={{paddingLeft:'20px',paddingRight:'20px',fontSize:'12px'}}>
-        Investors are responsible for carefully reviewing all terms and conditions before subscribing, acknowledging the inherent market risks.
+        <div style={{paddingLeft:'80px',paddingRight:'80px',fontSize:'12px'}}>
+        Finkulp Tech Consulting Services LLP ("Finkulp") warns that trading products on margin carries a significant risk of losses exceeding deposited funds, not suitable for all investors. Informational Purpose: Content provided is for informational purposes only, not an offer to sell or solicit investment.Investments in securities are subject to market risks arising from various factors, past performance does not guarantee future returns.
+No assurance or guarantee of achieving objectives or returns on investments provided.Investors are responsible for carefully reviewing all terms and conditions before subscribing, acknowledging the inherent market risks.
         </div>
         </div>
       </footer>

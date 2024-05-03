@@ -91,7 +91,7 @@ const SignUP = () => {
           <div className=" flex flex-col items-center">
             <div className="text-center">
               <h1 className="text-2xl xl:text-4xl font-extrabold text-blue-900">
-                Create a Trading Account
+                Sign Up
               </h1>
               <p className="text-[12px] text-gray-500">
                 Hey enter your details to create your account

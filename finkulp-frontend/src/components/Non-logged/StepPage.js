@@ -31,7 +31,7 @@ const StepPage = () => {
           <div className="md:w-1/2 order-last md:order-first mt-4 md:mt-0">
             <h1 className="text-2xl font-bold mb-4">Learn and Earn</h1>
             <p className="text-base">
-              Explore a wide range of courses on Financial Literacy, Online Trading, and Money Management, and apply the knowledge and skills gained to the real world!
+            We are the pioneers of the Indian Financial Markets offering both learning & earning opportunities under one roof. Explore our wide range of online/offline courses on Financial Literacy, Trading & Investment, Money Management, Risk Management and Mind, Body & Spirit - Necessary Trinity for Stock Market
             </p>
           </div>
           <div className="md:w-1/2 order-first md:order-last">
@@ -49,7 +49,7 @@ const StepPage = () => {
           <div className="md:w-1/2 mt-4 md:mt-0">
             <h1 className="text-2xl font-bold mb-4">Add Broker and Explore Resources</h1>
             <p className="text-base">
-              Connect your preferred broker and access educational materials and market analysis.
+            Connect to your preferred or existing brokers and get started. Choose from a wide range of resources pertaining with Financial Markets
             </p>
           </div>
         </div>

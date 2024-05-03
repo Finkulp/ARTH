@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import img from '../../Images/Logo.png';
 import { Link } from "react-router-dom";
-
+import Courses from "./coursesDroplist";
 const Navbar = () => {
     const [open, setOpen] = useState(false);
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                                 <ListItem NavLink="/#" style={{ color: "black" }}>AlgoShopping</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Trades</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Add Broker</ListItem>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Courses</ListItem>
+                                <ListItem style={{ color: "black" }}><Courses></Courses></ListItem>
                                <Link to='/faqlogged'> <ListItem NavLink="/#" style={{ color: "black" }}>FAQ</ListItem></Link>
                                 <Link to="/subscription"><ListItem NavLink="/#" style={{ color: "black" }}>Subscription</ListItem></Link>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Setting</ListItem>

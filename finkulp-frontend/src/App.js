@@ -7,6 +7,7 @@ import Login from "./components/Non-logged/Login";
 import Loggedin from "./components/Logged/loggedin";
 import Pricing from "./components/Logged/Pricing";
 import FAQlogged from "./components/Logged/FAQ";
+import Mycoures from "./components/Logged/MyCourses/Mycoures";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
     <Route path='/loggedhome' element={<Loggedin></Loggedin>}></Route>
     <Route path="/subscription" element={<Pricing></Pricing>}></Route>
     <Route path="/faqlogged" element={<FAQlogged></FAQlogged>}></Route>
+    <Route path="//my-courses" element={<Mycoures></Mycoures>}></Route>
     </Routes>
     <Footer></Footer>
     </BrowserRouter>

@@ -7,7 +7,7 @@ const TradingStrategyTemplateStats = (props) => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[510px] text-center">
-              <span className="mb-2 block text-lg font-semibold text-primary"style={{marginTop:"-150px"}}>
+            <span className="mb-2 block text-lg font-semibold text-primary"style={{marginTop:"-150px"}}>
                 {props.name}
               </span>
             </div>

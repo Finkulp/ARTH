@@ -37,11 +37,11 @@ const Home = () => {
           <div className="-mx-4 flex flex-wrap my-5">
             <div className="w-full px-4 lg:w-5/12">
               <div className="hero-content my-10">
-                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-dark dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl my-10" style={{marginTop:"100px"}}>
-                Innovative Algorithms Fuel Your Trading Success!
+                <h1 className="mb-5 text-4xl font-bold !leading-[1.208] text-white dark:text-white sm:text-[42px] lg:text-[40px] xl:text-5xl my-10" style={{marginTop:"100px"}}>
+                Innvoating Algorithms to Fuel Your Trading Success
                 </h1>
                 <p className="mb-8 max-w-[480px] text-base ">
-                Revolutionizing Trading with State-of-the-Art Algorithms for Unmatched Profitability and Strategic Success!
+                One Stop Shop for All Your Learning Needs
                 </p>
                 <ul className="flex flex-wrap items-center">
                   <li>

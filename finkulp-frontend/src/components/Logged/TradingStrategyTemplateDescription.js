@@ -57,6 +57,7 @@ const TradingStrategyTemplateDescription = (props) => {
             style={{ maxHeight: "800px",width:"1200px" }} // Adjust the maxHeight as needed
           >
             <TradingStrategyTemplateStats name={props.name} overview={props.overview} riskLevel={props.riskLevel} benchmark={props.benchmark} creator={props.creator} earningPotential={props.earningPotential} recommendedDuration={props.recommendedDuration}></TradingStrategyTemplateStats>
+            <div style={{position:"relative",top:"-125px"}}>{props.overview}</div>
           </div>
         </div>
       </div>
