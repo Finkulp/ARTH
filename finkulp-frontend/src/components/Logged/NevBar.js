@@ -43,7 +43,7 @@ const Navbar = () => {
                               <Link to='/loggedhome/tradingStrategy'> <ListItem NavLink="/#" style={{ color: "black" }}>Home</ListItem></Link> 
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Dashboard</ListItem>
                                 <ListItem NavLink="/#" style={{ color: "black" }}>AlgoShopping</ListItem>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Trades</ListItem>
+                               <Link to='/loggedhome/Trade'><ListItem  style={{ color: "black" }}>Trades</ListItem></Link> 
                                 <ListItem  style={{ color: "black" }}><Broker></Broker></ListItem>
                                 <ListItem style={{ color: "black" }}><Courses></Courses></ListItem>
                                <Link to='/loggedhome/faqlogged'> <ListItem NavLink="/#" style={{ color: "black" }}>FAQ</ListItem></Link>

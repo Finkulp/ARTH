@@ -17,7 +17,7 @@ import Kotak from "./components/Logged/AddBroker/Kotak";
 import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
 import TradingStrategy from "./components/Logged/TradingStrategy";
-
+import Trade from "./components/Logged/Trades/Trade";
 function App() {
   return (
     <>
@@ -39,6 +39,7 @@ function App() {
             <Route path="Kotak" element={<Kotak />}></Route>
             <Route path="Motilal" element={<Motilal />}></Route>
             <Route path="5paisa" element={<Paisa />}></Route>
+            <Route path="Trade" element={<Trade></Trade>}></Route>
           </Route>
         </Routes>
         <Footer />

@@ -1,88 +1,75 @@
-import React from "react";
+import React from 'react';
+import Tradestemplate from './Tradestemplate';
 
-const TdStyle = {
-  ThStyle: `w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4`,
-  TdStyle: `text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] dark:bg-dark-3 dark:border-dark dark:text-dark-7 py-5 px-2 text-center text-base font-medium`,
-  TdStyle2: `text-dark border-b border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 py-5 px-2 text-center text-base font-medium`,
-  TdButton: `inline-block px-6 py-2.5 border rounded-md border-primary text-primary hover:bg-primary hover:text-white font-medium`,
-}
+export default function Trade() {
+  const tradeData = [
+    {
+      strategy: "Capital Growth Strategy",
+      tradeType: "Buy",
+      entryPrice: 150.5,
+      exitPrice: 170.75,
+      exitTime: "2024-03-30 9:15 AM",
+      moneyEarnedLoss: 51500,
+      profitLoss: 1500,
+      profitLossPercentage: 3,
+      moneyInvested: 50000,
+    },
+    {
+      strategy: "Market Momentum Mastery",
+      tradeType: "Sell",
+      entryPrice: 200.25,
+      exitPrice: 190.8,
+      exitTime: "2024-03-31 11:30 AM",
+      moneyEarnedLoss: 73500,
+      profitLoss: -1500,
+      profitLossPercentage: -2,
+      moneyInvested: 75000,
+    },
+    {
+      strategy: "Capital Growth Strategy",
+      tradeType: "Buy",
+      entryPrice: 150.5,
+      exitPrice: 170.75,
+      exitTime: "2024-03-30 9:15 AM",
+      moneyEarnedLoss: 51500,
+      profitLoss: 1500,
+      profitLossPercentage: 3,
+      moneyInvested: 50000,
+    },
+  ];
 
-const Table = () => {
   return (
-    <section className='bg-white dark:bg-dark py-20 lg:py-[120px]'>
-      <div className='container'>
-        <div className='flex flex-wrap -mx-4'>
-          <div className='w-full '>
-            <div className='max-w-full overflow-x-auto'>
-              <table className='w-full table-auto'>
-                <thead className='text-center bg-primary'>
-                  <tr>
-                    <th className={TdStyle.ThStyle}> TDH </th>
-                    <th className={TdStyle.ThStyle}> Duration </th>
-                    <th className={TdStyle.ThStyle}> Registration </th>
-                    <th className={TdStyle.ThStyle}> Renewal </th>
-                    <th className={TdStyle.ThStyle}> Transfer </th>
-                    <th className={TdStyle.ThStyle}> Register </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td className={TdStyle.TdStyle}>.com</td>
-                    <td className={TdStyle.TdStyle2}>1 Year</td>
-                    <td className={TdStyle.TdStyle}>$75.00</td>
-                    <td className={TdStyle.TdStyle2}>$5.00</td>
-                    <td className={TdStyle.TdStyle}>$10.00</td>
-                    <td className={TdStyle.TdStyle2}>
-                      <a href='/#' className={TdStyle.TdButton}>
-                        Sign Up
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={TdStyle.TdStyle}>.com</td>
-                    <td className={TdStyle.TdStyle2}>1 Year</td>
-                    <td className={TdStyle.TdStyle}>$75.00</td>
-                    <td className={TdStyle.TdStyle2}>$5.00</td>
-                    <td className={TdStyle.TdStyle}>$10.00</td>
-                    <td className={TdStyle.TdStyle2}>
-                      <a href='/#' className={TdStyle.TdButton}>
-                        Sign Up
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={TdStyle.TdStyle}>.com</td>
-                    <td className={TdStyle.TdStyle2}>1 Year</td>
-                    <td className={TdStyle.TdStyle}>$75.00</td>
-                    <td className={TdStyle.TdStyle2}>$5.00</td>
-                    <td className={TdStyle.TdStyle}>$10.00</td>
-                    <td className={TdStyle.TdStyle2}>
-                      <a href='/#' className={TdStyle.TdButton}>
-                        Sign Up
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={TdStyle.TdStyle}>.com</td>
-                    <td className={TdStyle.TdStyle2}>1 Year</td>
-                    <td className={TdStyle.TdStyle}>$75.00</td>
-                    <td className={TdStyle.TdStyle2}>$5.00</td>
-                    <td className={TdStyle.TdStyle}>$10.00</td>
-                    <td className={TdStyle.TdStyle2}>
-                      <a href='/#' className={TdStyle.TdButton}>
-                        Sign Up
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+    <div>
+      <div style={{ textAlign: 'center', paddingTop: "175px", fontSize: "30px", fontWeight: "600" }}>Trades</div>
+      <div style={{ textAlign: 'center',  fontSize: "20px", fontWeight: "300" }}>Represents information about Trades</div>
+      <form class="max-w-md mx-auto" style={{marginTop:"50px"}}>   
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
         </div>
-      </div>
-    </section>
-  )
-};
-
-export default Table;
+        <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search a Trade..." required />
+        <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+    </div>
+</form>
+      <div style={{marginTop:"80px"}}>
+      {tradeData.map((trade, index) => (
+        <Tradestemplate
+          key={index}
+          strategy={trade.strategy}
+          tradeType={trade.tradeType}
+          entryPrice={trade.entryPrice}
+          exitPrice={trade.exitPrice}
+          exitTime={trade.exitTime}
+          moneyEarnedLoss={trade.moneyEarnedLoss}
+          profitLoss={trade.profitLoss}
+          profitLossPercentage={trade.profitLossPercentage}
+          moneyInvested={trade.moneyInvested}
+        />
+      ))}
+    </div>
+    </div>
+  );
+}
