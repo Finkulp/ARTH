@@ -19,6 +19,7 @@ import Upstocks from "./components/Logged/AddBroker/Upstock";
 import TradingStrategy from "./components/Logged/TradingStrategy";
 import Trade from "./components/Logged/Trades/Trade";
 import Algoshopping from "./components/Logged/AlgoShopping/Algoshopping";
+import Dashboard from './components/Logged/DashBoard/Dashboard'
 function App() {
   return (
     <>
@@ -42,6 +43,7 @@ function App() {
             <Route path="5paisa" element={<Paisa />}></Route>
             <Route path="Trade" element={<Trade></Trade>}></Route>
             <Route path="Algoshopping" element={<Algoshopping></Algoshopping>}></Route>
+            <Route path='Dashboard' element={<Dashboard></Dashboard>}></Route>
           </Route>
         </Routes>
         <Footer />
