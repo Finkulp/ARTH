@@ -1,6 +1,6 @@
 import React from "react";
-import AliceBlue from '../../../Images/AliceBlue.webp'
-const  AliceBlu= () => {
+import AngleOne_image from '../../../Images/Angleone.jpeg'
+const AngleOne = () => {
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
@@ -9,12 +9,12 @@ const  AliceBlu= () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
                 <h2 className="mb-6 text-[32px] font-bold uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                Alice Blue
+                AngleOne
                 </h2>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                Alice Blue is a technology-driven financial services company that offers a range of intuitive and user-friendly web and app-based trading tools
+                Legacy of Committed Excellence
                 </p>
-                <img src={AliceBlue}></img>
+                <img src={AngleOne_image}></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
@@ -24,7 +24,7 @@ const  AliceBlu= () => {
                   <ContactInputBox
                     type="text"
                     name="name"
-                    placeholder="ALICE_API"
+                    placeholder="SMART_API"
                   />
                    <div>Trading Platform Login ID *</div>
                   <ContactInputBox
@@ -32,11 +32,11 @@ const  AliceBlu= () => {
                     name="number"
                     placeholder="Login Id"
                   />
-                  <div>Passowrd*</div>
+                  <div>Enter your MPIN*</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Trading Platform Login Password"
+                    placeholder="6-digit MPIN"
                   />
                   <div>TOTP Key*</div>
                   <ContactInputBox
@@ -48,7 +48,13 @@ const  AliceBlu= () => {
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Trading Platform API Key"
+                    placeholder="API Key"
+                  />
+                   <div>Psecudo Name(Nickname)*</div>
+                  <ContactInputBox
+                    type="text"
+                    name="phone"
+                    placeholder="Easy to remember nickname"
                   />
                   <div>
                     <button
@@ -876,7 +882,7 @@ const  AliceBlu= () => {
   );
 };
 
-export default AliceBlu;
+export default AngleOne;
 
 const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
   return (

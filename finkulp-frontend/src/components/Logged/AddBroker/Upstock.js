@@ -1,6 +1,6 @@
 import React from "react";
-import AliceBlue from '../../../Images/AliceBlue.webp'
-const  AliceBlu= () => {
+import Upstock_Image from '../../../Images/upstockx.jpg'
+const Upstocks = () => {
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
@@ -9,12 +9,12 @@ const  AliceBlu= () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
                 <h2 className="mb-6 text-[32px] font-bold uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                Alice Blue
+                Upstox
                 </h2>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                Alice Blue is a technology-driven financial services company that offers a range of intuitive and user-friendly web and app-based trading tools
+                Invest Right, Invest Now
                 </p>
-                <img src={AliceBlue}></img>
+                <img src={Upstock_Image}></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
@@ -24,7 +24,7 @@ const  AliceBlu= () => {
                   <ContactInputBox
                     type="text"
                     name="name"
-                    placeholder="ALICE_API"
+                    placeholder="UPSTOX_API"
                   />
                    <div>Trading Platform Login ID *</div>
                   <ContactInputBox
@@ -32,11 +32,11 @@ const  AliceBlu= () => {
                     name="number"
                     placeholder="Login Id"
                   />
-                  <div>Passowrd*</div>
+                  <div>2FA PIN</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Trading Platform Login Password"
+                    placeholder="6-digit 2FA PIN"
                   />
                   <div>TOTP Key*</div>
                   <ContactInputBox
@@ -44,11 +44,29 @@ const  AliceBlu= () => {
                     name="phone"
                     placeholder="TOTP Key"
                   />
-                  <div>API Key*</div>
+                  <div>Phone*</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Trading Platform API Key"
+                    placeholder="Phone Number registered with stock broker"
+                  />
+                   <div>API Key*</div>
+                  <ContactInputBox
+                    type="text"
+                    name="phone"
+                    placeholder="API Key"
+                  />
+                   <div>API Secret*</div>
+                  <ContactInputBox
+                    type="text"
+                    name="phone"
+                    placeholder="API Secret Key"
+                  />
+                   <div>Psecudo Name(Nickname)*</div>
+                  <ContactInputBox
+                    type="text"
+                    name="phone"
+                    placeholder="Easy to remember nickname"
                   />
                   <div>
                     <button
@@ -876,7 +894,7 @@ const  AliceBlu= () => {
   );
 };
 
-export default AliceBlu;
+export default Upstocks;
 
 const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import AliceBlue from '../../../Images/AliceBlue.webp'
-const  AliceBlu= () => {
+import Motilal_Image from '../../../Images/motilal.jpeg'
+const  Motilal= () => {
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
@@ -9,12 +9,12 @@ const  AliceBlu= () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
                 <h2 className="mb-6 text-[32px] font-bold uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                Alice Blue
+                Motilal Oswal
                 </h2>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                Alice Blue is a technology-driven financial services company that offers a range of intuitive and user-friendly web and app-based trading tools
+                Knowledge First
                 </p>
-                <img src={AliceBlue}></img>
+                <img src={Motilal_Image}></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
@@ -24,7 +24,7 @@ const  AliceBlu= () => {
                   <ContactInputBox
                     type="text"
                     name="name"
-                    placeholder="ALICE_API"
+                    placeholder="MOTILAL_API"
                   />
                    <div>Trading Platform Login ID *</div>
                   <ContactInputBox
@@ -32,23 +32,29 @@ const  AliceBlu= () => {
                     name="number"
                     placeholder="Login Id"
                   />
-                  <div>Passowrd*</div>
+                  <div>Trading Platform Login Password*</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Trading Platform Login Password"
+                    placeholder="Password"
                   />
-                  <div>TOTP Key*</div>
+                  <div>TOTP key*</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
                     placeholder="TOTP Key"
                   />
-                  <div>API Key*</div>
+                  <div>Date of Birth*</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
-                    placeholder="Trading Platform API Key"
+                    placeholder="DOB(dd/mm/yyyy)"
+                  />
+                       <div>Pseudo Name (Nickname)*</div>
+                  <ContactInputBox
+                    type="text"
+                    name="phone"
+                    placeholder="Nickname"
                   />
                   <div>
                     <button
@@ -876,7 +882,7 @@ const  AliceBlu= () => {
   );
 };
 
-export default AliceBlu;
+export default Motilal;
 
 const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
   return (
