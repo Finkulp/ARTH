@@ -18,6 +18,7 @@ import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
 import TradingStrategy from "./components/Logged/TradingStrategy";
 import Trade from "./components/Logged/Trades/Trade";
+import Algoshopping from "./components/Logged/AlgoShopping/Algoshopping";
 function App() {
   return (
     <>
@@ -40,6 +41,7 @@ function App() {
             <Route path="Motilal" element={<Motilal />}></Route>
             <Route path="5paisa" element={<Paisa />}></Route>
             <Route path="Trade" element={<Trade></Trade>}></Route>
+            <Route path="Algoshopping" element={<Algoshopping></Algoshopping>}></Route>
           </Route>
         </Routes>
         <Footer />
