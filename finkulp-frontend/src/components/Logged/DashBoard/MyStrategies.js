@@ -66,7 +66,7 @@ const myStrategies = [
       overview: "XYZ Inc is a leading manufacturer of consumer electronics, known for innovative product designs and global distribution. The company is known for its high-quality consumer electronics and global brand recognition, maintaining a competitive edge in the electronics market through innovation and customer satisfaction. Investors seeking exposure to the consumer electronics sector with moderate risk and growth potential may consider XYZ Inc as a viable investment option."
   }
 ];
-export default function BasicTable() {
+export default function MyStrategies() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [selectedStrategy, setSelectedStrategy] = React.useState({overview:""});
 

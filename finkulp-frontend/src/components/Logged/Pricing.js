@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "./NevBar";
+import PricingTable from './pricingtable'
 const Pricing = () => {
   return (
     <>
-    <Navbar></Navbar>
     <section className="relative z-10 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
@@ -65,6 +65,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+      <PricingTable></PricingTable>
     </section>
     </>
   );
