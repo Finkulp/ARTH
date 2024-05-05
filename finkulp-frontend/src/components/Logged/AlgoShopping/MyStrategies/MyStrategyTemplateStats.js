@@ -1,6 +1,6 @@
 import React from "react";
 
-const AgloshoppingTemplateStats = (props) => {
+const MyStrategyTemplateStats = (props) => {
   return (
     <div className="pb-10 pt-10 md:pt-20 dark:bg-dark" style={{ width: "95%", margin: "0 auto" }}>
       <div className="container mx-auto" style={{position:'relative',marginBottom:"-100px"}}>
@@ -17,7 +17,7 @@ const AgloshoppingTemplateStats = (props) => {
   );
 };
 
-export default AgloshoppingTemplateStats;
+export default MyStrategyTemplateStats;
 
 
 const TeamCard = ({ title, value ,colorname,bordercolor,icons}) => {

@@ -6,10 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Algos } from '../../../Data/Agloshopping';
+import { Algos } from '../../../../Data/MyStrategy';
 import { MenuItem, TextField, duration } from '@mui/material';
 import {Link} from 'react-router-dom';
-export default function Algoshopping(props) {
+export default function MyStrategy(props) {
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [Duration,setduration]=useState("");
@@ -32,7 +32,7 @@ export default function Algoshopping(props) {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px'}}>
-        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue' ,textAlign:"center",width:"100%"}}>Explore Strategies</div>
+        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue' ,textAlign:"center",width:"100%"}}>My Strategies</div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <TextField
             select
@@ -80,8 +80,8 @@ export default function Algoshopping(props) {
                   <TableCell align="right" style={{ padding: '8px' }}>{algo.Fee.Subscription}</TableCell>
                   <TableCell align="right" style={{ padding: '8px' }}>{algo.Fee.Pay_as_you_go}</TableCell>
                   <TableCell align="right" style={{ padding: '8px' }}>
-                  <Link to='/loggedhome/MarketPlace/AlgoDescription'><button className='bg-blue dark:bg-dark-2  dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{borderRadius:"10px"}} onClick={()=>{props.setViewAlgo(algo)}}>
-                      Know More
+                  <Link to='/loggedhome/MarketPlace/MyStrategyDescription'><button className='bg-blue dark:bg-dark-2  dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{borderRadius:"10px"}} onClick={()=>{props.setViewMyAlog(algo)}}>
+                      open
                     </button></Link>
                   </TableCell>
                 </TableRow>

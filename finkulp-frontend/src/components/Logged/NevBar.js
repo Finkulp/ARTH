@@ -8,7 +8,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className={`absolute left-0 top-0 z-20 flex w-full items-center`} style={{ background: "white", color: "black" }}>
+        <header className={`absolute left-0 top-0 z-20 flex w-full items-center`} style={{ background: "white", color: "black",paddingLeft:"100px" }}>
             <div >
                 <div className="relative  flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
@@ -40,10 +40,8 @@ const Navbar = () => {
                                 } lg:block`}
                         >
                             <ul className="block lg:flex">
-                              <Link to='/loggedhome/tradingStrategy'> <ListItem NavLink="/#" style={{ color: "black" }}>Home</ListItem></Link> 
-                             <Link to='/loggedhome/Dashboard'><ListItem  style={{ color: "black" }}>Dashboard</ListItem></Link>   
+                                <Link to='/loggedhome/Dashboard'><ListItem  style={{ color: "black" }}>Dashboard</ListItem></Link>   
                               <Link to='/loggedhome/MarketPlace'> <ListItem  style={{ color: "black" }}>Market Place</ListItem></Link> 
-                               <Link to='/loggedhome/Trade'><ListItem  style={{ color: "black" }}>Trades</ListItem></Link> 
                                 <ListItem  style={{ color: "black" }}><Broker></Broker></ListItem>
                                 <ListItem style={{ color: "black" }}><Courses></Courses></ListItem>
                                <Link to='/loggedhome/faqlogged'> <ListItem NavLink="/#" style={{ color: "black" }}>FAQ</ListItem></Link>
@@ -51,11 +49,9 @@ const Navbar = () => {
                                 <ListItem NavLink="/#" style={{ color: "black" }}>Setting</ListItem>
                             </ul>
                         </nav>
-                        <div className=" justify-end pr-16 sm:flex lg:pr-0">
-                            <Link to='/'>
-                            <span
-                                className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90"
-                            >
+                        <div className=" justify-end pr-16 sm:flex lg:pr-0" >
+                            <Link to='/' >
+                            <span className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90"style={{position:'relative',right:"-100px"}}>
                                 Logout
                             </span>
                             </Link>
