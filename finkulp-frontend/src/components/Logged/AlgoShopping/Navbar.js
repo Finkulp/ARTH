@@ -1,9 +1,97 @@
+import { useTheme } from "@emotion/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
+  const[algo,setalgo]=useState({
+    color:"blue",
+    line:"underline"
+  });
+  const[Tade,settrade]=useState({
+    color:"black",
+    line:""
+  });
+  const[mstrategy,setmstrategy]=useState({
+    color:"black",
+    line:""
+  })
+  const[cstrategy,setcstrategy]=useState({
+    color:"black",
+    line:""
+  })
+  function makebluetrade(){
+    settrade({
+      color:"blue",
+      line:"underline"
+    })
+    setalgo({
+      color:"black",
+      line:""
+    })
+    setmstrategy({
+      color:"black",
+      line:""
+    })
+    setcstrategy({
+      color:"black",
+      line:""
+    })
+  }
+  function makebluealgo(){
+    setalgo({
+      color:"blue",
+      line:"underline"
+    })
+    settrade({
+      color:"black",
+      line:""
+    })
+    setmstrategy({
+      color:"black",
+      line:""
+    })
+    setcstrategy({
+      color:"black",
+      line:""
+    })
+  }
+  function makemstrategyblue(){
+    setalgo({
+      color:"black",
+      line:""
+    })
+    settrade({
+      color:"black",
+      line:""
+    })
+    setmstrategy({
+      color:"blue",
+      line:"underline"
+    })
+    setcstrategy({
+      color:"black",
+      line:""
+    })
+  }
+  function makecstratgeyblue(){
+    setalgo({
+      color:"black",
+      line:""
+    })
+    settrade({
+      color:"black",
+      line:""
+    })
+    setmstrategy({
+      color:"black",
+      line:""
+    })
+    setcstrategy({
+      color:"blue",
+      line:"underline"
+    })
+  }
   return (
     <header className={`flex w-full items-center bg-white dark:bg-dark`}>
       <div className="container">
@@ -29,8 +117,10 @@ const Navbar = () => {
                 } `}
               >
                 <ul className="block lg:flex">
-                 <Link to='/loggedhome/MarketPlace/Algoshopping'> <ListItem >AlgoShopping</ListItem></Link>
-                  <ListItem NavLink="/#">Trade</ListItem>
+                 <Link to='/loggedhome/MarketPlace/' onClick={makebluealgo} > <span style={{color:`${algo.color}`,textDecoration:`${algo.line}`,fontSize:"20px",fontWeight:"500"}} >Explore Strategies</span></Link>
+                  <span onClick={makebluetrade} style={{color:`${Tade.color}`,textDecoration:`${Tade.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >Trade</span>
+                  <span onClick={makemstrategyblue} style={{color:`${mstrategy.color}`,textDecoration:`${mstrategy.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >My Strategies</span>
+                  <span onClick={makecstratgeyblue} style={{color:`${cstrategy.color}`,textDecoration:`${cstrategy.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >Create Strategies</span>
                 </ul>
               </nav>
             </div>

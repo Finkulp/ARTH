@@ -47,7 +47,7 @@ function App() {
             <Route path="5paisa" element={<Paisa />}></Route>
             <Route path="Trade" element={<Trade></Trade>}></Route>
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
-              <Route path="Algoshopping" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
+              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
               <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo}></AlgoshoppingDescription>}></Route>
             </Route>
             <Route path='Dashboard' element={<Dashboard></Dashboard>}></Route>

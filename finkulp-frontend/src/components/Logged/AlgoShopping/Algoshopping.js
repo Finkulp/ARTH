@@ -32,7 +32,7 @@ export default function Algoshopping(props) {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px'}}>
-        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue' ,textAlign:"center",width:"100%"}}>Algoshopping</div>
+        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue' ,textAlign:"center",width:"100%"}}>Explore Strategies</div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <TextField
             select
