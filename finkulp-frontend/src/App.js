@@ -18,9 +18,13 @@ import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
 import TradingStrategy from "./components/Logged/TradingStrategy";
 import Trade from "./components/Logged/Trades/Trade";
+import MarketPlace from "./components/Logged/AlgoShopping/MarketPlace";
+import Dashboard from './components/Logged/DashBoard/Dashboard';
 import Algoshopping from "./components/Logged/AlgoShopping/Algoshopping";
-import Dashboard from './components/Logged/DashBoard/Dashboard'
+import AlgoshoppingDescription from "./components/Logged/AlgoShopping/AlgoshoppingDescription";
+import { useState } from "react";
 function App() {
+  const[VeiwAlgo,setViewAlgo]=useState("");
   return (
     <>
       <BrowserRouter>
@@ -42,7 +46,10 @@ function App() {
             <Route path="Motilal" element={<Motilal />}></Route>
             <Route path="5paisa" element={<Paisa />}></Route>
             <Route path="Trade" element={<Trade></Trade>}></Route>
-            <Route path="Algoshopping" element={<Algoshopping></Algoshopping>}></Route>
+            <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
+              <Route path="Algoshopping" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
+              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo}></AlgoshoppingDescription>}></Route>
+            </Route>
             <Route path='Dashboard' element={<Dashboard></Dashboard>}></Route>
           </Route>
         </Routes>

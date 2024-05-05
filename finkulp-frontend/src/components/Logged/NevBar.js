@@ -42,7 +42,7 @@ const Navbar = () => {
                             <ul className="block lg:flex">
                               <Link to='/loggedhome/tradingStrategy'> <ListItem NavLink="/#" style={{ color: "black" }}>Home</ListItem></Link> 
                              <Link to='/loggedhome/Dashboard'><ListItem  style={{ color: "black" }}>Dashboard</ListItem></Link>   
-                              <Link to='/loggedhome/Algoshopping'> <ListItem  style={{ color: "black" }}>AlgoShopping</ListItem></Link> 
+                              <Link to='/loggedhome/MarketPlace'> <ListItem  style={{ color: "black" }}>Market Place</ListItem></Link> 
                                <Link to='/loggedhome/Trade'><ListItem  style={{ color: "black" }}>Trades</ListItem></Link> 
                                 <ListItem  style={{ color: "black" }}><Broker></Broker></ListItem>
                                 <ListItem style={{ color: "black" }}><Courses></Courses></ListItem>

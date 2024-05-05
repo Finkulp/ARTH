@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./NevBar";
 import PricingTable from './pricingtable'
 const Pricing = () => {
   return (
