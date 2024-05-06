@@ -47,7 +47,6 @@ export default function PricingTable() {
               <TableCell align="right"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
               <TableCell align="right"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
             </TableRow>
-            {/* Additional rows go here */}
           </TableBody>
         </Table>
       </TableContainer>

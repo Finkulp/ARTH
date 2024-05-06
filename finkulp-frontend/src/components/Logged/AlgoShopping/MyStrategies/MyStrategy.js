@@ -7,12 +7,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Algos } from '../../../../Data/MyStrategy';
-import { MenuItem, TextField, duration } from '@mui/material';
-import {Link} from 'react-router-dom';
+import { MenuItem, TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 export default function MyStrategy(props) {
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
-  const [Duration,setduration]=useState("");
+  const [Duration, setDuration] = useState('');
+  const [instrumentFilter, setInstrumentFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
 
   const handleStrategistFilterChange = (event) => {
     setStrategistFilter(event.target.value);
@@ -21,72 +24,143 @@ export default function MyStrategy(props) {
   const handleCategoryFilterChange = (event) => {
     setCategoryFilter(event.target.value);
   };
-  const handleDurationFilterChange=(event)=>{
-    setduration(event.target.value);
-  }
+
+  const handleDurationFilterChange = (event) => {
+    setDuration(event.target.value);
+  };
+
+  const handleInstrumentFilterChange = (event) => {
+    setInstrumentFilter(event.target.value);
+  };
+
+  const handleStatusFilterChange = (event) => {
+    setStatusFilter(event.target.value);
+  };
+
   const filteredAlgos = Algos.filter((algo) =>
     algo.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
-    (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase())
+    (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase()) &&
+    (Duration === '' || algo.duration.toLowerCase() === Duration.toLowerCase()) &&
+    (instrumentFilter === '' || algo.instrument.toLowerCase() === instrumentFilter.toLowerCase()) &&
+    (statusFilter === '' || algo.status.toLowerCase() === statusFilter.toLowerCase())
   );
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px'}}>
-        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue' ,textAlign:"center",width:"100%"}}>My Strategies</div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-   
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px'}}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             label="Search by Strategist"
             variant="outlined"
             onChange={handleStrategistFilterChange}
-            style={{marginRight:"30px",width:"400px"}}
+            style={{ marginRight: '30px', width: '400px' }}
           />
+          
+          <TextField
+            select
+            label="Filter by Duration"
+            value={Duration}
+            onChange={handleDurationFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px', width: '200px' }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Short">Short</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Long">Long</MenuItem>
+          </TextField>
+
+          <TextField
+            select
+            label="Filter by Instrument"
+            value={instrumentFilter}
+            onChange={handleInstrumentFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px', width: '200px' }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="NIFTY 50">NIFTY 50</MenuItem>
+            <MenuItem value="SBIN">SBIN</MenuItem>
+            <MenuItem value="CHOFALAIN">CHOFALAIN</MenuItem>
+          </TextField>
+
+          <TextField
+            select
+            label="Filter by Status"
+            value={statusFilter}
+            onChange={handleStatusFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px', width: '200px' }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Running">Running</MenuItem>
+            <MenuItem value="Not Started">Not Started</MenuItem>
+            <MenuItem value="Stopped">Stopped</MenuItem>
+          </TextField>
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TableContainer component={Paper} style={{ maxWidth: '90%', marginBottom: '' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '80%', marginBottom: '' }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Strategy Name</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Recommended Duration</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>NSE</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Category</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Fee(Subscription)</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Fee(Without Subscription)</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Action</TableCell>
+                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Instrument</TableCell>
+                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Amount Invested</TableCell>
+                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Status</TableCell>
+                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px', paddingRight: '100px' }}>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredAlgos.map((algo, index) => (
-                <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
-                  <TableCell style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>{algo.Recommended_Duration}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>{algo.NSE}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>{algo.Category}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>{algo.Fee.Subscription}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>{algo.Fee.Pay_as_you_go}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>
-                  <Link to='/loggedhome/MarketPlace/MyStrategyDescription'><button className='bg-blue dark:bg-dark-2  dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{borderRadius:"10px"}} onClick={()=>{props.setViewMyAlog(algo)}}>
-                      open
-                    </button></Link>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
+            {filteredAlgos.map((algo, index) => (
+              <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
+                <TableCell style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
+                <TableCell align="right" style={{ padding: '8px' }}>{algo.instrument}</TableCell>
+                <TableCell align="right" style={{ padding: '8px' }}>{algo.amount_Invested}</TableCell>
+                <TableCell align="right" style={{ padding: '8px' }}>{algo.status}</TableCell>
+                <TableCell align="right" style={{ padding: '8px' }}>
+                  {(algo.status === 'Not Started') && (
+                    <>
+                      <Link >
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Start
+                        </button>
+                      </Link>
+                      <Link  style={{ paddingLeft: '50px' }}>
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Remove
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                  {(algo.status === 'Running') && (
+                    <>
+                      <Link  style={{ paddingLeft: '50px' }}>
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Stop
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                  {(algo.status === 'Stopped') && (
+                    <>
+                      <Link >
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Restart
+                        </button>
+                      </Link>
+                      <Link  style={{ paddingLeft: '50px' }}>
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Remove
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+
           </Table>
         </TableContainer>
       </div>

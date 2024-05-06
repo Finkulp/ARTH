@@ -1,5 +1,12 @@
-import React from "react";
 import PricingTable from './pricingtable'
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 const Pricing = () => {
   return (
     <>
@@ -18,53 +25,79 @@ const Pricing = () => {
             </div>
           </div>
         </div>
-
-        <div className="-mx-4 flex flex-wrap justify-center">
-          <div className="-mx-4 flex flex-wrap">
-            <PricingCard
+      </div>
+      <div style={{display:'flex',justifyContent:'center'}}>
+      <TableContainer component={Paper} style={{ maxWidth: '95%', marginBottom: '' }}>
+        <Table sx={{ minWidth: 300 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell style={{ fontWeight: '600' }}>Name</TableCell>
+              <TableCell align="right" style={{ fontWeight: '600' }}> 
+               <PricingCard
+              type="Free"
+              buttonText="Subscribe"
+              price={99}
+            >
+            </PricingCard></TableCell>
+              <TableCell align="right" style={{ fontWeight: '600' }}>
+              <PricingCard
               type="Beginner"
-              price="$59"
-              subscription="year"
-              description="For anyone to get started"
-              buttonText="Choose Personal"
+              buttonText="Subscribe"
+              price={99}
             >
-              <List>Access to free courses</List>
-              <List>Review Strategies</List>
-            </PricingCard>
-            <PricingCard
+               </PricingCard>
+              </TableCell>
+              <TableCell align="right" style={{ fontWeight: '600' }}>
+              <PricingCard
               type="Intermediate"
-              price="$199"
-              subscription="year"
-              description="For part-time traders"
-              buttonText="Choose Business"
+            buttonText="Subscribe"
+            price={99}
             >
-              <List>Access to all intermediate courses</List>
-              <List>Access to basic Strategies</List>
-              <List>Get recommended Strategies</List>
-              <List>Colab with Team Members</List>
-              <List>SSL Security</List>
-              <List>Payment Integration (Stripe)</List>
             </PricingCard>
+              </TableCell>
+              <TableCell align="right" style={{ fontWeight: '600' }}>
             <PricingCard
               type="Expert"
-              price="$256"
-              subscription="year"
-              description="For experienced traders"
-              buttonText="Choose Professional"
-              active={true}
-            >
-              <List>Access all courses</List>
-              <List>Access all Strategies</List>
-              <List>Publish your own courses</List>
-              <List>Get recommended Strategies</List>
-              <List>Payment Integration (Stripe)</List>
-              <List>SSL Security</List>
-              <List>Lead Team members</List>
+              price={99}
+            buttonText="Subscribe">
             </PricingCard>
-          </div>
-        </div>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>Access to Free courses</TableCell>
+              <TableCell align="center" ><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Access to Free courses</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Access to Free courses</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-x" style={{ color: 'red' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-x" style={{ color: 'red' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Access to Free courses</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+            </TableRow>
+            {/* Additional rows go here */}
+          </TableBody>
+        </Table>
+      </TableContainer>
       </div>
-      <PricingTable></PricingTable>
     </section>
     </>
   );
@@ -83,7 +116,7 @@ const PricingCard = ({
 }) => {
   return (
     <>
-      <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+      <div className="w-full px-4 " style={{width:"300px"}}>
         <div className="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing dark:border-dark-3 dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-[50px]">
           <span className="mb-3 block text-lg font-semibold text-primary">
             {type}
@@ -94,10 +127,6 @@ const PricingCard = ({
               / {subscription}
             </span>
           </h2>
-          <p className="mb-8 border-b border-stroke pb-8 text-base text-body-color dark:border-dark-3 dark:text-dark-6">
-            {description}
-          </p>
-          <div className="mb-9 flex flex-col gap-[14px]">{children}</div>
           <a
             href="/#"
             className={` ${
