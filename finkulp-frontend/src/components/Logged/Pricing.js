@@ -92,6 +92,13 @@ const Pricing = () => {
               <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
               <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
             </TableRow>
+            <TableRow>
+            <TableCell></TableCell>
+              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
+              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
+              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
+              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
+            </TableRow>
             {/* Additional rows go here */}
           </TableBody>
         </Table>

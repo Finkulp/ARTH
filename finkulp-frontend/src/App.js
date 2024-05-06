@@ -52,10 +52,9 @@ function App() {
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
               <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo}></AlgoshoppingDescription>}></Route>
               <Route path="MyStrategy" element={<MyStrategies setViewMyAlog={setViewMyAlog}></MyStrategies>}></Route>
-              <Route path='MyStrategyDescription' element={<MyStrategyDescription viewMyAlog={viewMyAlog}></MyStrategyDescription>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
-            <Route path='Dashboard' element={<Dashboard></Dashboard>}></Route>
+            <Route path='Dashboard' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
           </Route>
         </Routes>
         <Footer />

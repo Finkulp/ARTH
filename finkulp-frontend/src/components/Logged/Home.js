@@ -5,14 +5,14 @@ const Home = (props) => {
   return (
     <>
     <Navbar></Navbar>
-      <section className="relative z-10 bg-primary py-[120px]">
+      <section className="relative z-10 bg-primary py-[50px]"style={{marginTop:"50px"}}>
         <div >
         
               <div className=" " style={{paddingLeft:'50px',marginTop:"20px"}}>
-              <h1 className=" text-white" style={{fontSize:"35px",fontWeight:'600'}}>
+              <h1 className=" text-white" style={{fontSize:"25px",fontWeight:'600'}}>
                  Hello, {props.name}
                 </h1>
-                <h4 className=" font-semibold leading-tight text-white" style={{width:"100%",fontSize:"27px",fontWeight:"400",paddingTop:"40px"}}>
+                <h4 className=" font-semibold leading-tight text-white" style={{width:"100%",fontSize:"20px",fontWeight:"400",}}>
                   Welcome to Finkulp, Unlock automated strategies and trading courses to master the stock market
                 </h4>
                

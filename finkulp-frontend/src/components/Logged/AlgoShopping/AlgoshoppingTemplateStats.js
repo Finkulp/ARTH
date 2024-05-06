@@ -5,12 +5,12 @@ const AgloshoppingTemplateStats = (props) => {
     <div className="pb-10 pt-10 md:pt-20 dark:bg-dark" style={{ width: "95%", margin: "0 auto" }}>
       <div className="container mx-auto" style={{position:'relative',marginBottom:"-100px"}}>
         <div className="flex flex-wrap " style={{alignContent:"center",alignItems:'center'}} icons="fa-brands fa-font-awesome" >
-          <TeamCard value="Name" title={props.Algos.Strategist} colorname={"#80aaff"} bordercolor={"#004de6"} icons={'fa-solid fa-lightbulb'}/>
-          <TeamCard value="NSE" title={props.Algos.NSE} colorname={"#99ffff"}  bordercolor={"#00e6e6"} icons={"fa-solid fa-boxes-stacked"}/>
-          <TeamCard value="Category" title={props.Algos.Category} colorname={"#bb99ff"} bordercolor={"#661aff"}icons={"fa-solid fa-calendar-day"}/>
-          <TeamCard value="Recommended Duration" title={props.Algos.Recommended_Duration} colorname={"#99ffbb"} bordercolor={"#00ff55"} icons={"fa-regular fa-clock"}/>
-          <TeamCard value="Subscription Fee" title={props.Algos.Fee.Subscription} colorname={"#ffffb3"} bordercolor={"#ffff00"} icons={"fa-solid fa-wallet"}/>
-          <TeamCard value="Pay-as-you-go Fee" title={props.Algos.Fee.Pay_as_you_go} colorname={"#ffcce6"}  bordercolor={"#e60077"} icons={"fa-solid fa-wallet"}/>
+          <TeamCard value="Name" title={props.Algos.Strategist} colorname={"#ccddff"} bordercolor={"#004de6"} icons={'fa-solid fa-lightbulb'}/>
+          <TeamCard value="NSE" title={props.Algos.NSE} colorname={"#e6ffff"}  bordercolor={"#00e6e6"} icons={"fa-solid fa-boxes-stacked"}/>
+          <TeamCard value="Category" title={props.Algos.Category} colorname={"#eee6ff"} bordercolor={"#661aff"}icons={"fa-solid fa-calendar-day"}/>
+          <TeamCard value="Recommended Duration" title={props.Algos.Recommended_Duration} colorname={"#e6ffee"} bordercolor={"#00ff55"} icons={"fa-regular fa-clock"}/>
+          <TeamCard value="Subscription Fee" title={props.Algos.Fee.Subscription} colorname={"#ffffe6"} bordercolor={"#ffff00"} icons={"fa-solid fa-wallet"}/>
+          <TeamCard value="Pay-as-you-go Fee" title={props.Algos.Fee.Pay_as_you_go} colorname={"#ffe6f3"}  bordercolor={"#e60077"} icons={"fa-solid fa-wallet"}/>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@ const TeamCard = ({ title, value ,colorname,bordercolor,icons}) => {
                   <i className={`${icons}`} style={{fontSize:"50px", color:`${bordercolor}`}} ></i>
                   </div>
                   <div>
-                <h3 className="text-base font-semibold text-dark " style={{fontSize:'22px'}}>
+                <h3 className="text-base font-semibold  " style={{fontSize:'25px',color:`${bordercolor}`}}>
                   {title}
                 </h3>
                 <p className="text-xs text-body-color dark:text-dark-6" style={{fontSize:'15px',paddingTop:'5px'}}>

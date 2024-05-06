@@ -31,9 +31,34 @@ export default function Algoshopping(props) {
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px'}}>
-        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue' ,textAlign:"center",width:"100%"}}>Explore Strategies</div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px'}}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
+          <TextField
+            select
+            label="Filter by Category"
+            value={categoryFilter}
+            onChange={handleCategoryFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px',width:"200px" }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Retail">Retail</MenuItem>
+            <MenuItem value="Premium">Premium</MenuItem>
+            <MenuItem value="HNI">HNI</MenuItem>
+          </TextField>
+          <TextField
+            select
+            label="Filter by Category"
+            value={categoryFilter}
+            onChange={handleCategoryFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px',width:"200px" }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Retail">Retail</MenuItem>
+            <MenuItem value="Premium">Premium</MenuItem>
+            <MenuItem value="HNI">HNI</MenuItem>
+          </TextField>
           <TextField
             select
             label="Filter by Category"
@@ -57,7 +82,7 @@ export default function Algoshopping(props) {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TableContainer component={Paper} style={{ maxWidth: '90%', marginBottom: '' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '90%', marginBottom: '',paddingBottom:"20px" }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -72,9 +97,9 @@ export default function Algoshopping(props) {
             </TableHead>
             <TableBody>
               {filteredAlgos.map((algo, index) => (
-                <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
+                <TableRow key={index} className='hover:bg-blue' style={{ fontSize: '15px',marginTop:"20px", height: '100px',borderRadius:"20px", backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
                   <TableCell style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
-                  <TableCell align="right" style={{ padding: '8px' }}>{algo.Recommended_Duration}</TableCell>
+                  <TableCell align="center" style={{ padding: '8px' }}>{algo.Recommended_Duration}</TableCell>
                   <TableCell align="right" style={{ padding: '8px' }}>{algo.NSE}</TableCell>
                   <TableCell align="right" style={{ padding: '8px' }}>{algo.Category}</TableCell>
                   <TableCell align="right" style={{ padding: '8px' }}>{algo.Fee.Subscription}</TableCell>
