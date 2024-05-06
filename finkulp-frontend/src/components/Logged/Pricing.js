@@ -1,4 +1,3 @@
-import PricingTable from './pricingtable'
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -27,11 +26,11 @@ const Pricing = () => {
         </div>
       </div>
       <div style={{display:'flex',justifyContent:'center'}}>
-      <TableContainer component={Paper} style={{ maxWidth: '95%', marginBottom: '' }}>
+      <TableContainer component={Paper} style={{ maxWidth: '80%', marginBottom: '' }}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
-          <TableHead>
+          <TableHead className='sticky top-0'>
             <TableRow>
-              <TableCell style={{ fontWeight: '600' }}>Name</TableCell>
+              <TableCell style={{ fontWeight: '600' }}></TableCell>
               <TableCell align="right" style={{ fontWeight: '600' }}> 
                <PricingCard
               type="Free"
@@ -66,7 +65,7 @@ const Pricing = () => {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>Access to Free courses</TableCell>
+              <TableCell >Access to Free courses</TableCell>
               <TableCell align="center" ><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
               <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
               <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
@@ -116,17 +115,17 @@ const PricingCard = ({
 }) => {
   return (
     <>
-      <div className="w-full px-4 " style={{width:"300px"}}>
-        <div className="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing dark:border-dark-3 dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-[50px]">
-          <span className="mb-3 block text-lg font-semibold text-primary">
+      <div className="w-full  " style={{width:"200px",height:"100px"}}>
+        <div className="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing dark:border-dark-3 dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 " style={{width:"200px",height:"100px",textAlign:"left"}}>
+          <span className="mb-3 block text-lg font-semibold text-primary" style={{marginTop:"-20px"}}>
             {type}
           </span>
-          <h2 className="mb-5 text-[42px] font-bold text-dark dark:text-white">
+          <h4 className="mb-5  font-bold text-dark dark:text-white" style={{fontSize:"25px"}}>
             {price}
             <span className="text-base font-medium text-body-color dark:text-dark-6">
               / {subscription}
             </span>
-          </h2>
+          </h4>
           <a
             href="/#"
             className={` ${
@@ -134,6 +133,7 @@ const PricingCard = ({
                 ? "block w-full rounded-md border border-primary bg-primary p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90"
                 : "block w-full rounded-md border border-stroke bg-transparent p-3 text-center text-base font-medium text-primary transition hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3"
             } `}
+            style={{fontSize:'20px'}}
           >
             {buttonText}
           </a>

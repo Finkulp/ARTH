@@ -17,13 +17,13 @@ import Kotak from "./components/Logged/AddBroker/Kotak";
 import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
 import TradingStrategy from "./components/Logged/TradingStrategy";
-import Trade from "./components/Logged/Trades/Trade";
 import MarketPlace from "./components/Logged/AlgoShopping/MarketPlace";
 import Dashboard from './components/Logged/DashBoard/Dashboard';
 import Algoshopping from "./components/Logged/AlgoShopping/Algoshopping";
 import AlgoshoppingDescription from "./components/Logged/AlgoShopping/AlgoshoppingDescription";
 import MyStrategies from './components/Logged/AlgoShopping/MyStrategies/MyStrategy';
 import MyStrategyDescription from "./components/Logged/AlgoShopping/MyStrategies/MyStrategyDescription";
+import Trades from "./components/Logged/AlgoShopping/Trades/Trades";
 import { useState } from "react";
 function App() {
   const[VeiwAlgo,setViewAlgo]=useState("");
@@ -48,12 +48,12 @@ function App() {
             <Route path="Kotak" element={<Kotak />}></Route>
             <Route path="Motilal" element={<Motilal />}></Route>
             <Route path="5paisa" element={<Paisa />}></Route>
-            <Route path="Trade" element={<Trade></Trade>}></Route>
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
               <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo}></AlgoshoppingDescription>}></Route>
               <Route path="MyStrategy" element={<MyStrategies setViewMyAlog={setViewMyAlog}></MyStrategies>}></Route>
               <Route path='MyStrategyDescription' element={<MyStrategyDescription viewMyAlog={viewMyAlog}></MyStrategyDescription>}></Route>
+              <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Dashboard' element={<Dashboard></Dashboard>}></Route>
           </Route>
