@@ -26,7 +26,7 @@ const Pricing = () => {
         </div>
       </div>
       <div style={{display:'flex',justifyContent:'center'}}>
-      <TableContainer component={Paper} style={{ maxWidth: '80%', marginBottom: '' }}>
+      <TableContainer component={Paper} style={{ maxWidth: '80%', marginBottom: '' ,boxShadow:"1px 1px 10px blue"}}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead className='sticky top-0'>
             <TableRow>
