@@ -49,11 +49,14 @@ export default function Dashboard(props) {
       </div>
       </div>
       <div style={{display:'flex',gap:"30px",paddingLeft:"100px",paddingRight:"100px"}}>
-        <div >
-          <div style={{textAlign:'center',fontSize:"24px",fontWeight:"500",paddingTop:"20px",paddingBottom:"10px",color:'blue'}}>My Strategies</div>
-        <MyStrategies></MyStrategies>
+            <div style={{  gap: '30px' }}>
+        <div style={{ boxShadow: '1px 1px 5px blue', height: '400px', borderWidth: '1px', borderColor: 'blue', marginTop: '10px', borderRadius: '10px', overflowY: 'auto' }}>
+          <div style={{ textAlign: 'center', fontSize: '24px', fontWeight: '500', paddingTop: '20px', paddingBottom: '10px', color: 'blue' }}>My Strategies</div>
+          <MyStrategies></MyStrategies>
         </div>
-        <div>
+      </div>
+
+        <div style={{boxShadow:"1px 1px 5px blue",height:'400px',borderWidth:"1px",borderColor:"blue",marginTop:"10px",borderRadius:"10px",overflowY: 'auto'}} >
         <div style={{textAlign:'center',fontSize:"24px",fontWeight:"500",paddingTop:"20px",paddingBottom:"10px",color:'blue'}}>More Strategies</div>
       <TradingStrategy setViewAlgo={props.setViewAlgo}></TradingStrategy>
         <div style={{display:"flex",justifyContent:"center",paddingTop:"10px"}}>
@@ -64,15 +67,15 @@ export default function Dashboard(props) {
         </div>
       </div>
       </div>
-      <div style={{marginLeft:"100px",display:"flex"}}>
-      <img src = {zerodha} style={{heigth:"200px", width:"150px"}}></img>
-      <img src = {upstox} style={{heigth:"200px", width:"150px"}}></img>
-      <img src = {kotak} style={{heigth:"100px", width:"150px"}}></img>
-      <img src = {motilal} style={{heigth:"100px", width:"150px"}}></img>
-      <img src = {alice} style={{heigth:"100px", width:"150px"}}></img>
-      <img src = {hdfc} style={{heigth:"100px", width:"150px"}}></img>
-      <img src = {paisa} style={{heigth:"30px", width:"200px"}}></img>
-      <img src = {angel} style={{heigth:"30px", width:"200px"}}></img>
+      <div style={{marginLeft:"100px",display:"flex",flexWrap:"wrap",justifyContent:'center'}}>
+      <img src = {zerodha} style={{height:"100px", width:"300px"}}></img>
+      <img src = {upstox} style={{height:"100px", width:"300px"}}></img>
+      <img src = {kotak} style={{height:"100px", width:"200px"}}></img>
+      <img src = {motilal} style={{height:"100px", width:"300px"}}></img>
+      <img src = {alice} style={{height:"100px", width:"300px"}}></img>
+      <img src = {hdfc} style={{height:"100px", width:"250px"}}></img>
+      <img src = {paisa} style={{height:"70px", width:"250px",marginTop:"20px",marginLeft:"40px",marginRight:"20px"}}></img>
+      <img src = {angel} style={{height:"100px", width:"25r0px"}}></img>
       </div>
       <center><div className='border-black dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black'  style={{height : "50px",width:"200px",alignContent:"center"}}>
         <div>Add Broker</div>
