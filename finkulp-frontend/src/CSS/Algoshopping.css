@@ -1,0 +1,32 @@
+.hover-green{
+    background-color: rgba(220, 247, 227,0.6);
+}
+.hover-green:hover{
+    background-color: rgba(72, 255, 121, 0.6);
+}
+.hover-blue{
+    background-color: rgba(178, 180, 240,0.6);
+}
+.hover-blue:hover{
+    background-color: rgba(112, 116, 251, 0.6);
+}
+.Algoshoppingmain{
+    box-shadow: 1px 1px 5px black;
+    background-color: white;
+    transition: 0.3s;
+}
+.Algoshoppingmain:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 5px rgb(53, 32, 243);
+    background-color: rgba(184, 255, 253, 0.3)
+}
+.Algoshopping-share-button{
+    color: rgba(0, 0, 0, 0.59)
+}
+.Algoshopping-share-button:hover{
+    color:blue;
+}
+.Algoshopping-share-button:active{
+
+    color: rgba(1, 73, 66, 0.734);
+}
