@@ -38,7 +38,7 @@ export default function whatPeopleSay() {
                   <img class="w-9 h-9 rounded-full" src={hethart} alt="profile picture"style={{width:"100px",height:"100px"}}/>
               </figcaption> 
               <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500 ">
-                  <h3 class="text-lg font-semibold text-gray-900 ">Hethart Sachdeva</h3>
+                  <h3 class="text-lg font-semibold text-gray-900 ">Hetharth Sachdeva</h3>
                   <p class="my-4">"Using automation in trading and finance could be the next big thing in this field."</p>
               </blockquote>
    
@@ -49,7 +49,7 @@ export default function whatPeopleSay() {
               </figcaption>  
               <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500 ">
                   <h3 class="text-lg font-semibold text-gray-900 ">Raghav Mahagan</h3>
-                  <p class="my-4">"The fusion of technology and finance is reshaping the future of trading, and Finkulp's automated strategies are leading the charge."</p>
+                  <p class="my-4">"The fusion of technology and finance is reshaping the future of trading, and Finkulp's automated strategies are leading the change."</p>
               </blockquote>
       
           </figure>

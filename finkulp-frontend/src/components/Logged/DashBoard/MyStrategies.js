@@ -81,7 +81,7 @@ export default function MyStrategies() {
 
   return (
     <>
-      <TableContainer component={Paper} style={{ paddingRight: "50px", paddingLeft: '50px' }}>
+      <TableContainer component={Paper} style={{ paddingRight: "20px", paddingLeft: '20px' }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
