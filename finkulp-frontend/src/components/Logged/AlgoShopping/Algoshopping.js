@@ -113,8 +113,8 @@ export default function Algoshopping(props) {
                   </div>
                 </div>
                 <div style={{ marginTop: '-60px', paddingLeft: '20px' }}>
-                  <div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'green', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px' }}>Subscribe</button></div>
-                  <div><button className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px' }}>Know More</button></div>
+                  <Link ><div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'green', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px' }}>Subscribe</button></div></Link>
+                  <Link to='/loggedhome/MarketPlace/AlgoDescription' ><div><button onClick={()=>{props.setViewAlgo(algo)}} className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px' }}>Know More</button></div></Link>
                 </div>
               </div>
             </div>

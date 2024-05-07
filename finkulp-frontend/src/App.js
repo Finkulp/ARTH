@@ -26,6 +26,10 @@ import MyStrategyDescription from "./components/Logged/AlgoShopping/MyStrategies
 import Trades from "./components/Logged/AlgoShopping/Trades/Trades";
 import { useState } from "react";
 function App() {
+  const [dark,setdark]=useState({
+    color:"white",
+    background:"black"
+  })
   const[VeiwAlgo,setViewAlgo]=useState("");
   const [viewMyAlog,setViewMyAlog]=useState("");
   return (

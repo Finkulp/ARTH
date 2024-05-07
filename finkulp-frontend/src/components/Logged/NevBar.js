@@ -1,18 +1,254 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import img from '../../Images/Logo.png';
-import { Link } from "react-router-dom";
 import Courses from "./coursesDroplist";
 import Broker from './BrokerDroplist';
-const Navbar = () => {
-    const [open, setOpen] = useState(false);
 
+const Navbar = () => {
+    const [dashboard, setDashboard] = useState({
+        color:'black',
+        line:""
+    });
+    const [marketpalce, setMarketPlace] = useState({
+        color:'black',
+        line:""
+    });
+    const [broker, setbroker] = useState({
+        color:'black',
+        line:""
+    });
+    const [courses, setCourses] = useState({
+        color:'black',
+        line:""
+    });
+    const [faq, setfaq] = useState({
+        color:'black',
+        line:""
+    });
+    const [setting, setsetting] = useState({
+        color:'black',
+        line:""
+    });
+    const [subscription, setsubscription] = useState({
+        color:'black',
+        line:""
+    });
+    function changeDasboard(){
+       setDashboard({
+        color:"blue",
+        line:"underline"
+       });
+       setCourses({
+        color:"black",
+        line:""
+       })
+       setMarketPlace({
+        color:"black",
+        line:""
+       })
+       setbroker({
+        color:"black",
+        line:""
+       })
+       setsubscription({
+        color:"black",
+        line:""
+       })
+       setsetting({
+        color:"black",
+        line:""
+       })
+       setfaq({
+        color:"black",
+        line:""
+       })
+    }
+     function changeMarketPlace(){
+        setDashboard({
+            color:"black",
+            line:""
+        })
+        setMarketPlace({
+            color:"blue",
+            line:"underline"
+        })
+        setCourses({
+            color:"black",
+            line:""
+        })
+        setbroker({
+            color:"black",
+            line:""
+        })
+        setfaq({
+            color:"black",
+            line:""
+        })
+        setsubscription({
+            color:"black",
+            line:""
+        })
+        setsetting({
+            color:"black",
+            line:""
+        })
+     }
+     function changeBroker(){
+        setDashboard({
+            color:"black",
+            line:""
+        })
+        setMarketPlace({
+            color:"black",
+            line:""
+        })
+        setCourses({
+            color:"black",
+            line:""
+        })
+        setbroker({
+            color:"blue",
+            line:"underline"
+        })
+        setfaq({
+            color:"black",
+            line:""
+        })
+        setsubscription({
+            color:"black",
+            line:""
+        })
+        setsetting({
+            color:"black",
+            line:""
+        })
+     }
+     function changecourses(){
+        setDashboard({
+            color:"black",
+            line:""
+        })
+        setMarketPlace({
+            color:"black",
+            line:""
+        })
+        setCourses({
+            color:"blue",
+            line:"underline"
+        })
+        setbroker({
+            color:"black",
+            line:""
+        })
+        setfaq({
+            color:"black",
+            line:""
+        })
+        setsubscription({
+            color:"black",
+            line:""
+        })
+        setsetting({
+            color:"black",
+            line:""
+        })
+     }
+     function changeFAQ(){
+        setDashboard({
+            color:"black",
+            line:""
+        })
+        setMarketPlace({
+            color:"black",
+            line:""
+        })
+        setCourses({
+            color:"black",
+            line:""
+        })
+        setbroker({
+            color:"black",
+            line:""
+        })
+        setfaq({
+            color:"blue",
+            line:"underline"
+        })
+        setsubscription({
+            color:"black",
+            line:""
+        })
+        setsetting({
+            color:"black",
+            line:""
+        })
+     }
+     function changesubscription(){
+        setDashboard({
+            color:"black",
+            line:""
+        })
+        setMarketPlace({
+            color:"black",
+            line:""
+        })
+        setCourses({
+            color:"black",
+            line:""
+        })
+        setbroker({
+            color:"black",
+            line:""
+        })
+        setfaq({
+            color:"black",
+            line:""
+        })
+        setsubscription({
+            color:"blue",
+            line:"underline"
+        })
+        setsetting({
+            color:"black",
+            line:""
+        })
+     }
+     function changesetting(){
+        setDashboard({
+            color:"black",
+            line:""
+        })
+        setMarketPlace({
+            color:"black",
+            line:""
+        })
+        setCourses({
+            color:"black",
+            line:""
+        })
+        setbroker({
+            color:"black",
+            line:""
+        })
+        setfaq({
+            color:"black",
+            line:""
+        })
+        setsubscription({
+            color:"black",
+            line:""
+        })
+        setsetting({
+            color:"blue",
+            line:"underline"
+        })
+     }
     return (
-        <header className={`absolute left-0 top-0 z-20 flex w-full items-center`} style={{ background: "white", color: "black",paddingLeft:"100px" }}>
-            <div >
+        <header className="absolute left-0 top-0 z-20 flex w-full items-center" style={{ background: "white", color: "black", paddingLeft: "100px" }}>
+            <div>
                 <div className="relative  flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
-                        <span  className="block w-full py-5">
+                        <span className="block w-full py-5">
                             <img
                                 src={img}
                                 alt="logo"
@@ -21,39 +257,30 @@ const Navbar = () => {
                             />
                         </span>
                     </div>
-                    <div className="flex w-full items-center justify-between px-4">
-                        <button
-                            onClick={() => setOpen(!open)}
-                            id="navbarToggler"
-                            className={` ${
-                                open && "navbarTogglerActive"
-                                } absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden`}
-                        >
-                            <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color "></span>
-                            <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color "></span>
-                            <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color "></span>
-                        </button>
-                        <nav
-                            id="navbarCollapse"
-                            className={` ${
-                                open ? "block" : "hidden"
-                                } lg:block`}
-                        >
-                            <ul className="block lg:flex">
-                                <Link to='/loggedhome/Dashboard'><ListItem  style={{ color: "black" }}>Dashboard</ListItem></Link>   
-                              <Link to='/loggedhome/MarketPlace'> <ListItem  style={{ color: "black" }}>Market Place</ListItem></Link> 
-                                <ListItem  style={{ color: "black" }}><Broker></Broker></ListItem>
-                                <ListItem style={{ color: "black" }}><Courses></Courses></ListItem>
-                               <Link to='/loggedhome/faqlogged'> <ListItem NavLink="/#" style={{ color: "black" }}>FAQ</ListItem></Link>
-                                <Link to="/loggedhome/subscription"><ListItem NavLink="/#" style={{ color: "black" }}>Subscription</ListItem></Link>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Setting</ListItem>
+                    <div className="flex w-full items-center justify-between px-4 " style={{gap:"100px"}}>
+                        <nav className="lg:block">
+                            <ul className="block lg:flex" style={{gap:"30px",fontSize:"15px",fontWeight:"600",fontFamily:"poppins"}}>
+                               <Link to='/loggedhome/Dashboard'><span onClick={changeDasboard} style={{color:`${dashboard.color}`,textDecoration:`${dashboard.line}`}}>Dashboard</span></Link>
+                                <Link  to='/loggedhome/MarketPlace'><span onClick={changeMarketPlace} style={{color:`${marketpalce.color}`,textDecoration:`${marketpalce.line}`}}>Market Place</span></Link>
+                                <Link><span onClick={changeBroker} style={{color:`${broker.color}`,textDecoration:`${broker.line}`}}><Broker /></span></Link>
+                                <Link><span onClick={changecourses} style={{color:`${courses.color}`,textDecoration:`${courses.line}`}}><Courses /></span></Link>
+                                <Link to='/loggedhome/faqlogged'><span  onClick={changeFAQ} style={{color:`${faq.color}`,textDecoration:`${faq.line}`}}>FAQ</span></Link>
+                                <Link to="/loggedhome/subscription"><span  onClick={changesubscription}style={{color:`${subscription.color}`,textDecoration:`${subscription.line}`}}>Subscription</span></Link>
+                                <Link> <span onClick={changesetting}>Setting</span> </Link>
+
+                                <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer"/>
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark Mode</span>
+                                </label>
+                              
                             </ul>
                         </nav>
-                        <div className=" justify-end pr-16 sm:flex lg:pr-0" >
-                            <Link to='/' >
-                            <span className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90"style={{position:'relative',right:"-100px"}}>
-                                Logout
-                            </span>
+                        <div className="justify-end pr-16 sm:flex lg:pr-0">
+                            <Link to='/'>
+                                <span className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90" style={{ position: 'relative', right: "-20px" }}>
+                                    Logout
+                                </span>
                             </Link>
                         </div>
                     </div>
@@ -63,18 +290,19 @@ const Navbar = () => {
     );
 };
 
-const ListItem = ({ children, NavLink }) => {
+const ListItem = ({ children, to, activeTab, handleTabClick }) => {
+
     return (
-        <>
-            <li>
-                <a
-                    href={NavLink}
-                    className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex"
-                >
-                    {children}
-                </a>
-            </li>
-        </>
+        <li>
+            <NavLink
+                exact
+                to={to}
+                className={`flex py-2 text-base font-medium   lg:ml-10 lg:inline-flex`}
+                
+            >
+                {children}
+            </NavLink>
+        </li>
     );
 };
 
