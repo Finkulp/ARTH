@@ -7,10 +7,10 @@ export default function TradingStrategy(props) {
         <>
         {/* <div style={{alignItems:'center',fontWeight:"600",fontSize:"25px",textAlign:'center',padding:"20px"}}>Trading Strategy</div> */}
         <div style={{display:'flex',justifyContent:"center"}}>
-        <div style={{display:"flex", gap:"30px",flexWrap:'wrap',width:"90%"}}>
+        <div style={{display:"flex", gap:"15px",flexWrap:'wrap',width:"90%"}}>
             {companyInfoArray.map((companyInfo, index) => (
              <div>
-             <div className="card bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden" style={{ width: "245px", height:"290px",paddingLeft: "5px", paddingTop: "5px", paddingRight: '5px' }}>
+             <div className="card bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden" style={{ width: "245px", height:"290px",paddingLeft: "10px", paddingTop: "10px", paddingRight: '10px' }}>
                  <div className="card-body">
                      <h5 className="card-title ">Name</h5>
                      <h4 className="card-title  font-bold mb-2">{companyInfo.Strategist}</h4>
