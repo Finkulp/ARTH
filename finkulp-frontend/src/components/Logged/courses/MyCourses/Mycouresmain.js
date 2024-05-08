@@ -32,8 +32,8 @@ const data = [
 export default function Mycouresmain() {
   return (   
     <>
-  <h1 style={{textAlign:"center",marginTop:"200px",fontSize:"30px",fontWeight:"600"}}>My Course</h1>
-  <form class="max-w-md mx-auto" style={{marginTop:"50px"}}>   
+  <h1 style={{textAlign:"center",marginTop:"20px",fontSize:"30px",fontWeight:"600"}}>My Courses</h1>
+  <form class="max-w-md mx-auto" style={{marginTop:"20px"}}>   
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div class="relative">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -47,7 +47,7 @@ export default function Mycouresmain() {
 </form>
 
 
-    <div style={{display:"flex", gap:"55px",flexWrap:'wrap',width:"90%",marginTop:"100px",paddingLeft:"50px"}}>
+    <div style={{display:"flex", gap:"55px",flexWrap:'wrap',width:"95%",marginTop:"50px",paddingLeft:"70px",justifyContent:"space-evenly"}}>
    
       {data.map(course => (
         <MycouresTemplate
