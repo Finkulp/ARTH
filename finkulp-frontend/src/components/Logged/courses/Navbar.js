@@ -117,8 +117,8 @@ const Navbar = () => {
                 } `}
               >
                 <ul className="block lg:flex">
-                 <Link to='/loggedhome/courses/my-courses' onClick={makebluealgo} > <span style={{color:`${algo.color}`,textDecoration:`${algo.line}`,fontSize:"20px",fontWeight:"500"}} >My Courses</span></Link>
-                 <Link to='/loggedhome/courses/'><span onClick={makebluetrade} style={{color:`${Tade.color}`,textDecoration:`${Tade.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >Explore Courses</span></Link>
+                 <Link to='/loggedhome/courses/' onClick={makebluealgo} > <span style={{color:`${algo.color}`,textDecoration:`${algo.line}`,fontSize:"20px",fontWeight:"500"}} >Explore Courses</span></Link>
+                 <Link to='/loggedhome/courses/my-courses'><span onClick={makebluetrade} style={{color:`${Tade.color}`,textDecoration:`${Tade.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >My Courses</span></Link>
                 </ul>
               </nav>
             </div>

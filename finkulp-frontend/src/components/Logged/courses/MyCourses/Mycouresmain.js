@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../NevBar';
 import MycouresTemplate from './MycoursesTemplate';
 
 const data = [
@@ -30,7 +29,7 @@ const data = [
   // Add more records as needed
 ];
 
-export default function Mycoures() {
+export default function Mycouresmain() {
   return (   
     <>
   <h1 style={{textAlign:"center",marginTop:"200px",fontSize:"30px",fontWeight:"600"}}>My Course</h1>

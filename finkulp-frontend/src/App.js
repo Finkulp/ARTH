@@ -7,7 +7,7 @@ import Login from "./components/Non-logged/Login";
 import Loggedin from "./components/Logged/loggedin";
 import Pricing from "./components/Logged/Pricing";
 import FAQlogged from "./components/Logged/FAQ";
-import Mycoures from "./components/Logged/MyCourses/Mycoures";
+import Mycouresmain from "./components/Logged/courses/MyCourses/Mycouresmain";
 import ExploreCourses from "./components/Logged/courses/ExploreCourses/ExploreCourses";
 import Zerodha from "./components/Logged/AddBroker/zerodtha";
 import AliceBlu from "./components/Logged/AddBroker/AliceBlue";
@@ -47,7 +47,7 @@ function App() {
             <Route path="subscription" element={<Pricing />}></Route>
             <Route path="faqlogged" element={<FAQlogged />}></Route>
             <Route path='courses' element={<Courses></Courses>}>
-              <Route path="my-courses" element={<Mycoures />}></Route>
+              <Route path="my-courses" element={<Mycouresmain />}></Route>
               <Route path='' element={<ExploreCourses />}></Route>
             </Route>
             <Route path='Add-Broker' element={<AddedBroker></AddedBroker>}>
