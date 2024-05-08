@@ -11,6 +11,7 @@ import paisa from '../../../Images/5paisalogo.png';
 import alice from '../../../Images/aliceblue.jpg';
 import motilal from '../../../Images/motilal.jpg';
 import kotak from '../../../Images/kotak.png';
+import '../../../CSS/Algoshopping.css'
 export default function Dashboard(props) {
   return (
     <div >
@@ -78,7 +79,7 @@ export default function Dashboard(props) {
       <img src = {angel} style={{height:"100px", width:"25r0px"}}></img>
       </div>
       <center><div className='border-black dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black'  style={{height : "50px",width:"200px",alignContent:"center"}}>
-        <div>Add Broker</div>
+        <Link to='/loggedhome/Add-Broker'><div>Add Broker</div></Link>
       </div></center>
     </div>
   )
