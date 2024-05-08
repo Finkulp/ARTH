@@ -94,10 +94,18 @@ const Pricing = () => {
             </TableRow>
             <TableRow>
             <TableCell></TableCell>
-              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
-              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
-              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
-              <TableCell align="center"><button className='primary'>Subscribe</button></TableCell>
+              <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
+              Subscribe
+            </button></TableCell>
+            <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
+              Subscribe
+            </button></TableCell>
+            <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
+              Subscribe
+            </button></TableCell>
+            <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
+              Subscribe
+            </button></TableCell>
             </TableRow>
             {/* Additional rows go here */}
           </TableBody>

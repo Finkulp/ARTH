@@ -6,7 +6,6 @@ const Footer = () => {
    
       <footer className="relative z-10 bg-white pb-10 pt-20  lg:pb-20 lg:pt-[120px]">
         <div style={{display:'flex',justifyContent:"center"}}>
-      <hr style={{ height: "10px", borderColor: "black" ,position:"relative",top:"0px",width:'90%'}} />
       </div>
         <div className="container">
           <div className="-mx-4 flex flex-wrap">

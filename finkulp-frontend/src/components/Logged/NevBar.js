@@ -262,7 +262,7 @@ const Navbar = () => {
                             <ul className="block lg:flex" style={{gap:"30px",fontSize:"15px",fontWeight:"600",fontFamily:"poppins"}}>
                                <Link to='/loggedhome/Dashboard'><span onClick={changeDasboard} style={{color:`${dashboard.color}`,textDecoration:`${dashboard.line}`}}>Dashboard</span></Link>
                                 <Link  to='/loggedhome/MarketPlace'><span onClick={changeMarketPlace} style={{color:`${marketpalce.color}`,textDecoration:`${marketpalce.line}`}}>Market Place</span></Link>
-                                <Link><span onClick={changeBroker} style={{color:`${broker.color}`,textDecoration:`${broker.line}`}}><Broker /></span></Link>
+                                <Link to='/loggedhome/Add-Broker'><span onClick={changeBroker} style={{color:`${broker.color}`,textDecoration:`${broker.line}`}}>Add Broker</span></Link>
                                 <Link><span onClick={changecourses} style={{color:`${courses.color}`,textDecoration:`${courses.line}`}}><Courses /></span></Link>
                                 <Link to='/loggedhome/faqlogged'><span  onClick={changeFAQ} style={{color:`${faq.color}`,textDecoration:`${faq.line}`}}>FAQ</span></Link>
                                 <Link to="/loggedhome/subscription"><span  onClick={changesubscription}style={{color:`${subscription.color}`,textDecoration:`${subscription.line}`}}>Subscription</span></Link>

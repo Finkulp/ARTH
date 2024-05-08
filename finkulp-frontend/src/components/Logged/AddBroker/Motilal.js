@@ -1,5 +1,6 @@
 import React from "react";
 import Motilal_Image from '../../../Images/motilal.jpeg'
+import { Link } from "react-router-dom";
 const  Motilal= () => {
   return (
     <>
@@ -19,7 +20,7 @@ const  Motilal= () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-                <form>
+                <form style={{textAlign:"left"}}>
                   <div>Trading Platform*</div>
                   <ContactInputBox
                     type="text"
@@ -56,14 +57,22 @@ const  Motilal= () => {
                     name="phone"
                     placeholder="Nickname"
                   />
-                  <div>
+           <div style={{display:'flex',gap:"10px"}}>
+                <Link to='/loggedhome/Add-Broker/'> 
+                <button
+                      type="submit"
+                      className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
+                    >
+                       Cancel
+                    </button>
+                    </Link>
                     <button
                       type="submit"
-                      className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90"
+                      className="w-full rounded border border-blue bg-blue p-3 text-white transition hover:bg-opacity-90"
                     >
-                      Send Message
+                      Verify
                     </button>
-                  </div>
+                    </div>
                 </form>
                 <div>
                   <span className="absolute -right-9 -top-10 z-[-1]">

@@ -46,7 +46,7 @@ const Broker = () => {
         <ul className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-lg">
           <li>
             <Link
-              to="/loggedhome/zerodtha"
+              to="/loggedhome/Add-Broker/zerodtha"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Zerodha
@@ -54,7 +54,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/Alice-Blue"
+              to="/loggedhome/Add-Broker/Alice-Blue"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Alice Blue
@@ -62,7 +62,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/Upstocks"
+              to="/loggedhome/Add-Broker/Upstocks"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Upstocks
@@ -70,7 +70,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/Angle-One"
+              to="/loggedhome/Add-Broker/Angle-One"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Angle One
@@ -78,7 +78,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/Kotak"
+              to="/loggedhome/Add-Broker/Kotak"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Kotak
@@ -86,7 +86,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/HDFC-Sky"
+              to="/loggedhome/Add-Broker/HDFC-Sky"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               HDFC Sky
@@ -94,7 +94,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/Motilal"
+              to="/loggedhome/Add-Broker/Motilal"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               Motilal
@@ -102,7 +102,7 @@ const Broker = () => {
           </li>
           <li>
             <Link
-              to="/loggedhome/5paisa"
+              to="/loggedhome/Add-Broker/5paisa"
               className="block px-4 py-2 text-black hover:bg-gray-200"
             >
               5Paisa
