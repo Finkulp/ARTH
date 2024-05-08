@@ -8,7 +8,7 @@ import Loggedin from "./components/Logged/loggedin";
 import Pricing from "./components/Logged/Pricing";
 import FAQlogged from "./components/Logged/FAQ";
 import Mycoures from "./components/Logged/MyCourses/Mycoures";
-import ExploreCourses from "./components/Logged/ExploreCourses/ExploreCourses";
+import ExploreCourses from "./components/Logged/courses/ExploreCourses/ExploreCourses";
 import Zerodha from "./components/Logged/AddBroker/zerodtha";
 import AliceBlu from "./components/Logged/AddBroker/AliceBlue";
 import Paisa from "./components/Logged/AddBroker/5paisa";
@@ -25,7 +25,9 @@ import AlgoshoppingDescription from "./components/Logged/AlgoShopping/Algoshoppi
 import MyStrategies from './components/Logged/AlgoShopping/MyStrategies/MyStrategy';
 import Trades from "./components/Logged/AlgoShopping/Trades/Trades";
 import AdminHome from "./components/Admin/AdminHome";
+import Courses from "./components/Logged/courses/Courses";
 import { useState } from "react";
+
 function App() {
   const [dark,setdark]=useState({
     color:"white",
@@ -44,8 +46,10 @@ function App() {
             <Route path="tradingStrategy" element={<TradingStrategy></TradingStrategy>}></Route>
             <Route path="subscription" element={<Pricing />}></Route>
             <Route path="faqlogged" element={<FAQlogged />}></Route>
-            <Route path="my-courses" element={<Mycoures />}></Route>
-            <Route path='explore-courses' element={<ExploreCourses />}></Route>
+            <Route path='courses' element={<Courses></Courses>}>
+              <Route path="my-courses" element={<Mycoures />}></Route>
+              <Route path='' element={<ExploreCourses />}></Route>
+            </Route>
             <Route path='Add-Broker' element={<AddedBroker></AddedBroker>}>
                 <Route path='zerodtha' element={<Zerodha />}></Route>
                 <Route path='Alice-Blue' element={<AliceBlu />}></Route>
