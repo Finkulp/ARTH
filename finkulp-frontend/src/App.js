@@ -28,6 +28,7 @@ import AdminHome from "./components/Admin/AdminHome";
 import Courses from "./components/Logged/courses/Courses";
 import TradingStrategyAdmin from "./components/Admin/TradingStrategy";
 import TradingStrategyfrom from "./components/Admin/TradingStrategy/TradingStrategyfrom";
+import Add_New_Strategy from "./components/Admin/TradingStrategy/Add_New_Strategy";
 import { useState } from "react";
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
           <Route path='/adminhome' element={<AdminHome />}>
             <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>
             <Route path='edit-Strategy' element={<TradingStrategyfrom tradingStrategy={tradingStrategy} settradingStrategy={settradingStrategy}></TradingStrategyfrom>}></Route>
+            <Route path='addnewstrategy' element={<Add_New_Strategy></Add_New_Strategy>}></Route>
           </Route>
         </Routes>
         <Footer />

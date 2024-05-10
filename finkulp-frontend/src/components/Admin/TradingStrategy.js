@@ -15,6 +15,7 @@ const TradingStrategyAdmin = (props) => {
         <div className='flex flex-wrap -mx-4'>
           <div className='w-full '>
             <div className='max-w-full overflow-x-auto'>
+          <Link to='/adminhome/addnewstrategy'><button  type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add New Trading Strategy</button></Link>  
                 <div style={{display:'flex',justifyContent:'center'}}>
                     <div style={{fontSize:'23px',fontFamily:"poppins",fontcolor:'green',fontWeight:"500",paddingBottom:"10px"}}>Trading MyStrategies</div>
                 </div>
