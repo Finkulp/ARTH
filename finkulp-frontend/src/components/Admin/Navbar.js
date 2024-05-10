@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from '../../Images/Logo.png'
+import { Link } from "react-router-dom";
 const AdminNavbar = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -29,10 +30,10 @@ const AdminNavbar = () => {
                 } `}
               >
                 <ul className="block lg:flex">
-                  <ListItem NavLink="/#">Trading Strategy</ListItem>
+                  <Link to='/adminhome/'><ListItem>Trading Strategy</ListItem></Link>
                   <ListItem NavLink="/#">courses</ListItem>
                   <ListItem NavLink="/#">Members</ListItem>
-                  <ListItem NavLink="/#">Algo</ListItem>
+                  <ListItem >Algo</ListItem>
                 </ul>
               </nav>
             </div>
