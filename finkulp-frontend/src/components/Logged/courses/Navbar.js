@@ -95,8 +95,8 @@ const Navbar = () => {
   return (
     <header className={`flex w-full items-center bg-white dark:bg-dark`}>
       <div className="container">
-        <div className="relative -mx-4 flex items-center justify-between">
-          <div className="flex w-full items-center justify-between px-4">
+      <div className="relative -mx-4 flex items-center justify-center">
+          <div className="flex w-full items-center justify-center px-4">
             <div>
               <button
                 onClick={() => setOpen(!open)}
@@ -114,13 +114,14 @@ const Navbar = () => {
                 id="navbarCollapse"
                 className={`absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white px-6 py-5 shadow dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none lg:dark:bg-transparent ${
                   !open && "hidden"
-                } `}
+                } `} 
               >
-                <ul className="block lg:flex">
+               <ul className="block lg:flex">
                  <Link to='/loggedhome/courses/' onClick={makebluealgo} > <span style={{color:`${algo.color}`,textDecoration:`${algo.line}`,fontSize:"20px",fontWeight:"500"}} >Explore Courses</span></Link>
                  <Link to='/loggedhome/courses/my-courses'><span onClick={makebluetrade} style={{color:`${Tade.color}`,textDecoration:`${Tade.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >My Courses</span></Link>
                 </ul>
               </nav>
+              
             </div>
           </div>
         </div>
