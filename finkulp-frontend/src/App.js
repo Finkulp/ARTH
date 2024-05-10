@@ -26,6 +26,9 @@ import MyStrategies from './components/Logged/AlgoShopping/MyStrategies/MyStrate
 import Trades from "./components/Logged/AlgoShopping/Trades/Trades";
 import AdminHome from "./components/Admin/AdminHome";
 import Courses from "./components/Logged/courses/Courses";
+import TradingStrategyAdmin from "./components/Admin/TradingStrategy";
+import TradingStrategyfrom from "./components/Admin/TradingStrategy/TradingStrategyfrom";
+import Add_New_Strategy from "./components/Admin/TradingStrategy/Add_New_Strategy";
 import { useState } from "react";
 
 function App() {
@@ -33,6 +36,7 @@ function App() {
     color:"white",
     background:"black"
   })
+  const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
   const [viewMyAlog,setViewMyAlog]=useState("");
   return (
@@ -68,7 +72,11 @@ function App() {
             </Route>
             <Route path='Dashboard' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
           </Route>
-          <Route path='/adminhome' element={<AdminHome />}></Route>
+          <Route path='/adminhome' element={<AdminHome />}>
+            <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>
+            <Route path='edit-Strategy' element={<TradingStrategyfrom tradingStrategy={tradingStrategy} settradingStrategy={settradingStrategy}></TradingStrategyfrom>}></Route>
+            <Route path='addnewstrategy' element={<Add_New_Strategy></Add_New_Strategy>}></Route>
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>
