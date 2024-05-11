@@ -1,22 +1,15 @@
 import React from "react";
 
-const Team = () => {
+const Members= () => {
   return (
     <section className="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
-      <div className="container mx-auto">
+      <div className="container mx-auto" style={{marginTop:'-100px'}}>
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[510px] text-center">
-              <span className="mb-2 block text-lg font-semibold text-primary">
-                Our Team
-              </span>
               <h2 className="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
-                Our Awesome Team
+                Members
               </h2>
-              <p className="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
-              </p>
             </div>
           </div>
         </div>
@@ -48,7 +41,7 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default Members;
 
 const TeamCard = ({ imageSrc, name, profession }) => {
   return (

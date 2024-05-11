@@ -31,6 +31,8 @@ import TradingStrategyfrom from "./components/Admin/TradingStrategy/TradingStrat
 import Add_New_Strategy from "./components/Admin/TradingStrategy/Add_New_Strategy";
 import UpdatingAlgo from "./components/Admin/Algo/UpdatingAlgo";
 import UpdateAlgo from "./components/Admin/Algo/UpdateAlgo";
+import CreateNewAlgo from "./components/Admin/+Algo.js/CreateNewAlgo";
+import Members from "./components/Admin/Members/Memberss";
 import { useState } from "react";
 
 function App() {
@@ -81,6 +83,8 @@ function App() {
             <Route path='addnewstrategy' element={<Add_New_Strategy></Add_New_Strategy>}></Route>
             <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo}></UpdatingAlgo>}></Route>
             <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
+            <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
+            <Route path='Members' element={<Members></Members>}></Route>
           </Route>
         </Routes>
         <Footer />

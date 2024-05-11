@@ -32,19 +32,19 @@ const AdminNavbar = () => {
                 <ul className="block lg:flex">
                   <Link to='/adminhome/'><ListItem>Trading Strategy</ListItem></Link>
                   <ListItem >courses</ListItem>
-                  <ListItem NavLink="/#">Members</ListItem>
+                  <Link to='/adminhome/Members'><ListItem>Members</ListItem></Link>
                   <Link to='/adminhome/updatingAlgo'> <ListItem >Algo</ListItem></Link>
                 </ul>
               </nav>
             </div>
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-              <div
+              <Link to='/adminhome/CreateNewAlgo'><div
                 
                 className="px-7 py-3 text-base font-medium  text-green-500 hover:text-blue dark:text-white"
                 style={{border:'solid',borderWidth:'1px',borderRadius:"5px",marginRight:'10px'}}
               >
                 +Algo
-              </div>
+              </div></Link>
               <div
             
                 className="px-7 py-3 text-base font-medium text-green-500 hover:text-primary dark:text-white"
