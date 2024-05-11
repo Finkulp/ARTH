@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Algos } from '../../../Data/Agloshopping';
-import { MenuItem, TextField, duration } from '@mui/material';
-import {Link} from 'react-router-dom';
-import '../../../CSS/Algoshopping.css'
+import { MenuItem, TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
+import '../../../CSS/Algoshopping.css';
+
 export default function UpdatingAlgo(props) {
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
-  const [Duration,setduration]=useState("");
+  const [strategies, setStrategies] = useState(Algos);
 
   const handleStrategistFilterChange = (event) => {
     setStrategistFilter(event.target.value);
@@ -15,67 +16,42 @@ export default function UpdatingAlgo(props) {
   const handleCategoryFilterChange = (event) => {
     setCategoryFilter(event.target.value);
   };
-  const handleDurationFilterChange=(event)=>{
-    setduration(event.target.value);
-  }
-  const filteredAlgos = Algos.filter((algo) =>
-    algo.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
-    (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase())
+
+  const filteredStrategies = strategies.filter((strategy) =>
+    strategy.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
+    (categoryFilter === '' || strategy.Category.toLowerCase() === categoryFilter.toLowerCase())
   );
+
+  const deleteElement = (index) => {
+    const updatedStrategies = strategies.filter((_, i) => i !== index); // Use filter to remove the item
+    setStrategies(updatedStrategies);
+  };
 
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px'}}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-          <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-          <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-   
-          <TextField
-            label="Search by Strategist"
-            variant="outlined"
-            onChange={handleStrategistFilterChange}
-            style={{marginRight:"30px",width:"400px"}}
-          />
-        </div>
+        <TextField
+          select
+          label="Filter by Category"
+          value={categoryFilter}
+          onChange={handleCategoryFilterChange}
+          variant="outlined"
+          style={{ marginRight: '20px', width: "200px" }}
+        >
+          <MenuItem value="">All</MenuItem>
+          <MenuItem value="Retail">Retail</MenuItem>
+          <MenuItem value="Premium">Premium</MenuItem>
+          <MenuItem value="HNI">HNI</MenuItem>
+        </TextField>
+
+        <TextField
+          label="Search by Strategist"
+          variant="outlined"
+          onChange={handleStrategistFilterChange}
+          style={{ marginRight: "30px", width: "400px" }}
+        />
       </div>
-      {filteredAlgos.map((algo,index)=>(
+      {filteredStrategies.map((algo,index)=>(
           <div style={{ display: 'flex', justifyContent: 'center',fontFamily:"poppins" }}>
           <div className='Algoshoppingmain'  style={{  borderWidth: '1px', borderColor: 'blue', padding: '10px',height:"150px",marginTop:'8px',borderRadius:"10px" }}>
           <div style={{ display: 'flex' }}>
@@ -113,7 +89,7 @@ export default function UpdatingAlgo(props) {
                   </div>
                 </div>
                 <div style={{ marginTop: '-60px', paddingLeft: '20px' }}>
-                  <Link ><div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'red', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px',background:'#ffe6e6' }}>Delete Algo</button></div></Link>
+                  <Link ><div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'red', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px',background:'#ffe6e6' }} onClick={()=>{deleteElement(index)}}>Delete Algo</button></div></Link>
                   <Link to='/adminhome/UpdateAlgo' ><div><button onClick={()=>{props.seteditAlgo(algo)}} className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px' }}>Update Details</button></div></Link>
                 </div>
               </div>
