@@ -31,9 +31,9 @@ const AdminNavbar = () => {
               >
                 <ul className="block lg:flex">
                   <Link to='/adminhome/'><ListItem>Trading Strategy</ListItem></Link>
-                  <ListItem NavLink="/#">courses</ListItem>
+                  <ListItem >courses</ListItem>
                   <ListItem NavLink="/#">Members</ListItem>
-                  <ListItem >Algo</ListItem>
+                  <Link to='/adminhome/updatingAlgo'> <ListItem >Algo</ListItem></Link>
                 </ul>
               </nav>
             </div>

@@ -29,6 +29,8 @@ import Courses from "./components/Logged/courses/Courses";
 import TradingStrategyAdmin from "./components/Admin/TradingStrategy";
 import TradingStrategyfrom from "./components/Admin/TradingStrategy/TradingStrategyfrom";
 import Add_New_Strategy from "./components/Admin/TradingStrategy/Add_New_Strategy";
+import UpdatingAlgo from "./components/Admin/Algo/UpdatingAlgo";
+import UpdateAlgo from "./components/Admin/Algo/UpdateAlgo";
 import { useState } from "react";
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
   const [viewMyAlog,setViewMyAlog]=useState("");
+  const[editAlgo,seteditAlgo]=useState("");
   return (
     <>
       <BrowserRouter>
@@ -76,6 +79,8 @@ function App() {
             <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>
             <Route path='edit-Strategy' element={<TradingStrategyfrom tradingStrategy={tradingStrategy} settradingStrategy={settradingStrategy}></TradingStrategyfrom>}></Route>
             <Route path='addnewstrategy' element={<Add_New_Strategy></Add_New_Strategy>}></Route>
+            <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo}></UpdatingAlgo>}></Route>
+            <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
           </Route>
         </Routes>
         <Footer />

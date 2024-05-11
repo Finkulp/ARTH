@@ -1,14 +1,21 @@
 import React from "react";
 import { companyInfoArray } from '../../Data/TradingStrategy';
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 const TdStyle = {
   ThStyle: `w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4`,
   TdStyle: `text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] dark:bg-dark-3 dark:border-dark dark:text-dark-7 py-5 px-2 text-center text-base font-medium`,
   TdStyle2: `text-dark border-b border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 py-5 px-2 text-center text-base font-medium`,
   TdButton: `inline-block px-6 py-2.5 border rounded-md border-primary text-primary hover:bg-primary hover:text-white font-medium`,
 }
-
 const TradingStrategyAdmin = (props) => {
+  const [strategyArray, setStrategyArray] = useState(companyInfoArray);
+  const deleteElement = (index) => {
+    const newArray = [...strategyArray];
+    newArray.splice(index, 1); 
+    setStrategyArray(newArray);
+  };
   return (
     <section className='bg-white dark:bg-dark py-20 lg:py-[30px]'>
       <div className='container'>
@@ -31,7 +38,7 @@ const TradingStrategyAdmin = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {companyInfoArray.map((info, index) => (
+                  {strategyArray.map((info, index) => (
                     <tr key={index}>
                       <td className={TdStyle.TdStyle}>{info.Strategist}</td>
                       <td className={TdStyle.TdStyle2}>{info.NSE}</td>
@@ -42,6 +49,11 @@ const TradingStrategyAdmin = (props) => {
                        <Link to='/adminhome/edit-Strategy'>
                        <span className={TdStyle.TdButton} onClick={()=>{props.settradingStrategy(info)}}>
                           Edit
+                        </span>
+                       </Link> 
+                       <Link to=''>
+                       <span className={TdStyle.TdButton} style={{color:"red",background:"#ffe6e6",borderColor:"red",marginLeft:'10px'}} onClick={()=>deleteElement(index)}>
+                          Delete
                         </span>
                        </Link> 
                       </td>
