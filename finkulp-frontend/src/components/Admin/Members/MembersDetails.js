@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
 const Member_Details = (props) => {
-    const [show, setShow] = useState(false);
-    const [show2, setShow2] = useState(false);
-
     return (
-        <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
-            <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
+        <>
+        <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4" style={{gap:'200px'}}>
+            <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden" style={{width:'300px'}}>
                 <img className="w-full"  src={props.member.image} />
             </div>
             <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
@@ -26,36 +24,6 @@ const Member_Details = (props) => {
                     {props.member.name}
                     </h1>
                 </div>
-                {/* <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-                    <p className="text-base leading-4 text-gray-800">Colours</p>
-                    <div className="flex items-center justify-center">
-                        <p className="text-sm leading-none text-gray-600">Smoke Blue with red accents</p>
-                        <div
-                            className="
-								w-6
-								h-6
-								bg-gradient-to-b
-								from-gray-900
-								to-indigo-500
-								ml-3
-								mr-4
-								cursor-pointer
-							"
-                        ></div>
-                        <svg className="cursor-pointer" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L1 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                </div> */}
-                {/* <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-                    <p className="text-base leading-4 text-gray-800">Size</p>
-                    <div className="flex items-center justify-center">
-                        <p className="text-sm leading-none text-gray-600 mr-3">38.2</p>
-                        <svg className="cursor-pointer" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L1 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                </div> */}
                 <button
                     className="
 						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800
@@ -73,60 +41,87 @@ const Member_Details = (props) => {
                 >
                     Want to view CV
                 </button>
-                <div>
-                    <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-black mt-7">Status</p>
-                    <p className="text-base leading-4 mt-7 text-gray-600">{props.member.status}</p>
+                <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-black mt-7">Status</p>
+                <p className="text-base leading-4 mt-7 "style={{fontWeight:'600',fontSize:"22px"}}>{props.member.status}</p>
+                <div style={{display:"flex", gap:'80px',marginTop:'20px'}}>
+                    <div  style={{boxShadow:'1px 1px 5px blue',padding:'10px',paddingLeft:"20px",paddingRight:'20px',borderRadius:"10px"}}>
+                    <p className="text-base leading-4 mt-4 text-black">Email Id</p>
+                    <p className="text-base leading-4 mt-4 text-gray-600">{props.member.email}</p>
+                    </div>
+                    <div  style={{boxShadow:'1px 1px 5px blue',padding:'10px',paddingLeft:"20px",paddingRight:'20px',borderRadius:"10px"}}>
+                    <p className="text-base leading-4 mt-4 text-black">Phone Number</p>
+                    <p className="text-base leading-4 mt-4 text-gray-600">{props.member.phone}</p>
+                    </div>
+                    </div>
+                    <div style={{display:'flex',marginTop:'20px',gap:"20px"}}>
+                    <div  style={{boxShadow:'1px 1px 5px blue',padding:'10px',paddingLeft:"20px",paddingRight:'20px',borderRadius:"10px"}}>
+                    <p className="text-base leading-4 mt-4 text-black">Address</p>
+                    <p className="text-base leading-4 mt-4 text-gray-600">{props.member.address}</p>
+                    </div>
+                    <div  style={{boxShadow:'1px 1px 5px blue',padding:'10px',paddingLeft:"20px",paddingRight:'20px',borderRadius:"10px"}}>
                     <p className="text-base leading-4 mt-4 text-black">Joining Date</p>
-                    <p className="text-base leading-4 mt-4 text-gray-600">{props.member.joining_Data}</p>
-                    <p className="text-base leading-4 mt-4 text-gray-600">Depth: 5.1 inches</p>
-                    <p className="md:w-96 text-base leading-normal text-gray-600 mt-4">Composition: 100% calf leather, inside: 100% lamb leather</p>
-                </div>
-                <div>
-                    <div className="border-t border-b py-4 mt-7 border-gray-200">
-                        <div onClick={() => setShow(!show)} className="flex justify-between items-center cursor-pointer">
-                            <p className="text-base leading-4 text-gray-800">Shipping and returns</p>
-                            <button
-                                className="
-									cursor-pointer
-									focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400
-									rounded
-								"
-                                aria-label="show or hide"
-                            >
-                                <svg className={"transform " + (show ? "rotate-180" : "rotate-0")} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 1L5 5L1 1" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show ? "block" : "hidden")} id="sect">
-                            You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are nonrefundable
-                        </div>
+                    <p className="text-base leading-4 mt-4 text-gray-600">{props.member.joining_date}</p>
                     </div>
                 </div>
                 <div>
-                    <div className="border-b py-4 border-gray-200">
-                        <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">
-                            <p className="text-base leading-4 text-gray-800">Contact us</p>
-                            <button
-                                className="
-									cursor-pointer
-									focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400
-									rounded
-								"
-                                aria-label="show or hide"
-                            >
-                                <svg className={"transform " + (show2 ? "rotate-180" : "rotate-0")} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 1L5 5L1 1" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div className={"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " + (show2 ? "block" : "hidden")} id="sect">
-                            If you have any questions on how to return your item to us, contact us.
-                        </div>
-                    </div>
+                </div>
+                <div>
+                    
                 </div>
             </div>
+            
         </div>
+        <p className="text-base leading-4 text-gray-800" style={{marginTop:"20px",paddingBottom:'20px',textAlign:'center',fontWeight:'700',fontSize:'21px'}}>Certification</p>
+        <div style={{display:'flex',justifyContent:'center'}}>
+         <div class="relative overflow-x-auto shadow-md sm:rounded-lg" style={{width:'80%'}}>
+         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                 <tr>
+                     <th scope="col" class="px-6 py-3">
+                        Name of Certification
+                     </th>
+                     <th scope="col" class="px-6 py-3">
+                        Organization
+                     </th>
+                     <th scope="col" class="px-6 py-3">
+                         Complete Date
+                     </th>
+                     <th scope="col" class="px-6 py-3">
+                       catogery
+                     </th>
+                     <th scope="col" class="px-6 py-3">
+                        View Certificate
+                     </th>
+                 </tr>
+             </thead>
+             <tbody>
+             {props.member.certification.map((cert, index) => (
+             <tr
+                 key={index}
+                 className={`border-b dark:border-gray-700 ${index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800' : 'bg-white dark:bg-gray-900'}`}
+             >
+                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                 {cert.organization}
+                 </th>
+                 <td className="px-6 py-4">
+                 {cert.complete}
+                 </td>
+                 <td className="px-6 py-4">
+                 {cert.name}
+                 </td>
+                 <td className="px-6 py-4">
+                 {cert.catogery}
+                 </td>
+                 <td className="px-6 py-4">
+                 <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Open</a>
+                 </td>
+             </tr>
+             ))} 
+             </tbody>
+         </table>
+         </div>
+     </div>
+     </>
     );
 };
 

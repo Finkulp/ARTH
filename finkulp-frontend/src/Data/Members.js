@@ -7,8 +7,31 @@ export const Members_Data=[
         name:"Arun",
         Role:"WebDeveloper Frontend",
         image:Arun,
-        status:'Full Time',
-        joining_Data:'12/3/2024'
+       email:"arunrathaur92.6@gmail.com",
+       phone:"7007618191",
+       address:"1081/12 A-Blaock Indira Nagar Lucknow",
+       status:"Full Time working",
+       joining_date:'1/May/2024',
+       certification:[
+        {
+            organization:'TCS',
+            complete:'12/6/2024',
+            name:'HTML/CSS',
+            catogery:'Frontend'
+        },
+        {
+            organization:'TCS',
+            complete:'12/6/2024',
+            name:'C++ DSA',
+            catogery:'Backend'
+        },
+        {
+            organization:'TCS',
+            complete:'12/6/2024',
+            name:'React',
+            catogery:'Frontend'
+        }
+       ]
 
     },
     {
