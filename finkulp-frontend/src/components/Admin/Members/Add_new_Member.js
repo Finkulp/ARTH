@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Add_new_Member = () => {
+const MemberForm = () => {
   const [memberDetails, setMemberDetails] = useState({
     name: "",
     role: "",
@@ -10,6 +10,7 @@ const Add_new_Member = () => {
     address: "",
     status: "",
     joiningDate: '',
+    CV: null,
     certification: [
       {
         organization: '',
@@ -28,6 +29,21 @@ const Add_new_Member = () => {
     setMemberDetails(prevDetails => ({
       ...prevDetails,
       [name]: value
+    }));
+  };
+
+  const handleFileChange1 = (e) => {
+    const file = e.target.files[0];
+    setMemberDetails(prevDetails => ({
+      ...prevDetails,
+      CV: file
+    }));
+  };
+  const handleFileChange2 = (e) => {
+    const file = e.target.files[0];
+    setMemberDetails(prevDetails => ({
+      ...prevDetails,
+      image: file
     }));
   };
 
@@ -83,7 +99,7 @@ const Add_new_Member = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Image URL:</label>
-          <input type="text" name="image" value={memberDetails.image} onChange={handleInputChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <input type="file" name="image"  onChange={handleFileChange2} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
@@ -104,6 +120,10 @@ const Add_new_Member = () => {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Joining Date:</label>
           <input type="date" name="joiningDate" value={memberDetails.joiningDate} onChange={handleInputChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Upload the CV:</label>
+          <input type="file" name="cv" onChange={handleFileChange1} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Enter the Number of Certificates:</label>
@@ -140,4 +160,4 @@ const Add_new_Member = () => {
   );
 };
 
-export default Add_new_Member;
+export default MemberForm;
