@@ -36,6 +36,7 @@ import Members from "./components/Admin/Members/Memberss";
 import Member_Details from "./components/Admin/Members/MembersDetails";
 import Add_new_Member from "./components/Admin/Members/Add_new_Member";
 import { useState } from "react";
+import Edit_Details from "./components/Admin/Members/Edit_Details";
 
 function App() {
   const [dark,setdark]=useState({
@@ -47,6 +48,7 @@ function App() {
   const [viewMyAlog,setViewMyAlog]=useState("");
   const[editAlgo,seteditAlgo]=useState("");
   const[member,setMember]=useState("");
+  const[MemberDetails,setMemberDetails]=useState("");
   return (
     <>
       <BrowserRouter>
@@ -87,9 +89,10 @@ function App() {
             <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo}></UpdatingAlgo>}></Route>
             <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
             <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
-            <Route path='Members' element={<Members setMember={setMember}></Members>}></Route>
+            <Route path='Members' element={<Members setMember={setMember} setMemberDetails={setMemberDetails}></Members>}></Route>
             <Route path="Member_Details" element={<Member_Details member={member}></Member_Details>}></Route>
             <Route path='addnewmember' element={<Add_new_Member></Add_new_Member>}></Route>
+            <Route path='editdetails' element={<Edit_Details member={MemberDetails}></Edit_Details>}></Route>
           </Route>
         </Routes>
         <Footer />

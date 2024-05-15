@@ -18,6 +18,7 @@ const Members= (props) => {
       <Link to="/adminhome/addnewmember"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add New Member</button></Link>
         <div className="-mx-4 flex flex-wrap justify-center">
           {Members_Data.map((member, index) => (
+            <div>
             <Link to='/adminhome/Member_Details'>
           <TeamCard
             name={member.name}
@@ -26,6 +27,8 @@ const Members= (props) => {
             memberdata={member}
             propsdata={props}
           /></Link>
+          <Link to='/adminhome/editdetails' onClick={()=>{props.setMemberDetails(member)}}><div style={{paddingLeft:"50px",fontWeight:"bold",fontFamily:'poppins',fontSize:'21px',color:"green"}}>Edit Details</div></Link>
+          </div>
           ))}
         </div>
       </div>
