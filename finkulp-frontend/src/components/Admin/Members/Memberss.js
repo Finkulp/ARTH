@@ -1,6 +1,8 @@
 import React from "react";
-
-const Members= () => {
+import { Members_Data } from "../../../Data/Members";
+import '../../../CSS/Algoshopping.css'
+import { Link } from "react-router-dom";
+const Members= (props) => {
   return (
     <section className="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
       <div className="container mx-auto" style={{marginTop:'-100px'}}>
@@ -15,26 +17,16 @@ const Members= () => {
         </div>
 
         <div className="-mx-4 flex flex-wrap justify-center">
+          {Members_Data.map((member, index) => (
+            <Link to='/adminhome/Member_Details'>
           <TeamCard
-            name="Coriss Ambady"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/T1J9LD4/image-03-2.jpg"
-          />
-          <TeamCard
-            name="Coriss Ambady"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/8P6cvVy/image-01-1.jpg"
-          />
-          <TeamCard
-            name="Coriss Ambady"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/30tGtjP/image-04.jpg"
-          />
-          <TeamCard
-            name="Coriss Ambady"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/yVVT0Dp/image-02-2.jpg"
-          />
+            name={member.name}
+            profession={member.Role===""?"N/A":member.Role}
+            imageSrc={member.image}
+            memberdata={member}
+            propsdata={props}
+          /></Link>
+          ))}
         </div>
       </div>
     </section>
@@ -43,15 +35,15 @@ const Members= () => {
 
 export default Members;
 
-const TeamCard = ({ imageSrc, name, profession }) => {
+const TeamCard = ({ imageSrc, name, profession,memberdata,propsdata }) => {
   return (
     <>
-      <div className="w-full px-4 md:w-1/2 xl:w-1/4">
-        <div className="mx-auto mb-10 w-full max-w-[370px]">
+      <div className="w-full px-4 md:w-1/2 xl:w-1/4 " onClick={()=>{propsdata.setMember(memberdata)}} style={{width:'300px'}}>
+        <div className="mx-auto mb-10 w-full max-w-[400px]">
           <div className="relative overflow-hidden rounded-lg">
-            <img src={imageSrc} alt="" className="w-full" />
-            <div className="absolute bottom-5 left-0 w-full text-center">
-              <div className="relative mx-5 overflow-hidden rounded-lg bg-white px-3 py-5 dark:bg-dark-2">
+            <img src={imageSrc} alt="" className="w-full" style={{height:'300px',objectFit:'cover'}} />
+            <div style={{broder:'solid',width:'370px'}}>
+              <div className="member_name relative mx-5 overflow-hidden rounded-lg bg-white px-3 py-5 dark:bg-dark-2" >
                 <h3 className="text-base font-semibold text-dark dark:text-white">
                   {name}
                 </h3>

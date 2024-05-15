@@ -30,3 +30,13 @@
 
     color: rgba(1, 73, 66, 0.734);
 }
+.member_name{
+    width: 290px;
+    margin-left: -0px;
+    transition: .3s;
+}
+.member_name:hover{
+    width: 310px;
+    background-color: rgb(49, 209, 230);
+    scale:1.05;
+}

@@ -33,6 +33,7 @@ import UpdatingAlgo from "./components/Admin/Algo/UpdatingAlgo";
 import UpdateAlgo from "./components/Admin/Algo/UpdateAlgo";
 import CreateNewAlgo from "./components/Admin/+Algo.js/CreateNewAlgo";
 import Members from "./components/Admin/Members/Memberss";
+import Member_Details from "./components/Admin/Members/MembersDetails";
 import { useState } from "react";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
   const[VeiwAlgo,setViewAlgo]=useState("");
   const [viewMyAlog,setViewMyAlog]=useState("");
   const[editAlgo,seteditAlgo]=useState("");
+  const[member,setMember]=useState("");
   return (
     <>
       <BrowserRouter>
@@ -84,7 +86,8 @@ function App() {
             <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo}></UpdatingAlgo>}></Route>
             <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
             <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
-            <Route path='Members' element={<Members></Members>}></Route>
+            <Route path='Members' element={<Members setMember={setMember}></Members>}></Route>
+            <Route path="Member_Details" element={<Member_Details member={member}></Member_Details>}></Route>
           </Route>
         </Routes>
         <Footer />
