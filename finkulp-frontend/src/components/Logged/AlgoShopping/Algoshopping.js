@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Algos } from '../../../Data/Agloshopping';
 import { MenuItem, TextField, duration } from '@mui/material';
 import {Link} from 'react-router-dom';
-import '../../../CSS/Algoshopping.css'
+import '../../../CSS/Algoshopping.css';
+import Chart from "react-apexcharts";
 export default function Algoshopping(props) {
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -22,6 +23,23 @@ export default function Algoshopping(props) {
     algo.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
     (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase())
   );
+  const [profit_vlaues, setprofit_values] = useState({
+    options: {
+
+      chart: {
+        id: "basic-bar1"
+      },
+      xaxis: {
+        categories: [1991, 1992, 1993, 1994, 1995]
+      }
+    },
+    series: [
+      {
+        name: "Profit",
+        data: [30, 40, 45, 50, 49] 
+      }
+    ]
+  });
 
   return (
     <>
@@ -77,10 +95,18 @@ export default function Algoshopping(props) {
       </div>
       {filteredAlgos.map((algo,index)=>(
           <div style={{ display: 'flex', justifyContent: 'center',fontFamily:"poppins" }}>
-          <div className='Algoshoppingmain'  style={{  borderWidth: '1px', borderColor: 'blue', padding: '10px',height:"150px",marginTop:'8px',borderRadius:"10px" }}>
+          <div className='Algoshoppingmain'  style={{  borderWidth: '1px', borderColor: 'blue', padding: '10px',height:"150px",marginTop:'8px',borderRadius:"10px",width:"90%" }}>
           <div style={{ display: 'flex' }}>
-            <div style={{ width: '125px', height: '125px', boxShadow:"1px 1px 5px green",borderRadius:'5px' }}></div>
-            <div>
+            <div style={{ width: '300px', height: '150px',position:'relative',top:'-10px' }}>
+                <Chart
+              options={profit_vlaues.options}
+              series={profit_vlaues.series} // Corrected this line to access the second series
+              type="area"
+              width="250"
+
+            />
+            </div>
+            <div style={{position:'relative',left:'-40px',top:"-10px"}}>
               <p style={{ fontSize: '16px', fontWeight: 400, color: 'gray', paddingLeft: '50px', fontFamily:"poppins"  }}>Created:9 months ago | live deployment : 146</p>
               <div style={{ fontSize: '18px', fontWeight: 700, color: 'black', paddingLeft: '50px', fontFamily:"poppins"  }}>{algo.Strategist}</div>
               <div style={{ paddingLeft: '50px', fontSize: '16px', fontFamily:"poppins"  }}>by:<span style={{ color: 'blue', paddingLeft: '20px', fontSize: '18px' }}>Market Start</span> </div>
@@ -114,7 +140,7 @@ export default function Algoshopping(props) {
                 </div>
                 <div style={{ marginTop: '-60px', paddingLeft: '20px' }}>
                   <Link ><div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'green', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px' }}>Subscribe</button></div></Link>
-                  <Link to='/loggedhome/MarketPlace/AlgoDescription' ><div><button onClick={()=>{props.setViewAlgo(algo)}} className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px' }}>Know More</button></div></Link>
+                  <Link to='/loggedhome/MarketPlace/AlgoDescription' ><div><button onClick={()=>{props.setViewAlgo(algo)}} className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px',width:'150px',position:"relative",left:'-30px' }}>Know More</button></div></Link>
                 </div>
               </div>
             </div>
