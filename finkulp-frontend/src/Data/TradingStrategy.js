@@ -34,7 +34,11 @@ export const companyInfoArray=[
         Order Price - Entry Price
         Note: Stop-loss gets trailed until the position is squared off. All further trailing to be done on Trailing stop-loss Percentage basis.
         Profit Desired: NA
-        Risk Appetite: NA"`
+        Risk Appetite: NA"`,
+        graph:{
+            year: [2011, 2012, 2013, 2014, 2015, 2016],
+            profit: [100, 400, 300, 800, 100, 1300]
+          }
     },
     {
         index:1,
@@ -72,7 +76,11 @@ export const companyInfoArray=[
         Order Price - Entry Price
         Note: Stop-loss gets trailed until the position is squared off. All further trailing to be done on Trailing stop-loss Percentage basis.
         Profit Desired: NA
-        Risk Appetite: NA"`
+        Risk Appetite: NA"`,
+        graph:{
+            year: [2011, 2012, 2013, 2014, 2015, 2016],
+            profit: [100, 400, 300, 800, 100, 1300]
+          }
     },
     {
         index:1,
@@ -110,7 +118,11 @@ export const companyInfoArray=[
         Order Price - Entry Price
         Note: Stop-loss gets trailed until the position is squared off. All further trailing to be done on Trailing stop-loss Percentage basis.
         Profit Desired: NA
-        Risk Appetite: NA"`
+        Risk Appetite: NA"`,
+        graph:{
+            year: [2011, 2012, 2013, 2014, 2015, 2016],
+            profit: [100, 400, 300, 800, 100, 1300]
+          }
     },
     {
         index:1,
@@ -148,6 +160,10 @@ export const companyInfoArray=[
         Order Price - Entry Price
         Note: Stop-loss gets trailed until the position is squared off. All further trailing to be done on Trailing stop-loss Percentage basis.
         Profit Desired: NA
-        Risk Appetite: NA"`
+        Risk Appetite: NA"`,
+        graph:{
+            year: [2011, 2012, 2013, 2014, 2015, 2016],
+            profit: [100, 400, 300, 800, 100, 1300]
+          }
     }
 ]

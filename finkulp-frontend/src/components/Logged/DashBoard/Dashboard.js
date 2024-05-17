@@ -15,7 +15,7 @@ import '../../../CSS/Algoshopping.css'
 import Chart from "react-apexcharts";
 import { useState } from 'react';
 export default function Dashboard(props) {
-  const[profit,setprofit]=useState(true);
+  const[profit,setprofit]=useState(false);
   const [value, setValue] = useState({
     options: {
       chart: {

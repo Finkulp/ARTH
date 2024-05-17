@@ -1,66 +1,103 @@
-import React from 'react';
-import ExploreCourseTemplate from './ExploreCoursesTemplate';
-
-const data = [
-  {
-    id: 1,
-    image: "https://t4.ftcdn.net/jpg/05/13/77/31/360_F_513773104_G7Pin2bxWwpMAWqI5MIvrSnWDpYs80WN.jpg",
-    title: "Course 1",
-    description: "This is the Description for Course 1",
-    address: "Address 1",
-    courseCompleted: "12% completed",
-  },
-  {
-    id: 2,
-    image: "https://t4.ftcdn.net/jpg/05/13/77/31/360_F_513773104_G7Pin2bxWwpMAWqI5MIvrSnWDpYs80WN.jpg",
-    title: "Course 2",
-    description: "This is the Description for Course 2",
-    address: "Address 2",
-    courseCompleted: "25% completed"
-  },
-  {
-    id: 2,
-    image: "https://t4.ftcdn.net/jpg/05/13/77/31/360_F_513773104_G7Pin2bxWwpMAWqI5MIvrSnWDpYs80WN.jpg",
-    title: "Course 2",
-    description: "This is the Description for Course 2",
-    address: "Address 2",
-    courseCompleted: "25% completed"
-  },
-  // Add more records as needed
-];
-
+import React, { useState, useEffect } from 'react';
+import { data } from '../../../../Data/ExploreCoursesData';
 export default function ExploreCourses() {
-  return (   
+  const [filteredData, setFilteredData] = useState(data);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedPriceRange, setSelectedPriceRange] = useState('');
+
+  useEffect(() => {
+    let filtered = data;
+
+    if (searchTerm) {
+      filtered = filtered.filter(course =>
+        course.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (selectedCategory) {
+      filtered = filtered.filter(course => course.category === selectedCategory);
+    }
+
+    if (selectedPriceRange) {
+      const [minPrice, maxPrice] = selectedPriceRange.split('-').map(Number);
+      filtered = filtered.filter(course => course.price >= minPrice && course.price <= maxPrice);
+    }
+
+    setFilteredData(filtered);
+  }, [searchTerm, selectedCategory, selectedPriceRange]);
+
+  return (
     <>
-  <h1 style={{textAlign:"center",marginTop:"20px",fontSize:"30px",fontWeight:"600"}}>Explore Courses</h1>
-  <form class="max-w-md mx-auto" style={{marginTop:"20px"}}>   
-    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-    <div class="relative">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+      <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex' }}>
+        <div >
+        <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div className="relative" style={{width:'500px'}}>
+          <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
             </svg>
+          </div>
+          <input
+            type="search"
+            id="default-search"
+            className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search in online library..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            required
+          />
+          <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
         </div>
-        <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search in online library..." required />
-        <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-    </div>
-</form>
+        </div>
 
-
-    <div style={{display:"flex", gap:"55px",flexWrap:'wrap',width:"95%",marginTop:"50px",paddingLeft:"70px",justifyContent:"space-evenly"}}>
-   
-      {data.map(course => (
-        <ExploreCourseTemplate
-          key={course.id}
-          image={course.image}
-          title={course.title}
-          description={course.description}
-          address={course.address}
-          courseCompleted={course.courseCompleted}
-          style={{ flex: "0 0 calc(20% - 20px)", margin: "10px" }} 
-        />
-      ))}
-    </div>
+      <div className="filters" style={{ marginLeft: "10px",height:'50px'}}>
+        <select onChange={(e) => setSelectedCategory(e.target.value)} className="p-2 border rounded"style={{height:'50px',width:'200px'}}>
+          <option value="">All Categories</option>
+          <option value="Trading">Trading</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Management">Management</option>
+          <option value="Programming">Programming</option>
+          {/* Add more categories as needed */}
+        </select>
+        </div>
+        <div>
+        <select onChange={(e) => setSelectedPriceRange(e.target.value)} className="p-2 border rounded" style={{ marginLeft: "10px" ,height:'50px',width:'200px'}}>
+          <option value="">All Prices</option>
+          <option value="0-100">0-100</option>
+          <option value="100-200">100-200</option>
+          {/* Add more price ranges as needed */}
+        </select>
+      </div>
+      </div>
+      <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly" }}>
+        {filteredData.map(course => (
+          
+          
+          <div className="grid  sm:grid-cols-2 lg:grid-cols-3" style={{ width: "400px" }}>
+          <div className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-dark-2 dark:shadow-card dark:hover:shadow-3" style={{ width: "400px" }}>
+            <img src={course.image} alt="" style={{width:"400px",height:'300px'}}  />
+            <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
+              <h3>
+                <span className="mb-4 block text-xl font-semibold text-dark hover:text-primary dark:text-white sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]">
+                  {course.title}
+                </span>
+              </h3>
+              <p className="mb-7 text-base leading-relaxed text-body-color dark:text-dark-6">
+                {course.description}
+              </p>
+              <p className="mb-7 text-base leading-relaxed text-body-color dark:text-dark-6">
+                {course.courseCompleted}
+              </p>
+              <div >
+              <button className=" bg-primary px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px"}}>Open Details</button>
+            </div>        
+              </div>
+          </div>
+        </div>
+        
+        ))}
+      </div>
     </>
   );
 }
