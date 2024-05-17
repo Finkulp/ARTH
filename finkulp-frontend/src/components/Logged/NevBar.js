@@ -277,6 +277,7 @@ const Navbar = () => {
                             </ul>
                         </nav>
                         <div className="justify-end pr-16 sm:flex lg:pr-0">
+                        <Link to='/loggedhome/Checkout'><i class="fa-solid fa-cart-shopping" style={{color:'green',fontSize:'25px'}}></i></Link>
                             <Link to='/'>
                                 <span className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90" style={{ position: 'relative', right: "-20px" }}>
                                     Logout

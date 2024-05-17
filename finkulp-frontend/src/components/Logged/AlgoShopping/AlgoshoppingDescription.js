@@ -1,8 +1,17 @@
 import React from 'react'
 import AgloshoppingTemplateStats from './AlgoshoppingTemplateStats'
 import Chart from "react-apexcharts";
+import { Button } from '@mui/material';
 export default function AlgoshoppingDescription(props) {
+  function addToCartArray() {
+    // Use the state updater function to update the checkout array
+    props.setchekout(prevCheckout => [...prevCheckout, props.VeiwAlgo]);
+    props.setsum(props.sum+props.VeiwAlgo.price);
+  }
+  
+  
   return (
+    <div>
     <div style={{display:'flex',justifyContent:"center"}}>
     <div style={{paddingTop:'200px',border:"solid",borderColor:"blue",borderWidth:'1px'}}>
       <div style={{display:'flex',justifyContent:'center'}}>
@@ -49,6 +58,8 @@ export default function AlgoshoppingDescription(props) {
       </div>
     </div>
   </div>
+  </div>
+  <Button onClick={addToCartArray}>Add To Cart</Button>
   </div>
   )
 }

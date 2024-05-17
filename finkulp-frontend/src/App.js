@@ -38,12 +38,14 @@ import Member_Details from "./components/Admin/Members/MembersDetails";
 import Add_new_Member from "./components/Admin/Members/Add_new_Member";
 import { useState } from "react";
 import Edit_Details from "./components/Admin/Members/Edit_Details";
+import Checkout from "./components/Logged/Checkout/checkout";
 
 function App() {
   const [dark,setdark]=useState({
     color:"white",
     background:"black"
   })
+  const[checkout,setchekout]=useState("");
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
   const [viewMyAlog,setViewMyAlog]=useState("");
@@ -51,6 +53,7 @@ function App() {
   const[member,setMember]=useState("");
   const[MemberDetails,setMemberDetails]=useState("");
   const[exploreCourses,setExploreCourses]=useState("");
+  const[sum,setsum]=useState(0);
   return (
     <>
       <BrowserRouter>
@@ -78,12 +81,13 @@ function App() {
             </Route>
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
-              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
-              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo}></AlgoshoppingDescription>}></Route>
+              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo} ></Algoshopping>}></Route>
+              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum}></AlgoshoppingDescription>}></Route>
               <Route path="MyStrategy" element={<MyStrategies setViewMyAlog={setViewMyAlog}></MyStrategies>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Dashboard' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
+            <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout}></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>
             <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>

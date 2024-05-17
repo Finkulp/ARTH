@@ -8,7 +8,7 @@ export const Algos = [
         Fee: {
             Subscription: "0%",
             Pay_as_you_go: "3%"
-        },
+        },price:3000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -48,7 +48,7 @@ export const Algos = [
         Fee: {
             Subscription: "10%",
             Pay_as_you_go: "33%"
-        },
+        },price:5000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -88,7 +88,7 @@ export const Algos = [
         Fee: {
             Subscription: "0%",
             Pay_as_you_go: "3%"
-        },
+        },price:2000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -129,6 +129,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:7000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -169,6 +170,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:1000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -209,6 +211,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:7000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -249,6 +252,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:9000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -289,6 +293,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:10000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -329,6 +334,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:3000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -369,6 +375,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:3000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -397,7 +404,8 @@ export const Algos = [
         graph:{
             year: [2011, 2012, 2013, 2014, 2015, 2016],
             profit: [100, 400, 300, 800, 100, 1300]
-          }
+          },
+        price:1000
     },
     {
         index:1,
@@ -409,6 +417,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        price:2000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
