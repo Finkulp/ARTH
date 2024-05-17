@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AgloshoppingTemplateStats from './AlgoshoppingTemplateStats'
 import Chart from "react-apexcharts";
-import { Link } from 'react-router-dom';
 export default function AlgoshoppingDescription(props) {
  
   function addToCartArray() {

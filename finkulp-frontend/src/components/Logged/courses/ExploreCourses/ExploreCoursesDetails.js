@@ -1,13 +1,8 @@
-// import Rater from "react-rater";
-// import "react-rater/lib/react-rater.css";
-//9473827188   1300
 const ExploreCoursesDetails = (props) => {
-  const plusMinuceButton =
-    "flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500";
   return (
     <section className="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10" style={{display:'flex'}}>
         <div >
-      <img src={props.exploreCourses.image}></img>
+      <img src={props.exploreCourses.image} alt="All rights are Reserved by finkulp"></img>
       </div>
       <div style={{marginLeft:'50px'}}>
       <div className="mx-auto px-5 lg:px-5">

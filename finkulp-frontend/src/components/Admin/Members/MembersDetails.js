@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Member_Details = (props) => {
+const MemberDetailsPage = (props) => {
     return (
         <>
         <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4" style={{gap:'200px'}}>
             <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden" style={{width:'300px'}}>
-                <img className="w-full"  src={props.member.image} />
+                <img className="w-full" alt="All Rights are Reserved by finkulp"  src={props.member.image} />
             </div>
             <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
                 <div className="border-b border-gray-200 pb-6">
@@ -156,7 +155,7 @@ const Member_Details = (props) => {
                  {cert.catogery}
                  </td>
                  <td className="px-6 py-4">
-                 <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Open</a>
+                 <span className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Open</span>
                  </td>
              </tr>
              ))} 
@@ -168,4 +167,4 @@ const Member_Details = (props) => {
     );
 };
 
-export default Member_Details;
+export default MemberDetailsPage;

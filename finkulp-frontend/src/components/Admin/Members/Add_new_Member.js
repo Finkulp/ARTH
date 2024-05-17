@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MemberForm = () => {
+const AddnewMember = () => {
   const [memberDetails, setMemberDetails] = useState({
     name: "",
     role: "",
@@ -160,4 +160,4 @@ const MemberForm = () => {
   );
 };
 
-export default MemberForm;
+export default AddnewMember;

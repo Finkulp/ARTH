@@ -29,26 +29,25 @@ import AdminHome from "./components/Admin/AdminHome";
 import Courses from "./components/Logged/courses/Courses";
 import TradingStrategyAdmin from "./components/Admin/TradingStrategy";
 import TradingStrategyfrom from "./components/Admin/TradingStrategy/TradingStrategyfrom";
-import Add_New_Strategy from "./components/Admin/TradingStrategy/Add_New_Strategy";
+import AddNewStrategy from "./components/Admin/TradingStrategy/Add_New_Strategy";
 import UpdatingAlgo from "./components/Admin/Algo/UpdatingAlgo";
 import UpdateAlgo from "./components/Admin/Algo/UpdateAlgo";
 import CreateNewAlgo from "./components/Admin/+Algo.js/CreateNewAlgo";
 import Members from "./components/Admin/Members/Memberss";
-import Member_Details from "./components/Admin/Members/MembersDetails";
-import Add_new_Member from "./components/Admin/Members/Add_new_Member";
+import MemberDetailsPage from "./components/Admin/Members/MembersDetails";
+import AddnewMember from "./components/Admin/Members/Add_new_Member";
 import { useState } from "react";
-import Edit_Details from "./components/Admin/Members/Edit_Details";
+import EditDetails from "./components/Admin/Members/Edit_Details";
 import Checkout from "./components/Logged/Checkout/checkout";
 
 function App() {
-  const [dark,setdark]=useState({
-    color:"white",
-    background:"black"
-  })
+  // const [dark,setdark]=useState({
+  //   color:"white",
+  //   background:"black"
+  // })
   const[checkout,setchekout]=useState("");
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
-  const [viewMyAlog,setViewMyAlog]=useState("");
   const[editAlgo,seteditAlgo]=useState("");
   const[member,setMember]=useState("");
   const[MemberDetails,setMemberDetails]=useState("");
@@ -83,24 +82,24 @@ function App() {
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo} ></Algoshopping>}></Route>
-              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} setadded={setadded} added={added}></AlgoshoppingDescription>}></Route>
-              <Route path="MyStrategy" element={<MyStrategies setViewMyAlog={setViewMyAlog}></MyStrategies>}></Route>
+              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} ></AlgoshoppingDescription>}></Route>
+              <Route path="MyStrategy" element={<MyStrategies ></MyStrategies>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Dashboard' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
-            <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} setadded={setadded}></Checkout>}></Route>
+            <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>
             <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>
             <Route path='edit-Strategy' element={<TradingStrategyfrom tradingStrategy={tradingStrategy} settradingStrategy={settradingStrategy}></TradingStrategyfrom>}></Route>
-            <Route path='addnewstrategy' element={<Add_New_Strategy></Add_New_Strategy>}></Route>
+            <Route path='addnewstrategy' element={<AddNewStrategy></AddNewStrategy>}></Route>
             <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo}></UpdatingAlgo>}></Route>
             <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
             <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
             <Route path='Members' element={<Members setMember={setMember} setMemberDetails={setMemberDetails}></Members>}></Route>
-            <Route path="Member_Details" element={<Member_Details member={member}></Member_Details>}></Route>
-            <Route path='addnewmember' element={<Add_new_Member></Add_new_Member>}></Route>
-            <Route path='editdetails' element={<Edit_Details member={MemberDetails}></Edit_Details>}></Route>
+            <Route path="Member_Details" element={<MemberDetailsPage member={member}></MemberDetailsPage>}></Route>
+            <Route path='addnewmember' element={<AddnewMember></AddnewMember>}></Route>
+            <Route path='editdetails' element={<EditDetails member={MemberDetails}></EditDetails>}></Route>
           </Route>
         </Routes>
         <Footer />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Add_New_Strategy() {
+export default function AddNewStrategy() {
     const [tradingStrategy, setTradingStrategy] = useState({
         Strategist: '',
         NSE: '',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Edit_Details = (props) => {
+const EditDetails = (props) => {
   const [memberDetails, setMemberDetails] = useState({
     name:props.member.name,
     role: props.member.Role,
@@ -152,4 +152,4 @@ const Edit_Details = (props) => {
   );
 };
 
-export default Edit_Details;
+export default EditDetails;
