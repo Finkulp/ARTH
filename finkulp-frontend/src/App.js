@@ -9,6 +9,7 @@ import Pricing from "./components/Logged/Pricing";
 import FAQlogged from "./components/Logged/FAQ";
 import Mycouresmain from "./components/Logged/courses/MyCourses/Mycouresmain";
 import ExploreCourses from "./components/Logged/courses/ExploreCourses/ExploreCourses";
+import ExploreCoursesDetails from "./components/Logged/courses/ExploreCourses/ExploreCoursesDetails";
 import Zerodha from "./components/Logged/AddBroker/zerodtha";
 import AliceBlu from "./components/Logged/AddBroker/AliceBlue";
 import Paisa from "./components/Logged/AddBroker/5paisa";
@@ -49,6 +50,7 @@ function App() {
   const[editAlgo,seteditAlgo]=useState("");
   const[member,setMember]=useState("");
   const[MemberDetails,setMemberDetails]=useState("");
+  const[exploreCourses,setExploreCourses]=useState("");
   return (
     <>
       <BrowserRouter>
@@ -62,7 +64,8 @@ function App() {
             <Route path="faqlogged" element={<FAQlogged />}></Route>
             <Route path='courses' element={<Courses></Courses>}>
               <Route path="my-courses" element={<Mycouresmain />}></Route>
-              <Route path='' element={<ExploreCourses />}></Route>
+              <Route path='' element={<ExploreCourses setExploreCourses={setExploreCourses} />}></Route>
+              <Route path='ExploreCoursesDetails' element={<ExploreCoursesDetails exploreCourses={exploreCourses}></ExploreCoursesDetails>}></Route>
             </Route>
             <Route path='Add-Broker' element={<AddedBroker></AddedBroker>}>
                 <Route path='zerodtha' element={<Zerodha />}></Route>

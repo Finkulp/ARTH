@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { data } from '../../../../Data/ExploreCoursesData';
-export default function ExploreCourses() {
+import { Link } from 'react-router-dom';
+export default function ExploreCourses(props) {
   const [filteredData, setFilteredData] = useState(data);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -90,7 +91,8 @@ export default function ExploreCourses() {
                 {course.courseCompleted}
               </p>
               <div >
-              <button className=" bg-primary px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px"}}>Open Details</button>
+                <Link to='/loggedhome/courses/ExploreCoursesDetails'> <button className=" bg-primary px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px"}} onClick={()=>{props.setExploreCourses(course)}}>Open Details</button></Link>
+             
             </div>        
               </div>
           </div>

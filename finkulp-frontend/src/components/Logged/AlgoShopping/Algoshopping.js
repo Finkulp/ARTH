@@ -82,7 +82,7 @@ export default function Algoshopping(props) {
         </div>
       </div>
       {filteredAlgos.map((algo,index)=>(
-          <div style={{ display: 'flex', justifyContent: 'center',fontFamily:"poppins",overflow:"hidden",height:'160px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center',fontFamily:"poppins",overflow:"hidden",height:'165px' }}>
           <div className='Algoshoppingmain'  style={{  borderWidth: '1px', borderColor: 'blue', padding: '10px',height:"150px",marginTop:'8px',borderRadius:"10px",width:"90%" }}>
           <div style={{ display: 'flex' }}>
             <div style={{ width: '300px', height: '150px',position:'relative',top:'-10px' }}>
