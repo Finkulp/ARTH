@@ -1,6 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
-
 export default function Checkout(props) {
   function removeFromList(item) {
     props.setchekout(prevCheckout => prevCheckout.filter(i => i !== item));

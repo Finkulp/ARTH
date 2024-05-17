@@ -40,9 +40,9 @@ const ExploreCoursesDetails = (props) => {
           Price: <span className="font-normal">{props.exploreCourses.sku}</span>
         </p>
         <p className="mt-4 text-4xl font-bold text-violet-900">
-          ${props.exploreCourses.price}{" "}
-          <span className="text-xs text-gray-400 line-through">
-            ${props.exploreCourses.previousPrice}
+        ₹{props.exploreCourses.price}{" "}
+          <span className="text-xs text-gray-400 line-through">₹
+            {props.exploreCourses.previousPrice}
           </span>
         </p>
         <p className="pt-5 text-sm leading-5 text-gray-500">

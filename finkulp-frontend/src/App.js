@@ -54,6 +54,7 @@ function App() {
   const[MemberDetails,setMemberDetails]=useState("");
   const[exploreCourses,setExploreCourses]=useState("");
   const[sum,setsum]=useState(0);
+  const[added,setadded]=useState(false);
   return (
     <>
       <BrowserRouter>
@@ -82,12 +83,12 @@ function App() {
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo} ></Algoshopping>}></Route>
-              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum}></AlgoshoppingDescription>}></Route>
+              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} setadded={setadded} added={added}></AlgoshoppingDescription>}></Route>
               <Route path="MyStrategy" element={<MyStrategies setViewMyAlog={setViewMyAlog}></MyStrategies>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Dashboard' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
-            <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout}></Checkout>}></Route>
+            <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} setadded={setadded}></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>
             <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>

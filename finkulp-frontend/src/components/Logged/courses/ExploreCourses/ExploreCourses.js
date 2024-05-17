@@ -92,7 +92,7 @@ export default function ExploreCourses(props) {
               </p>
               <div >
                 <Link to='/loggedhome/courses/ExploreCoursesDetails'> <button className=" bg-primary px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px"}} onClick={()=>{props.setExploreCourses(course)}}>Open Details</button></Link>
-             
+                <button className=" bg-green px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px",marginLeft:'20px'}}>Add to Cart</button>
             </div>        
               </div>
           </div>
