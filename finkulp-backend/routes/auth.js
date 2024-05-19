@@ -11,7 +11,7 @@ const app=express();
 app.post('/', async (req, res) => {
   try {
     let success=false;
-    const { email, password, name } = req.body;
+    const { email, password, name,mobile } = req.body;
 
     const existingUser = await user.findOne({ email: email });
     if (existingUser) {
@@ -22,7 +22,8 @@ app.post('/', async (req, res) => {
     const newUser = new user({
       email: email,
       name: name,
-      password: hashedPassword
+      password: hashedPassword,
+      mobile:mobile
     });
 
     await newUser.save();

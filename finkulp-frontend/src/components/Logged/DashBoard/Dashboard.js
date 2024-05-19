@@ -103,22 +103,22 @@ export default function Dashboard(props) {
         <div style={{marginTop:'10px'}}>
           <div style={{marginTop:'20px'}}><i class="fa-regular fa-circle-xmark" style={{color:'red',position:'relative',left:"50px",fontSize:'25px'}}></i></div>
         <div style={{width:'225px'}}>Subscription Plan Inactive</div>
-        <div style={{color:'blue'}}>Subscribe a plan</div>
+        <Link to='/loggedhome/subscription'><div style={{color:'blue'}}>Subscribe a plan</div></Link>
         </div>
         <div style={{marginTop:'10px'}}>
           <div style={{marginTop:'20px'}} ><i class="fa-regular fa-circle-xmark" style={{color:'red',position:'relative',left:"50px",fontSize:'25px'}}></i></div>
         <div style={{width:'250px'}}>Broking Account not Connected</div>
-        <div style={{color:'blue'}}>Connect a Broking account</div>
+        <Link to='/loggedhome/Add-Broker'><div style={{color:'blue'}}>Connect a Broking account</div></Link>
         </div>
         <div style={{marginTop:'10px'}}>
-          <div style={{marginTop:'20px'}}><i class="fa-regular fa-circle-xmark" style={{color:'red',position:'relative',left:"50px",fontSize:'25px'}}></i></div>
+          <div style={{marginTop:'20px'}}><i class="fa-regular fa-circle-check"style={{color:'green',position:'relative',left:"50px",fontSize:'25px'}}></i></div>
         <div style={{width:'200px'}}>Portfolio Strategy Added</div>
-        <div style={{color:'blue'}}>Click to add more</div>
+       <Link to='/loggedhome/MarketPlace'><div style={{color:'blue'}}>Click to add more</div></Link> 
         </div>
         <div style={{marginTop:'10px'}}>
           <div style={{marginTop:'20px'}}><i class="fa-regular fa-circle-xmark" style={{color:'red',position:'relative',left:"50px",fontSize:'25px'}}></i></div>
         <div style={{width:'175px'}}>Strategy Not Running</div>
-        <div style={{color:'blue'}}>Click to Start</div>
+        <Link to='/loggedhome/MarketPlace/MyStrategy'><div style={{color:'blue'}}>Click to Start</div></Link>
         </div>
       </div>
       

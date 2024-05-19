@@ -38,7 +38,8 @@ export const companyInfoArray=[
         graph:{
             year: [2011, 2012, 2013, 2014, 2015, 2016],
             profit: [100, 400, 300, 800, 100, 1300]
-          }
+          },
+          price:3000,
     },
     {
         index:1,
@@ -80,7 +81,8 @@ export const companyInfoArray=[
         graph:{
             year: [2011, 2012, 2013, 2014, 2015, 2016],
             profit: [100, 400, 300, 800, 100, 1300]
-          }
+          },
+          price:3000,
     },
     {
         index:1,
@@ -122,7 +124,8 @@ export const companyInfoArray=[
         graph:{
             year: [2011, 2012, 2013, 2014, 2015, 2016],
             profit: [100, 400, 300, 800, 100, 1300]
-          }
+          },
+          price:3000,
     },
     {
         index:1,
@@ -164,6 +167,7 @@ export const companyInfoArray=[
         graph:{
             year: [2011, 2012, 2013, 2014, 2015, 2016],
             profit: [100, 400, 300, 800, 100, 1300]
-          }
+          },
+          price:3000,
     }
 ]
