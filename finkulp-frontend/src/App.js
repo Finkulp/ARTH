@@ -70,15 +70,14 @@ function App() {
               <Route path='' element={<ExploreCourses setExploreCourses={setExploreCourses} />}></Route>
               <Route path='ExploreCoursesDetails' element={<ExploreCoursesDetails exploreCourses={exploreCourses}></ExploreCoursesDetails>}></Route>
             </Route>
-            <Route path='Add-Broker' element={<AddedBroker></AddedBroker>}>
-                <Route path='zerodtha' element={<Zerodha />}></Route>
-                <Route path='Alice-Blue' element={<AliceBlu />}></Route>
-                <Route path="Upstocks" element={<Upstocks />}></Route>
-                <Route path="Angle-One" element={<AngleOne />}></Route>
-                <Route path="Kotak" element={<Kotak />}></Route>
-                <Route path="Motilal" element={<Motilal />}></Route>
-                <Route path="5paisa" element={<Paisa />}></Route>
-            </Route>
+            <Route path='Add-Broker' element={<AddedBroker></AddedBroker>}></Route>
+            <Route path='zerodtha' element={<Zerodha />}></Route>
+            <Route path='Alice-Blue' element={<AliceBlu />}></Route>
+            <Route path="Upstocks" element={<Upstocks />}></Route>
+            <Route path="Angle-One" element={<AngleOne />}></Route>
+            <Route path="Kotak" element={<Kotak />}></Route>
+            <Route path="Motilal" element={<Motilal />}></Route>
+            <Route path="5paisa" element={<Paisa />}></Route>
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo} ></Algoshopping>}></Route>
@@ -86,7 +85,7 @@ function App() {
               <Route path="MyStrategy" element={<MyStrategies ></MyStrategies>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
-            <Route path='Dashboard' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
+            <Route path='' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
             <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>

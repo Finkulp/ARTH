@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Upstocks = () => {
   return (
     <>
-      <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[40px]" style={{marginTop:"40px"}}>
+      <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[40px]" style={{marginTop:"100px"}}>
         <div className="container">
           <div className="-mx-4 flex flex-wrap lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">

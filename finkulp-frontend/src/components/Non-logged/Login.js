@@ -1,7 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from '../../Images/Logo.png'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const Navigate=useNavigate();
+  const[email,setemail]=useState("");
+  const[password,setpassword]=useState("");
+  const[wait,setwait]=useState(false);
+  function changeemail(event) {
+    setemail(event.target.value);
+  }
+
+  function changepassword(event) {
+    setpassword(event.target.value);
+  }
+  function getTokenFromCookie() {
+    const cookies = document.cookie.split(';');
+    let authToken = null;
+    cookies.forEach(cookie => {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'authToken') {
+            authToken = value;
+        }
+    });
+    return authToken;
+}
+  async function handlesubmit() {
+    setwait(true);
+    console.log(email);
+    console.log(password);
+
+    await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        body: JSON.stringify({
+            email: email,
+            password: password,
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.authToken);
+        // Set the token in a cookie
+        document.cookie = `authToken=${data.authToken}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+      const authToken = getTokenFromCookie();
+      if (authToken) {
+      console.log('Authentication token:', authToken);
+      Navigate('/loggedhome');
+      } else {
+      console.log('Authentication token not found in the cookie.');
+      }
+    setwait(false);
+}
   return (
     <section className="bg-gray-1 py-20  lg:py-[120px]">
       <div className="container mx-auto">
@@ -19,21 +80,31 @@ const Login = () => {
                   />
                 </Link>
               </div>
-              <form>
-                <InputBox type="email" name="email" placeholder="Email" />
-                <InputBox
+              <div>
+              <input
+                  className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                  type="email"
+                  placeholder="Email"
+                  onChange={changeemail}
+                  value={email}
+                />
+               <input
+                  className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="password"
-                  name="password"
                   placeholder="Password"
+                  onChange={changepassword}
+                  value={password}
+                  style={{marginTop:'50px',marginBottom:'30px'}}
                 />
                 <div className="mb-10">
                   <input
                     type="submit"
                     value="Sign In"
                     className="w-full cursor-pointer rounded-md border border-primary bg-primary px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90"
+                    onClick={handlesubmit}
                   />
                 </div>
-              </form>
+              </div>
               <p className="mb-6 text-base text-secondary-color ">
                 Connect With
               </p>

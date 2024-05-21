@@ -243,6 +243,10 @@ const Navbar = () => {
             line:"underline"
         })
      }
+     function logout(){
+        document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        console.log('Logged out, token deleted'); 
+     }
     return (
         <header className="absolute left-0 top-0 z-20 flex w-full items-center" style={{ background: "white", color: "black", paddingLeft: "100px" }}>
             <div>
@@ -279,7 +283,7 @@ const Navbar = () => {
                         <div className="justify-end pr-16 sm:flex lg:pr-0">
                         <Link to='/loggedhome/Checkout'><i class="fa-solid fa-cart-shopping" style={{color:'green',fontSize:'25px'}}></i></Link>
                             <Link to='/'>
-                                <span className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90" style={{ position: 'relative', right: "-20px" }}>
+                                <span className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90" style={{ position: 'relative', right: "-20px" }} onClick={logout}>
                                     Logout
                                 </span>
                             </Link>

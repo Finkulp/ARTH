@@ -20,7 +20,8 @@ export default function AddedBroker() {
                 <span style={{ fontSize:"22px", fontWeight:'600', fontFamily:"poppins" }}>Login/Edit</span>
               </div>
             </div>
-            <div style={{marginTop:"-100px",marginBottom:"-100px",position:"relative",left:"80%",top:"-130px"}}> <BrokingDetails></BrokingDetails></div>
+            <div style={{marginTop:"-100px",marginBottom:"-100px",position:"relative",left:"80%",top:"-130px",zIndex:"3"}}> <BrokingDetails></BrokingDetails></div>
+            <div style={{position:"relative"}}>
             {added_broker.map((broker, index) => (
               <div key={index} style={{ display: 'flex', alignItems:"center", border:"solid", height:"100px" , borderWidth:'1px', marginTop:"10px", borderRadius:'10px' }} >
                 <div style={{ boxShadow:'1px 1px 1px cyan', borderRadius:"5px", width:"40px", height:"40px", marginLeft:"20px", borderRadius:'4px' }}></div>
@@ -33,6 +34,7 @@ export default function AddedBroker() {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

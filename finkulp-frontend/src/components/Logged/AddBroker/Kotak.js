@@ -1,7 +1,111 @@
 import React from "react";
 import KotakImage from '../../../Images/Kotak.jpg'
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const  Kotak= () => {
+  const [tradingPlatform, setTradingPlatform] = useState('');
+  const [loginId, setLoginId] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [mpin, setMpin] = useState('');
+  const [phone, setPhone] = useState('');
+  const [consumerKey, setConsumerKey] = useState('');
+  const [apiUserId, setApiUserId] = useState('');
+  const [apiPassword, setApiPassword] = useState('');
+  const [consumerSecret, setConsumerSecret] = useState('');
+  const [nickname, setNickname] = useState('');
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case 'tradingPlatform':
+        setTradingPlatform(value);
+        break;
+      case 'loginId':
+        setLoginId(value);
+        break;
+      case 'loginPassword':
+        setLoginPassword(value);
+        break;
+      case 'mpin':
+        setMpin(value);
+        break;
+      case 'phone':
+        setPhone(value);
+        break;
+      case 'consumerKey':
+        setConsumerKey(value);
+        break;
+      case 'apiUserId':
+        setApiUserId(value);
+        break;
+      case 'apiPassword':
+        setApiPassword(value);
+        break;
+      case 'consumerSecret':
+        setConsumerSecret(value);
+        break;
+      case 'nickname':
+        setNickname(value);
+        break;
+      default:
+        break;
+    }
+  };
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return '';
+  }
+  async function handleSubmit() {
+    console.log({
+      tradingPlatform,
+      loginId,
+      loginPassword,
+      mpin,
+      phone,
+      consumerKey,
+      apiUserId,
+      apiPassword,
+      consumerSecret,
+      nickname,
+    });
+    const authToken = getCookie('authToken');
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'authorization': authToken
+      },
+      body: JSON.stringify({ 
+        addedBroker: {
+          name: "Kotak",
+          tradingPlatform: tradingPlatform,
+          loginId: loginId,
+          loginPassword: loginPassword,
+          mpin: mpin,
+          phone: phone,
+          consumerKey: consumerKey,
+          apiUserId: apiUserId,
+          apiPassword: apiPassword,
+          consumerSecret: consumerSecret,
+          nickname: nickname,
+        }
+      })
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/notes/addBroker', requestOptions);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
@@ -20,84 +124,104 @@ const  Kotak= () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-                <form style={{textAlign:'left'}}>
+              <div style={{ textAlign: 'left' }} >
                   <div>Trading Platform*</div>
                   <ContactInputBox
                     type="text"
-                    name="name"
+                    name="tradingPlatform"
                     placeholder="KOTAK_NEO"
+                    value={tradingPlatform}
+                    onChange={handleInputChange}
                   />
-                   <div>Trading Platform Login ID *</div>
+                  <div>Trading Platform Login ID *</div>
                   <ContactInputBox
                     type="text"
-                    name="number"
+                    name="loginId"
                     placeholder="Login Id"
+                    value={loginId}
+                    onChange={handleInputChange}
                   />
                   <div>Trading Platform Login Password*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="loginPassword"
                     placeholder="Password"
+                    value={loginPassword}
+                    onChange={handleInputChange}
                   />
                   <div>MPIN*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="mpin"
                     placeholder="6-digit MPIN"
+                    value={mpin}
+                    onChange={handleInputChange}
                   />
                   <div>Phone*</div>
                   <ContactInputBox
                     type="text"
                     name="phone"
                     placeholder="Phone Number registered with stock broker"
+                    value={phone}
+                    onChange={handleInputChange}
                   />
-                       <div>Consumer Key(API)*</div>
+                  <div>Consumer Key(API)*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="consumerKey"
                     placeholder="Consumer Key(API)"
+                    value={consumerKey}
+                    onChange={handleInputChange}
                   />
-                       <div>User Id(API)*</div>
+                  <div>User Id(API)*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="apiUserId"
                     placeholder="User ID(API)"
+                    value={apiUserId}
+                    onChange={handleInputChange}
                   />
-                       <div>Password(API)*</div>
+                  <div>Password(API)*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="apiPassword"
                     placeholder="Password (API)"
+                    value={apiPassword}
+                    onChange={handleInputChange}
                   />
-                       <div>Consumer Secret(API)*</div>
+                  <div>Consumer Secret(API)*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="consumerSecret"
                     placeholder="Consumer Secret(API)"
+                    value={consumerSecret}
+                    onChange={handleInputChange}
                   />
-                       <div>Pseudo Name(Nickname)*</div>
+                  <div>Pseudo Name(Nickname)*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="nickname"
                     placeholder="Pseudo Name(Nickname)"
+                    value={nickname}
+                    onChange={handleInputChange}
                   />
-                  <div style={{display:'flex',gap:"10px"}}>
-                <Link to='/loggedhome/Add-Broker/'> 
-                <button
-                      type="submit"
-                      className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
-                    >
-                       Cancel
-                    </button>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <Link to='/loggedhome/Add-Broker/'>
+                      <button
+                        type="button"
+                        className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
+                      >
+                        Cancel
+                      </button>
                     </Link>
                     <button
-                      type="submit"
+                      onClick={handleSubmit}
                       className="w-full rounded border border-blue bg-blue p-3 text-white transition hover:bg-opacity-90"
                     >
                       Verify
                     </button>
-                    </div>
-                </form>
+                  </div>
+                </div>
                 <div>
                   <span className="absolute -right-9 -top-10 z-[-1]">
                     <svg
@@ -917,7 +1041,7 @@ const  Kotak= () => {
 
 export default Kotak;
 
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
+const ContactTextArea = ({ row, placeholder, name, defaultValue,value,onChange }) => {
   return (
     <>
       <div className="mb-6">
@@ -925,6 +1049,8 @@ const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
           rows={row}
           placeholder={placeholder}
           name={name}
+          value={value}
+          onChange={onChange}
           className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
           defaultValue={defaultValue}
         />
@@ -933,7 +1059,7 @@ const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
   );
 };
 
-const ContactInputBox = ({ type, placeholder, name }) => {
+const ContactInputBox = ({ type, placeholder, name ,value, onChange}) => {
   return (
     <>
       <div className="mb-6">
@@ -941,6 +1067,8 @@ const ContactInputBox = ({ type, placeholder, name }) => {
           type={type}
           placeholder={placeholder}
           name={name}
+          value={value}
+          onChange={onChange}
           className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
         />
       </div>

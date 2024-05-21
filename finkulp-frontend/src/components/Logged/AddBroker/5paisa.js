@@ -1,7 +1,67 @@
 import React from "react";
 import Paisa_image from '../../../Images/5paisa.jpg'
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const  Paisa= () => {
+  const [formValues, setFormValues] = useState({
+    tradingPlatform: '',
+    loginId: '',
+    mpin: '',
+    totpKey: '',
+    apiUserKey: '',
+    appSource: '',
+    pseudoName: ''
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues(prevValues => ({
+      ...prevValues,
+      [name]: value
+    }));
+  };
+  function getCookie(name) {
+    console.log(formValues);
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return '';
+  }
+  async function handleSubmit() {
+    console.log("hello")
+    console.log(formValues)
+    const authToken = getCookie('authToken');
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'authorization': authToken
+      },
+      body: JSON.stringify({ 
+        addedBroker: {
+          name:"5Paisa",
+          tradingPlatform:formValues.tradingPlatform,
+          loginId:formValues.loginId,
+          mpin:formValues.mpin,
+          totpKey:formValues.totpKey,
+          apiUserKey:formValues.apiUserKey,
+          appSource:formValues.appSource,
+          pseudoName:formValues.pseudoName,
+        }
+      })
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/notes/addBroker', requestOptions);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[120px]" style={{paddingTop:"100px"}}>
@@ -20,66 +80,81 @@ const  Paisa= () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-                <form style={{textAlign:"left"}}>
-                  <div>Trading Platform*</div>
-                  <ContactInputBox
-                    type="text"
-                    name="name"
-                    placeholder="FP_API_TOTP"
-                  />
-                   <div>Trading Platform Login ID *</div>
-                  <ContactInputBox
-                    type="text"
-                    name="number"
-                    placeholder="Login Id"
-                  />
-                  <div>MPIN*</div>
-                  <ContactInputBox
-                    type="text"
-                    name="phone"
-                    placeholder="Enter your 6-digit MPIN"
-                  />
-                  <div>TOTP key*</div>
-                  <ContactInputBox
-                    type="text"
-                    name="phone"
-                    placeholder="TOTP Key"
-                  />
-                  <div>API*</div>
-                  <ContactInputBox
-                    type="text"
-                    name="phone"
-                    placeholder="User Key(API)"
-                  />
-                       <div>App Source(API)*</div>
-                  <ContactInputBox
-                    type="text"
-                    name="phone"
-                    placeholder="App Source (API)"
-                  />
-                  <div>Pseudo Name(Nickname)*</div>
-                   <ContactInputBox
-                    type="text"
-                    name="phone"
-                    placeholder="Nickname"
-                  />
-                 <div style={{display:'flex',gap:"10px"}}>
-                <Link to='/loggedhome/Add-Broker/'> 
+            <div style={{ textAlign: "left" }}>
+              <div>Trading Platform*</div>
+              <ContactInputBox
+                type="text"
+                name="tradingPlatform"
+                placeholder="FP_API_TOTP"
+                value={formValues.tradingPlatform}
+                onChange={handleChange}
+              />
+              <div>Trading Platform Login ID *</div>
+              <ContactInputBox
+                type="text"
+                name="loginId"
+                placeholder="Login Id"
+                value={formValues.loginId}
+                onChange={handleChange}
+              />
+              <div>MPIN*</div>
+              <ContactInputBox
+                type="text"
+                name="mpin"
+                placeholder="Enter your 6-digit MPIN"
+                value={formValues.mpin}
+                onChange={handleChange}
+              />
+              <div>TOTP key*</div>
+              <ContactInputBox
+                type="text"
+                name="totpKey"
+                placeholder="TOTP Key"
+                value={formValues.totpKey}
+                onChange={handleChange}
+              />
+              <div>API*</div>
+              <ContactInputBox
+                type="text"
+                name="apiUserKey"
+                placeholder="User Key(API)"
+                value={formValues.apiUserKey}
+                onChange={handleChange}
+              />
+              <div>App Source(API)*</div>
+              <ContactInputBox
+                type="text"
+                name="appSource"
+                placeholder="App Source (API)"
+                value={formValues.appSource}
+                onChange={handleChange}
+              />
+              <div>Pseudo Name(Nickname)*</div>
+              <ContactInputBox
+                type="text"
+                name="pseudoName"
+                placeholder="Nickname"
+                value={formValues.pseudoName}
+                onChange={handleChange}
+              />
+              <div style={{ display: 'flex', gap: "10px" }}>
+                <Link to='/loggedhome/Add-Broker'> 
+                  <button
+                    type="button"
+                    className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
+                  >
+                    Cancel
+                  </button>
+                </Link>
                 <button
-                      type="submit"
-                      className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
-                    >
-                       Cancel
-                    </button>
-                    </Link>
-                    <button
-                      type="submit"
-                      className="w-full rounded border border-blue bg-blue p-3 text-white transition hover:bg-opacity-90"
-                    >
-                      Verify
-                    </button>
-                    </div>
-                </form>
+                  type="submit"
+                  className="w-full rounded border border-blue bg-blue p-3 text-white transition hover:bg-opacity-90 active:text-black"
+                  onClick={handleSubmit}
+                >
+                  Verify
+                </button>
+              </div>
+            </div>
                 <div>
                   <span className="absolute -right-9 -top-10 z-[-1]">
                     <svg
@@ -898,34 +973,19 @@ const  Paisa= () => {
 };
 
 export default Paisa;
-
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
+const ContactInputBox = ({ type, placeholder, name, value, onChange  }) => {
   return (
     <>
-      <div className="mb-6">
-        <textarea
-          rows={row}
-          placeholder={placeholder}
-          name={name}
-          className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
-          defaultValue={defaultValue}
-        />
-      </div>
-    </>
-  );
-};
-
-const ContactInputBox = ({ type, placeholder, name }) => {
-  return (
-    <>
-      <div className="mb-6">
-        <input
-          type={type}
-          placeholder={placeholder}
-          name={name}
-          className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
-        />
-      </div>
+       <div className="mb-6">
+      <input
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
+      />
+    </div>
     </>
   );
 };

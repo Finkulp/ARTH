@@ -4,7 +4,7 @@ import Zerodtha from '../../../Images/Zerodtha.jpg'
 const Zerodha = () => {
   return (
     <>
-      <section className="relative z-10 overflow-hidden bg-white  dark:bg-dark lg:py-[30px]" style={{marginTop:"40px"}}  >
+      <section className="relative z-10 overflow-hidden bg-white  dark:bg-dark lg:py-[30px]" style={{marginTop:"100px"}}  >
         <div className="container">
           <div className="-mx-4 flex flex-wrap lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">

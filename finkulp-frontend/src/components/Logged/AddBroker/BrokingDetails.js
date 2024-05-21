@@ -1,110 +1,128 @@
 import React, { useEffect, useRef, useState } from "react";
-import Broker from "../BrokerDroplist";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../../CSS/Algoshopping.css";
 
 const BrokingDetails = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const trigger = useRef(null);
-  const modal = useRef(null);
-
-  // close on click outside
-  useEffect(() => {
-    const clickHandler = ({ target }) => {
-      if (!modal.current) return;
-      if (
-        !modalOpen ||
-        modal.current.contains(target) ||
-        trigger.current.contains(target)
-      )
-        return;
-      setModalOpen(false);
-    };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
-  });
-
-  // close if the esc key is pressed
-  useEffect(() => {
-    const keyHandler = ({ keyCode }) => {
-      if (!modalOpen || keyCode !== 27) return;
-      setModalOpen(false);
-    };
-    document.addEventListener("keydown", keyHandler);
-    return () => document.removeEventListener("keydown", keyHandler);
-  });
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(prevState => !prevState);
   };
-
   return (
     <>
-      <div className="container mx-auto py-20 ">
+      <div className="container mx-auto py-20 " style={{zIndex:'3'}}>
+       
+        <div>
         <button
-          ref={trigger}
-          onClick={() => setModalOpen(true)}
-          className={`rounded-full bg-primary px-6 py-3 text-base font-medium text-white`}
-          style={{ marginTop: "-200px" }}
+          id="dropdownDefaultButton"
+          onClick={toggleDropdown}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button"
         >
           Add Broker
-        </button>
-        <div
-          className={`fixed left-0 top-0 flex h-full min-h-screen w-full items-center justify-center bg-dark/90 px-4 py-5 ${
-            modalOpen ? "block" : "hidden"
-          }`}
-          style={{ marginTop: "50px", zIndex: "1" }}
-        >
-          <div
-            ref={modal}
-            onFocus={() => setModalOpen(true)}
-            onBlur={() => setModalOpen(false)}
-            className="w-full max-w-[1500px] rounded-[20px] bg-white px-8 py-12 text-center dark:bg-dark-2 md:px-[70px] md:py-[60px]"
-            style={{ border: "solid", height: "500px", overflowY: "auto" }}
+          <svg
+            className="w-2.5 h-2.5 ms-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
           >
-            <h3 className="pb-[18px] text-xl font-semibold text-dark dark:text-white sm:text-2xl">
-              Add a Broker
-            </h3>
-            <span
-              className={`mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary`}
-            ></span>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <div
-                className="Algoshoppingmain"
-                style={{
-                  border: "solid",
-                  width: "70%",
-                  borderWidth: "1px",
-                  color: "blue",
-                  position: "relative",
-                  borderRadius: "5px",
-                  height: "60px",
-                  paddingTop: "10px",
-                  alignItems: "center",
-                  marginTop: "-10px",
-                  zIndex: "2",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Broker />
-              </div>
-            </div>
-            <div style={{ zIndex: "1", marginTop: "20px" }}>
-              <Outlet>
-                <div className="text-center">
-                  <button
-                    onClick={handleCloseModal}
-                    className="block w-full rounded-md border border-stroke p-3 text-center text-base font-medium text-dark transition hover:border-red-600 hover:bg-red-600 hover:text-white dark:text-white"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </Outlet>
-            </div>
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+        {isDropdownOpen && (
+          <div
+          style={{zIndex:'200',width:"700px",position:"relative",left:'-720px',top:'-45px'}}
+            id="dropdown"
+            className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+          >
+            <ul
+              className="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdownDefaultButton"
+              style={{display:"flex"}}
+            >
+              <li>
+                <Link to='/loggedhome/5paisa'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  5Paisa
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/Alice-Blue'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Alice Blue
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/Angle-One'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  AngleOne
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/Kotak'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Kotak
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/Motilal'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Motilal
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/Upstocks'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Upstock
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/zerodtha'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  Zerodtha
+                </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/loggedhome/'>
+                <span
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  HDFC
+                </span>
+                </Link>
+              </li>
+            </ul>
           </div>
-        </div>
+        )}
+      </div>
       </div>
     </>
   );
