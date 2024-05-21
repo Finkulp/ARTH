@@ -38,14 +38,13 @@ const BrokingDetails = () => {
         </button>
         {isDropdownOpen && (
           <div
-          style={{zIndex:'200',width:"700px",position:"relative",left:'-720px',top:'-45px'}}
+          style={{zIndex:'200'}}
             id="dropdown"
             className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
           >
             <ul
               className="py-2 text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownDefaultButton"
-              style={{display:"flex"}}
             >
               <li>
                 <Link to='/loggedhome/5paisa'>

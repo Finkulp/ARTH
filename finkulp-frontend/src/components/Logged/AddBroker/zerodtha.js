@@ -1,7 +1,69 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Zerodtha from '../../../Images/Zerodtha.jpg'
+import { useState } from "react";
 const Zerodha = () => {
+  const [tradingPlatform, setTradingPlatform] = useState('');
+  const [loginId, setLoginId] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [totpKey, setTotpKey] = useState('');
+  const [nickname, setNickname] = useState('');
+
+  // Handlers to update state variables
+  const handleTradingPlatformChange = (e) => setTradingPlatform(e.target.value);
+  const handleLoginIdChange = (e) => setLoginId(e.target.value);
+  const handleLoginPasswordChange = (e) => setLoginPassword(e.target.value);
+  const handleTotpKeyChange = (e) => setTotpKey(e.target.value);
+  const handleNicknameChange = (e) => setNickname(e.target.value);
+
+  // Function to handle form submission
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return '';
+  }
+  async function handleSubmit() {
+    const addedBroker = {
+      name: "Zerodtha",
+      tradingPlatform,
+      loginId,
+      loginPassword,
+      totpKey,
+      nickname
+    };
+    console.log(JSON.stringify({ addedBroker }, null, 2));
+  
+    const authToken = getCookie('authToken');
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'authorization': authToken
+      },
+      body: JSON.stringify({ 
+        addedBroker: {
+          name: "Zerodtha",
+          tradingPlatform: tradingPlatform,
+          loginId: loginId,
+          loginPassword: loginPassword,
+          totpKey: totpKey,
+          nickname: nickname
+        }
+      })
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/notes/addBroker', requestOptions);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }
   return (
     <>
       <section className="relative z-10 overflow-hidden bg-white  dark:bg-dark lg:py-[30px]" style={{marginTop:"100px"}}  >
@@ -20,54 +82,64 @@ const Zerodha = () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12" >
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-                <form style={{textAlign:'left'}}>
+              <div style={{ textAlign: 'left' }}>
                   <div>Trading Platform*</div>
                   <ContactInputBox
                     type="text"
-                    name="name"
+                    name="tradingPlatform"
                     placeholder="KITE"
+                    value={tradingPlatform}
+                    onChange={handleTradingPlatformChange}
                   />
-                   <div>Trading Platform Login ID *</div>
+                  <div>Trading Platform Login ID *</div>
                   <ContactInputBox
                     type="text"
-                    name="number"
+                    name="loginId"
                     placeholder="Login Id"
+                    value={loginId}
+                    onChange={handleLoginIdChange}
                   />
-                  <div>Passowrd*</div>
+                  <div>Password*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="loginPassword"
                     placeholder="Trading Platform Login Password"
+                    value={loginPassword}
+                    onChange={handleLoginPasswordChange}
                   />
                   <div>TOTP Key*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="totpKey"
                     placeholder="TOTP Key"
+                    value={totpKey}
+                    onChange={handleTotpKeyChange}
                   />
-                  <div>Pseudo Name(Nickname)*</div>
+                  <div>Pseudo Name (Nickname)*</div>
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="nickname"
                     placeholder="Nickname"
+                    value={nickname}
+                    onChange={handleNicknameChange}
                   />
-                  <div style={{display:'flex',gap:"10px"}}>
-                <Link to='/loggedhome/Add-Broker/'> 
-                <button
-                      type="submit"
-                      className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
-                    >
-                       Cancel
-                    </button>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <Link to='/loggedhome/Add-Broker/'>
+                      <button
+                        type="button"
+                        className="w-full rounded border border-red bg-red p-3 text-white transition hover:bg-opacity-90"
+                      >
+                        Cancel
+                      </button>
                     </Link>
                     <button
-                      type="submit"
                       className="w-full rounded border border-blue bg-blue p-3 text-white transition hover:bg-opacity-90"
+                      onClick={handleSubmit}
                     >
                       Verify
                     </button>
-                    </div>
-                </form>
+                  </div>
+                </div>
                 <div>
                   <span className="absolute -right-9 -top-10 z-[-1]">
                     <svg
@@ -884,26 +956,8 @@ const Zerodha = () => {
     </>
   );
 };
-
 export default Zerodha;
-
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
-  return (
-    <>
-      <div className="mb-6">
-        <textarea
-          rows={row}
-          placeholder={placeholder}
-          name={name}
-          className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
-          defaultValue={defaultValue}
-        />
-      </div>
-    </>
-  );
-};
-
-const ContactInputBox = ({ type, placeholder, name }) => {
+const ContactInputBox = ({ type, placeholder, name,value,onChange }) => {
   return (
     <>
       <div className="mb-6">
@@ -911,6 +965,8 @@ const ContactInputBox = ({ type, placeholder, name }) => {
           type={type}
           placeholder={placeholder}
           name={name}
+          value={value}
+          onChange={onChange}
           className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
         />
       </div>

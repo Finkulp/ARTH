@@ -264,7 +264,7 @@ const Navbar = () => {
                     <div className="flex w-full items-center justify-between px-4 " style={{gap:"100px"}}>
                         <nav className="lg:block">
                             <ul className="block lg:flex" style={{gap:"30px",fontSize:"15px",fontWeight:"600",fontFamily:"poppins"}}>
-                               <Link to='/loggedhome/Dashboard'><span onClick={changeDasboard} style={{color:`${dashboard.color}`,textDecoration:`${dashboard.line}`}}>Dashboard</span></Link>
+                               <Link to='/loggedhome/'><span onClick={changeDasboard} style={{color:`${dashboard.color}`,textDecoration:`${dashboard.line}`}}>Dashboard</span></Link>
                                 <Link  to='/loggedhome/MarketPlace'><span onClick={changeMarketPlace} style={{color:`${marketpalce.color}`,textDecoration:`${marketpalce.line}`}}>Market Place</span></Link>
                                 <Link to='/loggedhome/Add-Broker'><span onClick={changeBroker} style={{color:`${broker.color}`,textDecoration:`${broker.line}`}}>Add Broker</span></Link>
                                 <Link to='/loggedhome/courses'><span onClick={changecourses} style={{color:`${courses.color}`,textDecoration:`${courses.line}`}}>Courses</span></Link>
