@@ -39,7 +39,7 @@ import AddnewMember from "./components/Admin/Members/Add_new_Member";
 import { useState } from "react";
 import EditDetails from "./components/Admin/Members/Edit_Details";
 import Checkout from "./components/Logged/Checkout/checkout";
-
+import PythonData from "./components/python";
 function App() {
   // const [dark,setdark]=useState({
   //   color:"white",
@@ -57,6 +57,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <PythonData></PythonData>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>

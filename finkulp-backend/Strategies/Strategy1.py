@@ -1,0 +1,1 @@
+print("This is Strategy 1")

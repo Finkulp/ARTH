@@ -1,8 +1,11 @@
 const express=require("express");
 const notes=require("../modles/notes");
 const User=require("../modles/auth");
+const path = require('path');
 const fetchuser=require('../middleware/fetchuser');
 const jwt=require("jsonwebtoken");
+const { spawn } = require('child_process');
+const { exec } = require('child_process');
 const serect_data="This is very confidentail";
 const app=express();
 app.use(express.json());
@@ -36,6 +39,47 @@ app.post("/addStrategy", fetchuser, async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+app.get('/:scriptName', (req, res) => {
+  const scriptName = req.params.scriptName;
+  console.log(scriptName);
+  const childPython = spawn('python', [`Brokers/${scriptName}`]);
+  // Listen for data event to capture stdout
+  childPython.stdout.on('data', (data) => {
+    console.log(`stderr:${data}`);
+    res.send(data);
+  });
+
+  // Listen for error event to handle stderr
+  childPython.stderr.on('data', (data) => {
+    console.error(`stderr:${data}`);
+  });
+
+  // Listen for close event to send the response
+  childPython.on('close', (code) => {
+   console.log(`child process exited with code ${code}`);
+  });
+});
+
+// app.get('Strategies/:scriptName', (req, res) => {
+//   const scriptName = req.params.scriptName;
+//   const childPython = spawn('python', [`${scriptName}`]);
+//   // Listen for data event to capture stdout
+//   childPython.stdout.on('data', (data) => {
+//     console.log(`stderr:${data}`);
+//     res.send(data);
+//   });
+
+//   // Listen for error event to handle stderr
+//   childPython.stderr.on('data', (data) => {
+//     console.error(`stderr:${data}`);
+//   });
+
+  // Listen for close event to send the response
+//   childPython.on('close', (code) => {
+//    console.log(`child process exited with code ${code}`);
+//   });
+// });
 
 
 
