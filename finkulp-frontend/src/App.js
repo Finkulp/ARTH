@@ -57,7 +57,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <PythonData></PythonData>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
