@@ -17,7 +17,8 @@ const AddnewMember = () => {
         complete: '',
         name: '',
         category: '',
-        certificate: null
+        certificate: null,
+        certificatePreview: null
       },
     ]
   });
@@ -32,29 +33,39 @@ const AddnewMember = () => {
     }));
   };
 
-  const handleFileChange1 = (e) => {
+  const handleFileChange = (e, key) => {
     const file = e.target.files[0];
-    setMemberDetails(prevDetails => ({
-      ...prevDetails,
-      CV: file
-    }));
-  };
-  const handleFileChange2 = (e) => {
-    const file = e.target.files[0];
-    setMemberDetails(prevDetails => ({
-      ...prevDetails,
-      image: file
-    }));
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setMemberDetails(prevDetails => ({
+        ...prevDetails,
+        [key]: reader.result
+      }));
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
-  const handleFileChange = (e, index) => {
+  const handleCertificationFileChange = (e, index) => {
     const file = e.target.files[0];
-    const newCertifications = [...memberDetails.certification];
-    newCertifications[index]['certificate'] = file;
-    setMemberDetails(prevDetails => ({
-      ...prevDetails,
-      certification: newCertifications
-    }));
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      const newCertifications = [...memberDetails.certification];
+      newCertifications[index]['certificate'] = reader.result;
+      newCertifications[index]['certificatePreview'] = URL.createObjectURL(file);
+      setMemberDetails(prevDetails => ({
+        ...prevDetails,
+        certification: newCertifications
+      }));
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleCertificationChange = (e, index) => {
@@ -71,7 +82,7 @@ const AddnewMember = () => {
     const count = parseInt(e.target.value, 10);
     setCertificateCount(count);
     const newCertifications = Array.from({ length: count }, (_, index) => (
-      memberDetails.certification[index] || { organization: '', complete: '', name: '', category: '', certificate: null }
+      memberDetails.certification[index] || { organization: '', complete: '', name: '', category: '', certificate: null, certificatePreview: null }
     ));
     setMemberDetails(prevDetails => ({
       ...prevDetails,
@@ -98,8 +109,13 @@ const AddnewMember = () => {
           <input type="text" name="role" value={memberDetails.role} onChange={handleInputChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Image URL:</label>
-          <input type="file" name="image"  onChange={handleFileChange2} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <label className="block text-gray-700 text-sm font-bold mb-2">Image:</label>
+          <input type="file" name="image" onChange={(e) => handleFileChange(e, 'image')} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          {memberDetails.image && (
+            <div className="mt-2">
+              <img src={memberDetails.image} alt="Preview" className="w-20 h-20 object-cover rounded-full" />
+            </div>
+          )}
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
@@ -123,7 +139,7 @@ const AddnewMember = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Upload the CV:</label>
-          <input type="file" name="cv" onChange={handleFileChange1} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          <input type="file" name="CV" onChange={(e) => handleFileChange(e, 'CV')} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Enter the Number of Certificates:</label>
@@ -150,7 +166,12 @@ const AddnewMember = () => {
             </div>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">Upload the Certificate:</label>
-              <input type="file" name="file" onChange={(e) => handleFileChange(e, index)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              <input type="file" name="certificate" onChange={(e) => handleCertificationFileChange(e, index)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              {cert.certificatePreview && (
+                <div className="mt-2">
+                  <img src={cert.certificatePreview} alt={`Certificate ${index + 1} Preview`} className="w-20 h-20 object-cover " />
+                </div>
+              )}
             </div>
           </div>
         ))}

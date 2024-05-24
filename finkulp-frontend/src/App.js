@@ -41,6 +41,7 @@ import EditDetails from "./components/Admin/Members/Edit_Details";
 import Checkout from "./components/Logged/Checkout/checkout";
 import LoginState from "./Context/Login/LoginState";
 import SignUpState from "./Context/SignUp/SignUpState";
+import DetailsState from "./Context/Details/DetailsState";
 function App() {
   const[checkout,setchekout]=useState("");
   const[tradingStrategy,settradingStrategy]=useState("");
@@ -55,6 +56,7 @@ function App() {
     <>
 
       <BrowserRouter>
+      <DetailsState>
       <SignUpState>
       <LoginState>
         <Routes>
@@ -103,6 +105,7 @@ function App() {
         </Routes>
         </LoginState>
         </SignUpState>
+        </DetailsState>
         <Footer />
       </BrowserRouter>
   

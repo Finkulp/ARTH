@@ -69,16 +69,25 @@ app.post("/login", async (req, res) => {
 
 // for getting the details of user
 app.post("/fetchuser", fetchuser, async (req, res) => {
- jsonweb.verify(req.token,serect_data,(err,authData)=>{
-  if(err){
-    res.send("Invalid token");
-  }
-  else{
-    res.json({
-      authData
-    })
-  }
- })
+  jsonweb.verify(req.token, serect_data, async (err, authData) => {
+    if (err) {
+      res.status(403).send("Invalid token");
+    } else {
+      try {
+        console.log(authData.id);
+        const findUser = await user.findOne({ _id:authData.id });
+        console.log(findUser);
+        if (findUser) {
+          res.json(findUser);
+        } else {
+          res.status(404).send("User not found");
+        }
+      } catch (error) {
+        console.error('Error querying database:', error.message);
+        res.status(500).send("Server error");
+      }
+    }
+  });
 });
 
 

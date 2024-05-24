@@ -14,6 +14,8 @@ import kotak from '../../../Images/kotak.png';
 import '../../../CSS/Algoshopping.css'
 import Chart from "react-apexcharts";
 import { useState } from 'react';
+import DetailContext from '../../../Context/Details/DetailsContext';
+import { useContext } from 'react';
 export default function Dashboard(props) {
   const[profit,setprofit]=useState(false);
   const [value, setValue] = useState({
