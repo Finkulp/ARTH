@@ -39,12 +39,9 @@ import AddnewMember from "./components/Admin/Members/Add_new_Member";
 import { useState } from "react";
 import EditDetails from "./components/Admin/Members/Edit_Details";
 import Checkout from "./components/Logged/Checkout/checkout";
-import PythonData from "./components/python";
+import LoginState from "./Context/Login/LoginState";
+import SignUpState from "./Context/SignUp/SignUpState";
 function App() {
-  // const [dark,setdark]=useState({
-  //   color:"white",
-  //   background:"black"
-  // })
   const[checkout,setchekout]=useState("");
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
@@ -56,7 +53,10 @@ function App() {
   const[added,setadded]=useState(false);
   return (
     <>
+
       <BrowserRouter>
+      <SignUpState>
+      <LoginState>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -101,8 +101,11 @@ function App() {
             <Route path='editdetails' element={<EditDetails member={MemberDetails}></EditDetails>}></Route>
           </Route>
         </Routes>
+        </LoginState>
+        </SignUpState>
         <Footer />
       </BrowserRouter>
+  
     </>
   );
 }

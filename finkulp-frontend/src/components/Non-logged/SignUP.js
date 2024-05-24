@@ -1,82 +1,26 @@
 import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useContext} from 'react';
+import SignUpContext from "../../Context/SignUp/SignUpContext";
 const SignUP = () => {
-  const Navigate=useNavigate();
-  const[password,setpassword]=useState("");
-  const[name,setname]=useState("");
-  const[number,setnumber]=useState("");
-  const[email,setemail]=useState("");
-  const[wait,setwait]=useState(false);
+  const{email,setemail,password,setpassword,number,setnumber,wait,setwait,name,setname,signup}=useContext(SignUpContext);
   function newname(event){
     setname(event.target.value);
+    console.log(name);
   }
   function newemail(event){
     setemail(event.target.value);
+    console.log(email);
   }
   function newnumber(event){
     setnumber(event.target.value);
+    console.log(number);
 
   }
   function newpassword(event){
     setpassword(event.target.value);
+    console.log(password);
 
   }
-  function getTokenFromCookie() {
-    const cookies = document.cookie.split(';');
-    let authToken = null;
-    cookies.forEach(cookie => {
-        const [name, value] = cookie.trim().split('=');
-        if (name === 'authToken') {
-            authToken = value;
-        }
-    });
-    return authToken;
-}
-  async function signup() {
-    setwait(true);
-    console.log(name);
-    console.log(email);
-    console.log(password);
-    console.log(number);
-
-    await fetch("http://localhost:5000/auth/", {
-        method: "POST",
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-            mobile:number
-        }),
-        headers: {
-            "Content-type": "application/json"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data.authToken);
-        Navigate('/loggedhome');
-        // Set the token in a cookie
-        document.cookie = `authToken=${data.authToken}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-      const authToken = getTokenFromCookie();
-      if (authToken) {
-      console.log('Authentication token:', authToken);
-      } else {
-      console.log('Authentication token not found in the cookie.');
-      }
-    setwait(false);
-}
-
-
   return (
     <div className="h-[100vh] items-center flex justify-center px-5 lg:px-0" style={{marginTop:"100px"}}>
       <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1">
