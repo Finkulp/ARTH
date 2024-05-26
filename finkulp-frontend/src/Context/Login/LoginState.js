@@ -4,7 +4,7 @@ import { useContext } from "react";
 import DetailContext from "../Details/DetailsContext";
 import {useState} from 'react'
 const LoginState=(props)=>{
-    const{setAuthToken,getDetails}=useContext(DetailContext);
+    const{getDetails }=useContext(DetailContext);
     //Handling the Login part
     const[wait,setwait]=useState();
    const Navigate=useNavigate();
@@ -54,7 +54,7 @@ const LoginState=(props)=>{
           if (authToken) {
           console.log('Authentication token:', authToken);
           Navigate('/loggedhome');
-          getDetails();
+        //   getDetails();
           } else {
           console.log('Authentication token not found in the cookie.');
           }

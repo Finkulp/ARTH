@@ -1,6 +1,7 @@
 import React from "react";
 import vid from '../../Animations/landingpage1.mp4'
-import graph from '../../Animations/Trading.webp'
+import TradingLaptop from '../../Animations/TradingLaptop.png'
+import TradingPhone from '../../Animations/TradingPhone.png'
 import YouGet from './YouGet'
 import StepPage from "./StepPage";
 import Stats from "./Stats";
@@ -55,9 +56,12 @@ const Home = () => {
               </div>
             </div>
             </div>
-            <div className="w-full " style={{position:'relative',paddingTop:"-100px",display:'flex',justifyContent:'center'}}>
+            <div className="w-full " style={{position:'relative',paddingTop:"-130px",display:'flex',justifyContent:'center',marginTop:'-55px'}}>
                 <div className="relative z-10 inline-block pt-11 lg:pt-0">
-                  <img src={graph} style={{background:"white",marginTop:'30px',height:'400px'}}></img>  
+                  <div style={{display:'flex', gap:'50px'}}>
+                  <img src={TradingLaptop} style={{marginTop:'30px',height:'500px'}}></img>  
+                  <img src={TradingPhone} style={{marginTop:'30px',height:'500px'}}></img>  
+                  </div>
                   <video
                 autoPlay
                 loop
@@ -65,7 +69,7 @@ const Home = () => {
                 style={{
                     position: 'absolute',
                     top: '115%',
-                    left: '30%',
+                    left: '50%',
                     transform: 'translate(-50%, -50%)',
                     width:'500px',
                     objectFit: 'cover',

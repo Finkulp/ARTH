@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {  useEffect } from 'react'
 import Home from '../Home';
 import TradingStrategy from '../TradingStrategy';
 import MyStrategies from './MyStrategies';
@@ -16,8 +16,10 @@ import Chart from "react-apexcharts";
 import { useState } from 'react';
 import DetailContext from '../../../Context/Details/DetailsContext';
 import { useContext } from 'react';
+import '../../../CSS/Algoshopping.css'
 export default function Dashboard(props) {
   const[profit,setprofit]=useState(false);
+  const{getDetails,userDetails }=useContext(DetailContext);
   const [value, setValue] = useState({
     options: {
       chart: {
@@ -55,48 +57,54 @@ export default function Dashboard(props) {
       }
     ]
   });
+  // useEffect(() => {
+  //   async function fetchDetails() {
+  //     await getDetails();
+  //   }
+  //   fetchDetails();
+  // }, [userDetails]);
   return (
     <div >
-      <Home name={"Arun Rathaur"}></Home>
+      <Home name={userDetails.name}></Home>
       <div style={{display:'flex'}}>
       <div>
-      <div style={{fontSize:"35px",fontWeight:'500',paddingLeft:"100px"}}>Dashboard</div>
-      <div style={{display:"flex",paddingLeft:"50px",paddingRight:"100px",marginTop:"10px",}}>
-      <div className='border-blue dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-blue' style={{width:"300px"}} >
+      <div style={{fontSize:"35px",fontWeight:'500',paddingLeft:"100px",marginTop:'20px'}}>Dashboard</div>
+      <div style={{display:"flex",paddingLeft:"50px",paddingRight:"100px",marginTop:"30px",}}>
+      <div className='DashboardDetails border-blue dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-blue ' style={{width:"300px"}} >
         <div>Net Capital Value</div>
-        <div style={{fontSize:"25px"}}>100000</div>
+        <div style={{fontSize:"25px"}}>{userDetails.netCaptialValue}</div>
       </div>
-      <div className='border-blue dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-blue' style={{width:"300px",marginLeft:"50px"}} >
+      <div className=' DashboardDetails border-blue dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-blue' style={{width:"300px",marginLeft:"50px"}} >
         <div>Profit/Loss%</div>
-        <div style={{fontSize:"25px"}}>+5%</div>
+        <div style={{fontSize:"25px"}}>{userDetails.PandL}</div>
       </div>
-      <center><div className=' className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'  style={{height : "50px",width:"200px",alignContent:"center",marginLeft:'20px',color:'white'}}>
+      {/* <center><div className=' className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'  style={{height : "50px",width:"200px",alignContent:"center",marginLeft:'20px',color:'white'}}>
         <Link to='/loggedhome/Add-Broker'><div>Add Broker</div></Link>
-      </div></center>
+      </div></center> */}
       </div>
-      <div style={{display:'flex',justifyContent:'space-evenly',paddingLeft:"50px",paddingRight:"100px",paddingTop:"20px",gap:"50px"}}>
-      <div className='border-black dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px'}}>
+      <div style={{display:'flex',paddingLeft:"50px",paddingRight:"100px",paddingTop:"20px",gap:"40px",marginBottom:'50px',marginTop:'20px',flexWrap:'wrap',width:'900px'}}>
+      <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
         <div>Trading Volume</div>
-        <div  style={{fontSize:"25px"}}>1000</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.TradingVolume}</div>
       </div>
-      <div className='border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green'style={{paddingLeft:"20px",paddingRight:'20px'}} >
+      <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green'style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}} >
         <div>Profit/Loss</div>
-        <div  style={{fontSize:"25px"}}>1000</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.PandL}</div>
       </div>
-      <div className='border-cyan dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-cyan'style={{paddingLeft:"20px",paddingRight:'20px'}}>
+      <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green'style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
         <div>Finkulp Money Usage</div>
-        <div  style={{fontSize:"25px"}}>1000</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.finkulpMoneyUsage}</div>
       </div>
-      <div className='border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green'style={{paddingLeft:"20px",paddingRight:'20px'}} >
+      <div className='DashboardDetails2 border-cyan dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-cyan'style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}} >
         <div>Strategies Deployed</div>
-        <div  style={{fontSize:"25px"}}>9</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.StrategiesDeployed}</div>
       </div>
-      <div className='border-black dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black'style={{paddingLeft:"20px",paddingRight:'20px'}}>
+      <div className='DashboardDetails2 border-cyan dark:pink border rounded-md  py-3 px-7 text-center text-base font-medium text-cyan'style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
         <div>Learning Credits</div>
-        <div  style={{fontSize:"25px"}}>25</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.LearningCredits?userDetails.LearningCredits:0}</div>
       </div>
       </div>
-      <div style={{border:'solid',width:"800px",height:'150px',marginTop:"10px",marginLeft:'100px',borderRadius:'10px',boxShadow:'1px 1px 3px blue',borderWidth:'1px',borderColor:'green',display:'flex',overflowX:'auto'}}>
+      <div style={{border:'solid',width:"100%",height:'150px',marginTop:"100px",marginLeft:'50px',borderRadius:'10px',boxShadow:'1px 1px 5px black',borderWidth:'1px',borderColor:'green',display:'flex',overflowX:'auto',marginBottom:'50px'}}>
         <div style={{marginTop:'10px',marginLeft:'10px'}}>
           <div style={{width:'220px',marginTop:'20px'}}><i class="fa-regular fa-circle-xmark" style={{color:'red',position:'relative',left:"50px",fontSize:'25px'}}></i></div>
         <div>Finkulp Funds Insufficient</div>
@@ -125,9 +133,10 @@ export default function Dashboard(props) {
       </div>
       
       </div>
-      <div style={{position:'relative', left:"-20px", top:"20px"}}>
+      <div style={{position:'relative', left:"-300px", top:"50px"}}>
       {profit &&
       <div>
+        <div style={{display:'flex',justifyContent:'right'}}>
         <button
           type="button"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -135,11 +144,12 @@ export default function Dashboard(props) {
         >
           View Full Details
         </button>
+        </div>
         <Chart
           options={profit_vlaues.options}
           series={profit_vlaues.series} // Corrected this line to access the second series
           type="area"
-          width="500"
+          width="600"
 
         />
         <div style={{display:'flex'}}>
@@ -150,6 +160,7 @@ export default function Dashboard(props) {
       }
       {!profit &&
       <div>
+        <div style={{display:'flex',justifyContent:'right'}}>
         <button
           type="button"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -157,25 +168,26 @@ export default function Dashboard(props) {
         >
           Show Profit
         </button>
+        </div>
         <Chart
           options={value.options}
           series={value.series}
           type="area"
-          width="500"
+          width="600"
         />
       </div>
       }
       </div>
       </div>
-      <div style={{display:'flex',gap:"30px",paddingLeft:"100px",paddingRight:"100px"}}>
+      <div style={{display:'flex',gap:"30px",paddingLeft:"50px",paddingRight:"100px"}}>
             <div style={{  gap: '30px' }}>
-        <div style={{ boxShadow: '1px 1px 5px blue', height: '400px', borderWidth: '1px', borderColor: 'blue', marginTop: '10px', borderRadius: '10px', overflowY: 'auto' }}>
+        <div style={{  height: '600px', borderWidth: '1px', borderColor: 'blue', marginTop: '10px', borderRadius: '10px', overflowY: 'auto' }}>
           <div style={{ textAlign: 'center', fontSize: '24px', fontWeight: '500', paddingTop: '20px', paddingBottom: '10px', color: 'blue' }}>My Strategies</div>
-          <MyStrategies></MyStrategies>
+          <MyStrategies Strategies={userDetails.addedStrategies}></MyStrategies>
         </div>
       </div>
 
-        <div style={{boxShadow:"1px 1px 5px blue",height:'400px',borderWidth:"1px",borderColor:"blue",marginTop:"10px",borderRadius:"10px",overflowY: 'auto'}} >
+        <div style={{height:'600px',borderWidth:"1px",borderColor:"blue",marginTop:"10px",borderRadius:"10px",overflowY: 'auto'}} >
         <div style={{textAlign:'center',fontSize:"24px",fontWeight:"500",paddingTop:"20px",paddingBottom:"10px",color:'blue'}}>More Strategies</div>
       <TradingStrategy setViewAlgo={props.setViewAlgo}></TradingStrategy>
         <div style={{display:"flex",justifyContent:"center",paddingTop:"10px"}}>
@@ -187,14 +199,14 @@ export default function Dashboard(props) {
       </div>
       </div>
       <div style={{marginLeft:"100px",display:"flex",flexWrap:"wrap",justifyContent:'center'}}>
-      <img src = {zerodha} style={{height:"100px", width:"300px"}}></img>
-      <img src = {upstox} style={{height:"100px", width:"300px"}}></img>
-      <img src = {kotak} style={{height:"100px", width:"200px"}}></img>
-      <img src = {motilal} style={{height:"100px", width:"300px"}}></img>
-      <img src = {alice} style={{height:"100px", width:"300px"}}></img>
-      <img src = {hdfc} style={{height:"100px", width:"250px"}}></img>
-      <img src = {paisa} style={{height:"70px", width:"250px",marginTop:"20px",marginLeft:"40px",marginRight:"20px"}}></img>
-      <img src = {angel} style={{height:"100px", width:"25r0px"}}></img>
+      <img src = {zerodha} style={{height:"100px", width:"300px"}} alt="Zerodha"></img>
+      <img src = {upstox} style={{height:"100px", width:"300px"}} alt="upstox"></img>
+      <img src = {kotak} style={{height:"100px", width:"200px"}} alt="kotak"></img>
+      <img src = {motilal} style={{height:"100px", width:"300px"}}alt="Motilal"></img>
+      <img src = {alice} style={{height:"100px", width:"300px"}}alt="Alice-Blue"></img>
+      <img src = {hdfc} style={{height:"100px", width:"250px"}}alt="HDFC"></img>
+      <img src = {paisa} style={{height:"70px", width:"250px",marginTop:"20px",marginLeft:"40px",marginRight:"20px"}} alt="5Paisa"></img>
+      <img src = {angel} style={{height:"100px", width:"25r0px"}} alt="AngleOne"></img>
       </div>
     </div>
   )

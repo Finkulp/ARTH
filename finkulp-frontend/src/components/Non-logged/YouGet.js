@@ -12,23 +12,64 @@ const YouGet = () => {
         <h1 style={{fontWeight:"300",fontSize:"26px",textAlign:"center",paddingBottom:"50px"}}>Revolutionary features unseen in the trading realm, now consolidated under one roof!</h1>
         <div className="container">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+            className="text-base "
+            data-aos="fade-right"
+            data-aos-offset="50"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+            style={{position:"relative",left:'50px',top:"50px",zIndex:'1'}}>
             <SingleCard
+              Color='black'
+              color='rgb(146, 247, 239)'
               animation={AlogorithmicTrading}
               CardTitle="Real Time Execution"
               CardDescription="Harness the potential of technology-driven trading algorithms, impervious to emotional impulses, laying the groundwork for disciplined and profitable trading strategies."
             />
+            </div>
+            <div className="mb-10 overflow-hidden rounded-lg  shadow-1 duration-300 hover:shadow-3 text-base "
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+            style={{zIndex:"2",background:'blue'}}
+               >
             <SingleCard
               animation={RealTime}
               CardTitle="Algorithmic Strategies"
               CardDescription="Unlock Automated Trading Excellence with Algo Shopping!
               Effortlessly Execute Winning Strategies on Your Terms!"
-            />
+              style={{background:'blue'}}
+              color='blue'
+              Color='white'
+            /></div>
+            <div
+            className="text-base "
+            data-aos="fade-left"
+            data-aos-offset="50"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+            style={{position:'relative',left:"-50px",top:"50px",zIndex:"1",color:'white'}}>
             <SingleCard
               animation={LearningProgram}
+              color='rgb(146, 247, 239)'
+              Color='black'
               CardTitle="Learning Programs"
               CardDescription="Empower yourself with essential trading knowledge through our comprehensive courses. Learn, practice, and master the art of trading at your own pace."
-
             />
+            </div>
           </div>
         </div>
       </section>
@@ -43,22 +84,23 @@ const SingleCard = ({
   Button,
   CardDescription,
   CardTitle,
-  titleHref,
+  color,
   btnHref,
+  Color
 }) => {
   return (
     <>
-      <div className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3  ">
-        <Lottie animationData={animation} style={{height:"300px"}}/>
+      <div className="mb-10 overflow-hidden rounded-lg bg-white  duration-300 hover:shadow-3  " style={{background:`${color}`}}>
+        <Lottie animationData={animation} style={{height:"270px"}}/>
         <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
           <h3>
             <a
-              className="mb-4 block text-xl font-semibold text-dark hover:text-primary  sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]"
+              className={`mb-4 block text-xl font-semibold text-${Color} hover:text-dark  sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]`}
             >
               {CardTitle}
             </a>
           </h3>
-          <p className="mb-7 text-base leading-relaxed text-body-color 6">
+          <p className={`mb-7 text-base leading-relaxed text-${Color} 6`}>
             {CardDescription}
           </p>
 

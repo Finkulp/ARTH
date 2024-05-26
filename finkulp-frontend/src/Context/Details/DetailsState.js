@@ -33,7 +33,7 @@ function DetailsState(props) {
             }
 
             const data = await response.json();
-            setUserDetails(data);
+                 setUserDetails(data);
             console.log(data);
         } catch (err) {
             console.error('Error fetching user details:', err);
@@ -48,7 +48,7 @@ function DetailsState(props) {
     }, []);
 
     return (
-        <DetailContext.Provider value={{ getDetails }}>
+        <DetailContext.Provider value={{ getDetails,setUserDetails,userDetails }}>
             {props.children}
         </DetailContext.Provider>
     );

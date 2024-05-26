@@ -40,3 +40,27 @@
     background-color: rgb(49, 209, 230);
     scale:1.05;
 }
+.DashboardDetails{
+    scale: 1;
+    transition: 0.3s;
+}
+.DashboardDetails:hover{
+    scale: 1.05;
+    background-color: rgba(0, 0, 255, 0.197);
+}
+.DashboardDetails1{
+    scale: 1;
+    transition: 0.3s;
+}
+.DashboardDetails1:hover{
+    scale: 1.05;
+    background-color: rgba(0, 255, 0, 0.245);
+}
+.DashboardDetails2{
+    scale: 1;
+    transition: 0.3s;
+}
+.DashboardDetails2:hover{
+    scale: 1.05;
+    background-color: rgba(0, 255, 255, 0.356);
+}

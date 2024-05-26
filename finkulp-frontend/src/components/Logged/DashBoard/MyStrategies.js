@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,7 +9,8 @@ import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 import MyStrategiesStats from './MyStrategiesStats';
 import {myStrategies} from '../../../Data/MyStrategy_Dashboard';
-export default function MyStrategies() {
+import { Link } from 'react-router-dom';
+export default function MyStrategies(props) {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [selectedStrategy, setSelectedStrategy] = React.useState({overview:""});
 
@@ -34,8 +35,10 @@ export default function MyStrategies() {
               <TableCell align="right" style={{ fontWeight: "600" }}>BenchMark</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {myStrategies.map((strategy) => (
+        
+          {(props.Strategies && props.Strategies.length > 0) ? (
+            (props.Strategies).map((strategy) => (
+              <TableBody>
               <TableRow
                 key={strategy.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -47,8 +50,18 @@ export default function MyStrategies() {
                 <TableCell align="right">{strategy.earningPotential}</TableCell>
                 <TableCell align="right">{strategy.benchmark}</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
+              </TableBody>
+            ))
+          ) : (
+            <div style={{position:'relative',left:"180px"}}>
+              <div style={{paddingTop:"50px",marginBottom:'50px',textAlign:'center',width:'100%'}}>No Strategies are added yet</div>
+              <Link to='/loggedhome/MarketPlace/'>
+                <button className="py-3 text-base font-medium text-white hover:bg-green-400 hover:text-black bg-blue" style={{borderRadius: "10px",marginLeft:'50px',width:'200px',marginBottom:'300px'}}>
+                  Explore Strategies
+                </button>
+              </Link>
+            </div>
+          )}
         </Table>
       </TableContainer>
       <Modal
