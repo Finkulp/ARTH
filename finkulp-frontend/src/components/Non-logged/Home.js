@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import vid from '../../Animations/landingpage1.mp4'
 import TradingLaptop from '../../Animations/TradingLaptop.png'
 import TradingPhone from '../../Animations/TradingPhone.png'
@@ -10,13 +10,45 @@ import WhatPeopleSay from "./whatPeopleSay";
 import Code from '../../Animations/codetyping.mp4'
 import FAQ from './FAQ'
 import Navbar from "./Nevbar";
+import { useState } from "react";
 const Home = () => {
+  const words = ["Hello!", "Welcome to Finkulp!"];
+  const [currentWord, setCurrentWord] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(0);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = loopNum % words.length;
+      const fullText = words[i];
+
+      setCurrentWord(prev => 
+        isDeleting ? fullText.substring(0, prev.length - 1) : fullText.substring(0, prev.length + 1)
+      );
+
+      if (!isDeleting && currentWord === fullText) {
+        setTimeout(() => setIsDeleting(true), 0);
+      } else if (isDeleting && currentWord === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentWord, isDeleting, loopNum, typingSpeed, words]);
   return (
     <>
       <nav style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fff', width: '100%' }}>
       <Navbar style={{}}></Navbar>
     </nav>
-   
+    <div style={{position:"absolute",top:"60px",zIndex:"100",left:"500px"}}>
+        <div className="w-full h-full flex justify-center items-center" style={{ marginTop: '100px' }}>
+          <h1 id="typewriter" className="text-4xl font-bold"></h1>
+        </div>
+      </div>
       <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]" style={{position:"relative",zIndex:1}}>
       <video
                 autoPlay
@@ -44,7 +76,10 @@ const Home = () => {
                 <div className="mb-5 text-4xl font-bold !leading-[1.208] text-white dark:text-white  xl:text-5xl my-10" style={{marginTop:"100px"}}>
                 Innvoating Algorithms to Fuel Your Trading Success
                 </div>
-                <div className="mb-8   text-white ">
+                <div className=" text-4xl font-bold text-white dark:text-white  xl:text-5xl "style={{marginBottom:"30px",height:"30px"}}>
+                {currentWord}
+                </div>
+                <div className="text-white "style={{marginBottom:"30px"}}>
                 One Stop Shop for All Your Learning Needs
                 </div>
                     <a
