@@ -1,13 +1,14 @@
 import React from "react";
-
+import BlueBackground4 from '../../Animations/BlueBackground2.jpg'
 export default function FAQ() {
   return (
-    <div className="container mx-auto px-4">
+    <div style={{background:`url(${BlueBackground4})`, backgroundSize:'cover',paddingTop:'50px',marginTop:'-30px',paddingBottom:"100px"}}>
+    <div className="container mx-auto px-4" >
       <section className="mt-10">
         <h3 className="text-center mb-4 pb-2 text-primary font-bold text-3xl">
           Frequently Asked Questions
         </h3>
-        <p className="text-center mb-5">
+        <p className="text-center mb-5" style={{color:'seagreen'}}>
           What is Finkulp, and how does it work?
         </p>
 
@@ -36,7 +37,7 @@ export default function FAQ() {
               </svg>
               What is Finkulp, and how does it work?
             </h6>
-            <p>
+            <p style={{color:'seagreen'}}>
               Finkulp is a user-friendly trading platform that connects users with global financial markets.
             </p>
           </div>
@@ -58,7 +59,7 @@ export default function FAQ() {
               </svg>
               Do I need any prior experience to start trading on Finkulp?
             </h6>
-            <p>
+            <p style={{color:'seagreen'}}>
               No prior trading experience is required. Finkulp offers educational resources like courses to help beginners understand trading basics and use the platform effectively.
             </p>
           </div>
@@ -86,7 +87,7 @@ export default function FAQ() {
               </svg>
               How secure is my personal and financial information on Finkulp?
             </h6>
-            <p>
+            <p style={{color:'seagreen'}}>
               Finkulp prioritizes security with encryption, secure servers, and authentication protocols to protect user data and ensure a safe trading environment.
             </p>
           </div>
@@ -108,12 +109,13 @@ export default function FAQ() {
               </svg>
               Are there any fees or commissions associated with trading on Finkulp?
             </h6>
-            <p>
+            <p style={{color:'seagreen'}}>
               Finkulp's fee structure is transparent and based on the type of instrument traded, trade size, and account type. Users can review the fee schedule before trading.
             </p>
           </div>
         </div>
       </section>
+    </div>
     </div>
   );
 }

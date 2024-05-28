@@ -5,12 +5,13 @@ import LearnEarn from '../../Animations/LearnEarn.json';
 import AddBroker from '../../Animations/AddBroker.png'
 import selectInvest from '../../Animations/selectInvest.json';
 import Grow from '../../Animations/Grow.json';
-
+import BlueBackground2 from '../../Animations/BlueBackground2.jpg';
 const StepPage = () => {
   return (
     <>
+    <div  style={{background:`url(${BlueBackground2})`}}>
     <div style={{display:"flex",justifyContent:"center"}}>
-      <div style={{fontSize:'30px',paddingTop:'270px',fontWeight:'600', fontFamily:'poppins'}}>Step-by-Step Guide to Wealth Creation!</div>
+      <div style={{fontSize:'30px',paddingTop:'270px',fontWeight:'600', fontFamily:'poppins',color:'rgb(10,255,0)'}}>Step-by-Step Guide to Wealth Creation!</div>
       </div>
       <div className="container mx-auto">
         {/* Login/Register Section */}
@@ -19,7 +20,7 @@ const StepPage = () => {
             <Lottie animationData={LoginAnimation} style={{ width: '60%',paddingTop:"100px" }} />
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0">
-            <h1 className="text-2xl font-bold mb-4">Login/Register</h1>
+            <h1 className="text-2xl font-bold mb-4" style={{color:'blue'}}>Login/Register</h1>
             <p className="text-base"
                data-aos="fade-up"
                data-aos-offset="50"
@@ -28,7 +29,7 @@ const StepPage = () => {
                data-aos-easing="ease-in-out"
                data-aos-mirror="true"
                data-aos-once="false"
-               data-aos-anchor-placement="top-center">
+               data-aos-anchor-placement="center" style={{color:'seagreen',fontWeight:'500',fontSize:'18',fontFamily:'poppins'}}>
               Create an account on our platform by signing up or logging in if you already have an account. Provide basic information and set up your profile securely.
             </p>
           </div>
@@ -37,7 +38,7 @@ const StepPage = () => {
         {/* Learn and Earn Section */}
         <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between mt-4 md:mt-8" style={{marginTop:"-320px"}}>
           <div className="md:w-1/2 order-last md:order-first mt-4 md:mt-0">
-            <h1 className="text-2xl font-bold mb-4">Learn and Earn</h1>
+            <h1 className="text-2xl font-bold mb-4"style={{color:'blue'}}>Learn and Earn</h1>
             <p className="text-base"   data-aos="fade-up"
                data-aos-offset="50"
                data-aos-delay="50"
@@ -45,7 +46,7 @@ const StepPage = () => {
                data-aos-easing="ease-in-out"
                data-aos-mirror="true"
                data-aos-once="false"
-               data-aos-anchor-placement="top-center">
+               data-aos-anchor-placement="center" style={{color:'seagreen',fontWeight:'500',fontSize:'18',fontFamily:'poppins'}}>
             We are the pioneers of the Indian Financial Markets offering both learning & earning opportunities under one roof. Explore our wide range of online/offline courses on Financial Literacy, Trading & Investment, Money Management, Risk Management and Mind, Body & Spirit - Necessary Trinity for Stock Market
             </p>
           </div>
@@ -62,7 +63,7 @@ const StepPage = () => {
             </div>
           </div>
           <div className="md:w-1/2 mt-4 md:mt-0">
-            <h1 className="text-2xl font-bold mb-4">Add Broker and Explore Resources</h1>
+            <h1 className="text-2xl font-bold mb-4"style={{color:'blue'}}>Add Broker and Explore Resources</h1>
             <p className="text-base"
                data-aos="fade-up"
                data-aos-offset="50"
@@ -71,7 +72,7 @@ const StepPage = () => {
                data-aos-easing="ease-in-out"
                data-aos-mirror="true"
                data-aos-once="false"
-               data-aos-anchor-placement="top-center">
+               data-aos-anchor-placement="center" style={{color:'seagreen',fontWeight:'500',fontSize:'18',fontFamily:'poppins'}}>
             Connect to your preferred or existing brokers and get started. Choose from a wide range of resources pertaining with Financial Markets
             </p>
           </div>
@@ -80,7 +81,7 @@ const StepPage = () => {
         {/* Select Strategies and Invest Section */}
         <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between mt-4 md:mt-8" style={{marginTop:"-150px",padding:'0px'}}>
           <div className="md:w-1/2 order-last md:order-first mt-4 md:mt-0">
-            <h1 className="text-2xl font-bold mb-4">Select Strategies and Invest</h1>
+            <h1 className="text-2xl font-bold mb-4"style={{color:'blue'}}>Select Strategies and Invest</h1>
             <p className="text-base"
                data-aos="fade-up"
                data-aos-offset="50"
@@ -89,7 +90,7 @@ const StepPage = () => {
                data-aos-easing="ease-in-out"
                data-aos-mirror="true"
                data-aos-once="false"
-               data-aos-anchor-placement="top-center">
+               data-aos-anchor-placement="center" style={{color:'seagreen',fontWeight:'500',fontSize:'18',fontFamily:'poppins'}}>
               Use our tools to create personalized trading strategies and make informed investment decisions.
             </p>
           </div>
@@ -106,7 +107,7 @@ const StepPage = () => {
             </div>
           </div>
           <div className="md:w-1/2 mt-4 md:mt-0">
-            <h1 className="text-2xl font-bold mb-4">Grow Your Portfolio</h1>
+            <h1 className="text-2xl font-bold mb-4"style={{color:'blue'}}>Grow Your Portfolio</h1>
             <p className="text-base"
                data-aos="fade-up"
                data-aos-offset="50"
@@ -115,11 +116,12 @@ const StepPage = () => {
                data-aos-easing="ease-in-out"
                data-aos-mirror="true"
                data-aos-once="false"
-               data-aos-anchor-placement="top-center">
+               data-aos-anchor-placement="center" style={{color:'seagreen',fontWeight:'500',fontSize:'18',fontFamily:'poppins'}}>
               Begin investing confidently, monitor performance, and adjust strategies for optimal returns.
             </p>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

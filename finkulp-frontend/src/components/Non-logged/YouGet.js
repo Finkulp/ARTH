@@ -3,13 +3,13 @@ import AlogorithmicTrading from '../../Animations/AlgorithmicTrading.json'
 import RealTime from '../../Animations/RealTime.json'
 import LearningProgram from '../../Animations/LearningProgram.json';
 import Lottie from "lottie-react";
-
+import BlueBackground3 from '../../Animations/BlueBackground2.jpg'
 const YouGet = () => {
   return (
     <>
-      <section className="bg-gray-2 pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
-        <h1 style={{fontWeight:"700",fontSize:"26px",textAlign:"center",paddingBottom:"50px"}}>With FINKULP you get ...</h1>
-        <h1 style={{fontWeight:"300",fontSize:"26px",textAlign:"center",paddingBottom:"50px"}}>Revolutionary features unseen in the trading realm, now consolidated under one roof!</h1>
+      <section className="bg-gray-2 pb-10 pt-20 lg:pb-20 lg:pt-[120px]" style={{background:`url(${BlueBackground3})`,backgroundSize:'cover'}}>
+        <h1 style={{fontWeight:"700",fontSize:"26px",textAlign:"center",paddingBottom:"50px", color:'blue',fontFamily:'poppins'}}>With FINKULP you get ...</h1>
+        <h1 style={{fontWeight:"300",fontSize:"26px",textAlign:"center",paddingBottom:"50px",color:'seagreen',fontFamily:'poppins'}}>Revolutionary features unseen in the trading realm, now consolidated under one roof!</h1>
         <div className="container">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div
@@ -21,7 +21,7 @@ const YouGet = () => {
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
             data-aos-once="false"
-            data-aos-anchor-placement="top-center"
+            data-aos-anchor-placement="center"
             style={{position:"relative",left:'50px',top:"50px",zIndex:'1'}}>
             <SingleCard
               Color='black'
@@ -39,7 +39,7 @@ const YouGet = () => {
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
             data-aos-once="false"
-            data-aos-anchor-placement="top-center"
+            data-aos-anchor-placement="center"
             style={{zIndex:"2",background:'blue'}}
                >
             <SingleCard
@@ -60,7 +60,7 @@ const YouGet = () => {
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
             data-aos-once="false"
-            data-aos-anchor-placement="top-center"
+            data-aos-anchor-placement="center"
             style={{position:'relative',left:"-50px",top:"50px",zIndex:"1",color:'white'}}>
             <SingleCard
               animation={LearningProgram}

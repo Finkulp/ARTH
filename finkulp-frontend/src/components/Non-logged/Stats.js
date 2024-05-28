@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-
+import BlueBackground1 from '../../Animations/BlueBackground3.jpg'
 export default function Stats() {
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -16,13 +16,14 @@ export default function Stats() {
   }, [inView]);
 
   return (
-    <div ref={ref}>
-      <section className="py-10 bg-white sm:py-16 lg:py-24">
+    <div>
+    <div ref={ref} >
+      <section className="py-10 bg-white  ">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="text-center">
             <h4
               className="text-xl font-bold text-gray-900"
-              style={{ fontWeight: '600', fontSize: '25px' }}
+              style={{ fontWeight: '600', fontSize: '25px',fontFamily:'poppins',color:"blue" ,paddingTop:'50px'}}
             >
               Numbers tell the hard works we've done so far
             </h4>
@@ -47,10 +48,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold text-gray-900">
-                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2} />}+
+                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
+                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2}style={{color:"blue"}} />}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
+                    <p className="mt-1.5 text-lg font-medium leading-tight" style={{color:'green'}}>
                       Brokers
                     </p>
                   </div>
@@ -76,10 +77,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold text-gray-900">
-                      {inView && <CountUp key={triggerCount} start={0} end={40} duration={2} />}+
+                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
+                      {inView && <CountUp key={triggerCount} start={0} end={40} duration={2} style={{color:"blue"}}/>}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
                       Clients
                     </p>
                   </div>
@@ -105,10 +106,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold text-gray-900">
-                      ₹{inView && <CountUp key={triggerCount} start={0} end={8} duration={2} />}Cr+
+                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
+                      ₹{inView && <CountUp key={triggerCount} start={0} end={8} duration={2} style={{color:"blue"}}/>}Cr+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
                       Invested
                     </p>
                   </div>
@@ -134,10 +135,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold text-gray-900">
-                      ₹{inView && <CountUp key={triggerCount} start={0} end={800} duration={2} />}Cr+
+                    <h4 className="text-4xl font-bold"style={{color:"blue"}}>
+                      ₹{inView && <CountUp key={triggerCount} start={0} end={800} duration={2}style={{color:"blue"}} />}Cr+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
                       Trading Volume
                     </p>
                   </div>
@@ -163,10 +164,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold text-gray-900">
-                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2} />}+
+                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
+                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2} style={{color:"blue"}}/>}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
                       Backtested Index & Stock Based Strategies
                     </p>
                   </div>
@@ -192,10 +193,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold text-gray-900">
-                      {inView && <CountUp key={triggerCount} start={0} end={25} duration={2} />}+
+                    <h4 className="text-4xl font-bold" style={{color:"blue"}} >
+                      {inView && <CountUp key={triggerCount} start={0} end={25} duration={2} style={{color:"blue"}} />}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
+                    <p className="mt-1.5 text-lg font-medium leading-tight" style={{color:'green'}}>
                       Officially Vetted & Self Tested Online Courses to Choose
                     </p>
                   </div>
@@ -205,6 +206,7 @@ export default function Stats() {
           </div>
         </div>
       </section>
+    </div>
     </div>
   );
 }
