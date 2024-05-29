@@ -24,8 +24,8 @@ const YouGet = () => {
             data-aos-anchor-placement="center"
             style={{position:"relative",left:'50px',top:"50px",zIndex:'1'}}>
             <SingleCard
-              Color='black'
-              color='rgb(146, 247, 239)'
+              Color='white'
+              color='seagreen'
               animation={AlogorithmicTrading}
               CardTitle="Real Time Execution"
               CardDescription="Harness the potential of technology-driven trading algorithms, impervious to emotional impulses, laying the groundwork for disciplined and profitable trading strategies."
@@ -64,8 +64,8 @@ const YouGet = () => {
             style={{position:'relative',left:"-50px",top:"50px",zIndex:"1",color:'white'}}>
             <SingleCard
               animation={LearningProgram}
-              color='rgb(146, 247, 239)'
-              Color='black'
+              Color='white'
+              color='seagreen'
               CardTitle="Learning Programs"
               CardDescription="Empower yourself with essential trading knowledge through our comprehensive courses. Learn, practice, and master the art of trading at your own pace."
             />

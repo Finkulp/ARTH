@@ -12,12 +12,12 @@ const Navbar = () => {
                 <div className="relative -mx-4 flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
                         <a href="/#" className="block w-full py-5">
-                            <img
+                           <Link to='/'><img
                                 src={img}
                                 alt="logo"
                                 className="w-full"
                                 style={{ paddingTop: '20px' }}
-                            />
+                            /></Link> 
                         </a>
                     </div>
                     <div className="flex w-full items-center justify-between px-4">
@@ -39,9 +39,10 @@ const Navbar = () => {
                                 } lg:block`}
                         >
                             <ul className="block lg:flex">
-                                <ListItem NavLink="/#" style={{ color: "blue" }}>Choose strategies</ListItem>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Features</ListItem>
-                                <ListItem NavLink="/#" style={{ color: "black" }}>Resources</ListItem>
+
+                              <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex">Choose strategies</div>
+                              <Link to='/NonLoggedFeatures'> <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex">Features</div></Link>  
+                                <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex">Resources</div>
                             </ul>
                         </nav>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
@@ -66,20 +67,4 @@ const Navbar = () => {
         </header>
     );
 };
-
-const ListItem = ({ children, NavLink }) => {
-    return (
-        <>
-            <li>
-                <a
-                    href={NavLink}
-                    className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex"
-                >
-                    {children}
-                </a>
-            </li>
-        </>
-    );
-};
-
 export default Navbar;

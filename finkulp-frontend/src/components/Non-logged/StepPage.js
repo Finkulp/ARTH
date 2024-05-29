@@ -9,7 +9,7 @@ import BlueBackground2 from '../../Animations/BlueBackground2.jpg';
 const StepPage = () => {
   return (
     <>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{position:'absolute',width:'50px',height:"300px",marginTop:"350px",left:'600px'}}>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{position:'absolute',width:'50px',height:"300px",marginTop:"350px",left:'600px'}} >
       <line x1="50" y1="-1000" x2="50" y2="1000" stroke="black" />
     </svg>
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{position:'absolute',width:'50px',height:"200px",marginTop:"550px",left:'700px' ,rotate:'90deg'}}>
@@ -36,7 +36,11 @@ const StepPage = () => {
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{position:'absolute',width:'50px',height:"200px",marginTop:"1450px",left:'600px'}}>
       <line x1="50" y1="-1000" x2="50" y2="1000" stroke="black" />
     </svg>
-    <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3'}}></i>
+    <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"500px",left:'615px',fontSize:"25px"}}></i>
+    <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"750px",left:'815px',fontSize:"25px"}}></i>
+    <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1000px",left:'615px',fontSize:"25px"}}></i>
+    <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1300px",left:'815px',fontSize:"25px"}}></i>
+    <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1550px",left:'615px',fontSize:"25px"}}></i>
     <div  style={{background:`url(${BlueBackground2})`,zIndex:"1"}}>
     <div style={{display:"flex",justifyContent:"center"}}>
       <div style={{fontSize:'30px',paddingTop:'270px',fontWeight:'600', fontFamily:'poppins',color:'rgb(10,255,0)'}}>Step-by-Step Guide to Wealth Creation!</div>
@@ -107,7 +111,7 @@ const StepPage = () => {
         </div>
 
         {/* Select Strategies and Invest Section */}
-        <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between mt-4 md:mt-8" style={{marginTop:"-150px",padding:'0px'}}>
+        <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between mt-4 md:mt-8" style={{marginTop:"-100px",padding:'0px'}}>
           <div className="md:w-1/2 order-last md:order-first mt-4 md:mt-0">
             <h1 className="text-2xl font-bold mb-4"style={{color:'blue'}}>Select Strategies and Invest</h1>
             <p className="text-base"

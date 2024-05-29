@@ -42,6 +42,7 @@ import Checkout from "./components/Logged/Checkout/checkout";
 import LoginState from "./Context/Login/LoginState";
 import SignUpState from "./Context/SignUp/SignUpState";
 import DetailsState from "./Context/Details/DetailsState";
+import FeaturesHome from "./components/Non-logged/Features/FeaturesHome";
 function App() {
   const[checkout,setchekout]=useState("");
   const[tradingStrategy,settradingStrategy]=useState("");
@@ -61,6 +62,7 @@ function App() {
       <LoginState>
         <Routes>
           <Route path='/' element={<Home />}></Route>
+          <Route path='/NonLoggedFeatures'element={<FeaturesHome></FeaturesHome>}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUP />}></Route>
           <Route path='/loggedhome' element={<Loggedin />}>
