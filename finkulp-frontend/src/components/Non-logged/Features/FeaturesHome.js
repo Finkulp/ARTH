@@ -2,8 +2,10 @@ import React from 'react'
 import Navbar from '../Nevbar'
 import '../../../CSS/Algoshopping.css'
 import Bluebackground from '../../../Animations/BlueBackground1.jpg'
+import Featurespage1 from './Featurespage1'
 export default function FeaturesHome() {
   return (
+    <>
     <div>
         <Navbar></Navbar>
         <div style={{marginTop:'100px',height:"400px",display:"flex",justifyContent:'center',alignItems:"center",background:`url(${Bluebackground})`,backgroundSize:'cover'}}>
@@ -23,9 +25,13 @@ export default function FeaturesHome() {
             <div class="Featuresbutton" style={{color:'white'}}>
               <span>Expore MarketPlace</span>  
                 </div>
-
-            </div></div>
+            </div>
+            </div>
         </div>
     </div>
+    <div style={{justifyContent:'center'}}> 
+   <Featurespage1></Featurespage1>
+   </div>
+   </>
   )
 }
