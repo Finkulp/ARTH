@@ -11,13 +11,15 @@ import Code from '../../Animations/codetyping.mp4'
 import FAQ from './FAQ'
 import Navbar from "./Nevbar";
 import { useState } from "react";
+import '../../CSS/Algoshopping.css'
+import ResourcesHome from "./Resources/ResourcesHome";
 const Home = () => {
   const words = ["Hello!", "Welcome to Finkulp!"];
   const [currentWord, setCurrentWord] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(0);
-
+  const[list,setlist]=useState(false);
   useEffect(() => {
     const handleTyping = () => {
       const i = loopNum % words.length;
@@ -42,7 +44,12 @@ const Home = () => {
   return (
     <>
       <nav style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fff', width: '100%' }}>
-      <Navbar style={{}}></Navbar>
+        {list&&
+        <div style={{position:'absolute', zIndex:"10001",left:'715px',top:'50px'}}>
+        <ResourcesHome></ResourcesHome>
+        </div>}
+        
+      <Navbar setlist={setlist} list={list}></Navbar>
     </nav>
     <div style={{position:"absolute",top:"60px",zIndex:"100",left:"500px"}}>
         <div className="w-full h-full flex justify-center items-center" style={{ marginTop: '100px' }}>
@@ -84,7 +91,7 @@ const Home = () => {
                 </div>
                     <a
                       href="/#"
-                      className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-center text-base font-medium text-white hover:bg-blue-dark lg:px-7"
+                      className="Featuresbutton inline-flex items-center justify-center rounded-md  px-6 py-3 text-center text-base font-medium text-white hover:bg-blue-dark lg:px-7" style={{color:"white"}}
                     >
                       Get Started
                     </a>

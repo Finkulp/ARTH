@@ -2,11 +2,21 @@ import React from "react";
 import { useState } from "react";
 import img from '../../Images/Logo.png';
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+const Navbar = (props) => {
     const [open, setOpen] = useState(false);
-
+    function openlist(){
+        if(props.list==true)
+            props.setlist(false);
+        if(props.list==false)
+            props.setlist(true);
+    }
+    function closelist(){
+        if(props.list==true){
+            props.setlist(false);
+        }
+    }
     return (
+        <>
         <header className={`absolute left-0 top-0 z-20 flex w-full items-center`} style={{ background: "white" }}>
             <div className="container">
                 <div className="relative -mx-4 flex items-center justify-between">
@@ -40,9 +50,9 @@ const Navbar = () => {
                         >
                             <ul className="block lg:flex">
 
-                              <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex">Choose strategies</div>
-                              <Link to='/NonLoggedFeatures'> <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex">Features</div></Link>  
-                                <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex">Resources</div>
+                              <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex" onClick={closelist}>Choose strategies</div>
+                              <Link to='/NonLoggedFeatures'> <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex"onClick={closelist}>Features</div></Link>  
+                                <div  className="flex py-2 text-base font-medium text-dark hover:text-primary  lg:ml-10 lg:inline-flex" onClick={openlist}>Resources</div>
                             </ul>
                         </nav>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
@@ -65,6 +75,7 @@ const Navbar = () => {
                 </div>
             </div>
         </header>
+        </>
     );
 };
 export default Navbar;

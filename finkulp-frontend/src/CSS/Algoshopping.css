@@ -77,10 +77,11 @@
     border-radius: 5px;
     padding: 10px 20px;
     overflow: hidden;
-    transition: color 0.5s;
-  }
-  
-  .Featuresbutton::before {
+    transition: 1s; /* Combine transitions */
+    animation: glowanimations 3s linear infinite; /* Fixed syntax */
+}
+
+.Featuresbutton::before {
     content: '';
     position: absolute;
     top: 0;
@@ -90,20 +91,33 @@
     background: linear-gradient(blue, cyan);
     transition: opacity 0.5s;
     opacity: 0;
-    z-index: 0; /* Changed to -1 to ensure it stays behind the text */
-  }
-  
-  .Featuresbutton:hover::before {
+    z-index: -1; /* Ensure it stays behind the text */
+}
+
+.Featuresbutton:hover::before {
     opacity: 1;
-  }
-  
-  .Featuresbutton span {
+}
+
+.Featuresbutton span {
     position: relative;
     z-index: 1; /* Ensure text stays on top */
-  }
-  .Featuresbutton:active{
+}
+.Featuresbutton:hover{
+    scale: 1.05;
+}
+.Featuresbutton:active {
     background-color: blue;
     color: white;
-  }
-  
-  
+}
+
+@keyframes glowanimations {
+    0% {
+        box-shadow: 0 0 20px rgba(52, 52, 255, 0.668); /* Slight adjustment for smooth glow */
+    }
+    50% {
+        box-shadow: 0 0 20px black; /* Slight adjustment for smooth glow */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(52, 52, 255, 0.668); /* Ensure the glow effect cycles smoothly */
+    }
+}

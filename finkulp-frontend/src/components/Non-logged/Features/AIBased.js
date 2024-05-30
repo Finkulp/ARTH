@@ -10,7 +10,15 @@ export default function AIBased() {
         </div>
         <div style={{fontSize:'23px',fontFamily:"poppins",color:'blue',textAlign:"center",fontWeight:"600"}}>AI Based Strategy Generation</div>
         <div style={{display:'flex',justifyContent:"center"}}>
-            <div style={{width:'50%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}>
+            <div style={{width:'50%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}
+             data-aos="fade-up"
+             data-aos-offset="50"
+             data-aos-delay="50"
+             data-aos-duration="1000"
+             data-aos-easing="ease-in-out"
+             data-aos-mirror="true"
+             data-aos-once="false"
+             data-aos-anchor-placement="center" >
            
 In our marketplace, you'll find automated trading algorithms crafted through meticulous mathematical modeling and rigorous scientific methods. These algorithms operate with absolute precision, eliminating human errors, and excel in handling trade volumes reaching into the millions.</div>
         </div>

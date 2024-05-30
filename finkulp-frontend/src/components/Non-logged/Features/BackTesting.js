@@ -12,7 +12,15 @@ export default function BackTesting() {
         </div>
         <div style={{fontSize:'23px',fontFamily:"poppins",color:'blue',textAlign:"center",fontWeight:"600"}}>Back Testing</div>
         <div style={{display:'flex',justifyContent:"center"}}>
-            <div style={{width:'50%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}>
+            <div style={{width:'50%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}
+             data-aos="fade-up"
+             data-aos-offset="50"
+             data-aos-delay="50"
+             data-aos-duration="1000"
+             data-aos-easing="ease-in-out"
+             data-aos-mirror="true"
+             data-aos-once="false"
+             data-aos-anchor-placement="center" >
             Our fully automated predictive trading algorithms analyze historical data to offer precise insights into the performance of specific trading strategies. With our advanced technology, you can rely on error-free results.</div>
         </div>
         <div style={{display:'flex',marginTop:'100px'}}>
@@ -24,7 +32,15 @@ export default function BackTesting() {
         </div>
         <div style={{fontSize:'23px',fontFamily:"poppins",color:'blue',textAlign:"center",fontWeight:"600"}}>Authentic Data</div>
                 <div style={{display:'flex',justifyContent:"center"}}>
-                <div style={{width:'90%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}>
+                <div style={{width:'90%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}
+                 data-aos="fade-left"
+                 data-aos-offset="50"
+                 data-aos-delay="50"
+                 data-aos-duration="1000"
+                 data-aos-easing="ease-in-out"
+                 data-aos-mirror="true"
+                 data-aos-once="false"
+                 data-aos-anchor-placement="center" >
 We provide the most crucial element of backtesting: a comprehensive set of authentic historical data. Sourced exclusively from licensed data vendors, this data is essential for generating reliable backtesting insights.</div>
                 </div>
             </div>
@@ -36,7 +52,15 @@ We provide the most crucial element of backtesting: a comprehensive set of authe
         </div>
         <div style={{fontSize:'23px',fontFamily:"poppins",color:'blue',textAlign:"center",fontWeight:"600"}}>Testing</div>
                 <div style={{display:'flex',justifyContent:"center"}}>
-                <div style={{width:'85%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}>Utilize this dataset to experiment with different trading strategies on our platform. Gain a holistic understanding of which trading algorithms suit you best, all without risking real money in live </div>
+                <div style={{width:'85%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}
+                 data-aos="fade-down"
+                 data-aos-offset="50"
+                 data-aos-delay="50"
+                 data-aos-duration="1000"
+                 data-aos-easing="ease-in-out"
+                 data-aos-mirror="true"
+                 data-aos-once="false"
+                 data-aos-anchor-placement="center" >Utilize this dataset to experiment with different trading strategies on our platform. Gain a holistic understanding of which trading algorithms suit you best, all without risking real money in live </div>
                 </div>
             </div>
             <div>
@@ -47,7 +71,15 @@ We provide the most crucial element of backtesting: a comprehensive set of authe
         </div>
         <div style={{fontSize:'23px',fontFamily:"poppins",color:'blue',textAlign:"center",fontWeight:"600"}}>Easy pricing</div>
                 <div style={{display:'flex',justifyContent:"center"}}>
-                <div style={{width:'90%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}>
+                <div style={{width:'90%',fontSize:'18',fontFamily:'poppins',color:'green',marginTop:'30px',textAlign:'center'}}
+                 data-aos="fade-right"
+                 data-aos-offset="50"
+                 data-aos-delay="50"
+                 data-aos-duration="1000"
+                 data-aos-easing="ease-in-out"
+                 data-aos-mirror="true"
+                 data-aos-once="false"
+                 data-aos-anchor-placement="center" >
 You have the flexibility to opt for either a full subscription package or a pay-per-minute model (for AlgoBulls server usage) when conducting backtesting—it's entirely your choice.</div>
                 </div>
             </div>
