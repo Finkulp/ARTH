@@ -1,5 +1,6 @@
-import React, {  useEffect } from 'react'
+import React, { useEffect, useState, useContext } from 'react';
 import Home from '../Home';
+import lLoading from '../../../Animations/loadingAnimation.json';
 import TradingStrategy from '../TradingStrategy';
 import MyStrategies from './MyStrategies';
 import { Link } from 'react-router-dom';
@@ -11,61 +12,62 @@ import paisa from '../../../Images/5paisalogo.png';
 import alice from '../../../Images/aliceblue.jpg';
 import motilal from '../../../Images/motilal.jpg';
 import kotak from '../../../Images/kotak.png';
-import '../../../CSS/Algoshopping.css'
-import Chart from "react-apexcharts";
-import { useState } from 'react';
+import '../../../CSS/Algoshopping.css';
+import Chart from 'react-apexcharts';
 import DetailContext from '../../../Context/Details/DetailsContext';
-import { useContext } from 'react';
-import '../../../CSS/Algoshopping.css'
+import Lottie from 'lottie-react';
+import '../../../CSS/Algoshopping.css';
+
 export default function Dashboard(props) {
-  const[profit,setprofit]=useState(false);
-  const{getDetails,userDetails }=useContext(DetailContext);
+  const [profit, setprofit] = useState(false);
+  const { getDetails, userDetails, loading, setLoading } = useContext(DetailContext);
   const [value, setValue] = useState({
     options: {
       chart: {
-        id: "basic-bar"
+        id: 'basic-bar',
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-      }
+        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+      },
     },
     series: [
       {
-        name: "Investment",
-        data: [10, 30, 70, 120, 170, 225, 275, 350,500] 
+        name: 'Investment',
+        data: [10, 30, 70, 120, 170, 225, 275, 350, 500],
       },
       {
-        name: "Profit",
-        data: [30, 40, 45, 50, 49, 60, 70, 91, 100] 
-      }
-    ]
+        name: 'Profit',
+        data: [30, 40, 45, 50, 49, 60, 70, 91, 100],
+      },
+    ],
   });
-  const [profit_vlaues, setprofit_values] = useState({
+  const [profit_vlaues, setProfitValues] = useState({
     options: {
-
       chart: {
-        id: "basic-bar1"
+        id: 'basic-bar1',
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-      }
+        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+      },
     },
     series: [
       {
-        name: "Profit",
-        data: [30, 40, 45, 50, 49, 60, 70, 91, 100] 
-      }
-    ]
+        name: 'Profit',
+        data: [30, 40, 45, 50, 49, 60, 70, 91, 100],
+      },
+    ],
   });
-  
-  // useEffect(() => {
-  //   async function fetchDetails() {
-  //     await getDetails();
-  //   }
-  //   fetchDetails();
-  // }, [userDetails]);
+
+  useEffect(() => {
+    console.log('Component mounted');
+    setLoading(true);
+    getDetails().finally(() => setLoading(false));
+  }, []);
+
   return (
-    <div >
+    <div>
+      {loading?<div style={{width:'100%',height:'400px',display:"flex",justifyContent:"center",alignItems:'centero'}}><Lottie animationData={lLoading} style={{width:"20%"}}/></div>:
+        <div>
       <Home name={userDetails.name}></Home>
       <div style={{display:'flex'}}>
       <div>
@@ -211,6 +213,8 @@ export default function Dashboard(props) {
       <img src = {angel} style={{height:"50px", width:"250px",position:'relative',top:'30px'}} alt="AngleOne"></img>
       </div>
       </marquee>
+      </div>
+      }
     </div>
-  )
+  );
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import DetailContext from "../Details/DetailsContext";
 import {useState} from 'react'
+import { useEffect } from "react";
 const LoginState=(props)=>{
     const{getDetails }=useContext(DetailContext);
     //Handling the Login part
@@ -54,14 +55,13 @@ const LoginState=(props)=>{
           if (authToken) {
           console.log('Authentication token:', authToken);
           Navigate('/loggedhome');
-        //   getDetails();
           } else {
           console.log('Authentication token not found in the cookie.');
           }
         setwait(false);
     }
     return(
-    <LoginContext.Provider value={{handlesubmit,email,setemail,password,setpassword}}>
+    <LoginContext.Provider value={{handlesubmit,email,setemail,password,setpassword,wait}}>
         {props.children}
     </LoginContext.Provider>
     )

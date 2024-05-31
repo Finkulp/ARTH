@@ -17,6 +17,7 @@ function DetailsState(props) {
         return authToken;
     }
     async function getDetails() {
+        setLoading(true);
         const url = "http://localhost:5000/auth/fetchuser";
         const authToken=getTokenFromCookie();
         try {
@@ -42,13 +43,12 @@ function DetailsState(props) {
             setLoading(false);
         }
     }
-
     useEffect(() => {
-        getDetails();
-    }, []);
-
+     getDetails();
+    }, [])
+    
     return (
-        <DetailContext.Provider value={{ getDetails,setUserDetails,userDetails }}>
+        <DetailContext.Provider value={{ getDetails,setUserDetails,userDetails,loading,setLoading }}>
             {props.children}
         </DetailContext.Provider>
     );
