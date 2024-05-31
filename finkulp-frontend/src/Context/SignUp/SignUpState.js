@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import DetailContext from "../Details/DetailsContext";
 const SignUpState=(props)=>{
-    const{getDetails}=useContext(DetailContext);
+    const{getDetails,setLoading}=useContext(DetailContext);
     const Navigate=useNavigate();
     const[password,setpassword]=useState("");
     const[name,setname]=useState("");
@@ -60,10 +60,10 @@ const SignUpState=(props)=>{
           if (authToken) {
           console.log('Authentication token:', authToken);
           getDetails();
+          setwait(false);
           } else {
           console.log('Authentication token not found in the cookie.');
           }
-        setwait(false);
     }
     return(
         <SignUpContext.Provider value={{signup,name,setname,password,setpassword,number,setnumber,email,setemail,wait,setwait}}>
