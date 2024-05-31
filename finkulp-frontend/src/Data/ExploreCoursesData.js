@@ -1,6 +1,19 @@
 export const data = [
   {
     id: 1,
+    title: "Excel for Finance",
+    image: "https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description: "Self-paced professional training to learn Microsoft Excel for the finance world.",
+    address: "Online",
+    category: "Trading",
+    price: 99,
+    courseCompleted: "30% completed",
+    availability: true,
+    author: 'John Doe',
+    previousPrice: 199
+  },
+  {
+    id: 1,
     title: "Mastering Stock Market Trading",
     image: "https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Become a proficient stock market trader with comprehensive strategies and techniques.",

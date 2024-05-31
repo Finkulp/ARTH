@@ -57,6 +57,7 @@ export default function Dashboard(props) {
       }
     ]
   });
+  
   // useEffect(() => {
   //   async function fetchDetails() {
   //     await getDetails();
@@ -69,7 +70,7 @@ export default function Dashboard(props) {
       <div style={{display:'flex'}}>
       <div>
       <div style={{fontSize:"35px",fontWeight:'500',paddingLeft:"100px",marginTop:'20px'}}>Dashboard</div>
-      <div style={{display:"flex",paddingLeft:"50px",paddingRight:"100px",marginTop:"30px",}}>
+      <div style={{display:"flex",paddingLeft:"50px",paddingRight:"100px",marginTop:"30px",gap:'30px'}}>
       <div className='DashboardDetails border-blue dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-blue ' style={{width:"300px"}} >
         <div>Net Capital Value</div>
         <div style={{fontSize:"25px"}}>{userDetails.netCaptialValue}</div>
@@ -198,16 +199,18 @@ export default function Dashboard(props) {
         </div>
       </div>
       </div>
-      <div style={{marginLeft:"100px",display:"flex",flexWrap:"wrap",justifyContent:'center'}}>
+      <marquee  direction="left">
+        <div style={{display:'flex'}}>
       <img src = {zerodha} style={{height:"100px", width:"300px"}} alt="Zerodha"></img>
       <img src = {upstox} style={{height:"100px", width:"300px"}} alt="upstox"></img>
       <img src = {kotak} style={{height:"100px", width:"200px"}} alt="kotak"></img>
-      <img src = {motilal} style={{height:"100px", width:"300px"}}alt="Motilal"></img>
+      <img src = {motilal} style={{height:"100px", width:"300px",position:"relative",left:"20px"}}alt="Motilal"></img>
       <img src = {alice} style={{height:"100px", width:"300px"}}alt="Alice-Blue"></img>
-      <img src = {hdfc} style={{height:"100px", width:"250px"}}alt="HDFC"></img>
-      <img src = {paisa} style={{height:"70px", width:"250px",marginTop:"20px",marginLeft:"40px",marginRight:"20px"}} alt="5Paisa"></img>
-      <img src = {angel} style={{height:"100px", width:"25r0px"}} alt="AngleOne"></img>
+      <img src = {hdfc} style={{height:"50px", width:"250px",position:'relative',top:'30px'}}alt="HDFC"></img>
+      <img src = {paisa} style={{height:"40px", width:"200px",marginTop:"20px",marginLeft:"40px",marginRight:"20px",position:'relative',top:"15px"}} alt="5Paisa"></img>
+      <img src = {angel} style={{height:"50px", width:"250px",position:'relative',top:'30px'}} alt="AngleOne"></img>
       </div>
+      </marquee>
     </div>
   )
 }

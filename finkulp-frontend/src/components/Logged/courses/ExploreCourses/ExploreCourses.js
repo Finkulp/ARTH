@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { data } from '../../../../Data/ExploreCoursesData';
 import { Link } from 'react-router-dom';
+import '../../../../CSS/Algoshopping.css'
 export default function ExploreCourses(props) {
   const [filteredData, setFilteredData] = useState(data);
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,10 +28,13 @@ export default function ExploreCourses(props) {
 
     setFilteredData(filtered);
   }, [searchTerm, selectedCategory, selectedPriceRange]);
-
+  function handleclick(course){
+    props.setExploreCourses(course)
+    console.log(course);
+  }
   return (
     <>
-      <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex' }}>
+      <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex',position:'relative',left:"250px",top:'-10px' }}>
         <div >
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div className="relative" style={{width:'500px'}}>
@@ -71,33 +75,22 @@ export default function ExploreCourses(props) {
         </select>
       </div>
       </div>
+      <div style={{textAlign:'center',fontFamily:"Lato",fontWeight:"400",fontSize:'32px'}}>POPULAR COURSES</div>
       <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly" }}>
         {filteredData.map(course => (
-          
-          
-          <div className="grid  sm:grid-cols-2 lg:grid-cols-3" style={{ width: "400px" }}>
-          <div className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-dark-2 dark:shadow-card dark:hover:shadow-3" style={{ width: "400px" }}>
-            <img src={course.image} alt="" style={{width:"400px",height:'300px'}}  />
-            <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
-              <h3>
-                <span className="mb-4 block text-xl font-semibold text-dark hover:text-primary dark:text-white sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]">
-                  {course.title}
-                </span>
-              </h3>
-              <p className="mb-7 text-base leading-relaxed text-body-color dark:text-dark-6">
-                {course.description}
-              </p>
-              <p className="mb-7 text-base leading-relaxed text-body-color dark:text-dark-6">
-                {course.courseCompleted}
-              </p>
-              <div >
-                <Link to='/loggedhome/courses/ExploreCoursesDetails'> <button className=" bg-primary px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px"}} onClick={()=>{props.setExploreCourses(course)}}>Open Details</button></Link>
-                <button className=" bg-green px-6 py-3 text-base font-medium text-white" style={{borderRadius:"10px",marginLeft:'20px'}}>Add to Cart</button>
-            </div>        
-              </div>
-          </div>
-        </div>
-        
+          <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
+            <div style={{width:'400px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207",borderRadius:'3px'}}>
+            <div><img src={course.image} style={{width:"400px",height:'300px',borderRadius:'3px'}}></img></div>
+            <div style={{paddingLeft:'40px',paddingRight:'30px'}}>
+            <div style={{fontSize:'23px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',height:"70px"}}>{course.title}</div>
+            <div style={{paddingTop:'10px',paddingBottom:'20px',height:'100px',fontFamily:"Lato",color:'gray'}}>{course.description}</div>
+            </div>
+            <hr style={{color:'gray',paddingBottom:'20px',width:"100%"}}></hr>
+            <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
+            <div><Link to='/loggedhome/courses/ExploreCoursesDetails'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={handleclick(course)}>View All course</button></Link></div>
+            </div>
+            </div>
+            </div>
         ))}
       </div>
     </>

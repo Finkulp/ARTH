@@ -30,7 +30,7 @@ export default function MyCourses(props) {
 
   return (
     <>
-      <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex' }}>
+      <div className="max-w-md mx-auto" style={{ marginLeft: "500px",display:'flex' }}>
         <div >
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div className="relative" style={{width:'500px'}}>
