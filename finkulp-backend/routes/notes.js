@@ -1,5 +1,5 @@
 const express=require("express");
-const notes=require("../modles/notes");
+const Strategy=require("../modles/Strategy");
 const User=require("../modles/auth");
 const path = require('path');
 const fetchuser=require('../middleware/fetchuser');
@@ -17,8 +17,9 @@ app.post("/addStrategy", fetchuser, async (req, res) => {
     const jfy = jwt.verify(output, serect_data);
     console.log(jfy);
 
-    const { addStrategy } = req.body; // Expecting an object for the broker
+    const { addStrategy,strategyname } = req.body; // Expecting an object for the broker
     const userid = jfy.id;
+    const name=strategyname;
     const user = await User.findById(userid);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -28,9 +29,23 @@ app.post("/addStrategy", fetchuser, async (req, res) => {
     }
     user.addedStrategies.push(addStrategy);
     console.log(user.addedStrategies)
-
     // Tell Mongoose that the addedStrategies field has been updated
     user.markModified('addedStrategies');
+    let existingStrategy = await Strategy.findOne({ user: userid });
+
+    if (existingStrategy) {
+      // If it exists, update the specified strategy field
+      existingStrategy[strategyname] = 1;
+      await existingStrategy.save();
+    } else {
+      // If it doesn't exist, create a new strategy document
+      const newStrategy = new Strategy({
+        user: userid,
+        [strategyname]: 1
+      });
+      await newStrategy.save();
+    }
+
 
     await user.save();
     res.json(user);
