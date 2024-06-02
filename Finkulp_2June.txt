@@ -1,0 +1,10 @@
+Date - 2 June, 2024
+Target to be achieved in the following week -
+1. Dashboard Structure
+2. Backend Meetings and Discussions
+3. Marketplace, Courses, Add Brokers Update
+4. Homepage - Colors Combinations & Shadowing Changes
+5. Moving FAQs to Subscriptions Page
+6. Work with different color combinations
+7. Autotrader - Backend Table - Trade Details
+8. Python strategy - Timings, number of users
