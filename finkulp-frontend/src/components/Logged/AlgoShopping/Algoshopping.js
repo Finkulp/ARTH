@@ -32,8 +32,8 @@ export default function Algoshopping(props) {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px'}}>
-        <div style={{ display: 'flex', alignItems: 'center'}}>
-          <TextField
+        <div style={{position:'absolute',top:'110px',right:"50px"}}>
+          {/* <TextField
             select
             label="Filter by Category"
             value={categoryFilter}
@@ -71,25 +71,25 @@ export default function Algoshopping(props) {
             <MenuItem value="Retail">Retail</MenuItem>
             <MenuItem value="Premium">Premium</MenuItem>
             <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-   
+          </TextField> */}
+
           <TextField
             label="Search by Strategist"
             variant="outlined"
             onChange={handleStrategistFilterChange}
-            style={{marginRight:"30px",width:"400px"}}
+            style={{marginRight:"30px",width:"200px",height:'20px'}}
           />
         </div>
       </div>
+      <div style={{display:'flex',gap:'30px',flexWrap:"wrap",paddingLeft:'30px',paddingRight:'20px',paddingBottom:'20px'}}>
       {filteredAlgos.map((algo,index)=>(
-          <div style={{ display: 'flex', justifyContent: 'center',fontFamily:"poppins",overflow:"hidden",height:'165px' }}>
-          <div className='Algoshoppingmain'  style={{  borderWidth: '1px', borderColor: 'blue', padding: '10px',height:"150px",marginTop:'8px',borderRadius:"10px",width:"90%" }}>
-          <div style={{ display: 'flex' }}>
-            <div style={{ width: '300px', height: '150px',position:'relative',top:'-10px' }}>
-             {algo.graph && algo.graph.year && algo.graph.profit&&<Chart
+           <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'style={{boxShadow:'1px 1px 10px black'}}>
+           <div style={{width:'340px',border:"solid",height:'450px',borderWidth:'1px',borderColor:"rgb(204, 205, 207",borderRadius:'3px'}}>
+           <div style={{paddingTop:'10px'}}>
+           {algo.graph && algo.graph.year && algo.graph.profit&&<Chart
               type="area"
               height={150}
-              width="400"
+              width="340"
               options={{
                 chart: {
                   id: "basic-bar1"
@@ -106,50 +106,40 @@ export default function Algoshopping(props) {
               ]}
               
             />}
-            </div>
-            <div style={{position:'relative',left:'-40px',top:"-10px"}}>
-              <p style={{ fontSize: '16px', fontWeight: 400, color: 'gray', paddingLeft: '175px', fontFamily:"poppins"  }}>Created:9 months ago | live deployment : 146</p>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: 'black', paddingLeft: '175px', fontFamily:"poppins"  }}>{algo.Strategist}</div>
-              <div style={{ paddingLeft: '175px', fontSize: '16px', fontFamily:"poppins"  }}>by:<span style={{ color: 'blue', paddingLeft: '20px', fontSize: '18px' }}>Market Start</span> </div>
-              <div style={{ display: 'flex' }}>
-                <div style={{ display: 'flex', paddingLeft: '150px' }}>
-                  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'center', paddingTop: '20px' }}>
-                    <div className='hover-blue' style={{ color: 'blue',  borderRadius: '50px', textAlign: 'center', width: '80px', height: '30px' }}>NFO</div>
-                    <div className='hover-blue' style={{ color: 'blue',  borderRadius: '50px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', height: '30px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>NonDirectional</div>
-                    <div className='hover-blue' style={{ color: 'blue', borderRadius: '50px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', height: '30px' }}>Volatility</div>
-                    <div  className='Algoshopping-share-button'><i class="fa-solid fa-share"></i></div>
-                    <div className='Algoshopping-share-button'><i class="fa-solid fa-star"></i></div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: '30px', marginTop: '-50px',position:'relative',left:"-200px"}}>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Total/Costs</div>
-                    <div style={{ fontSize: '18px' }}>146(2.9k)</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Drawdown Min</div>
-                    <div style={{ fontSize: '18px' }}>11.1K(6%)</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Drawdown Min</div>
-                    <div style={{ fontSize: '18px' }}>11.1K(6%)</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Drawdown Min</div>
-                    <div style={{ fontSize: '18px' }}>11.1K(6%)</div>
-                  </div>
-                </div>
-                <div style={{ marginTop: '-60px', paddingLeft: '20px',position:"relative",left:"-200px"}}>
-                  <Link ><div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'green', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px' }}>Subscribe</button></div></Link>
-                  <Link to='/loggedhome/MarketPlace/AlgoDescription' ><div><button onClick={()=>{props.setViewAlgo(algo)}} className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px',width:'150px',position:"relative",left:'-30px' }}>Know More</button></div></Link>
-                </div>
-              </div>
-            </div>
+           </div>
+            <div style={{display:'flex',justifyContent:'center',paddingLeft:'20px'}}>
+            <div style={{display:'flex',gap:'50px',flexWrap:'wrap'}}>
+              <div>
+            <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:'#023e8a'}}>Strategist</div>
+           <div style={{fontSize:'20px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',color:"#0a9396"}}>{algo. Strategist}</div>
+           </div>
+           <div>
+           <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:'#023e8a'}}>NSE</div>
+           <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:"#0a9396"}}>{algo.NSE}</div>
+           </div>
+           <div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:'#023e8a',position:'relative',top:'20px'}}>Category</div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:"#0a9396"}}>{algo.Category}</div>
+           </div>
+           <div style={{position:'relative',top:'-60px'}}>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:'#023e8a'}}>Recommended Duration</div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:"#0a9396",position:'relative',top:'-20px'}}>{algo.Recommended_Duration}</div>
+           </div>
+           <div style={{position:'relative',top:'-60px'}}>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:'#023e8a'}}>Price</div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:"#0a9396",position:'relative',top:'-20px'}}>{algo.price}</div>
+           </div>
+           </div>
+           </div>
+           <hr style={{color:'gray',paddingBottom:'20px',width:"100%",marginTop:'-80px'}}></hr>
+           <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px",gap:'50px'}}>
+           <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={()=>{props.setViewAlgo(algo)}}>Open</button></Link></div>
+           <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}>Buy</button></Link></div>
           </div>
-        </div>
-          </div>
+           </div> 
+           </div>
       ))}
-      
+      </div>
     </>
   );
 }

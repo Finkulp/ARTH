@@ -30,7 +30,7 @@ export default function MyCourses(props) {
 
   return (
     <>
-      <div className="max-w-md mx-auto" style={{ marginLeft: "500px",display:'flex' }}>
+      <div className="max-w-md mx-auto" style={{ marginLeft: "500px",display:'flex',position:'absolute',top:'110px',left:"600px" }}>
         <div >
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div className="relative" style={{width:'500px'}}>
@@ -47,19 +47,19 @@ export default function MyCourses(props) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             required
+            style={{height:'40px',width:'400px'}}
           />
-          <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
         </div>
         </div>
 
-      <div className="filters" style={{ marginLeft: "10px",height:'50px'}}>
+      {/* <div className="filters" style={{ marginLeft: "10px",height:'50px'}}>
         <select onChange={(e) => setSelectedCategory(e.target.value)} className="p-2 border rounded"style={{height:'50px',width:'200px'}}>
           <option value="">All Categories</option>
           <option value="Trading">Trading</option>
           <option value="Data Science">Data Science</option>
           <option value="Management">Management</option>
           <option value="Programming">Programming</option>
-          {/* Add more categories as needed */}
+          {/* Add more categories as needed 
         </select>
         </div>
         <div>
@@ -67,9 +67,9 @@ export default function MyCourses(props) {
           <option value="">All Prices</option>
           <option value="0-100">0-100</option>
           <option value="100-200">100-200</option>
-          {/* Add more price ranges as needed */}
+          {/* Add more price ranges as needed 
         </select>
-      </div>
+      </div> */}
       </div>
       <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly" }}>
         {filteredData.map(course => (

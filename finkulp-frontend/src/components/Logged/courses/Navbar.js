@@ -93,12 +93,12 @@ const Navbar = () => {
     })
   }
   return (
-    <header className={`flex w-full items-center bg-white dark:bg-dark`} style={{marginTop:'50px'}} >
+    <header className={`flex w-full items-center  dark:bg-dark`} style={{marginTop:'50px'}} >
       <div className="container">
       <div className="relative -mx-4 flex items-center justify-center">
           <div className="flex w-full items-center justify-center px-4">
               <nav>
-               <ul className="block lg:flex" style={{position:'relative',left:'-150px',top:'30px'}}>
+               <ul className="block lg:flex" style={{position:'relative',left:'80px',top:'30px',background:'white',paddingLeft:'100px',paddingRight:'500px',padding:'20px',marginLeft:'400px',width:'800px'}}>
                  <Link to='/loggedhome/courses/' onClick={makebluealgo} > <span style={{color:`${algo.color}`,textDecoration:`${algo.line}`,fontSize:"20px",fontWeight:"500"}} >Explore Courses</span></Link>
                  <Link to='/loggedhome/courses/my-courses'><span onClick={makebluetrade} style={{color:`${Tade.color}`,textDecoration:`${Tade.line}`,paddingLeft:"50px",fontSize:"20px",fontWeight:"500"}} >My Courses</span></Link>
                 </ul>

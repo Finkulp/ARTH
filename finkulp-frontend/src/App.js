@@ -44,7 +44,8 @@ import SignUpState from "./Context/SignUp/SignUpState";
 import DetailsState from "./Context/Details/DetailsState";
 import FeaturesHome from "./components/Non-logged/Features/FeaturesHome";
 import DashboardH from "./components/Logged/DashBoard/DashboardH";
-
+        // "axios": "^1.7.2",
+        // "axios": "^1.7.2",
 function App() {
   const[checkout,setchekout]=useState("");
   const[tradingStrategy,settradingStrategy]=useState("");

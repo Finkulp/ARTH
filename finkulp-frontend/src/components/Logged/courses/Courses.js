@@ -4,7 +4,8 @@ import { Outlet } from 'react-router-dom'
 export default function Courses() {
   return (
     <>
-    <div style={{marginTop:"90px",position:'relative',left:"-300px"}}><Navbar></Navbar></div>
+    <div><span style={{position:'relative',top:'10px',left:'120px',width:'500px'}}> <Navbar></Navbar></span>
+    </div>
        <Outlet></Outlet>
        </>
   )
