@@ -31,9 +31,9 @@ def run_script():
     return jsonify({"result": result})
 
 # Schedule tasks
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=run_action_script, trigger="interval", seconds=1)
-scheduler.start()
+# scheduler = BackgroundScheduler()
+# scheduler.add_job(func=run_action_script, trigger="interval", seconds=10)
+# scheduler.start()
 
 if __name__ == '__main__':
     app.run(debug=True)
