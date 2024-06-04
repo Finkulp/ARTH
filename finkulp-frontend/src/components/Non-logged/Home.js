@@ -11,8 +11,8 @@ import Code from '../../Animations/codetyping.mp4'
 import FAQ from './FAQ'
 import Navbar from "./Nevbar";
 import { useState } from "react";
-import '../../CSS/Algoshopping.css'
 import ResourcesHome from "./Resources/ResourcesHome";
+import '../../CSS/Algoshopping.css'
 const Home = () => {
   const words = ["Hello!", "Welcome to Finkulp!"];
   const [currentWord, setCurrentWord] = useState("");
@@ -51,12 +51,12 @@ const Home = () => {
         
       <Navbar setlist={setlist} list={list}></Navbar>
     </nav>
-    <div style={{position:"absolute",top:"60px",zIndex:"100",left:"500px"}}>
+    <div style={{position:"absolute",top:"60px",zIndex:"100",left:"500px",overflow:"hidden"}}>
         <div className="w-full h-full flex justify-center items-center" style={{ marginTop: '100px' }}>
           <h1 id="typewriter" className="text-4xl font-bold"></h1>
         </div>
       </div>
-      <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]" style={{position:"relative",zIndex:1}}>
+      <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]" style={{position:"relative",zIndex:1,}}>
       <video
                 autoPlay
                 loop
@@ -101,7 +101,7 @@ const Home = () => {
             <div className="w-full " style={{position:'relative',paddingTop:"-130px",display:'flex',justifyContent:'center',marginTop:'-55px'}}>
                 <div className="relative z-10 inline-block pt-11 lg:pt-0">
                   <div style={{display:'flex', gap:'50px'}}>
-                  <img src={TradingLaptop} style={{marginTop:'30px',height:'500px'}}></img>  
+                  <img src={TradingLaptop} style={{marginTop:'30px',height:'450px',boxShadow:'1px 1px 20px black'}}></img>  
                   <img src={TradingPhone} style={{marginTop:'30px',height:'500px'}}></img>  
                   </div>
                   <video
@@ -125,12 +125,14 @@ const Home = () => {
               </div>
         </div>
       </div>
+      <div style={{overflow:'hidden'}}>
       <StepPage></StepPage>
       <YouGet></YouGet>
       <Stats></Stats>
       <Stats2></Stats2>
       <WhatPeopleSay></WhatPeopleSay>
       <FAQ></FAQ>
+      </div>
     </>
   );
 };

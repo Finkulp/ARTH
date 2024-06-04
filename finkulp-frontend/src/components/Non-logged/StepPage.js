@@ -41,15 +41,16 @@ const StepPage = () => {
     <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1000px",left:'615px',fontSize:"25px"}}></i>
     <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1300px",left:'815px',fontSize:"25px"}}></i>
     <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1550px",left:'615px',fontSize:"25px"}}></i>
+    <div style={{boxShadow:"1px 1px 20px black",width:'100%',position:'absolute',height:'1550px',top:'1300px',zIndex:'200',width:'90%',left:'75px',}}></div>
     <div  style={{background:`url(${BlueBackground2})`,zIndex:"1"}}>
     <div style={{display:"flex",justifyContent:"center"}}>
-      <div style={{fontSize:'30px',paddingTop:'270px',fontWeight:'600', fontFamily:'poppins',color:'rgb(10,255,0)'}}>Step-by-Step Guide to Wealth Creation!</div>
+      <div style={{fontSize:'30px',marginTop:'270px',fontWeight:'600', fontFamily:'poppins',color:'rgb(10,255,0)'}}>Step-by-Step Guide to Wealth Creation!</div>
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto" >
         {/* Login/Register Section */}
         <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between" style={{marginTop:'-100px'}}>
           <div className="md:w-1/2">
-            <Lottie animationData={LoginAnimation} style={{ width: '60%',paddingTop:"100px" }} />
+            <Lottie animationData={LoginAnimation} style={{ width: '50%',paddingTop:"100px"}} />
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0">
             <h1 className="text-2xl font-bold mb-4" style={{color:'blue'}}>Login/Register</h1>
@@ -95,7 +96,7 @@ const StepPage = () => {
             </div>
           </div>
           <div className="md:w-1/2 mt-4 md:mt-0">
-            <h1 className="text-2xl font-bold mb-4"style={{color:'blue'}}>Add Broker and Explore Resources</h1>
+            <h1 className="text-2xl font-bold mb-4"style={{color:'blue',marginTop:'125px'}}>Add Broker and Explore Resources</h1>
             <p className="text-base"
                data-aos="fade-up"
                data-aos-offset="50"

@@ -6,7 +6,7 @@ function PythonData() {
     useEffect(() => {
         const runPythonScript = async () => {
             try {
-                const response = await fetch('http://localhost:5000/notes/AliceBlue.py');
+                const response = await fetch('http://localhost:5000/notes/.py');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
