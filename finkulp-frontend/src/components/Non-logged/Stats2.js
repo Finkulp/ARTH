@@ -16,8 +16,8 @@ export default function Stats2() {
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="center">
-          <h1 className="text-2xl font-bold mb-4" style={{color:"blue",fontFamily:"poppins",paddingTop:"70px"}}>Any location, any nation, any gadget - Conduct transactions from wherever you desire.</h1>
-          <p className="text-base" style={{color:'green',fontFamily:'poppins'}}>
+          <h1 className="text-2xl font-bold mb-4" style={{color:"#4285F4",fontFamily:"poppins",paddingTop:"70px"}}>Any location, any nation, any gadget - Conduct transactions from wherever you desire.</h1>
+          <p className="text-base" style={{color:'	#34A853',fontFamily:'poppins'}}>
           Why invest years deciphering the intricacies of capital markets when our ready-to-use trading algorithms can achieve the same results in mere seconds?
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function Stats2() {
               series={{
                 regions: [
                   {
-                    values: { IN: '#FF0000' }, 
+                    values: { IN: '#34A853' }, 
                     attribute: 'fill'
                   }
                 ]
@@ -53,7 +53,7 @@ export default function Stats2() {
               backgroundColor='white'
               regionStyle={{
                 initial: {
-                  fill: '#0000FF' // Set default fill color for other regions to blue
+                  fill: '#4285F4' // Set default fill color for other regions to blue
                 }
               }}
             />

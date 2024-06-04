@@ -4,12 +4,12 @@ import lLoading from '../../../Animations/loadingAnimation.json';
 import TradingStrategy from '../TradingStrategy';
 import MyStrategies from './MyStrategies';
 import { Link } from 'react-router-dom';
-import zerodha from '../../../Images/ZerodhaIcon.jpg';
+import zerodha from '../../../Images/ZerodhaIcon.png';
 import upstox from '../../../Images/UpstoxIcon.png';
-import hdfc from '../../../Images/HDFCSKy.jpg';
+import hdfc from '../../../Images/HDFCSKy.png';
 import angel from '../../../Images/angelone.png';
 import paisa from '../../../Images/5paisalogo.png';
-import alice from '../../../Images/aliceblue.jpg';
+import alice from '../../../Images/aliceblue.png';
 import motilal from '../../../Images/motilal.jpg';
 import kotak from '../../../Images/kotak.png';
 import '../../../CSS/Algoshopping.css';
@@ -201,18 +201,18 @@ export default function Dashboard(props) {
         </div>
       </div>
       </div>
-      <marquee  direction="left">
-        <div style={{display:'flex'}}>
-      <img src = {zerodha} style={{height:"100px", width:"300px"}} alt="Zerodha"></img>
-      <img src = {upstox} style={{height:"100px", width:"300px"}} alt="upstox"></img>
-      <img src = {kotak} style={{height:"100px", width:"200px"}} alt="kotak"></img>
-      <img src = {motilal} style={{height:"100px", width:"300px",position:"relative",left:"20px"}}alt="Motilal"></img>
-      <img src = {alice} style={{height:"100px", width:"300px"}}alt="Alice-Blue"></img>
-      <img src = {hdfc} style={{height:"50px", width:"250px",position:'relative',top:'30px'}}alt="HDFC"></img>
-      <img src = {paisa} style={{height:"40px", width:"200px",marginTop:"20px",marginLeft:"40px",marginRight:"20px",position:'relative',top:"15px"}} alt="5Paisa"></img>
-      <img src = {angel} style={{height:"50px", width:"250px",position:'relative',top:'30px'}} alt="AngleOne"></img>
+      <div className="overflow-hidden w-full">
+      <div className="carousel flex">
+        <img src={zerodha} className="h-24 w-72" alt="Zerodha" />
+        <img src={upstox} className="h-24 w-72" alt="Upstox" />
+        <img src={kotak} className="h-24 w-48" alt="Kotak" />
+        <img src={motilal} className="h-24 w-72" alt="Motilal" />
+        <img src={alice} className="h-24 w-72" alt="Alice Blue" />
+        <img src={hdfc} className="h-12 w-64 mt-8 relative top-8" alt="HDFC" />
+        <img src={paisa} className="h-10 w-48 mt-5 mx-10 relative top-4" alt="5Paisa" />
+        <img src={angel} className="h-12 w-64 relative top-8" alt="Angel One" />
       </div>
-      </marquee>
+    </div>
       </div>
       }
     </div>

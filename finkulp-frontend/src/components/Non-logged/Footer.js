@@ -4,7 +4,7 @@ import BlueBackground2 from '../../Animations/BlueBackground2.jpg'
 const Footer = () => {
   return (
     <>
-    <div style={{background:`url(${BlueBackground2})`}}>
+    <div style={{background:`url(${BlueBackground2})`,overflow:'hidden'}}>
       <footer className="relative z-10 bg-white pb-10 pt-20  lg:pb-20 lg:pt-[120px]">
         <div style={{display:'flex',justifyContent:"center"}}>
       </div>

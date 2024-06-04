@@ -23,7 +23,7 @@ export default function Stats() {
           <div className="text-center">
             <h4
               className="text-xl font-bold text-gray-900"
-              style={{ fontWeight: '600', fontSize: '25px',fontFamily:'poppins',color:"blue" ,paddingTop:'50px'}}
+              style={{ fontWeight: '600', fontSize: '25px',fontFamily:'poppins',color:"	#4285F4" ,paddingTop:'50px'}}
             >
               Numbers tell the hard works we've done so far
             </h4>
@@ -48,10 +48,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
-                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2}style={{color:"blue"}} />}+
+                    <h4 className="text-4xl font-bold "style={{color:'	#4285F4'}}>
+                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2}style={{color:'	#4285F4'}} />}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight" style={{color:'green'}}>
+                    <p className="mt-1.5 text-lg font-medium leading-tight" style={{color:'#34A853'}}>
                       Brokers
                     </p>
                   </div>
@@ -77,10 +77,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
-                      {inView && <CountUp key={triggerCount} start={0} end={40} duration={2} style={{color:"blue"}}/>}+
+                    <h4 className="text-4xl font-bold "style={{color:'	#4285F4'}}>
+                      {inView && <CountUp key={triggerCount} start={0} end={40} duration={2} style={{color:'	#4285F4'}}/>}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'#34A853'}}>
                       Clients
                     </p>
                   </div>
@@ -106,10 +106,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
-                      ₹{inView && <CountUp key={triggerCount} start={0} end={8} duration={2} style={{color:"blue"}}/>}Cr+
+                    <h4 className="text-4xl font-bold "style={{color:'	#4285F4'}}>
+                      ₹{inView && <CountUp key={triggerCount} start={0} end={8} duration={2} style={{color:'	#4285F4'}}/>}Cr+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'#34A853'}}>
                       Invested
                     </p>
                   </div>
@@ -135,10 +135,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold"style={{color:"blue"}}>
-                      ₹{inView && <CountUp key={triggerCount} start={0} end={800} duration={2}style={{color:"blue"}} />}Cr+
+                    <h4 className="text-4xl font-bold"style={{color:'	#4285F4'}}>
+                      ₹{inView && <CountUp key={triggerCount} start={0} end={800} duration={2}style={{color:'	#4285F4'}} />}Cr+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'#34A853'}}>
                       Trading Volume
                     </p>
                   </div>
@@ -164,10 +164,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold "style={{color:"blue"}}>
-                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2} style={{color:"blue"}}/>}+
+                    <h4 className="text-4xl font-bold "style={{color:'	#4285F4'}}>
+                      {inView && <CountUp key={triggerCount} start={0} end={10} duration={2} style={{color:'	#4285F4'}}/>}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'green'}}>
+                    <p className="mt-1.5 text-lg font-medium leading-tight " style={{color:'#34A853'}}>
                       Backtested Index & Stock Based Strategies
                     </p>
                   </div>
@@ -193,10 +193,10 @@ export default function Stats() {
                     />
                   </svg>
                   <div className="ml-4">
-                    <h4 className="text-4xl font-bold" style={{color:"blue"}} >
-                      {inView && <CountUp key={triggerCount} start={0} end={25} duration={2} style={{color:"blue"}} />}+
+                    <h4 className="text-4xl font-bold" style={{color:'	#4285F4'}} >
+                      {inView && <CountUp key={triggerCount} start={0} end={25} duration={2} style={{color:'	#4285F4'}} />}+
                     </h4>
-                    <p className="mt-1.5 text-lg font-medium leading-tight" style={{color:'green'}}>
+                    <p className="mt-1.5 text-lg font-medium leading-tight" style={{color:'#34A853'}}>
                       Officially Vetted & Self Tested Online Courses to Choose
                     </p>
                   </div>
