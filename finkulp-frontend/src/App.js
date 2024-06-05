@@ -47,7 +47,7 @@ import DashboardH from "./components/Logged/DashBoard/DashboardH";
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
-  const[checkout,setchekout]=useState(null);
+  const [checkout, setchekout] = useState([]);
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
   const[editAlgo,seteditAlgo]=useState("");
@@ -89,7 +89,7 @@ function App() {
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
-              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} ></AlgoshoppingDescription>}></Route>
+              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} checkout={checkout} ></AlgoshoppingDescription>}></Route>
               <Route path="MyStrategy" element={<MyStrategies ></MyStrategies>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>

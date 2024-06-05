@@ -6,29 +6,30 @@ import { checkbox } from '@material-tailwind/react';
 export default function AlgoshoppingDescription(props) {
   
   function addToCartArray() {
-    if (!props.chekout) {
+    if (props.checkout.length === 0) {
       props.setchekout([props.VeiwAlgo]);
       props.setsum(props.VeiwAlgo.price);
       props.setadded(true);
-
+  
       setTimeout(() => {
         props.setadded(false);
       }, 1000);
       return;
     }
-
-    const alreadyInCart = props.chekout.some(item => item.Strategist === props.VeiwAlgo.Strategist);
-
+  
+    const alreadyInCart = props.checkout.some(item => item.Strategist === props.VeiwAlgo.Strategist);
+  
     if (!alreadyInCart) {
-      props.setcheckout(prevCheckout => [...prevCheckout, props.VeiwAlgo]);
+      props.setchekout(prevCheckout => [...prevCheckout, props.VeiwAlgo]);
       props.setsum(prevSum => prevSum + props.VeiwAlgo.price);
       props.setadded(true);
-
+  
       setTimeout(() => {
         props.setadded(false);
       }, 1000);
     }
   }
+  
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: "center" }}>
