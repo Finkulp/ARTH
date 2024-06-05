@@ -59,10 +59,12 @@ export default function Dashboard(props) {
   });
 
   useEffect(() => {
-    console.log('Component mounted');
     setLoading(true);
+    console.log('Component mounted');
+    // setLoading(true); // This line is redundant as setLoading(true) is already called above.
     getDetails().finally(() => setLoading(false));
   }, []);
+  
 
   return (
     <div>

@@ -75,7 +75,7 @@ function App() {
             <Route path="faqlogged" element={<FAQlogged />}></Route>
             <Route path='courses' element={<Courses></Courses>}>
               <Route path="my-courses" element={<Mycouresmain />}></Route>
-              <Route path='' element={<ExploreCourses setExploreCourses={setExploreCourses} />}></Route>
+              <Route path='' element={<ExploreCourses setExploreCourses={setExploreCourses}/>}></Route>
               <Route path='ExploreCoursesDetails' element={<ExploreCoursesDetails exploreCourses={exploreCourses}></ExploreCoursesDetails>}></Route>
             </Route>
             <Route path='Add-Broker' element={<AddedBroker></AddedBroker>}></Route>
@@ -88,7 +88,7 @@ function App() {
             <Route path="5paisa" element={<Paisa />}></Route>
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
-              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo} ></Algoshopping>}></Route>
+              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
               <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} ></AlgoshoppingDescription>}></Route>
               <Route path="MyStrategy" element={<MyStrategies ></MyStrategies>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>

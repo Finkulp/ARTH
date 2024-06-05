@@ -13,47 +13,38 @@ app.use(express.json());
 
 app.post("/addStrategy", fetchuser, async (req, res) => {
   try {
-    const output = req.token;
-    const jfy = jwt.verify(output, serect_data);
-    console.log(jfy);
+    const { strategy_name, user_id } = req.body;
+    const strategyName = strategy_name.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+    const userId = user_id;
 
-    const { addStrategy,strategyname } = req.body; // Expecting an object for the broker
-    const userid = jfy.id;
-    const name=strategyname;
-    const user = await User.findById(userid);
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
-    }
-    if (!user.addedStrategies) {
-      user.addedStrategies =[];
-    }
-    user.addedStrategies.push(addStrategy);
-    console.log(user.addedStrategies)
-    // Tell Mongoose that the addedStrategies field has been updated
-    user.markModified('addedStrategies');
-    let existingStrategy = await Strategy.findOne({ user: userid });
+    // Find the strategy by name (case-insensitive)
+    let strategy = await Strategy.findOne({ Strategy_name: { $regex: new RegExp("^" + strategyName + "$", "i") } });
 
-    if (existingStrategy) {
-      // If it exists, update the specified strategy field
-      existingStrategy[strategyname] = 1;
-      await existingStrategy.save();
+    if (strategy) {
+      // Check if the user ID is already in the Users array
+      const isUserIdPresent = strategy.Users.some(user => user.equals(userId));
+
+      if (!isUserIdPresent) {
+        strategy.Users.push(userId);
+        await strategy.save();
+      }
     } else {
-      // If it doesn't exist, create a new strategy document
-      const newStrategy = new Strategy({
-        user: userid,
-        [strategyname]: 1
+      // If the strategy does not exist, create a new one with the user ID
+      strategy = new Strategy({
+        Strategy_name: strategyName,
+        Users: [userId]
       });
-      await newStrategy.save();
+      await strategy.save();
     }
 
-
-    await user.save();
-    res.json(user);
+    res.status(201).json(strategy);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error(error.message);
+    res.status(500).send('Internal Server Error');
   }
 });
+
+
 
 app.get('/:scriptName', (req, res) => {
   const scriptName = req.params.scriptName;

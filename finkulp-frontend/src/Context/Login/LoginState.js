@@ -5,7 +5,7 @@ import DetailContext from "../Details/DetailsContext";
 import {useState} from 'react'
 import { useEffect } from "react";
 const LoginState=(props)=>{
-    const{getDetails }=useContext(DetailContext);
+    const{getDetails,setLoading }=useContext(DetailContext);
     //Handling the Login part
     const[wait,setwait]=useState();
    const Navigate=useNavigate();
@@ -54,7 +54,10 @@ const LoginState=(props)=>{
           const authToken = getTokenFromCookie();
           if (authToken) {
           console.log('Authentication token:', authToken);
+          setLoading(true);
           Navigate('/loggedhome');
+        //   await getDetails();
+        //     setLoading(false);
           } else {
           console.log('Authentication token not found in the cookie.');
           }

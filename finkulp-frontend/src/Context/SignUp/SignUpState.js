@@ -59,7 +59,7 @@ const SignUpState=(props)=>{
           const authToken = getTokenFromCookie();
           if (authToken) {
           console.log('Authentication token:', authToken);
-          getDetails();
+        //   getDetails();
           setwait(false);
           } else {
           console.log('Authentication token not found in the cookie.');

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DetailContext from "./DetailsContext";
 
 function DetailsState(props) {
+    const[id,setid]=useState("");
     const [userDetails, setUserDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -35,7 +36,8 @@ function DetailsState(props) {
 
             const data = await response.json();
                  setUserDetails(data);
-            console.log(data);
+            console.log(data._id);
+            setid(data._id);
         } catch (err) {
             console.error('Error fetching user details:', err);
             setError(err.message);
@@ -43,12 +45,12 @@ function DetailsState(props) {
             setLoading(false);
         }
     }
-    useEffect(() => {
-     getDetails();
-    }, [])
+    // useEffect(() => {
+    //  getDetails();
+    // }, [])
     
     return (
-        <DetailContext.Provider value={{ getDetails,setUserDetails,userDetails,loading,setLoading }}>
+        <DetailContext.Provider value={{ getDetails,setUserDetails,userDetails,loading,setLoading,id }}>
             {props.children}
         </DetailContext.Provider>
     );

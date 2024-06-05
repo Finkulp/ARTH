@@ -4,7 +4,10 @@ import { MenuItem, TextField, duration } from '@mui/material';
 import {Link} from 'react-router-dom';
 import '../../../CSS/Algoshopping.css';
 import Chart from "react-apexcharts";
+import { useContext } from 'react';
+import DetailContext from '../../../Context/Details/DetailsContext';
 export default function Algoshopping(props) {
+  const { id } = useContext(DetailContext);
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [Duration,setduration]=useState("");
@@ -29,50 +32,47 @@ export default function Algoshopping(props) {
 //     year: [2011, 2012, 2013, 2014, 2015, 2016],
 //     profit: [500, 600, 700, 800, 900, 1000]
 //   }
+function getTokenFromCookie() {
+  const cookies = document.cookie.split(';');
+  let authToken = null;
+  cookies.forEach(cookie => {
+      const [name, value] = cookie.trim().split('=');
+      if (name === 'authToken') {
+          authToken = value;
+      }
+  });
+  return authToken;
+}
+async function buyStrategy(name) { // Ensure 'id' is passed as a parameter
+  try {
+    const authToken=getTokenFromCookie();
+    const response = await fetch("http://localhost:5000/notes/addStrategy", {
+      method: "POST",
+      body: JSON.stringify({
+        strategy_name: name,
+        user_id: id,
+      }),
+      headers: {
+        "authorization":`${authToken}`,
+        "Content-type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data1 = await response.json();
+    console.log(data1);
+  } catch (err) {
+    console.error('Error fetching user details:', err);
+  }
+}
+
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px'}}>
         <div style={{position:'absolute',top:'110px',right:"50px"}}>
-          {/* <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-          <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField>
-          <TextField
-            select
-            label="Filter by Category"
-            value={categoryFilter}
-            onChange={handleCategoryFilterChange}
-            variant="outlined"
-            style={{ marginRight: '20px',width:"200px" }}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Retail">Retail</MenuItem>
-            <MenuItem value="Premium">Premium</MenuItem>
-            <MenuItem value="HNI">HNI</MenuItem>
-          </TextField> */}
-
           <TextField
             label="Search by Strategist"
             variant="outlined"
@@ -134,7 +134,24 @@ export default function Algoshopping(props) {
            <hr style={{color:'gray',paddingBottom:'20px',width:"100%",marginTop:'-80px'}}></hr>
            <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px",gap:'50px'}}>
            <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={()=>{props.setViewAlgo(algo)}}>Open</button></Link></div>
-           <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}>Buy</button></Link></div>
+           <div>
+          <button
+            style={{
+              padding: '10px',
+              fontFamily: 'Lato',
+              color: 'white',
+              background: "rgb(44, 90, 163)",
+              fontSize: '15px',
+              fontWeight: '350',
+              paddingLeft: '20px',
+              paddingRight: '20px',
+              borderRadius: '3px'
+            }}
+            onClick={() => buyStrategy(algo.Strategist)}
+          >
+            Buy
+          </button>
+        </div>
           </div>
            </div> 
            </div>
@@ -143,3 +160,42 @@ export default function Algoshopping(props) {
     </>
   );
 }
+{/* <TextField
+            select
+            label="Filter by Category"
+            value={categoryFilter}
+            onChange={handleCategoryFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px',width:"200px" }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Retail">Retail</MenuItem>
+            <MenuItem value="Premium">Premium</MenuItem>
+            <MenuItem value="HNI">HNI</MenuItem>
+          </TextField>
+          <TextField
+            select
+            label="Filter by Category"
+            value={categoryFilter}
+            onChange={handleCategoryFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px',width:"200px" }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Retail">Retail</MenuItem>
+            <MenuItem value="Premium">Premium</MenuItem>
+            <MenuItem value="HNI">HNI</MenuItem>
+          </TextField>
+          <TextField
+            select
+            label="Filter by Category"
+            value={categoryFilter}
+            onChange={handleCategoryFilterChange}
+            variant="outlined"
+            style={{ marginRight: '20px',width:"200px" }}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Retail">Retail</MenuItem>
+            <MenuItem value="Premium">Premium</MenuItem>
+            <MenuItem value="HNI">HNI</MenuItem>
+          </TextField> */}
