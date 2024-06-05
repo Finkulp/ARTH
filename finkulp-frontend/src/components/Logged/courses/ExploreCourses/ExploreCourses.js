@@ -35,12 +35,12 @@ export default function ExploreCourses(props) {
   }
   return (
     <>
-    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'450px'}}>
-        <div style={{display:'flex',justifyContent:'center'}}>
-      <div style={{paddingTop:'150px',fontFamily:'poppins',fontWeight:'800',fontSize:'45px',color:'blue'}}>EXPERT INSTRUCTION FROM FINKULP</div>
+    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'350px'}}>
+        <div style={{display:'flex',justifyContent:'left',paddingLeft:'50px'}}>
+      <div style={{paddingTop:'100px',fontFamily:"Lato",fontWeight:'600',fontSize:'45px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
       </div>
-      <div style={{display:'flex',justifyContent:'center'}}>
-      <div style={{paddingTop:'20px',fontFamily:'poppins',fontWeight:'800',fontSize:'28px',color:'green',width:'70%',textAlign:'center'}}>Self-paced, online courses that provide on-the-job skills—all from the world's leader in finance and investing education.</div>
+      <div style={{display:'flex',justifyContent:'left',paddingLeft:'50px'}}>
+      <div style={{paddingTop:'20px',fontFamily:"Lato",fontWeight:'600',fontSize:'28px',color:'white',width:'70%',textAlign:'left'}}>Self-paced, online courses that provide on-the-job skills—all from the world's leader in finance and investing education.</div>
       </div>
       </div>
       <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex',position:'absolute',top:'110px',left:"800px"}}>
