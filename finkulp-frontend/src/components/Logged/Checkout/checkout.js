@@ -1,10 +1,57 @@
 import React from 'react';
+import { useContext } from 'react';
+import DetailContext from '../../../Context/Details/DetailsContext';
 export default function Checkout(props) {
+  const { id } = useContext(DetailContext);
   function removeFromList(item) {
     props.setchekout(prevCheckout => prevCheckout.filter(i => i !== item));
     props.setsum(props.sum-item.price);
   }
+  function getTokenFromCookie() {
+    const cookies = document.cookie.split(';');
+    let authToken = null;
+    cookies.forEach(cookie => {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'authToken') {
+            authToken = value;
+        }
+    });
+    return authToken;
+  }
+  async function placeorder() {
+    const authToken = getTokenFromCookie();
+    if (!authToken) {
+      console.error('Auth token not found');
+      return;
+    }
 
+    try {
+      if (props.checkout.length !== 0) {
+        for (const item of props.checkout) {
+          const response = await fetch("http://localhost:5000/notes/addStrategy", {
+            method: "POST",
+            body: JSON.stringify({
+              strategy_name: item.Strategist,
+              user_id: id,
+            }),
+            headers: {
+              "Authorization": `${authToken}`,
+              "Content-Type": "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log(data);
+        }
+      }
+    } catch (err) {
+      console.error('Error placing order:', err);
+    }
+  }
   return (
     <>
       <div>
@@ -123,7 +170,7 @@ export default function Checkout(props) {
                 <p className="text-2xl font-semibold text-gray-900">{props.sum}</p>
               </div>
             </div>
-            <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
+            <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" onClick={placeorder}>Place Order</button>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 export const Algos = [
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy1",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",
@@ -41,7 +41,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy2",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "200 Days",
@@ -81,7 +81,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy3",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",
@@ -121,7 +121,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy4",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",
@@ -162,7 +162,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy5",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",
@@ -203,7 +203,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy6",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",
@@ -244,7 +244,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Cevent",
+        Strategist: "Strategy7",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",
@@ -285,7 +285,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "AlgoBulls",
+        Strategist: "Strategy8",
         NSE: "NIFTY 50",
         Category: "HNI",
         Recommended_Duration: "180 Days",
@@ -326,7 +326,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy9",
         NSE: "NIFTY 50",
         Category: "Premium",
         Recommended_Duration: "180 Days",
@@ -367,7 +367,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy10",
         NSE: "NIFTY 50",
         Category: "Premium",
         Recommended_Duration: "180 Days",
@@ -408,7 +408,7 @@ export const Algos = [
     },
     {
         index:1,
-        Strategist: "Finkulp",
+        Strategist: "Strategy11",
         NSE: "NIFTY 50",
         Category: "Retail",
         Recommended_Duration: "180 Days",

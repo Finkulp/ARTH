@@ -108,9 +108,9 @@ async function buyStrategy(name) { // Ensure 'id' is passed as a parameter
             />}
            </div>
             <div style={{display:'flex',justifyContent:'center',paddingLeft:'20px'}}>
-            <div style={{display:'flex',gap:'50px',flexWrap:'wrap'}}>
+            <div style={{display:'flex',gap:'40px',flexWrap:'wrap'}}>
               <div>
-            <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:'#023e8a'}}>Strategist</div>
+            <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:'#023e8a'}}>Name</div>
            <div style={{fontSize:'20px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',color:"#0a9396"}}>{algo. Strategist}</div>
            </div>
            <div>

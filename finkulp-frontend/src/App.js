@@ -47,7 +47,7 @@ import DashboardH from "./components/Logged/DashBoard/DashboardH";
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
-  const[checkout,setchekout]=useState("");
+  const[checkout,setchekout]=useState(null);
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
   const[editAlgo,seteditAlgo]=useState("");
