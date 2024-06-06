@@ -1,4 +1,4 @@
-import  React from 'react';
+import React, { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,87 +6,86 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Modal from '@mui/material/Modal';
-import MyStrategiesStats from './MyStrategiesStats';
-import {myStrategies} from '../../../Data/MyStrategy_Dashboard';
+import { Algos } from '../../../Data/MyStrategy';
+import { MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-export default function MyStrategies(props) {
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [selectedStrategy, setSelectedStrategy] = React.useState({overview:""});
 
-  const handleRowClick = (strategy) => {
-    setSelectedStrategy(strategy);
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
+export default function MyStrategy(props) {
+  const [strategistFilter, setStrategistFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
+  const [Duration, setDuration] = useState('');
+  const [instrumentFilter, setInstrumentFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
+  const filteredAlgos = Algos.filter((algo) =>
+    algo.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
+    (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase()) &&
+    (Duration === '' || algo.duration.toLowerCase() === Duration.toLowerCase()) &&
+    (instrumentFilter === '' || algo.instrument.toLowerCase() === instrumentFilter.toLowerCase()) &&
+    (statusFilter === '' || algo.status.toLowerCase() === statusFilter.toLowerCase())
+  );
 
   return (
     <>
-      <TableContainer component={Paper} style={{ paddingRight: "20px", paddingLeft: '20px' }}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell style={{ fontWeight: "600" }}>Strategy Name</TableCell>
-              <TableCell align="right" style={{ fontWeight: "600" }}>Category</TableCell>
-              <TableCell align="right" style={{ fontWeight: "600" }}>Type</TableCell>
-              <TableCell align="right" style={{ fontWeight: "600" }}>BenchMark</TableCell>
-            </TableRow>
-          </TableHead>
-        
-          {(props.Strategies && props.Strategies.length > 0) ? (
-            (props.Strategies).map((strategy) => (
-              <TableBody>
-              <TableRow
-                key={strategy.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                className='hover:bg-blue'
-                onClick={() => handleRowClick(strategy)}
-              >
-                <TableCell>{strategy.name}</TableCell>
-                <TableCell align="right">{strategy.riskLevel}</TableCell>
-                <TableCell align="right">{strategy.earningPotential}</TableCell>
-                <TableCell align="right">{strategy.benchmark}</TableCell>
+    <div style={{display:'flex',justifyContent:'center',marginTop:'10px'}}>
+      <div style={{color:'green',fontfamily:"poppins"}}>My Strategies</div>
+    </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '100%', marginBottom: '' }}>
+          <Table sx={{ minWidth: 300 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell style={{ fontWeight: '600', fontSize: '14px'}}>Strategy Name</TableCell>
+                <TableCell align="center" style={{ fontWeight: '600', fontSize: '14px', }}>Status</TableCell>
+                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Amount Invested</TableCell>
+                <TableCell align="center" style={{ fontWeight: '600', fontSize: '14px', }}>Action</TableCell>
               </TableRow>
-              </TableBody>
-            ))
-          ) : (
-            <div style={{position:'relative',left:"180px"}}>
-              <div style={{paddingTop:"50px",marginBottom:'50px',textAlign:'center',width:'100%'}}>No Strategies are added yet</div>
-              <Link to='/loggedhome/MarketPlace/'>
-                <button className="py-3 text-base font-medium text-white hover:bg-green-400 hover:text-black bg-blue" style={{borderRadius: "10px",marginLeft:'50px',width:'200px',marginBottom:'300px'}}>
-                  Explore Strategies
-                </button>
-              </Link>
-            </div>
-          )}
-        </Table>
-      </TableContainer>
-      <Modal
-        open={modalOpen}
-        onClose={handleCloseModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: 'white',
-          width: '90%',
-          maxWidth: '1000px', // Adjust this value based on your design
-          maxHeight: '80%', // Adjust this value based on your design
-          overflowY: 'auto', // Enable vertical scrolling if needed
-          padding: '20px',
-        }}>
-          <MyStrategiesStats strategy={selectedStrategy} />
-          <div style={{marginTop:"-150px"}}>{selectedStrategy.overview}</div>
-          <button onClick={handleCloseModal} style={{paddingTop:"100px"}}>Close</button>
+            </TableHead>
+            <TableBody>
+            {filteredAlgos.slice(0, 3).map((algo, index) => (
+
+              <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
+                <TableCell >{algo.Strategist}</TableCell>
+                <TableCell align="center">{algo.status}</TableCell>
+                <TableCell align="center">{algo.amount_Invested}</TableCell>
+                <TableCell align="center" >
+                  {(algo.status === 'Not Started') && (
+                    <>
+                      <Link >
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Start
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                  {(algo.status === 'Running') && (
+                    <>
+                      <Link  >
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Stop
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                  {(algo.status === 'Stopped') && (
+                    <>
+                      <Link >
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                          Restart
+                        </button>
+                      </Link>
+                    </>
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+
+          </Table>
+        </TableContainer>
+      </div>
+      <div style={{display:'flex',justifyContent:'center',marginTop:'10px'}}>
+      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">View All</button>
         </div>
-      </Modal>
     </>
   );
 }

@@ -26,5 +26,41 @@ export const TradeData=[
         exitPrice:"-",
         dateTime:"2-3-2024 & 12:45",
         capitalInvested:"8,431",
+    },
+    {
+        Strategist:"Finkulp",
+        tradeType:"Buy",
+        profitLoss:"-",
+        entryPrice:"235.6/share",
+        exitPrice:"-",
+        dateTime:"2-3-2024 & 12:45",
+        capitalInvested:"8,431",
+    }
+    ,{
+        Strategist:"Finkulp",
+        tradeType:"Buy",
+        profitLoss:"-",
+        entryPrice:"235.6/share",
+        exitPrice:"-",
+        dateTime:"2-3-2024 & 12:45",
+        capitalInvested:"8,431",
+    },
+    {
+        Strategist:"Finkulp",
+        tradeType:"Buy",
+        profitLoss:"-",
+        entryPrice:"235.6/share",
+        exitPrice:"-",
+        dateTime:"2-3-2024 & 12:45",
+        capitalInvested:"8,431",
+    },
+    {
+        Strategist:"Finkulp",
+        tradeType:"Buy",
+        profitLoss:"-",
+        entryPrice:"235.6/share",
+        exitPrice:"-",
+        dateTime:"2-3-2024 & 12:45",
+        capitalInvested:"8,431",
     }
 ]
