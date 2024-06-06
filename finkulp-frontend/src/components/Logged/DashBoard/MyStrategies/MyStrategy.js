@@ -47,6 +47,10 @@ export default function MyStrategy(props) {
 
   return (
     <>
+    <div style={{boxShadow:'1px 1px 10px black',marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto'}}>
+      <div style={{display:'flex',justifyContent:'center'}}>
+        <div style={{width:'200px',fontFamily:'poppins',color:'	#4285F4',fontSize:'23px',textDecoration:'underline',paddingBottom:'20px'}}>My Strategies</div>
+      </div>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px'}}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
@@ -100,7 +104,7 @@ export default function MyStrategy(props) {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TableContainer component={Paper} style={{ maxWidth: '80%', marginBottom: '' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '98%', marginBottom: '' }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -164,7 +168,7 @@ export default function MyStrategy(props) {
           </Table>
         </TableContainer>
       </div>
-    
+      </div>
     </>
   );
 }

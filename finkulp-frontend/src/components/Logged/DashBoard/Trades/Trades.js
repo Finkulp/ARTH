@@ -35,14 +35,18 @@ export default function Trades(props) {
 
   return (
     <>
+    <div style={{width:'100%',paddingBottom:'20px',boxShadow:'1px 1px 10px black',marginRight:'20px',paddingTop:'20px',height:'700px',overflowY:'auto'}}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <div style={{ fontSize: '30px', fontWeight: '700', color: 'blue', textAlign: 'center', width: '100%' }}>Trade History</div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <TextField
+        <div style={{ fontSize: '25px',fontFamily:'poppins', fontWeight: '400', color: 'green', textAlign: 'center', width: '100%' }}>Trade History</div>
+        <div style={{ display: 'flex', alignItems: 'center' ,height:"30px",border:'10px'}}>
+          <TextField 
             label="Search by Strategist"
             variant="outlined"
             onChange={handleStrategistFilterChange}
-            style={{ marginRight: '30px', width: '400px' }}
+            InputProps={{
+              style: { height: '40px' ,borderRadius:'10px' }
+            }}
+            style={{ marginRight: '30px', width: '200px',height:'40px',borderRadius:'10px'}}
           />
           
           <TextField
@@ -51,7 +55,10 @@ export default function Trades(props) {
             value={tradeTypeFilter}
             onChange={handleTradeTypeFilterChange}
             variant="outlined"
-            style={{ marginRight: '20px', width: '200px' }}
+            InputProps={{
+              style: { height: '40px' ,borderRadius:'10px' }
+            }}
+            style={{ marginRight: '20px', width: '200px'}}
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value="Buy">Buy</MenuItem>
@@ -60,7 +67,7 @@ export default function Trades(props) {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TableContainer component={Paper} style={{ maxWidth: '90%', marginBottom: '' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '97%', marginBottom: '' }}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -88,6 +95,7 @@ export default function Trades(props) {
             </TableBody>
           </Table>
         </TableContainer>
+      </div>
       </div>
     </>
   );

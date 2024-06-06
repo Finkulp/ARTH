@@ -59,21 +59,13 @@ export default function DashboardH() {
       ],
     });
   return (
-    <div style={{marginTop:'150px',marginBottom:'20px'}}>
-    <div style={{display:'flex',gap:'1%'}}>
-    <div style={{boxShadow:"1px 1px 10px black",width:'10%',paddingLeft:'10px',background:'white'}}>
-        <div style={{border:'soldi',width:'150px'}}></div>
-            <div style={{fontFamily:"poppins",color:'		#FBBC05',fontWeight:'400',marginBottom:'20px',marginTop:'30px'}}>Dashboard</div>
-            <div style={{width:'100%',paddingRight:"1px",fontFamily:"poppins",color:'	#4285F4',fontWeight:'400',marginBottom:'20px'}}>My Strategies</div>
-            <div style={{fontFamily:"poppins",color:'	#4285F4',fontWeight:'400',marginBottom:'20px'}}>My Courses</div>
-            <div style={{fontFamily:"poppins",color:'	#4285F4',fontWeight:'400',marginBottom:'20px'}}>Trade Hisotry</div>
-      </div>
+    
       <div>
             <div style={{display:'flex',gap:'1%'}}>
                 <div style={{width:"65%",boxShadow:'1px 1px 10px black',border:'solid',borderWidth:'1px',background:'white'}}>
                     <div style={{display:'flex',gap:"20px"}}>
                         <div style={{overflowY:"auto",height:"400px",width:'230px',overflowX:'hidden'}}>
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',background:'cyan'}}>
                                   <div>Strategy1</div>
                               </div>
                               <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
@@ -221,8 +213,6 @@ export default function DashboardH() {
                 </div>
             </div>
       </div>
-    </div>
-    </div>
   )
 }
 

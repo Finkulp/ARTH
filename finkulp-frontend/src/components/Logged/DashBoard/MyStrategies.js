@@ -26,6 +26,7 @@ export default function MyStrategy(props) {
 
   return (
     <>
+    <div>
     <div style={{display:'flex',justifyContent:'center',marginTop:'10px'}}>
       <div style={{color:'green',fontfamily:"poppins"}}>My Strategies</div>
     </div>
@@ -85,6 +86,7 @@ export default function MyStrategy(props) {
       </div>
       <div style={{display:'flex',justifyContent:'center',marginTop:'10px'}}>
       <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">View All</button>
+        </div>
         </div>
     </>
   );

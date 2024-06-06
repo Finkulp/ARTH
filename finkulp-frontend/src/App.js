@@ -7,7 +7,7 @@ import Login from "./components/Non-logged/Login";
 import Loggedin from "./components/Logged/loggedin";
 import Pricing from "./components/Logged/Pricing";
 import FAQlogged from "./components/Logged/FAQ";
-import Mycouresmain from "./components/Logged/courses/MyCourses/Mycouresmain";
+import Mycouresmain from "./components/Logged/DashBoard/MyCourses/Mycouresmain";
 import ExploreCourses from "./components/Logged/courses/ExploreCourses/ExploreCourses";
 import ExploreCoursesDetails from "./components/Logged/courses/ExploreCourses/ExploreCoursesDetails";
 import Zerodha from "./components/Logged/AddBroker/zerodtha";
@@ -19,12 +19,10 @@ import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
 import AddedBroker from "./components/Logged/AddBroker/AddedBroker";
 import TradingStrategy from "./components/Logged/TradingStrategy";
-import MarketPlace from "./components/Logged/AlgoShopping/MarketPlace";
-import Dashboard from './components/Logged/DashBoard/Dashboard';
 import Algoshopping from "./components/Logged/AlgoShopping/Algoshopping";
 import AlgoshoppingDescription from "./components/Logged/AlgoShopping/AlgoshoppingDescription";
-import MyStrategies from './components/Logged/AlgoShopping/MyStrategies/MyStrategy';
-import Trades from "./components/Logged/AlgoShopping/Trades/Trades";
+import MyStrategy from "./components/Logged/DashBoard/MyStrategies/MyStrategy";
+import Trades from "./components/Logged/DashBoard/Trades/Trades";
 import AdminHome from "./components/Admin/AdminHome";
 import Courses from "./components/Logged/courses/Courses";
 import TradingStrategyAdmin from "./components/Admin/TradingStrategy";
@@ -44,6 +42,8 @@ import SignUpState from "./Context/SignUp/SignUpState";
 import DetailsState from "./Context/Details/DetailsState";
 import FeaturesHome from "./components/Non-logged/Features/FeaturesHome";
 import DashboardH from "./components/Logged/DashBoard/DashboardH";
+import MainDashbord from "./components/Logged/DashBoard/MainDashbord";
+import MarketPlace from "./components/Logged/AlgoShopping/MarketPlace";
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
@@ -70,11 +70,9 @@ function App() {
           <Route path="/signup" element={<SignUP />}></Route>
           <Route path='/loggedhome' element={<Loggedin />}>
             <Route path="tradingStrategy" element={<TradingStrategy></TradingStrategy>}></Route>
-            <Route path = "newDashBoard" element={<DashboardH></DashboardH>}></Route>
             <Route path="subscription" element={<Pricing />}></Route>
             <Route path="faqlogged" element={<FAQlogged />}></Route>
             <Route path='courses' element={<Courses></Courses>}>
-              <Route path="my-courses" element={<Mycouresmain />}></Route>
               <Route path='' element={<ExploreCourses setExploreCourses={setExploreCourses}/>}></Route>
               <Route path='ExploreCoursesDetails' element={<ExploreCoursesDetails exploreCourses={exploreCourses}></ExploreCoursesDetails>}></Route>
             </Route>
@@ -90,10 +88,13 @@ function App() {
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
               <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} checkout={checkout} ></AlgoshoppingDescription>}></Route>
-              <Route path="MyStrategy" element={<MyStrategies ></MyStrategies>}></Route>
+            </Route>
+            <Route path='Dashboard' element={<MainDashbord setViewAlgo={setViewAlgo}></MainDashbord>}>
+              <Route path="" element={<DashboardH></DashboardH>}></Route>
+              <Route path="my-courses" element={<Mycouresmain />}></Route>
+              <Route path="MyStrategy" element={<MyStrategy ></MyStrategy>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
-            <Route path='' element={<Dashboard setViewAlgo={setViewAlgo}></Dashboard>}></Route>
             <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>
