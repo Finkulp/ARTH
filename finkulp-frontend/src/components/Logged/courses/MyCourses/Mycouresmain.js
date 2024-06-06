@@ -30,10 +30,10 @@ export default function MyCourses(props) {
 
   return (
     <>
-      <div className="max-w-md mx-auto" style={{ marginLeft: "500px",display:'flex',position:'absolute',top:'110px',left:"600px" }}>
+      <div className="max-w-md mx-auto" style={{ marginLeft: "500px",display:'flex',position:'absolute',left:'700px',top:'110px',width:'250px' }}>
         <div >
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-        <div className="relative" style={{width:'500px'}}>
+        <div className="relative" style={{width:'300px'}}>
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -47,7 +47,7 @@ export default function MyCourses(props) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             required
-            style={{height:'40px',width:'400px'}}
+            style={{height:'40px',width:'250px'}}
           />
         </div>
         </div>
@@ -71,7 +71,7 @@ export default function MyCourses(props) {
         </select>
       </div> */}
       </div>
-      <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly" }}>
+      <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly",marginTop:'150px' }}>
         {filteredData.map(course => (
           
           

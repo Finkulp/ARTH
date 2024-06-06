@@ -35,9 +35,9 @@ export default function ExploreCourses(props) {
   }
   return (
     <>
-    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'350px'}}>
+    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'400px'}}>
         <div style={{display:'flex',justifyContent:'left',paddingLeft:'50px'}}>
-      <div style={{paddingTop:'100px',fontFamily:"Lato",fontWeight:'600',fontSize:'45px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
+      <div style={{paddingTop:'150px',fontFamily:"Lato",fontWeight:'600',fontSize:'45px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
       </div>
       <div style={{display:'flex',justifyContent:'left',paddingLeft:'50px'}}>
       <div style={{paddingTop:'20px',fontFamily:"Lato",fontWeight:'600',fontSize:'28px',color:'white',width:'70%',textAlign:'left'}}>Self-paced, online courses that provide on-the-job skills—all from the world's leader in finance and investing education.</div>
@@ -84,7 +84,7 @@ export default function ExploreCourses(props) {
         </select>
       </div> */}
       </div>
-      <div style={{textAlign:'center',fontFamily:"Lato",fontWeight:"400",fontSize:'32px',paddingTop:"20px"}}>POPULAR COURSES</div>
+      {/* <div style={{textAlign:'center',fontFamily:"Lato",fontWeight:"400",fontSize:'32px',paddingTop:"20px"}}>POPULAR COURSES</div> */}
       <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly" }}>
         {filteredData.map(course => (
           <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
