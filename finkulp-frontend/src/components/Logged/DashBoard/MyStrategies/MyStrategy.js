@@ -9,8 +9,10 @@ import Paper from '@mui/material/Paper';
 import { Algos } from '../../../../Data/MyStrategy';
 import { MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import DetailContext from '../../../../Context/Details/DetailsContext';
+import { useContext } from 'react';
 export default function MyStrategy(props) {
+  const { getDetails, userDetails, loading, setLoading } = useContext(DetailContext);
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [Duration, setDuration] = useState('');
@@ -116,7 +118,7 @@ export default function MyStrategy(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-            {filteredAlgos.map((algo, index) => (
+            {userDetails.addedStrategies&& userDetails.addedStrategies.map((algo, index) => (
               <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
                 <TableCell style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
                 <TableCell align="right" style={{ padding: '8px' }}>{algo.instrument}</TableCell>

@@ -24,7 +24,7 @@ export default function Checkout(props) {
       console.error('Auth token not found');
       return;
     }
-
+    //adding strategy to the straetgy table
     try {
       if (props.checkout.length !== 0) {
         for (const item of props.checkout) {
@@ -33,6 +33,37 @@ export default function Checkout(props) {
             body: JSON.stringify({
               strategy_name: item.Strategist,
               user_id: id,
+            }),
+            headers: {
+              "Authorization": `${authToken}`,
+              "Content-Type": "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log(data);
+        }
+      }
+    } catch (err) {
+      console.error('Error placing order:', err);
+    }
+    
+    //adding strategy to the user
+    try {
+      if (props.checkout.length !== 0) {
+        for (const item of props.checkout) {
+          const response = await fetch("http://localhost:5000/notes//addStrategytouser", {
+            method: "POST",
+            body: JSON.stringify({
+              addedStrategy:{
+                ...item,
+                status: 'Not Started', // Add your specific value here
+                amount_Invested: '10000'  // Add your specific value here
+              }
             }),
             headers: {
               "Authorization": `${authToken}`,

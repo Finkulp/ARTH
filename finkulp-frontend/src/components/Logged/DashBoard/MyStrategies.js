@@ -42,7 +42,7 @@ export default function MyStrategy(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-            {filteredAlgos.slice(0, 3).map((algo, index) => (
+            {props.userDetails.addedStrategies&& props.userDetails.addedStrategies.slice(0, 3).map((algo, index) => (
 
               <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
                 <TableCell >{algo.Strategist}</TableCell>

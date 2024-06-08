@@ -26,12 +26,6 @@ export default function Algoshopping(props) {
     algo.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
     (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase())
   );
-  // const [profit_vlaues, setprofit_values] = useState({
-  // });
-//  const  graph={
-//     year: [2011, 2012, 2013, 2014, 2015, 2016],
-//     profit: [500, 600, 700, 800, 900, 1000]
-//   }
 function getTokenFromCookie() {
   const cookies = document.cookie.split(';');
   let authToken = null;
@@ -43,14 +37,40 @@ function getTokenFromCookie() {
   });
   return authToken;
 }
-async function buyStrategy(name) { // Ensure 'id' is passed as a parameter
+async function buyStrategy(algo) {
   try {
     const authToken=getTokenFromCookie();
     const response = await fetch("http://localhost:5000/notes/addStrategy", {
       method: "POST",
       body: JSON.stringify({
-        strategy_name: name,
+        strategy_name:algo.Strategist,
         user_id: id,
+      }),
+      headers: {
+        "authorization":`${authToken}`,
+        "Content-type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data1 = await response.json();
+    console.log(data1);
+  } catch (err) {
+    console.error('Error fetching user details:', err);
+  }
+  try {
+    const authToken=getTokenFromCookie();
+    const response = await fetch("http://localhost:5000/notes//addStrategytouser", {
+      method: "POST",
+      body: JSON.stringify({
+        addedStrategy:{
+          ...algo,
+          status: 'Not Started', // Add your specific value here
+          amount_Invested: '10000'  // Add your specific value here
+        }
       }),
       headers: {
         "authorization":`${authToken}`,
@@ -147,7 +167,7 @@ async function buyStrategy(name) { // Ensure 'id' is passed as a parameter
               paddingRight: '20px',
               borderRadius: '3px'
             }}
-            onClick={() => buyStrategy(algo.Strategist)}
+            onClick={() => buyStrategy(algo)}
           >
             Buy
           </button>

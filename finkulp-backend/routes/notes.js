@@ -44,8 +44,31 @@ app.post("/addStrategy", fetchuser, async (req, res) => {
   }
 });
 
+app.post("/addStrategytouser", fetchuser, async (req, res) => {
+  try {
+    const output = req.token;
+    const jfy = jwt.verify(output, serect_data);
 
+    const { addedStrategy } = req.body; // Expecting an object for the broker
+    const userid = jfy.id;
+    const user = await User.findById(userid);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
 
+    if (!user.addedStrategies) {
+      user.addedStrategies = [];
+    }
+
+    user.addedStrategies.push(addedStrategy);
+    await user.save();
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 app.get('/:scriptName', (req, res) => {
   const scriptName = req.params.scriptName;
   console.log(scriptName);

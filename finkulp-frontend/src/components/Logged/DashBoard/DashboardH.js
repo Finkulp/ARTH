@@ -217,7 +217,7 @@ export default function DashboardH() {
       </div>
             <div style={{display:'flex',gap:"1%"}}>
                 <div style={{width:'35%',boxShadow:'1px 1px 10px black',background:'white'}}>
-                   <MyStrategy></MyStrategy>
+                   <MyStrategy userDetails={userDetails}></MyStrategy>
                 </div>
                 <div style={{width:'65%',boxShadow:'1px 1px 10px black',background:'white'}}>
                       <Trades></Trades>
