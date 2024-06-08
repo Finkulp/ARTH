@@ -11,8 +11,9 @@ import { MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import DetailContext from '../../../../Context/Details/DetailsContext';
 import { useContext } from 'react';
+import { useEffect } from 'react';
 export default function MyStrategy(props) {
-  const { getDetails, userDetails, loading, setLoading } = useContext(DetailContext);
+  const { getDetails, userDetails, loading, setLoading ,id} = useContext(DetailContext);
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [Duration, setDuration] = useState('');
@@ -46,7 +47,50 @@ export default function MyStrategy(props) {
     (instrumentFilter === '' || algo.instrument.toLowerCase() === instrumentFilter.toLowerCase()) &&
     (statusFilter === '' || algo.status.toLowerCase() === statusFilter.toLowerCase())
   );
+  function getTokenFromCookie() {
+    const cookies = document.cookie.split(';');
+    let authToken = null;
+    cookies.forEach(cookie => {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'authToken') {
+            authToken = value;
+        }
+    });
+    return authToken;
+  }
+  
+ async function deletestrategy(algo){
+  const authToken = getTokenFromCookie();
+  if (!authToken) {
+    console.error('Auth token not found');
+    return;
+  }
+    try {
+          const response = await fetch("http://localhost:5000/notes/removeUserFromStrategy", {
+            method: "DELETE",
+            body: JSON.stringify({
+              strategy_name: algo.Strategist,
+              user_id: id,
+            }),
+            headers: {
+              "Authorization": `${authToken}`,
+              "Content-Type": "application/json"
+            }
+          });
 
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log(data);
+          algo.status="stopped";
+        
+    } catch (err) {
+      console.error('Error placing order:', err);
+    }
+
+}
   return (
     <>
     <div style={{boxShadow:'1px 1px 10px black',marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto'}}>
@@ -125,20 +169,20 @@ export default function MyStrategy(props) {
                 <TableCell align="center" style={{ padding: '8px',position:'relative',left:'50px'}}>
                   {(algo.status === 'stopped') && (
                     <>
-                      <Link >
-                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                      <div >
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }}>
                           Start
                         </button>
-                      </Link>
+                      </div>
                     </>
                   )}
                   {(algo.status === 'started') && (
                     <>
-                      <Link  style={{ paddingLeft: '50px' }}>
-                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }}>
+                      <div  style={{ paddingLeft: '50px' }}>
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => deletestrategy(algo)}>
                           Stop
                         </button>
-                      </Link>
+                      </div>
                     </>
                   )}
                    <Link to='/loggedhome/MarketPlace/AlgoDescription' >

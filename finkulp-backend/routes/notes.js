@@ -110,6 +110,67 @@ app.get('/:scriptName', (req, res) => {
 //   });
 // });
 
+app.post("/addStrategy", fetchuser, async (req, res) => {
+  try {
+    const { strategy_name, user_id } = req.body;
+    const strategyName = strategy_name.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+    const userId = user_id;
+
+    // Find the strategy by name (case-insensitive)
+    let strategy = await Strategy.findOne({ Strategy_name: { $regex: new RegExp("^" + strategyName + "$", "i") } });
+
+    if (strategy) {
+      // Check if the user ID is already in the Users array
+      const isUserIdPresent = strategy.Users.some(user => user.equals(userId));
+
+      if (!isUserIdPresent) {
+        strategy.Users.push(userId);
+        await strategy.save();
+      }
+    } else {
+      // If the strategy does not exist, create a new one with the user ID
+      strategy = new Strategy({
+        Strategy_name: strategyName,
+        Users: [userId]
+      });
+      await strategy.save();
+    }
+
+    res.status(201).json(strategy);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Internal Server Error');
+  }
+});
+app.delete("/removeUserFromStrategy", fetchuser, async (req, res) => {
+  try {
+    const { strategy_name, user_id } = req.body;
+    const strategyName = strategy_name.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+    const userId = user_id;
+
+    // Find the strategy by name (case-insensitive)
+    let strategy = await Strategy.findOne({ Strategy_name: { $regex: new RegExp("^" + strategyName + "$", "i") } });
+
+    if (strategy) {
+      // Check if the user ID is in the Users array
+      const userIndex = strategy.Users.findIndex(user => user.equals(userId));
+
+      if (userIndex !== -1) {
+        // Remove the user ID from the Users array
+        strategy.Users.splice(userIndex, 1);
+        await strategy.save();
+        return res.status(200).json({ message: "User removed from strategy", strategy });
+      } else {
+        return res.status(404).json({ message: "User ID not found in strategy" });
+      }
+    } else {
+      return res.status(404).json({ message: "Strategy not found" });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 
 app.post("/addBroker", fetchuser, async (req, res) => {
