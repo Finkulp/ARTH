@@ -150,7 +150,6 @@ export default function MyStrategy(props) {
               </TableRow>
             ))}
           </TableBody>
-
           </Table>
         </TableContainer>
       </div>
