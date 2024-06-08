@@ -68,7 +68,7 @@ async function buyStrategy(algo) {
       body: JSON.stringify({
         addedStrategy:{
           ...algo,
-          status: 'Not Started', // Add your specific value here
+          status: 'started', // Add your specific value here
           amount_Invested: '10000'  // Add your specific value here
         }
       }),

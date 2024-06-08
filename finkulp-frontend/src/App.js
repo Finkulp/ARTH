@@ -89,10 +89,10 @@ function App() {
               <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
               <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} checkout={checkout} ></AlgoshoppingDescription>}></Route>
             </Route>
-            <Route path='Dashboard' element={<MainDashbord setViewAlgo={setViewAlgo}></MainDashbord>}>
+            <Route path='Dashboard' element={<MainDashbord ></MainDashbord>}>
               <Route path="" element={<DashboardH></DashboardH>}></Route>
               <Route path="my-courses" element={<Mycouresmain />}></Route>
-              <Route path="MyStrategy" element={<MyStrategy ></MyStrategy>}></Route>
+              <Route path="MyStrategy" element={<MyStrategy setViewAlgo={setViewAlgo} ></MyStrategy>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>

@@ -61,7 +61,7 @@ export default function Checkout(props) {
             body: JSON.stringify({
               addedStrategy:{
                 ...item,
-                status: 'Not Started', // Add your specific value here
+                status: 'started', // Add your specific value here
                 amount_Invested: '10000'  // Add your specific value here
               }
             }),

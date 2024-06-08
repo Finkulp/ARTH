@@ -106,62 +106,46 @@ export default function MyStrategy(props) {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TableContainer component={Paper} style={{ maxWidth: '98%', marginBottom: '' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '98%', marginBottom: '' ,overflow:"hidden"}}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Strategy Name</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Instrument</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Amount Invested</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Status</TableCell>
-                <TableCell align="right" style={{ fontWeight: '600', fontSize: '14px', padding: '8px', paddingRight: '100px' }}>Action</TableCell>
+                <TableCell align="center"style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Strategy Name</TableCell>
+                <TableCell align="center" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Amount Invested</TableCell>
+                <TableCell align="center" style={{ fontWeight: '600', fontSize: '14px', padding: '8px' }}>Status</TableCell>
+                <TableCell align="center" style={{ fontWeight: '600', fontSize: '14px', padding: '8px',position:'relative',left:'50px'  }}>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
             {userDetails.addedStrategies&& userDetails.addedStrategies.map((algo, index) => (
-              <TableRow key={index} style={{ fontSize: '12px', height: '40px', backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F3F6FF' }}>
-                <TableCell style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
-                <TableCell align="right" style={{ padding: '8px' }}>{algo.instrument}</TableCell>
-                <TableCell align="right" style={{ padding: '8px' }}>{algo.amount_Invested}</TableCell>
-                <TableCell align="right" style={{ padding: '8px' }}>{algo.status}</TableCell>
-                <TableCell align="right" style={{ padding: '8px' }}>
-                  {(algo.status === 'Not Started') && (
+              <TableRow key={index} style={{ fontSize: '12px', height: '40px'}}>
+                <TableCell align='center' style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
+                <TableCell align="center" style={{ padding: '8px' }}>{algo.amount_Invested}</TableCell>
+                <TableCell align="center" style={{ padding: '8px' }}>{algo.status}</TableCell>
+                <TableCell align="center" style={{ padding: '8px',position:'relative',left:'50px'}}>
+                  {(algo.status === 'stopped') && (
                     <>
                       <Link >
                         <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
                           Start
                         </button>
                       </Link>
-                      <Link  style={{ paddingLeft: '50px' }}>
-                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
-                          Remove
-                        </button>
-                      </Link>
                     </>
                   )}
-                  {(algo.status === 'Running') && (
+                  {(algo.status === 'started') && (
                     <>
                       <Link  style={{ paddingLeft: '50px' }}>
-                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }}>
                           Stop
                         </button>
                       </Link>
                     </>
                   )}
-                  {(algo.status === 'Stopped') && (
-                    <>
-                      <Link >
-                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
-                          Restart
+                   <Link to='/loggedhome/MarketPlace/AlgoDescription' >
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewAlgo(algo) }}>
+                          Know More
                         </button>
                       </Link>
-                      <Link  style={{ paddingLeft: '50px' }}>
-                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => { props.setViewMyAlog(algo) }}>
-                          Remove
-                        </button>
-                      </Link>
-                    </>
-                  )}
                 </TableCell>
               </TableRow>
             ))}
