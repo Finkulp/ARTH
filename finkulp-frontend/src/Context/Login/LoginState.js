@@ -55,7 +55,7 @@ const LoginState=(props)=>{
           if (authToken) {
           console.log('Authentication token:', authToken);
           setLoading(true);
-          Navigate('/loggedhome');
+          Navigate('/loggedhome/Dashboard');
         //   await getDetails();
         //     setLoading(false);
           } else {

@@ -35,12 +35,12 @@ export default function ExploreCourses(props) {
   }
   return (
     <>
-    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'400px'}}>
-        <div style={{display:'flex',justifyContent:'left',paddingLeft:'50px'}}>
-      <div style={{paddingTop:'150px',fontFamily:"Lato",fontWeight:'600',fontSize:'45px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
+    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'450px'}}>
+        <div style={{display:'flex',justifyContent:'left',paddingLeft:'200px'}}>
+      <div style={{paddingTop:'200px',fontFamily:"Lato",fontWeight:'600',fontSize:'30px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
       </div>
-      <div style={{display:'flex',justifyContent:'left',paddingLeft:'50px'}}>
-      <div style={{paddingTop:'20px',fontFamily:"Lato",fontWeight:'600',fontSize:'28px',color:'white',width:'70%',textAlign:'left'}}>Self-paced, online courses that provide on-the-job skills—all from the world's leader in finance and investing education.</div>
+      <div style={{display:'flex',justifyContent:'left',paddingLeft:'200px'}}>
+      <div style={{paddingTop:'20px',fontFamily:"Lato",fontWeight:'600',fontSize:'23px',color:'white',width:'60%',textAlign:'left'}}>Self-paced, online courses that provide on-the-job skills—all from the world's leader in finance and investing education.</div>
       </div>
       </div>
       <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex',position:'absolute',top:'110px',left:"800px"}}>
@@ -85,19 +85,18 @@ export default function ExploreCourses(props) {
       </div> */}
       </div>
       {/* <div style={{textAlign:'center',fontFamily:"Lato",fontWeight:"400",fontSize:'32px',paddingTop:"20px"}}>POPULAR COURSES</div> */}
-      <div style={{ display: "flex", gap: "20px", flexWrap: 'wrap', width: "95%", marginTop: "50px", paddingLeft: "70px", justifyContent: "space-evenly" }}>
+      <div style={{fontFamily:"Lato",fontWeight:'400',fontSize:'30px',color:"black",textAlign:'center',paddingTop:'10px'}}>POPULAR COURSES</div>
+      <div style={{ display: "flex", gap: "10px", flexWrap: 'wrap', width: "98%", marginTop: "50px", paddingLeft: "30px",  }}>
         {filteredData.map(course => (
-          <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
-            <div style={{width:'400px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207",borderRadius:'3px'}}>
+            <div style={{width:'350px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px',marginBottom:'10px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
             <div><img src={course.image} style={{width:"400px",height:'300px',borderRadius:'3px'}}></img></div>
             <div style={{paddingLeft:'40px',paddingRight:'30px'}}>
             <div style={{fontSize:'23px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',height:"70px"}}>{course.title}</div>
-            <div style={{paddingTop:'10px',paddingBottom:'20px',height:'100px',fontFamily:"Lato",color:'gray'}}>{course.description}</div>
+            <div style={{paddingTop:'20px',paddingBottom:'20px',height:'100px',fontFamily:"Lato",color:'gray'}}>{course.description}</div>
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%"}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
             <div><Link to='/loggedhome/courses/ExploreCoursesDetails'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={handleclick(course)}>View All course</button></Link></div>
-            </div>
             </div>
             </div>
         ))}

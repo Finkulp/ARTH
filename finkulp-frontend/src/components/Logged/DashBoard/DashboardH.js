@@ -1,10 +1,14 @@
 import React from 'react'
 import Chart from 'react-apexcharts';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Trades from './Trades';
 import MyStrategy from './MyStrategies';
-import { withTheme } from '@emotion/react';
+import DetailContext from '../../../Context/Details/DetailsContext';
+import { useContext } from 'react';
+import Lottie from 'lottie-react';
+import lLoading from '../../../Animations/loadingAnimation.json';
 export default function DashboardH() {
+  const { getDetails, userDetails, loading, setLoading } = useContext(DetailContext);
     const [value, setValue] = useState({
       options: {
         chart: {
@@ -58,8 +62,15 @@ export default function DashboardH() {
         },
       ],
     });
+    useEffect(() => {
+      setLoading(true);
+      console.log('Component mounted');
+      // setLoading(true); // This line is redundant as setLoading(true) is already called above.
+      getDetails().finally(() => setLoading(false));
+    }, []);
   return (
-    
+    <div>
+          {loading?<div style={{width:'100%',height:'400px',display:"flex",justifyContent:"center",alignItems:'centero'}}><Lottie animationData={lLoading} style={{width:"20%"}}/></div>:
       <div>
             <div style={{display:'flex',gap:'1%'}}>
                 <div style={{width:"65%",boxShadow:'1px 1px 10px black',border:'solid',borderWidth:'1px',background:'white'}}>
@@ -177,31 +188,31 @@ export default function DashboardH() {
             <div style={{width:"100%",marginTop:'20px',marginBottom:'20px',display:'flex',gap:'13px',background:'white',paddingTop:'13px',paddingBottom:'13px',borderRadius:'5px'}}>
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Net Capital</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.netCaptialValue}</div>
       </div>
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Profit Loss</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.PandL}</div>
       </div>
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Trading Volume</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.TradingVolume}</div>
       </div>
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Profit/Loss%</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.PandL}</div>
       </div>
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Finkulp Money Usage</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.finkulpMoneyUsage}</div>
       </div>
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Strategies Deployed</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.StrategiesDeployed}</div>
       </div>
       <div className='DashboardDetails2 border-cyan dark:pink border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan'style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Learning Credits</div>
-        <div  style={{fontSize:"25px"}}>0</div>
+        <div  style={{fontSize:"25px"}}>{userDetails.LearningCredits?userDetails.LearningCredits:0}</div>
       </div>
       </div>
             <div style={{display:'flex',gap:"1%"}}>
@@ -212,6 +223,7 @@ export default function DashboardH() {
                       <Trades></Trades>
                 </div>
             </div>
+      </div>}
       </div>
   )
 }
