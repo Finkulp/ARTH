@@ -1,7 +1,40 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const authSchema = new Schema({
+// Define the Trade schema
+const tradeSchema = new Schema({
+  strategyName: {
+    type: String,
+    default: ""
+  },
+  tradeType: {
+    type: String,
+    default: ""
+  },
+  entryPrice: {
+    type: Number,
+    default: 0
+  },
+  exitPrice: {
+    type: Number,
+    default: 0
+  },
+  dateTime: {
+    type: Date,
+    default: Date.now
+  },
+  capitalInvested: {
+    type: Number,
+    default: 0
+  },
+  profitLoss: {
+    type: Number,
+    default: 0
+  }
+});
+
+// Define the User schema
+const userSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -9,6 +42,7 @@ const authSchema = new Schema({
   username: {
     type: String
   },
+  trades: [tradeSchema], // Change to an array of tradeSchema
   mobile: {
     type: Number
   },
@@ -33,7 +67,7 @@ const authSchema = new Schema({
   added_broker: [{
     type: Object
   }],
-  netCaptialValue: {
+  netCapitalValue: {
     type: Number,
     default: 0
   },
@@ -41,7 +75,7 @@ const authSchema = new Schema({
     type: Number,
     default: 0
   },
-  TradingVolume: {
+  tradingVolume: {
     type: Number,
     default: 0
   },
@@ -49,7 +83,7 @@ const authSchema = new Schema({
     type: Number,
     default: 0
   },
-  StrategiesDeployed: {
+  strategiesDeployed: {
     type: Number,
     default: 0
   },
@@ -70,7 +104,7 @@ const authSchema = new Schema({
   }
 });
 
-const User = mongoose.model('User', authSchema);
+const User = mongoose.model('User', userSchema);
 User.createIndexes();
 
 module.exports = User;

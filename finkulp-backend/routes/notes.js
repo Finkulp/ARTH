@@ -44,6 +44,48 @@ app.post("/addStrategy", fetchuser, async (req, res) => {
   }
 });
 
+
+
+app.post("/addTrade", fetchuser, async (req, res) => {
+  try {
+    // Get the token from the request
+    const output = req.token;
+
+    // Verify the token
+    const decoded = jwt.verify(output, serect_data);
+    const userid = decoded.id;
+
+    // Get the trade details from the request body
+    const newTrade = req.body.trade;
+
+    // Find the user by ID
+    const user = await User.findById(userid);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Ensure the trades array exists
+    if (!user.trades) {
+      user.trades = [];
+    }
+
+    // Add the new trade to the trades array
+    user.trades.push(newTrade);
+
+    // Save the user with the updated trades
+    await user.save();
+
+    // Send the updated user as the response
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
+
 app.post("/addStrategytouser", fetchuser, async (req, res) => {
   try {
     const output = req.token;
