@@ -44,6 +44,7 @@ import FeaturesHome from "./components/Non-logged/Features/FeaturesHome";
 import DashboardH from "./components/Logged/DashBoard/DashboardH";
 import MainDashbord from "./components/Logged/DashBoard/MainDashbord";
 import MarketPlace from "./components/Logged/AlgoShopping/MarketPlace";
+import SignUPAdmin from "./components/Admin/SignUP";
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
@@ -64,6 +65,7 @@ function App() {
       <SignUpState>
       <LoginState>
         <Routes>
+        <Route path='singupadmin' element={<SignUPAdmin></SignUPAdmin>}></Route>
           <Route path='/' element={<Home />}></Route>
           <Route path='/NonLoggedFeatures'element={<FeaturesHome></FeaturesHome>}></Route>
           <Route path="/login" element={<Login />}></Route>
