@@ -69,6 +69,47 @@ app.post("/addStrategytouser", fetchuser, async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+app.post("/updatestrategystatus", fetchuser, async (req, res) => {
+  try {
+    const output = req.token;
+    const jfy = jwt.verify(output, serect_data);
+
+    const { strategyName, status } = req.body; // Expecting strategy name and new status
+    const userid = jfy.id;
+    const user = await User.findById(userid);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    if (!user.addedStrategies) {
+      return res.status(400).json({ error: "No strategies to update" });
+    }
+
+    // Find the strategy by name and update its status
+    const strategy = user.addedStrategies.find(strategy => strategy.Strategist === strategyName);
+    if (strategy) {
+      strategy.status = status;
+
+      // Logging the modified strategy
+      user.markModified('addedStrategies');
+      await user.save();
+
+      // Logging user strategies after modification
+      console.log('After update:',strategy.status);
+
+      return res.json(user);
+    } else {
+      return res.status(404).json({ error: "Strategy not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
 app.get('/:scriptName', (req, res) => {
   const scriptName = req.params.scriptName;
   console.log(scriptName);
@@ -158,6 +199,7 @@ app.delete("/removeUserFromStrategy", fetchuser, async (req, res) => {
       if (userIndex !== -1) {
         // Remove the user ID from the Users array
         strategy.Users.splice(userIndex, 1);
+        strategy.markModified('Users');
         await strategy.save();
         return res.status(200).json({ message: "User removed from strategy", strategy });
       } else {

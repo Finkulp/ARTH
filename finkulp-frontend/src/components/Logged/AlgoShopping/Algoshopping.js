@@ -57,7 +57,6 @@ async function buyStrategy(algo) {
     }
 
     const data1 = await response.json();
-    console.log(data1);
   } catch (err) {
     console.error('Error fetching user details:', err);
   }

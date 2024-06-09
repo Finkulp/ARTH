@@ -50,7 +50,7 @@ function DetailsState(props) {
     // }, [])
     
     return (
-        <DetailContext.Provider value={{ getDetails,setUserDetails,userDetails,loading,setLoading,id }}>
+        <DetailContext.Provider value={{ getDetails,setUserDetails,setUserDetails,userDetails,loading,setLoading,id }}>
             {props.children}
         </DetailContext.Provider>
     );

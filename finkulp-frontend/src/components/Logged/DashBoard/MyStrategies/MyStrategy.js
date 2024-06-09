@@ -7,13 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Algos } from '../../../../Data/MyStrategy';
-import { MenuItem, TextField } from '@mui/material';
+import { ClickAwayListener, MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import DetailContext from '../../../../Context/Details/DetailsContext';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 export default function MyStrategy(props) {
-  const { getDetails, userDetails, loading, setLoading ,id} = useContext(DetailContext);
+  const { getDetails, userDetails,setUserDetails, loading, setLoading ,id} = useContext(DetailContext);
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [Duration, setDuration] = useState('');
@@ -65,12 +65,14 @@ export default function MyStrategy(props) {
     console.error('Auth token not found');
     return;
   }
+  //deleting the strategy from the strategy list
     try {
+        console.log(algo.Strategist);
           const response = await fetch("http://localhost:5000/notes/removeUserFromStrategy", {
             method: "DELETE",
             body: JSON.stringify({
               strategy_name: algo.Strategist,
-              user_id: id,
+              user_id:id
             }),
             headers: {
               "Authorization": `${authToken}`,
@@ -81,10 +83,84 @@ export default function MyStrategy(props) {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
+        
+    } catch (err) {
+      console.error('Error placing order:', err);
+    }
 
+    //updating the strategy details
+    try {
+      console.log(algo.Strategist);
+        const response = await fetch("http://localhost:5000/notes//updatestrategystatus", {
+          method: "POST",
+          body: JSON.stringify({
+            strategyName: algo.Strategist,
+            status:"stopped",
+          }),
+          headers: {
+            "Authorization": `${authToken}`,
+            "Content-Type": "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setUserDetails(data);
+      
+  } catch (err) {
+    console.error('Error placing order:', err);
+  }
+
+}
+async function startstrategy(algo){
+  const authToken = getTokenFromCookie();
+  if (!authToken) {
+    console.error('Auth token not found');
+    return;
+  }
+  try {
+    const authToken=getTokenFromCookie();
+    const response = await fetch("http://localhost:5000/notes/addStrategy", {
+      method: "POST",
+      body: JSON.stringify({
+        strategy_name:algo.Strategist,
+        user_id: id,
+      }),
+      headers: {
+        "authorization":`${authToken}`,
+        "Content-type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data1 = await response.json();
+  } catch (err) {
+    console.error('Error fetching user details:', err);
+  }
+    try {
+        console.log(algo.Strategist);
+          const response = await fetch("http://localhost:5000/notes//updatestrategystatus", {
+            method: "POST",
+            body: JSON.stringify({
+              strategyName: algo.Strategist,
+              status:"started",
+            }),
+            headers: {
+              "Authorization": `${authToken}`,
+              "Content-Type": "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
           const data = await response.json();
-          console.log(data);
-          algo.status="stopped";
+          setUserDetails(data);
         
     } catch (err) {
       console.error('Error placing order:', err);
@@ -163,14 +239,14 @@ export default function MyStrategy(props) {
             <TableBody>
             {userDetails.addedStrategies&& userDetails.addedStrategies.map((algo, index) => (
               <TableRow key={index} style={{ fontSize: '12px', height: '40px'}}>
-                <TableCell align='center' style={{ padding: '8px' }}>{algo.Strategist}</TableCell>
-                <TableCell align="center" style={{ padding: '8px' }}>{algo.amount_Invested}</TableCell>
-                <TableCell align="center" style={{ padding: '8px' }}>{algo.status}</TableCell>
-                <TableCell align="center" style={{ padding: '8px',position:'relative',left:'50px'}}>
-                  {(algo.status === 'stopped') && (
+                <TableCell align='center' style={{ padding: '8px' ,width:'300px'}}>{algo.Strategist}</TableCell>
+                <TableCell align="center" style={{ padding: '8px',width:'300px' }}>{algo.amount_Invested}</TableCell>
+                <TableCell align="center" style={{ padding: '8px' ,width:'300px'}}>{algo.status}</TableCell>
+                <TableCell align="center" style={{ padding: '8px',position:'relative',display:'flex',justifyContent:'center',width:'400px',gap:'20px'}}>
+                  {(algo.status === "stopped") && (
                     <>
                       <div >
-                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }}>
+                        <button className='bg-blue dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px',width:'100px',marginLeft:'50px' }} onClick={()=> startstrategy(algo)}>
                           Start
                         </button>
                       </div>
@@ -179,7 +255,7 @@ export default function MyStrategy(props) {
                   {(algo.status === 'started') && (
                     <>
                       <div  style={{ paddingLeft: '50px' }}>
-                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px' }} onClick={() => deletestrategy(algo)}>
+                        <button className='bg-red dark:bg-dark-2 dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-2 px-4 text-center text-sm font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5' style={{ borderRadius: '10px',width:'100px' }} onClick={() => deletestrategy(algo)}>
                           Stop
                         </button>
                       </div>
