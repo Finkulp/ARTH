@@ -8,6 +8,7 @@ const port = 5000
 app.use(cors());
 app.use('/notes',require('./routes/notes'));
  app.use('/auth',require('./routes/auth'));
+ app.use('/admin',require('./routes/admincontrol'));
  app.use('/Strategies',require('./routes/Strategies'));
 
 app.listen(port, () => {
