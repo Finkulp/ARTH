@@ -3,35 +3,18 @@ import AdminLoginContext from "../../Context/AdminLogin/AdminLoginContext";
 import { useState } from "react";
 import { useContext } from "react";
 const AdminLogin = () => {
-  const[name,setname]=useState("");
-  const[email,setemail]=useState("");
-  const[number,setnumber]=useState("");
-  const[password,setpassword]=useState("");
-  const[key,setkey]=useState("");
-  const[result,setresult]=useState(false);
+  const{setemail,email,password,setpassword,result,setkey,key,Login}=useContext(AdminLoginContext);
   // const{x}=useContext(AdminLoginContext);
 
-  function newname(event){
-    setname(event.target.value);
-    console.log(name);
-  }
   function newemail(event){
     setemail(event.target.value);
-    console.log(email);
-  }
-  function newnumber(event){
-    setnumber(event.target.value);
-    console.log(number);
-
   }
   function newpassword(event){
     setpassword(event.target.value);
-    console.log(password);
 
   }
   function changekeyvalue(event){
     setkey(event.target.value);
-    console.log(key)
   }
   return (
     <>
@@ -48,24 +31,10 @@ const AdminLogin = () => {
               <div className="mx-auto max-w-xs flex flex-col gap-4">
                 <input
                   className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="text"
-                  placeholder="Enter your name"
-                  onChange={newname}
-                  value={name}
-                />
-                <input
-                  className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="Enter your email"
                   onChange={newemail}
                   value={email}
-                />
-                <input
-                  className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="tel"
-                  placeholder="Enter your phone"
-                  onChange={newnumber}
-                  value={number}
                 />
                 <input
                   className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -83,7 +52,7 @@ const AdminLogin = () => {
                   value={key}
                  
                 />
-                <button className="mt-5 tracking-wide font-semibold  text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" style={{background:"	#4285F4"}} >
+                <button className="mt-5 tracking-wide font-semibold  text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" style={{background:"	#4285F4"}} onClick={Login}>
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"
