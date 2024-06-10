@@ -50,7 +50,7 @@ export default function AdminHome() {
             }
         }
         getDetails();
-    }, [navigate]);
+    }, []);
 
     return (
         <div>
