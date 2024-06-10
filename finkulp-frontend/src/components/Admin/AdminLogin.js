@@ -1,8 +1,15 @@
 import React from "react";
-import Adminsignupcontext from "../../Context/AdminSignup/Adminsignupcontext";
+import AdminLoginContext from "../../Context/AdminLogin/AdminLoginContext";
+import { useState } from "react";
 import { useContext } from "react";
-const SignUPAdmin = () => {
-  const{name,email,password,number,setemail,setpassword,setname,setnumber,SignUP,key,setkey,result}=useContext(Adminsignupcontext);
+const AdminLogin = () => {
+  const[name,setname]=useState("");
+  const[email,setemail]=useState("");
+  const[number,setnumber]=useState("");
+  const[password,setpassword]=useState("");
+  const[key,setkey]=useState("");
+  const[result,setresult]=useState(false);
+  // const{x}=useContext(AdminLoginContext);
 
   function newname(event){
     setname(event.target.value);
@@ -76,7 +83,7 @@ const SignUPAdmin = () => {
                   value={key}
                  
                 />
-                <button className="mt-5 tracking-wide font-semibold  text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" style={{background:"	#4285F4"}} onClick={SignUP}>
+                <button className="mt-5 tracking-wide font-semibold  text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" style={{background:"	#4285F4"}} >
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"
@@ -108,5 +115,5 @@ const SignUPAdmin = () => {
     </>
   );
 };
-export default SignUPAdmin;
+export default AdminLogin;
 

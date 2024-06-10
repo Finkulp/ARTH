@@ -45,6 +45,9 @@ import DashboardH from "./components/Logged/DashBoard/DashboardH";
 import MainDashbord from "./components/Logged/DashBoard/MainDashbord";
 import MarketPlace from "./components/Logged/AlgoShopping/MarketPlace";
 import SignUPAdmin from "./components/Admin/SignUP";
+import AdminSignupstate from "./Context/AdminSignup/AdminsingupState";
+import AdminLoginState from "./Context/AdminLogin/AdminLoginState";
+import AdminLogin from "./components/Admin/AdminLogin";
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
@@ -64,8 +67,11 @@ function App() {
       <DetailsState>
       <SignUpState>
       <LoginState>
+      <AdminSignupstate>
+      <AdminLoginState>
         <Routes>
         <Route path='/singupadmin' element={<SignUPAdmin></SignUPAdmin>}></Route>
+        <Route path="/loginadmin" element={<AdminLogin></AdminLogin>}></Route>
           <Route path='/' element={<Home />}></Route>
           <Route path='/NonLoggedFeatures'element={<FeaturesHome></FeaturesHome>}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -112,6 +118,8 @@ function App() {
             <Route path='editdetails' element={<EditDetails member={MemberDetails}></EditDetails>}></Route>
           </Route>
         </Routes>
+        </AdminLoginState>
+        </AdminSignupstate>
         </LoginState>
         </SignUpState>
         </DetailsState>
