@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {useContext} from 'react';
-import SignUpContext from "../../Context/SignUp/SignUpContext";
+import {  useNavigate } from "react-router-dom";
 const SignUPAdmin = () => {
+  const Navigate=useNavigate();
     const[name,setname]=useState("");
     const[email,setemail]=useState("");
     const[number,setnumber]=useState("");
@@ -23,6 +24,53 @@ const SignUPAdmin = () => {
     setpassword(event.target.value);
     console.log(password);
 
+  }
+  function getTokenFromCookie() {
+    const cookies = document.cookie.split(';');
+    let authToken = null;
+    cookies.forEach(cookie => {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'authToken') {
+            authToken = value;
+        }
+    });
+    return authToken;
+}
+   async function SignUP(){
+    await fetch("http://localhost:5000/admin/signup", {
+      method: "POST",
+      body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          mobile:number
+      }),
+      headers: {
+          "Content-type": "application/json"
+      }
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+      console.log(data.authToken);
+      Navigate('/adminhome');
+      // Set the token in a cookie
+      document.cookie = `authToken=${data.authToken}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;
+  })
+  .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+  });
+    const authToken = getTokenFromCookie();
+    if (authToken) {
+    console.log('Authentication token:', authToken);
+  //   getDetails();
+    } else {
+    console.log('Authentication token not found in the cookie.');
+    }
   }
   return (
     <>
@@ -66,7 +114,7 @@ const SignUPAdmin = () => {
                   value={password}
                  
                 />
-                <button className="mt-5 tracking-wide font-semibold  text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" style={{background:"	#4285F4"}}>
+                <button className="mt-5 tracking-wide font-semibold  text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" style={{background:"	#4285F4"}} onClick={SignUP}>
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"

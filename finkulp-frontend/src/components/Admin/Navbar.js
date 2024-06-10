@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import logo from '../../Images/Logo.png'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const AdminNavbar = () => {
+  const Navigate=useNavigate();
+  function deletetoekn(){
+    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    console.log('Logged out, token deleted'); 
+    Navigate('/');
+  }
   const [open, setOpen] = useState(false);
   return (
     <header className={`flex w-full items-center bg-white dark:bg-dark`}>
@@ -53,12 +60,13 @@ const AdminNavbar = () => {
                 +course
               </div>
 
-              <a
+              <div
                 href="/#"
                 className="rounded-md bg-primary px-7 py-3 text-base font-medium text-white hover:bg-primary/90"
+                onClick={deletetoekn}
               >
                 Log out
-              </a>
+              </div>
             </div>
           </div>
         </div>

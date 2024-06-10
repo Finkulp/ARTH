@@ -65,7 +65,7 @@ function App() {
       <SignUpState>
       <LoginState>
         <Routes>
-        <Route path='singupadmin' element={<SignUPAdmin></SignUPAdmin>}></Route>
+        <Route path='/singupadmin' element={<SignUPAdmin></SignUPAdmin>}></Route>
           <Route path='/' element={<Home />}></Route>
           <Route path='/NonLoggedFeatures'element={<FeaturesHome></FeaturesHome>}></Route>
           <Route path="/login" element={<Login />}></Route>
