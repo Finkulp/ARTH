@@ -7,13 +7,16 @@ const AdminLogin = () => {
   // const{x}=useContext(AdminLoginContext);
 
   function newemail(event){
+    console.log(email)
     setemail(event.target.value);
   }
   function newpassword(event){
+    console.log(password);
     setpassword(event.target.value);
 
   }
   function changekeyvalue(event){
+    console.log(key)
     setkey(event.target.value);
   }
   return (

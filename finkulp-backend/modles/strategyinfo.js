@@ -8,6 +8,9 @@ const strategySchema = new mongoose.Schema({
   StrategyDescription: {
     type: Object
   },
+  StrategyFilePath:{
+    type:String
+  }
 });
 
 const StrategyInfo = mongoose.model('StrategyInfo', strategySchema);

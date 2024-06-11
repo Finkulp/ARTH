@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 export default function CreateNewAlgo() {
-    const[wait,setwait]=useState(false);
+    const [wait, setwait] = useState(false);
     const [tradingStrategy, setTradingStrategy] = useState({
         Strategist: '',
         NSE: '',
@@ -14,10 +15,11 @@ export default function CreateNewAlgo() {
         smalloverview: '',
         description: '',
     });
+    const [file, setfile] = useState(null);
 
     function handleChange(event, field) {
         const { name, value } = event.target;
-    
+
         if (name.includes('.')) {
             const [parentField, nestedField] = name.split('.');
             setTradingStrategy({
@@ -34,6 +36,11 @@ export default function CreateNewAlgo() {
             });
         }
     }
+
+    function handleFileChange(event) {
+        setfile(event.target.files[0]);
+    }
+
     function getTokenFromCookie() {
         const cookies = document.cookie.split(';');
         let authToken = null;
@@ -45,19 +52,24 @@ export default function CreateNewAlgo() {
         });
         return authToken;
     }
-    async function AddtheStrategy(){
+
+    async function AddtheStrategy() {
         setwait(true);
         const url = "http://localhost:5000/admin/addStrategyInfo";
-        const authToken=getTokenFromCookie();
+        const authToken = getTokenFromCookie();
+
+        const formData = new FormData();
+        formData.append('strategy_name', tradingStrategy.Strategist);
+        formData.append('strategy_description', JSON.stringify(tradingStrategy));
+        if (file) {
+            formData.append('strategyFile', file);
+        }
+
         try {
             const response = await fetch(url, {
                 method: "POST",
-                body: JSON.stringify({
-                    strategy_name:tradingStrategy.Strategist,
-                    strategy_description:tradingStrategy
-                }),
+                body: formData,
                 headers: {
-                    "Content-Type": "application/json",
                     "authorization": `${authToken}`
                 }
             });
@@ -70,11 +82,11 @@ export default function CreateNewAlgo() {
             console.log(data._id);
         } catch (err) {
             console.error('Error fetching user details:', err);
-            console(err.message);
         } finally {
             setwait(false);
         }
     }
+
     return (
         <div>
             <div className="mx-auto" style={{border:'solid',width:'800px',padding:"20px",borderWidth:'1px',borderColor:'blue',borderRadius:'10px',marginTop:"50px"}}>
@@ -106,7 +118,7 @@ export default function CreateNewAlgo() {
                     />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="nse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                    <label htmlFor="Category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
                     <input 
                         id="Category" 
                         name="Category" 
@@ -118,7 +130,7 @@ export default function CreateNewAlgo() {
                     />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="nse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Recommended Duration</label>
+                    <label htmlFor="Recommended_Duration" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Recommended Duration</label>
                     <input 
                         id="Recommended_Duration" 
                         name="Recommended_Duration" 
@@ -130,7 +142,7 @@ export default function CreateNewAlgo() {
                     />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="nse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fee Subscription</label>
+                    <label htmlFor="FeeSubscription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fee Subscription</label>
                     <input 
                         id="Subscription" 
                         name="Fee.Subscription" 
@@ -142,7 +154,7 @@ export default function CreateNewAlgo() {
                     />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="nse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fee Pay As you Go</label>
+                    <label htmlFor="FeePay" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fee Pay As you Go</label>
                     <input 
                         id="Pay" 
                         name="Fee.Pay" 
@@ -154,7 +166,7 @@ export default function CreateNewAlgo() {
                     />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="nse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Small Overview</label>
+                    <label htmlFor="smalloverview" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Small Overview</label>
                     <textarea
                         style={{height:"200px"}}
                         id="smalloverview" 
@@ -167,7 +179,7 @@ export default function CreateNewAlgo() {
                     />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="nse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brief description</label>
+                    <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brief description</label>
                     <textarea
                         style={{height:"700px"}} 
                         id="description" 
@@ -179,9 +191,20 @@ export default function CreateNewAlgo() {
                         onChange={(e) => handleChange(e, 'description')} 
                     />
                 </div>
+                <div className="mb-5">
+                    <label htmlFor="strategyFile" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Python file</label>
+                    <input 
+                        id="strategyFile" 
+                        name="strategyFile" 
+                        type="file" 
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  
+                        required 
+                        onChange={handleFileChange} 
+                    />
+                </div>
                 <button onClick={AddtheStrategy} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </div>
-            {wait&& <div style={{fontSize:'50px'}}>Please Wait</div>}
+            {wait && <div style={{fontSize:'50px'}}>Please Wait</div>}
         </div>
     );
 }
