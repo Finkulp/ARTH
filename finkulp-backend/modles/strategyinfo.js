@@ -5,8 +5,11 @@ const strategySchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  StrategyDescription: {
+    type: Object
+  },
 });
 
-const Strategy = mongoose.model('Strategy', strategySchema);
+const StrategyInfo = mongoose.model('StrategyInfo', strategySchema);
 
-module.exports = Strategy;
+module.exports = StrategyInfo;

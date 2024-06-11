@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 export default function CreateNewAlgo() {
+    const[wait,setwait]=useState(false);
     const [tradingStrategy, setTradingStrategy] = useState({
         Strategist: '',
         NSE: '',
@@ -34,7 +34,47 @@ export default function CreateNewAlgo() {
             });
         }
     }
-    
+    function getTokenFromCookie() {
+        const cookies = document.cookie.split(';');
+        let authToken = null;
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'authToken') {
+                authToken = value;
+            }
+        });
+        return authToken;
+    }
+    async function AddtheStrategy(){
+        setwait(true);
+        const url = "http://localhost:5000/admin/addStrategyInfo";
+        const authToken=getTokenFromCookie();
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify({
+                    strategy_name:tradingStrategy.Strategist,
+                    strategy_description:tradingStrategy
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                    "authorization": `${authToken}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data._id);
+        } catch (err) {
+            console.error('Error fetching user details:', err);
+            console(err.message);
+        } finally {
+            setwait(false);
+        }
+    }
     return (
         <div>
             <div className="mx-auto" style={{border:'solid',width:'800px',padding:"20px",borderWidth:'1px',borderColor:'blue',borderRadius:'10px',marginTop:"50px"}}>
@@ -139,8 +179,9 @@ export default function CreateNewAlgo() {
                         onChange={(e) => handleChange(e, 'description')} 
                     />
                 </div>
-               <Link to='/adminhome/updatingAlgo'> <button onClick={()=>{console.log(tradingStrategy)}} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button></Link>
+                <button onClick={AddtheStrategy} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </div>
+            {wait&& <div style={{fontSize:'50px'}}>Please Wait</div>}
         </div>
     );
 }
