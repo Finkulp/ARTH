@@ -1,4 +1,5 @@
 const express=require('express');
+const path = require('path');
 const StrategyInfo =require("../modles/strategyinfo");
 const AdminData=require('../modles/adminauth')
 const bycrypt=require("bcryptjs");
@@ -13,7 +14,9 @@ const storage = multer.diskStorage({
     cb(null, './Strategies');
   },
   filename: function (req, file, cb) {
-    cb(null, `${file.originalname}`);
+    const strategyName = req.body.strategy_name.toLowerCase();
+    const fileExtension = path.extname(file.originalname);
+    cb(null, `${strategyName}${fileExtension}`);
   }
 });
 
@@ -37,28 +40,31 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
           const { strategy_name, strategy_description } = req.body;
           const strategyName = strategy_name.toLowerCase(); // Convert to lowercase for case-insensitive comparison
 
-          // Check if the strategy name is unique (case-insensitive)
-          const existingStrategy = await StrategyInfo.findOne({ Strategy_name: { $regex: new RegExp("^" + strategyName + "$", "i") } });
+          // Check if the strategy name already exists (case-insensitive)
+          let strategyInfo = await StrategyInfo.findOne({ Strategy_name: { $regex: new RegExp("^" + strategyName + "$", "i") } });
 
-          if (existingStrategy) {
-            return res.status(400).json({ error: "Strategy name already exists" });
+          if (strategyInfo) {
+            // Update existing strategy
+            strategyInfo.StrategyDescription = strategy_description;
+            if (req.file) {
+              strategyInfo.StrategyFilePath = req.file.path; // Update the file path if a new file is uploaded
+            }
+
+            await strategyInfo.save();
+            res.status(200).json(strategyInfo);
+          } else {
+            // Create and save the new strategy info
+            const newStrategyInfo = new StrategyInfo({
+              Strategy_name: strategyName,
+              StrategyDescription: strategy_description,
+              StrategyFilePath: req.file ? req.file.path : null // Save the file path if provided
+            });
+
+            await newStrategyInfo.save();
+            res.status(201).json(newStrategyInfo);
           }
-
-          // Handle file upload
-          console.log("Uploaded File:", req.file);
-          const strategyFilePath = req.file ? req.file.path : null;
-
-          // Create and save the new strategy info
-          const newStrategyInfo = new StrategyInfo({
-            Strategy_name: strategyName,
-            StrategyDescription: strategy_description,
-            StrategyFilePath: strategyFilePath // Save the file path in the database
-          });
-
-          await newStrategyInfo.save();
-          res.status(201).json(newStrategyInfo);
         } catch (error) {
-          console.error("Error in strategy creation:", error.message);
+          console.error("Error in strategy creation/updating:", error.message);
           res.status(500).send('Internal Server Error');
         }
       } catch (error) {
@@ -68,6 +74,9 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
     }
   });
 });
+
+
+
 app.post('/signup', async (req, res) => {
   try {
       let success = false;
