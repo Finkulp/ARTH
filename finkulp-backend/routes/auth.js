@@ -75,7 +75,7 @@ app.post("/fetchuser", fetchuser, async (req, res) => {
     } else {
       try {
         console.log(authData.id);
-        const findUser = await AdminData.findOne({ _id:authData.id });
+        const findUser = await user.findOne({ _id:authData.id });
         console.log(findUser);
         if (findUser) {
           res.json(findUser);

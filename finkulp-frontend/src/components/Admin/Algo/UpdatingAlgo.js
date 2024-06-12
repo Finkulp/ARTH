@@ -3,7 +3,7 @@ import { Algos } from '../../../Data/Agloshopping';
 import { MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../../../CSS/Algoshopping.css';
-
+import Chart from "react-apexcharts";
 export default function UpdatingAlgo(props) {
   const [strategistFilter, setStrategistFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -51,53 +51,81 @@ export default function UpdatingAlgo(props) {
           style={{ marginRight: "30px", width: "400px" }}
         />
       </div>
+      <div style={{display:'flex',gap:'30px',flexWrap:"wrap",paddingLeft:'30px',paddingRight:'20px',paddingBottom:'20px'}}>
       {filteredStrategies.map((algo,index)=>(
-          <div style={{ display: 'flex', justifyContent: 'center',fontFamily:"poppins" }}>
-          <div className='Algoshoppingmain'  style={{  borderWidth: '1px', borderColor: 'blue', padding: '10px',height:"150px",marginTop:'8px',borderRadius:"10px" }}>
-          <div style={{ display: 'flex' }}>
-            <div style={{ width: '125px', height: '125px', boxShadow:"1px 1px 5px green",borderRadius:'5px' }}></div>
-            <div>
-              <p style={{ fontSize: '16px', fontWeight: 400, color: 'gray', paddingLeft: '50px', fontFamily:"poppins"  }}>Created:9 months ago | live deployment : 146</p>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: 'black', paddingLeft: '50px', fontFamily:"poppins"  }}>{algo.Strategist}</div>
-              <div style={{ paddingLeft: '50px', fontSize: '16px', fontFamily:"poppins"  }}>by:<span style={{ color: 'blue', paddingLeft: '20px', fontSize: '18px' }}>Market Start</span> </div>
-              <div style={{ display: 'flex' }}>
-                <div style={{ display: 'flex', paddingLeft: '50px' }}>
-                  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'center', paddingTop: '20px' }}>
-                    <div className='hover-blue' style={{ color: 'blue',  borderRadius: '50px', textAlign: 'center', width: '80px', height: '30px' }}>NFO</div>
-                    <div className='hover-blue' style={{ color: 'blue',  borderRadius: '50px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', height: '30px', display: 'flex', justifyContent: 'center', textAlign: 'center' }}>NonDirectional</div>
-                    <div className='hover-blue' style={{ color: 'blue', borderRadius: '50px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', height: '30px' }}>Volatility</div>
-                    <div  className='Algoshopping-share-button'><i class="fa-solid fa-share"></i></div>
-                    <div className='Algoshopping-share-button'><i class="fa-solid fa-star"></i></div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: '30px', marginTop: '-50px' }}>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Total/Costs</div>
-                    <div style={{ fontSize: '18px' }}>146(2.9k)</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Drawdown Min</div>
-                    <div style={{ fontSize: '18px' }}>11.1K(6%)</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Drawdown Min</div>
-                    <div style={{ fontSize: '18px' }}>11.1K(6%)</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '16px', fontWeight: 900, fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}>Drawdown Min</div>
-                    <div style={{ fontSize: '18px' }}>11.1K(6%)</div>
-                  </div>
-                </div>
-                <div style={{ marginTop: '-60px', paddingLeft: '20px' }}>
-                  <Link ><div><button className='hover-green' style={{ fontSize: '16px', fontWeight: 700, color: 'red', border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px',background:'#ffe6e6' }} onClick={()=>{deleteElement(index)}}>Delete Algo</button></div></Link>
-                  <Link to='/adminhome/UpdateAlgo' ><div><button onClick={()=>{props.seteditAlgo(algo)}} className='hover-blue' style={{ fontSize: '16px', fontWeight: 700, color: 'blue',border: 'none', textDecoration: 'none', padding: '10px', borderRadius: '10px', marginTop: '20px' }}>Update Details</button></div></Link>
-                </div>
-              </div>
-            </div>
-          </div>
+           <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'style={{boxShadow:'1px 1px 10px black'}}>
+           <div style={{width:'340px',border:"solid",height:'450px',borderWidth:'1px',borderColor:"rgb(204, 205, 207",borderRadius:'3px'}}>
+           <div style={{paddingTop:'10px'}}>
+           {algo.graph && algo.graph.year && algo.graph.profit&&<Chart
+              type="area"
+              height={150}
+              width="340"
+              options={{
+                chart: {
+                  id: "basic-bar1"
+                },
+                xaxis: {
+                  categories: algo.graph.year
+                }
+              }}
+              series={[
+                {
+                  name: "Profit",
+                  data:algo.graph.profit
+                }
+              ]}
+              
+            />}
+           </div>
+            <div style={{display:'flex',justifyContent:'center',paddingLeft:'20px'}}>
+            <div style={{display:'flex',gap:'40px',flexWrap:'wrap'}}>
+              <div>
+            <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:'#023e8a'}}>Name</div>
+           <div style={{fontSize:'20px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',color:"#0a9396"}}>{algo. Strategist}</div>
+           </div>
+           <div>
+           <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:'#023e8a'}}>NSE</div>
+           <div style={{paddingTop:'10px',position:'relative',top:'18px',fontFamily:"Lato",color:"#0a9396"}}>{algo.NSE}</div>
+           </div>
+           <div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:'#023e8a',position:'relative',top:'20px'}}>Category</div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:"#0a9396"}}>{algo.Category}</div>
+           </div>
+           <div style={{position:'relative',top:'-60px'}}>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:'#023e8a'}}>Recommended Duration</div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:"#0a9396",position:'relative',top:'-20px'}}>{algo.Recommended_Duration}</div>
+           </div>
+           <div style={{position:'relative',top:'-60px'}}>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:'#023e8a'}}>Price</div>
+           <div style={{paddingTop:'10px',paddingBottom:'20px',fontFamily:"Lato",color:"#0a9396",position:'relative',top:'-20px'}}>{algo.price}</div>
+           </div>
+           </div>
+           </div>
+           <hr style={{color:'gray',paddingBottom:'20px',width:"100%",marginTop:'-80px'}}></hr>
+           <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px",gap:'50px'}}>
+           <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={()=>{props.setViewAlgo(algo)}}>Open</button></Link></div>
+           <div>
+          <button
+            style={{
+              padding: '10px',
+              fontFamily: 'Lato',
+              color: 'white',
+              background: "rgb(44, 90, 163)",
+              fontSize: '15px',
+              fontWeight: '350',
+              paddingLeft: '20px',
+              paddingRight: '20px',
+              borderRadius: '3px'
+            }}
+          >
+            Edit
+          </button>
         </div>
           </div>
+           </div> 
+           </div>
       ))}
+      </div>
       
     </>
   );

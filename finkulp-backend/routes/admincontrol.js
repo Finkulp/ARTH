@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
     cb(null, './Strategies');
   },
   filename: function (req, file, cb) {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    cb(null, `${file.originalname}`);
   }
 });
 
@@ -125,7 +125,7 @@ app.post("/login", async (req, res) => {
   }
 });
 app.post("/fetchuser", fetchuser, async (req, res) => {
-    jwt.verify(req.token, serect_data, async (err, authData) => {
+  jsonweb.verify(req.token, serect_data, async (err, authData) => {
       if (err) {
         res.status(403).send("Invalid token");
       } else {
