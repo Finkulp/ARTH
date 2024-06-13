@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 export default function UpdateAlgo(props) {
     const [wait, setwait] = useState(false);
     const [tradingStrategy, setTradingStrategy] = useState({
-        Strategist:props.editAlgo.Strategist,
-        NSE: props.editAlgo.NSE,
-        Category:props.editAlgo.Category,
-        Recommended_Duration:props.editAlgo.Recommended_Duration,
+        Strategist:props.editAlgo.Strategist?props.editAlgo.Strategist:"",
+        NSE: props.editAlgo.NSE?props.editAlgo.NSE:"",
+        Category:props.editAlgo.Category?props.editAlgo.Category:"",
+        Recommended_Duration:props.editAlgo.Recommended_Duration?props.editAlgo.Recommended_Duration:"",
         Fee: {
-            Subscription:props.editAlgo.Fee.Subscription,
-            Pay: props.editAlgo.Fee.Pay_as_you_go,
+            Subscription:0,
+            Pay:0,
         },
-        smalloverview:props.editAlgo.smalloverview,
-        description:props.editAlgo.description,
+        smalloverview:props.editAlgo.smalloverview?props.editAlgo.smalloverview:"",
+        description:props.editAlgo.description?props.editAlgo.description:"",
     });
     const [file, setfile] = useState(null);
 
@@ -91,10 +91,11 @@ export default function UpdateAlgo(props) {
         <div>
             <div className="mx-auto" style={{border:'solid',width:'800px',padding:"20px",borderWidth:'1px',borderColor:'blue',borderRadius:'10px',marginTop:"50px"}}>
                 <div style={{display:'flex',justifyContent:"center"}}>
-                    <div style={{fontFamily:"poppins",color:'green'}}>Add a New Algo</div>
+                    <div style={{fontFamily:"poppins",color:'green'}}>Update the Algo</div>
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="strategist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Strategist</label>
+                    <label htmlFor="strategist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Strategy Name</label>
+                    <label style={{color:'gray'}}>*Strategy name should be same as the python file name</label>
                     <input 
                         id="strategist" 
                         name="Strategist" 

@@ -1,1 +1,1 @@
-print("This is Strategy 2")
+print("hello");

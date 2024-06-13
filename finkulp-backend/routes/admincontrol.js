@@ -75,6 +75,25 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
   });
 });
 
+app.get("/getAllStrategyInfo", fetchuser, async (req, res) => {
+  jsonweb.verify(req.token, serect_data, async (err, authData) => {
+    if (err) {
+      return res.status(403).send("Invalid token");
+    } else {
+      try {
+        const findUser = await AdminData.findOne({ _id: authData.id });
+        if (!findUser) {
+          return res.status(404).send("User not found");
+        }
+
+        const allStrategies = await StrategyInfo.find();
+        res.status(200).json(allStrategies);
+      } catch (error) {
+        res.status(500).send("Internal Server Error");
+      }
+    }
+  });
+});
 
 
 app.post('/signup', async (req, res) => {
