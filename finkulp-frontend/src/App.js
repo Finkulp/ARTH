@@ -48,6 +48,7 @@ import SignUPAdmin from "./components/Admin/SignUP";
 import AdminSignupstate from "./Context/AdminSignup/AdminsingupState";
 import AdminLoginState from "./Context/AdminLogin/AdminLoginState";
 import AdminLogin from "./components/Admin/AdminLogin";
+import AlgoshoppingDescriptionAdmin from "./components/Admin/Algo/AlgoDescription";
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
@@ -59,6 +60,7 @@ function App() {
   const[MemberDetails,setMemberDetails]=useState("");
   const[exploreCourses,setExploreCourses]=useState("");
   const[sum,setsum]=useState(0);
+  const[VeiwAlgoAdmin,setVeiwAlgoAdmin]=useState([])
   const[added,setadded]=useState(false);
   return (
     <>
@@ -109,13 +111,14 @@ function App() {
             <Route path="" element={<TradingStrategyAdmin settradingStrategy={settradingStrategy}></TradingStrategyAdmin>}></Route>
             <Route path='edit-Strategy' element={<TradingStrategyfrom tradingStrategy={tradingStrategy} settradingStrategy={settradingStrategy}></TradingStrategyfrom>}></Route>
             <Route path='addnewstrategy' element={<AddNewStrategy></AddNewStrategy>}></Route>
-            <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo}></UpdatingAlgo>}></Route>
+            <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo} setVeiwAlgoAdmin={setVeiwAlgoAdmin}></UpdatingAlgo>}></Route>
             <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
             <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
             <Route path='Members' element={<Members setMember={setMember} setMemberDetails={setMemberDetails}></Members>}></Route>
             <Route path="Member_Details" element={<MemberDetailsPage member={member}></MemberDetailsPage>}></Route>
             <Route path='addnewmember' element={<AddnewMember></AddnewMember>}></Route>
             <Route path='editdetails' element={<EditDetails member={MemberDetails}></EditDetails>}></Route>
+            <Route path="description" element={<AlgoshoppingDescriptionAdmin VeiwAlgoAdmin={VeiwAlgoAdmin}></AlgoshoppingDescriptionAdmin>}></Route>
           </Route>
         </Routes>
         </AdminLoginState>
