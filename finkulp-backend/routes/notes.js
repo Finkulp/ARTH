@@ -1,5 +1,6 @@
 const express=require("express");
 const Strategy=require("../modles/Strategy");
+const StrategyInfo=require('../modles/strategyinfo')
 const User=require("../modles/auth");
 const path = require('path');
 const fetchuser=require('../middleware/fetchuser');
@@ -150,7 +151,25 @@ app.post("/updatestrategystatus", fetchuser, async (req, res) => {
   }
 });
 
+app.get("/getAllStrategyInfo", fetchuser, async (req, res) => {
+  jwt.verify(req.token, serect_data, async (err, authData) => {
+    if (err) {
+      return res.status(403).send("Invalid token");
+    } else {
+      try {
+        const findUser = await User.findOne({ _id: authData.id });
+        if (!findUser) {
+          return res.status(404).send("User not found");
+        }
 
+        const allStrategies = await StrategyInfo.find();
+        res.status(200).json(allStrategies);
+      } catch (error) {
+        res.status(500).send("Internal Server Error");
+      }
+    }
+  });
+});
 
 app.get('/:scriptName', (req, res) => {
   const scriptName = req.params.scriptName;
