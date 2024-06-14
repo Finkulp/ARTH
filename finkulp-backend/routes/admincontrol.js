@@ -75,6 +75,39 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
   });
 });
 
+app.post("/checkStrategyName", fetchuser, async (req, res) => {
+  jsonweb.verify(req.token, serect_data, async (err, authData) => {
+    if (err) {
+      return res.status(403).send("Invalid token");
+    } else {
+      try {
+        console.log("AuthData ID:", authData.id);
+        const findUser = await AdminData.findOne({ _id: authData.id });
+        console.log("Found User:", findUser);
+
+        if (!findUser) {
+          return res.status(404).send("User not found");
+        }
+
+        const { strategy_name } = req.body;
+        const strategyName = strategy_name.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+
+        // Check if the strategy name already exists (case-insensitive)
+        let strategyInfo = await StrategyInfo.findOne({ Strategy_name: { $regex: new RegExp("^" + strategyName + "$", "i") } });
+
+        if (strategyInfo) {
+          res.status(200).json({ exists: true });
+        } else {
+          res.status(200).json({ exists: false });
+        }
+      } catch (error) {
+        console.error("Error querying database:", error.message);
+        res.status(500).send("Server error");
+      }
+    }
+  });
+});
+
 app.get("/getAllStrategyInfo", fetchuser, async (req, res) => {
   jsonweb.verify(req.token, serect_data, async (err, authData) => {
     if (err) {

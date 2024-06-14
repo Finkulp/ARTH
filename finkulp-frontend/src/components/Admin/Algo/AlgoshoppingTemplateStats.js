@@ -10,7 +10,7 @@ const AgloshoppingTemplateStats = (props) => {
           <TeamCard value="Category" title={props.VeiwAlgoAdmin.Category} colorname={"#eee6ff"} bordercolor={"#661aff"}icons={"fa-solid fa-calendar-day"}/>
           <TeamCard value="Recommended Duration" title={props.VeiwAlgoAdmin.Recommended_Duration} colorname={"#e6ffee"} bordercolor={"#00ff55"} icons={"fa-regular fa-clock"}/>
           <TeamCard value="Subscription Fee" title={props.VeiwAlgoAdmin.Fee.Subscription} colorname={"#ffffe6"} bordercolor={"#ffff00"} icons={"fa-solid fa-wallet"}/>
-          <TeamCard value="Pay-as-you-go Fee" title={props.VeiwAlgoAdmin.Fee.Pay_as_you_go} colorname={"#ffe6f3"}  bordercolor={"#e60077"} icons={"fa-solid fa-wallet"}/>
+          <TeamCard value="Pay-as-you-go Fee" title={props.VeiwAlgoAdmin.Fee.Pay} colorname={"#ffe6f3"}  bordercolor={"#e60077"} icons={"fa-solid fa-wallet"}/>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function CreateNewAlgo() {
     const [wait, setwait] = useState(false);
+    const[name,setname]=useState(false);
     const [tradingStrategy, setTradingStrategy] = useState({
         Strategist: '',
         NSE: '',
@@ -55,8 +56,43 @@ export default function CreateNewAlgo() {
 
     async function AddtheStrategy() {
         setwait(true);
-        const url = "http://localhost:5000/admin/addStrategyInfo";
+        const checkurl = "http://localhost:5000/admin/checkStrategyName";
         const authToken = getTokenFromCookie();
+    
+        try {
+            const response = await fetch(checkurl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "authorization": `${authToken}`
+                },
+                body: JSON.stringify({
+                    strategy_name: tradingStrategy.Strategist
+                }),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            console.log(data);
+            setname(data.exists);
+    
+            if (data.exists) {
+                setname(true);
+                return;
+            } else {
+                setname(false);
+            }
+        } catch (err) {
+            console.error('Error fetching user details:', err);
+            setwait(false); // Ensure wait is reset in case of error
+            return;
+        }
+
+
+        const url = "http://localhost:5000/admin/addStrategyInfo";
 
         const formData = new FormData();
         formData.append('strategy_name', tradingStrategy.Strategist);
@@ -93,6 +129,7 @@ export default function CreateNewAlgo() {
                 <div style={{display:'flex',justifyContent:"center"}}>
                     <div style={{fontFamily:"poppins",color:'green'}}>Add a New Algo</div>
                 </div>
+                {name&&<div>The Strategy with the given name alredy exist in the data base</div>}
                 <div className="mb-5">
                     <label htmlFor="strategist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Strategist</label>
                     <input 

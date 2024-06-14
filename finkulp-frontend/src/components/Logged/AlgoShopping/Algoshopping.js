@@ -229,7 +229,7 @@ async function buyStrategy(algo) {
                   </div>
                   <hr style={{ color: 'gray', paddingBottom: '20px', width: "100%", marginTop: '-80px' }}></hr>
                   <div style={{ display: 'flex', justifyContent: 'right', marginRight: '20px', paddingTop: "13px", gap: '50px' }}>
-                    <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{ padding: '10px', fontFamily: 'Lato', color: 'white', background: "rgb(44, 90, 163)", fontSize: '15px', fontWeight: '350', paddingLeft: '20px', paddingRight: '20px', borderRadius: '3px' }} onClick={() => { props.setViewAlgo(algo) }}>Open</button></Link></div>
+                    <div><Link to='/loggedhome/MarketPlace/AlgoDescription'><button style={{ padding: '10px', fontFamily: 'Lato', color: 'white', background: "rgb(44, 90, 163)", fontSize: '15px', fontWeight: '350', paddingLeft: '20px', paddingRight: '20px', borderRadius: '3px' }} onClick={() => { props.setViewAlgo(algo.StrategyDescription) }}>Open</button></Link></div>
                     <div>
                     
                         <button

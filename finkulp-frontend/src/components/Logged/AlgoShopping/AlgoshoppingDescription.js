@@ -43,10 +43,17 @@ export default function AlgoshoppingDescription(props) {
           <div style={{ paddingLeft: '100px', paddingRight: '50px', marginTop: '-40px' }}>
             <h1 style={{ fontWeight: '400', fontSize: '30px', paddingRight: '100px', color: 'blue' }}>Description</h1>
             <div style={{ position: 'relative', overflow: 'hidden', display: 'flex' }}>
+              <div>
+            <div style={{ padding: '10px', marginLeft: '-1px' }}>
+                {props.VeiwAlgo.smalloverview.split('\n').map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </div>
               <div style={{ padding: '10px', marginLeft: '-1px' }}>
                 {props.VeiwAlgo.description.split('\n').map((line, index) => (
                   <p key={index}>{line}</p>
                 ))}
+              </div>
               </div>
               <div>
                 {props.VeiwAlgo.graph && props.VeiwAlgo.graph.year && props.VeiwAlgo.graph.profit && 

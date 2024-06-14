@@ -118,9 +118,7 @@ const Navbar = () => {
               >
                 <ul className="block lg:flex">
                  <Link to='/loggedhome/MarketPlace/' onClick={makebluealgo} > <span style={{color:`${algo.color}`,textDecoration:`${algo.line}`,fontSize:"20px",fontWeight:"500"}} >Explore Strategies</span></Link>
-                 <Link to='/loggedhome/MarketPlace/Trade'><span onClick={makebluetrade} style={{color:`${Tade.color}`,textDecoration:`${Tade.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >Trade</span></Link>
-                 <Link to='/loggedhome/MarketPlace/MyStrategy'><span onClick={makemstrategyblue} style={{color:`${mstrategy.color}`,textDecoration:`${mstrategy.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >My Strategies</span></Link> 
-                  <span onClick={makecstratgeyblue} style={{color:`${cstrategy.color}`,textDecoration:`${cstrategy.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >Create Strategies</span>
+                 <span onClick={makecstratgeyblue} style={{color:`${cstrategy.color}`,textDecoration:`${cstrategy.line}`,paddingLeft:"100px",fontSize:"20px",fontWeight:"500"}} >Create Strategies</span>
                 </ul>
               </nav>
             </div>
