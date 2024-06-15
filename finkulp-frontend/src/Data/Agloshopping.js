@@ -9,6 +9,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },price:3000,
+        image:"https://img.freepik.com/free-vector/gradient-stock-market-concept_23-2149166910.jpg",
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -49,6 +50,7 @@ export const Algos = [
             Subscription: "10%",
             Pay_as_you_go: "33%"
         },price:5000,
+        image:'https://t3.ftcdn.net/jpg/03/10/46/56/360_F_310465670_Wy4QCEfxYU2ziHjbeZsNAumKhaZzZS1w.jpg',
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -89,6 +91,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },price:2000,
+        image:'https://media.gettyimages.com/id/1317587887/photo/trading-charts-on-a-display.jpg?s=612x612&w=gi&k=20&c=-1OWpoM21zE_Rn0c-MZpnyZTJt-C6Y489wefF1jh_Vw=',
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -124,6 +127,7 @@ export const Algos = [
         Strategist: "Strategy4",
         NSE: "NIFTY 50",
         Category: "Retail",
+        image:'https://images.livemint.com/img/2023/03/03/600x338/Day_trading_guide_for_today_1677802386051_1677802386295_1677802386295.jpg',
         Recommended_Duration: "180 Days",
         Fee: {
             Subscription: "0%",
@@ -170,6 +174,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHTQQTOguvYL6Q4mdUJoEQTQwcOZsQ2LcTwg&s",
         price:1000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
@@ -212,6 +217,7 @@ export const Algos = [
             Pay_as_you_go: "3%"
         },
         price:7000,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFv1oPCSiTH5jNoAbu1ccabR8yHcw6aPdr4w&s",
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -253,6 +259,7 @@ export const Algos = [
             Pay_as_you_go: "3%"
         },
         price:9000,
+        image:'https://media.istockphoto.com/id/1345912457/photo/financial-stock-market-graph-selective-focus.jpg?s=612x612&w=0&k=20&c=I-XKq4_2c3rOJPezkG5J6DNbl65OVgmGbX4yrp5T7qQ=',
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -294,6 +301,7 @@ export const Algos = [
             Pay_as_you_go: "3%"
         },
         price:10000,
+        image:'https://hmarkets.com/wp-media/2023/10/graph-chart-of-stock-market-trade-compressed.jpg',
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -334,6 +342,7 @@ export const Algos = [
             Subscription: "0%",
             Pay_as_you_go: "3%"
         },
+        image:"https://media.istockphoto.com/id/1345912457/photo/financial-stock-market-graph-selective-focus.jpg?s=612x612&w=0&k=20&c=I-XKq4_2c3rOJPezkG5J6DNbl65OVgmGbX4yrp5T7qQ=",
         price:3000,
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
@@ -376,6 +385,7 @@ export const Algos = [
             Pay_as_you_go: "3%"
         },
         price:3000,
+        image:"https://media.istockphoto.com/id/1345912457/photo/financial-stock-market-graph-selective-focus.jpg?s=612x612&w=0&k=20&c=I-XKq4_2c3rOJPezkG5J6DNbl65OVgmGbX4yrp5T7qQ=",
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
@@ -417,6 +427,7 @@ export const Algos = [
             Pay_as_you_go: "3%"
         },
         price:2000,
+        image:'https://images.livemint.com/img/2023/03/03/600x338/Day_trading_guide_for_today_1677802386051_1677802386295_1677802386295.jpg',
         description:`Entry
         MIS/Intraday orders are pushed to the broker on the generation of Buy/Sell signals.
         Order Quantity - [Roundown(capital/(LTP * Lot Size)]
