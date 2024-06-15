@@ -198,9 +198,9 @@ async function buyStrategy(algo) {
           />
         </div>
           </div>
-          <div style={{ display: 'flex', gap: '20px', flexWrap: "wrap", paddingLeft: '30px', paddingRight: '20px', paddingBottom: '20px' }}>
+          <div style={{ display: 'flex', gap: '15px', flexWrap: "wrap", paddingLeft: '30px', paddingRight: '20px', paddingBottom: '25px' }}>
             {filteredStrategies.map((algo, index) => (
-              <div style={{width:'350px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
+              <div style={{width:'350px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px',marginBottom:'10px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
               <div ><img src={algo.image}style={{width:"400px",height:'300px'}}/></div>
               <div>
               <div style={{fontSize:'23px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',height:"70px",paddingLeft:'20px',color:''}}>{algo.Strategist}</div>
