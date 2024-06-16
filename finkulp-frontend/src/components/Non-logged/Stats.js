@@ -25,7 +25,7 @@ export default function Stats() {
               className="text-xl font-bold text-gray-900"
               style={{ fontWeight: '600', fontSize: '25px',fontFamily:'poppins',color:"	#4285F4" ,paddingTop:'50px'}}
             >
-              Numbers tell the hard works we've done so far
+              Numbers tell the hard work we've done so far.
             </h4>
           </div>
 

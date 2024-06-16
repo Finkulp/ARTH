@@ -96,7 +96,7 @@ export default function ExploreCourses(props) {
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%"}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/ExploreCoursesDetails'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={handleclick(course)}>View All course</button></Link></div>
+            <div><Link to='/loggedhome/courses/ExploreCoursesDetails'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}onClick={handleclick(course)}>Details</button></Link></div>
             </div>
             </div>
         ))}
