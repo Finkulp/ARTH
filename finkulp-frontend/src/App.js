@@ -52,6 +52,7 @@ import AlgoshoppingDescriptionAdmin from "./components/Admin/Algo/AlgoDescriptio
         // "axios": "^1.7.2",
         // "axios": "^1.7.2",
 function App() {
+  const[image,setimage]=useState('');
   const [checkout, setchekout] = useState([]);
   const[tradingStrategy,settradingStrategy]=useState("");
   const[VeiwAlgo,setViewAlgo]=useState("");
@@ -96,8 +97,8 @@ function App() {
             <Route path="5paisa" element={<Paisa />}></Route>
            
             <Route path="MarketPlace" element={<MarketPlace></MarketPlace>}>
-              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo}></Algoshopping>}></Route>
-              <Route path="AlgoDescription" element={<AlgoshoppingDescription VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} checkout={checkout} ></AlgoshoppingDescription>}></Route>
+              <Route path="" element={<Algoshopping setViewAlgo={setViewAlgo} setimage={setimage}></Algoshopping>}></Route>
+              <Route path="AlgoDescription" element={<AlgoshoppingDescription image={image} VeiwAlgo={VeiwAlgo} setchekout={setchekout} setsum={setsum} sum={sum} added={added} setadded={setadded} checkout={checkout} ></AlgoshoppingDescription>}></Route>
             </Route>
             <Route path='Dashboard' element={<MainDashbord ></MainDashbord>}>
               <Route path="" element={<DashboardH></DashboardH>}></Route>

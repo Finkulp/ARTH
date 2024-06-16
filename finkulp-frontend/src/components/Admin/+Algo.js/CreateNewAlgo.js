@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function CreateNewAlgo() {
     const [wait, setwait] = useState(false);
     const[name,setname]=useState(false);
+    const [imageBase64, setImageBase64] = useState('');
     const [tradingStrategy, setTradingStrategy] = useState({
         Strategist: '',
         NSE: '',
@@ -97,6 +98,7 @@ export default function CreateNewAlgo() {
         const formData = new FormData();
         formData.append('strategy_name', tradingStrategy.Strategist);
         formData.append('strategy_description', JSON.stringify(tradingStrategy));
+        formData.append('image',imageBase64);
         if (file) {
             formData.append('strategyFile', file);
         }
@@ -123,6 +125,25 @@ export default function CreateNewAlgo() {
         }
     }
 
+
+    const handleimagechange = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        convertToBase64(file);
+      }
+    };
+  
+    const convertToBase64 = (file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        setImageBase64(reader.result);
+      };
+      reader.onerror = (error) => {
+        console.error('Error converting file to base64:', error);
+      };
+    };
+  
     return (
         <div>
             <div className="mx-auto" style={{border:'solid',width:'800px',padding:"20px",borderWidth:'1px',borderColor:'blue',borderRadius:'10px',marginTop:"50px"}}>
@@ -239,6 +260,14 @@ export default function CreateNewAlgo() {
                         onChange={handleFileChange} 
                     />
                 </div>
+                <div>
+                    <input type="file" accept="image/*" onChange={handleimagechange} />
+                    {imageBase64 && (
+                        <div>
+                        <img src={imageBase64} alt="Uploaded" style={{ maxWidth: '200px', marginTop: '10px' }} />
+                        </div>
+                    )}
+                    </div>
                 <button onClick={AddtheStrategy} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </div>
             {wait && <div style={{fontSize:'50px'}}>Please Wait</div>}

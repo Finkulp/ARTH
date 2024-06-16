@@ -37,7 +37,7 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
         }
 
         try {
-          const { strategy_name, strategy_description } = req.body;
+          const { strategy_name, strategy_description,image } = req.body;
           const strategyName = strategy_name.toLowerCase(); // Convert to lowercase for case-insensitive comparison
 
           // Check if the strategy name already exists (case-insensitive)
@@ -46,6 +46,9 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
           if (strategyInfo) {
             // Update existing strategy
             strategyInfo.StrategyDescription = strategy_description;
+            if(req.image){
+              strategyInfo.image=image
+            }
             if (req.file) {
               strategyInfo.StrategyFilePath = req.file.path; // Update the file path if a new file is uploaded
             }
@@ -57,6 +60,7 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
             const newStrategyInfo = new StrategyInfo({
               Strategy_name: strategyName,
               StrategyDescription: strategy_description,
+              image:image,
               StrategyFilePath: req.file ? req.file.path : null // Save the file path if provided
             });
 

@@ -2,9 +2,24 @@ import React from 'react';
 import AgloshoppingTemplateStats from './AlgoshoppingTemplateStats'
 import Chart from "react-apexcharts";
 import { checkbox } from '@material-tailwind/react';
-
+import { useEffect,useState } from 'react';
+import DetailContext from '../../../Context/Details/DetailsContext';
+import { useContext } from 'react';
 export default function AlgoshoppingDescription(props) {
-  
+  const { id } = useContext(DetailContext);
+  const [imageBase64, setImageBase64] = useState('');
+  function getTokenFromCookie() {
+    const cookies = document.cookie.split(';');
+    let authToken = null;
+    cookies.forEach(cookie => {
+      const [name, value] = cookie.trim().split('=');
+      if (name === 'authToken') {
+        authToken = value;
+      }
+    });
+    return authToken;
+  }
+
   function addToCartArray() {
     if (props.checkout.length === 0) {
       props.setchekout([props.VeiwAlgo]);
@@ -29,7 +44,45 @@ export default function AlgoshoppingDescription(props) {
       }, 1000);
     }
   }
+
+  async function buyStrategy(algo) {
+    try {
+      const authToken = getTokenFromCookie();
   
+      // Create a copy of the algo object and remove the image property
+      const algoWithoutImage = { ...algo };
+      delete algoWithoutImage.image;
+  
+      await fetch("http://localhost:5000/notes/addStrategy", {
+        method: "POST",
+        body: JSON.stringify({
+          strategy_name: algoWithoutImage.Strategist,
+          user_id: id,
+        }),
+        headers: {
+          "authorization": `${authToken}`,
+          "Content-type": "application/json"
+        }
+      });
+  
+      await fetch("http://localhost:5000/notes/addStrategytouser", {
+        method: "POST",
+        body: JSON.stringify({
+          addedStrategy: {
+            ...algoWithoutImage,
+            status: 'started', // Add your specific value here
+            amount_Invested: '10000'  // Add your specific value here
+          }
+        }),
+        headers: {
+          "authorization": `${authToken}`,
+          "Content-type": "application/json"
+        }
+      });
+    } catch (err) {
+      console.error('Error buying strategy:', err);
+    }
+  }
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: "center" }}>
@@ -42,51 +95,46 @@ export default function AlgoshoppingDescription(props) {
           </div>
           <div style={{ paddingLeft: '100px', paddingRight: '50px', marginTop: '-40px' }}>
             <h1 style={{ fontWeight: '400', fontSize: '30px', paddingRight: '100px', color: 'blue' }}>Description</h1>
-            <div style={{ position: 'relative', overflow: 'hidden', display: 'flex' }}>
-              <div>
-            {/* <div style={{ padding: '10px', marginLeft: '-1px' }}>
+            <div style={{ position: 'relative', overflow: 'hidden', display: 'flex',gap:'50px' }}>
+              <div style={{width:'700px'}}>
+            <div style={{ padding: '10px', marginLeft: '-1px' }}>
                 {props.VeiwAlgo.smalloverview.split('\n').map((line, index) => (
                   <p key={index}>{line}</p>
                 ))}
-              </div> */}
+              </div>
               <div style={{ padding: '10px', marginLeft: '-1px' }}>
                 {props.VeiwAlgo.description.split('\n').map((line, index) => (
                   <p key={index}>{line}</p>
                 ))}
               </div>
               </div>
-              <div>
-                {props.VeiwAlgo.graph && props.VeiwAlgo.graph.year && props.VeiwAlgo.graph.profit && 
-                  <Chart
-                    type="area"
-                    height={400}
-                    width="600"
-                    options={{
-                      chart: {
-                        id: "basic-bar1"
-                      },
-                      title: {
-                        text: "Revenue per Year by the Strategy",
-                        style: { fontSize: 20 }
-                      },
-                      xaxis: {
-                        name: 'Year',
-                        categories: props.VeiwAlgo.graph.year
-                      }
-                    }}
-                    series={[
-                      {
-                        name: "Profit",
-                        data: props.VeiwAlgo.graph.profit
-                      }
-                    ]}
-                  />
-                }
-              </div>
+              <div style={{width: '500px', height: '400px' }}>
+              <img
+                src={props.image}
+                alt="Strategy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
-            <div onClick={addToCartArray} className='className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' style={{ height: "50px", width: "200px", alignContent: "center", marginLeft: '20px', color: 'white' }}>
-              <div>Add to Cart</div>
             </div>
+            <button 
+            onClick={() => buyStrategy(props.VeiwAlgo)} 
+            style={{ 
+              padding: '10px', 
+              fontFamily: 'Lato', 
+              color: 'white', 
+              background: "rgb(44, 90, 163)", 
+              fontSize: '15px', 
+              fontWeight: '350', 
+              paddingLeft: '20px', 
+              paddingRight: '20px', 
+              borderRadius: '3px', 
+              marginRight: '30px' ,
+              marginTop:'50px',
+              marginBottom:'50px'
+            }}
+          >
+            Buy
+          </button>
             {props.added && <div>The Strategy is Added successfully</div>}
           </div>
         </div>

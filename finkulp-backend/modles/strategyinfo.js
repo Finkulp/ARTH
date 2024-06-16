@@ -10,6 +10,9 @@ const strategySchema = new mongoose.Schema({
   },
   StrategyFilePath:{
     type:String
+  },
+  image:{
+    type:String
   }
 });
 
