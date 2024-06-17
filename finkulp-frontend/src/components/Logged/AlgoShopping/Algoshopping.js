@@ -83,7 +83,7 @@ export default function Algoshopping(props) {
   }
   return (
     <>
-    <div>
+    <div style={{background:'rgb(252, 252, 255)'}}>
       <div style={{height:'300px',overflow:'hidden'}}><img src={TradingBackground} style={{width:'100%'}}></img></div>
       {loading && <div style={{ display: "flex", justifyContent: 'center' ,width:"1300px",height:'500px',alignItems:'center'}}>
         <Lottie animationData={loadingAnimation} style={{ width: '300px' }}></Lottie>
@@ -106,7 +106,7 @@ export default function Algoshopping(props) {
           <div style={{textAlign:'center',fontFamily: "Lato",fontSize:'30px',paddingTop:'20px',paddingBottom:'30px',fontWeight:'900px'}}>Explore Strategies</div>
           <div style={{ display: 'flex',justifyContent:'center', gap: '10px', flexWrap: "wrap", paddingLeft: '30px', paddingBottom: '20px' }}>
             {filteredStrategies.map((algo, index) => (
-              <div key={index} style={{ width: '350px', border: "solid", height: '600px', borderWidth: '1px', borderColor: "rgb(204, 205, 207)", borderRadius: '3px', marginBottom: '10px' }} className='hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard'>
+              <div key={index} style={{ width: '300px', background:'white',border: "solid", height: '625px', borderWidth: '1px', borderColor: "rgb(204, 205, 207)", borderRadius: '3px', marginBottom: '10px' }} className='hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard'>
                 <div>
                   <img src={algo.image} style={{ width: "400px", height: '300px' }} alt="strategy" />
                 </div>
@@ -117,25 +117,25 @@ export default function Algoshopping(props) {
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <div style={{ paddingLeft: '20px' }}>
                       <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '100px', color: "#0047AB", textAlign: 'center' }}>NSE</div>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: "130px",  color: 'gray' ,justifyContent:'center',display:'flex'}}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: "100px",  color: 'gray' ,justifyContent:'center',display:'flex'}}>
                         {algo.StrategyDescription?.NSE}
                       </div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '180px', color: '#0047AB' }}>Recommended Duration</div>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '160px', color: 'gray' }}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: '#0047AB' }}>Recommended Duration</div>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '140px', color: 'gray' }}>
                         {algo.StrategyDescription?.Recommended_Duration}
                       </div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '150px', color: "#0047AB" }}>Category</div>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '150px', color: 'gray' }}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: "#0047AB" }}>Category</div>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: 'gray' }}>
                         {algo.StrategyDescription?.Category}
                       </div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '150px', color: "#0047AB" }}>Price</div>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '150px', color: 'gray' }}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: "#0047AB" }}>Price</div>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: 'gray' }}>
                         {algo.StrategyDescription?.price}
                       </div>
                     </div>

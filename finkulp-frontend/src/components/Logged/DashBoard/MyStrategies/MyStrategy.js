@@ -169,7 +169,7 @@ async function startstrategy(algo){
 }
   return (
     <>
-    <div style={{boxShadow:'1px 1px 10px black',marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto'}}>
+    <div style={{boxShadow:'1px 1px 10px black',marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto',height:'100vh',marginLeft:'15px'}}>
       <div style={{display:'flex',justifyContent:'center'}}>
         <div style={{width:'200px',fontFamily:'poppins',color:'	#4285F4',fontSize:'23px',textDecoration:'underline',paddingBottom:'20px'}}>My Strategies</div>
       </div>

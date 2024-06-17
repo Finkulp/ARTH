@@ -69,10 +69,10 @@ export default function DashboardH() {
       getDetails().finally(() => setLoading(false));
     }, []);
   return (
-    <div>
-          {loading?<div style={{width:'100%',height:'400px',display:"flex",justifyContent:"center",alignItems:'centero'}}><Lottie animationData={lLoading} style={{width:"20%"}}/></div>:
+    <div style={{background:"rgb(252,252,255)",width:'95%',position:'relative',left:'20px'}}>
+          {loading?<div style={{width:'90%',height:'400px',display:"flex",justifyContent:"center",alignItems:'center'}}><Lottie animationData={lLoading} style={{width:"20%"}}/></div>:
       <div>
-            <div style={{display:'flex',gap:'1%'}}>
+            <div style={{display:'flex',gap:'1%',width:'100%'}}>
                 <div style={{width:"65%",boxShadow:'1px 1px 10px black',border:'solid',borderWidth:'1px',background:'white'}}>
                     <div style={{display:'flex',gap:"20px"}}>
                         <div style={{overflowY:"auto",height:"400px",width:'230px',overflowX:'hidden'}}>
@@ -201,18 +201,6 @@ export default function DashboardH() {
       <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
         <div>Profit/Loss%</div>
         <div  style={{fontSize:"25px"}}>{userDetails.PandL}</div>
-      </div>
-      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
-        <div>Finkulp Money Usage</div>
-        <div  style={{fontSize:"25px"}}>{userDetails.finkulpMoneyUsage}</div>
-      </div>
-      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
-        <div>Strategies Deployed</div>
-        <div  style={{fontSize:"25px"}}>{userDetails.StrategiesDeployed}</div>
-      </div>
-      <div className='DashboardDetails2 border-cyan dark:pink border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan'style={{paddingLeft:"10px",boxShadow:'1px 1px 10px black',paddingRight:'10px',width:'180px'}}>
-        <div>Learning Credits</div>
-        <div  style={{fontSize:"25px"}}>{userDetails.LearningCredits?userDetails.LearningCredits:0}</div>
       </div>
       </div>
             <div style={{display:'flex',gap:"1%"}}>
