@@ -6,14 +6,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import FAQlogged from './FAQ';
 const Pricing = () => {
   return (
     <>
-    <section className="relative z-10 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
+    <div style={{display:'flex',justifyContent:'center',width:'98%',border:'soild'}}>
+    <section className="relative z-10  bg-white pb-12 pt-20 dark:bg-dark ">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
-            <div className="mx-auto mb-[60px] max-w-[510px] text-center">
+            <div className="mx-auto mb-[60px] text-center">
               <h2 className="mb-3 text-3xl font-bold leading-[1.208] text-dark dark:text-white sm:text-4xl md:text-[40px]" style={{paddingTop:"50px"}}>
                 Our Pricing Plan
               </h2>
@@ -26,7 +28,7 @@ const Pricing = () => {
         </div>
       </div>
       <div style={{display:'flex',justifyContent:'center'}}>
-      <TableContainer component={Paper} style={{ maxWidth: '80%', marginBottom: '' ,boxShadow:"1px 1px 10px blue"}}>
+      <TableContainer component={Paper} style={{ maxWidth: '100%', marginBottom: '' ,boxShadow:"1px 1px 10px black"}}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead className='sticky top-0'>
             <TableRow>
@@ -112,7 +114,11 @@ const Pricing = () => {
         </Table>
       </TableContainer>
       </div>
+      <div style={{marginTop:'20px',boxShadow:'1px 1px 10px black'}}>
+      <FAQlogged ></FAQlogged>
+      </div>
     </section>
+    </div>
     </>
   );
 };

@@ -14,7 +14,7 @@ export default function AddedBroker() {
     <div>
       <div style={{ paddingTop: "120px" }}></div>
       <div style={{ fontSize:'20px', fontWeight:"600", fontFamily:"poppins", marginLeft:"100px",paddingBottom:'20px',color:'gray' }}>Select Broker</div>
-      <div style={{display:'flex',justifyContent:'center',gap:"30px",flexWrap:"wrap",marginBottom:'20px'}}>
+      <div style={{display:'flex',justifyContent:'center',gap:"10px",flexWrap:"wrap",marginBottom:'20px'}}>
       <div style={{width:'350px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px',marginBottom:'10px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
             <div style={{display:'flex',justifyContent:'center',alignItems:'center',width:'350px',height:"250px",background:"rgb(227, 244, 250)"}}><img src={PaisaIcon} style={{width:"200px",height:'80px',borderRadius:'3px',background:"rgb(227, 244, 250)"}}></img></div>
             <div style={{paddingLeft:'40px',paddingRight:'30px'}}>
@@ -23,7 +23,7 @@ export default function AddedBroker() {
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/5paisa'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/5paisa'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
 
@@ -54,7 +54,7 @@ export default function AddedBroker() {
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/Alice-Blue'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/Alice-Blue'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
       {/* <div style={{ display:'flex', justifyContent:'center',boxShadow:'1px 1px 10px black',borderRadius:'10px'}}>
@@ -86,7 +86,7 @@ Angel One is a leading full-service brokerage firm in India, offering a comprehe
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/Angle-One'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/Angle-One'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
       {/* <div style={{ display:'flex', justifyContent:'center',boxShadow:'1px 1px 10px black',borderRadius:'10px'}}>
@@ -138,7 +138,7 @@ Angel One is a leading full-service brokerage firm in India, offering a comprehe
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/Kotak'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/Kotak'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
       {/* <div style={{ display:'flex', justifyContent:'center',boxShadow:'1px 1px 10px black',borderRadius:'10px'}}>
@@ -170,7 +170,7 @@ Angel One is a leading full-service brokerage firm in India, offering a comprehe
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/Motilal'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/Motilal'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
       {/* <div style={{ display:'flex', justifyContent:'center',boxShadow:'1px 1px 10px black',borderRadius:'10px'}}>
@@ -201,7 +201,7 @@ Angel One is a leading full-service brokerage firm in India, offering a comprehe
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/Upstocks'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/Upstocks'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
       {/* <div style={{ display:'flex', justifyContent:'center',boxShadow:'1px 1px 10px black',borderRadius:'10px'}}>
@@ -233,7 +233,7 @@ Angel One is a leading full-service brokerage firm in India, offering a comprehe
             </div>
             <hr style={{color:'gray',paddingBottom:'20px',width:"100%",position:"relative",top:'50px'}}></hr>
             <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
-            <div><Link to='/loggedhome/courses/zerodtha'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
+            <div><Link to='/loggedhome/zerodtha'><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px',position:'relative',top:'50px'}}>Click to setup</button></Link></div>
             </div>
             </div>
       </div>

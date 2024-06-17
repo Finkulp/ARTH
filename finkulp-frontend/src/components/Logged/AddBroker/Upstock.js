@@ -76,8 +76,8 @@ const Upstocks = () => {
   }
   return (
     <>
-      <section className="relative z-10 overflow-hidden bg-white py-20 dark:bg-dark lg:py-[40px]" style={{marginTop:"100px"}}>
-        <div className="container">
+      <section className="relative z-10 "style={{width:'130%',marginTop:'50px',marginLeft:'20px',marginBottom:'20px'}}>
+        <div >
           <div className="-mx-4 flex flex-wrap lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
@@ -90,7 +90,7 @@ const Upstocks = () => {
                 <img src={Upstock_Image}></img>
               </div>
             </div>
-            <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
+            <div className="w-full px-4 lg:w-1/2 xl:w-5/12" style={{marginTop:"100px"}}>
               <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
               <div style={{ textAlign: 'left' }}>
                   <div>Trading Platform*</div>

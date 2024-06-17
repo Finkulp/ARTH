@@ -4,7 +4,9 @@ import Navbar from "./NevBar";
 const Home = (props) => {
   return (
     <>
+    <div>
     <Navbar></Navbar>
+    </div>
       <section className="relative z-10 bg-primary py-[50px]"style={{marginTop:"50px"}}>
         <div >
         

@@ -35,16 +35,16 @@ export default function ExploreCourses(props) {
   }
   return (
     <>
-    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'450px'}}>
+    <div style={{background:`url(${BombayStockExchange})`,width:'100%',height:'300px'}}>
         <div style={{display:'flex',justifyContent:'left',paddingLeft:'200px'}}>
-      <div style={{paddingTop:'200px',fontFamily:"Lato",fontWeight:'600',fontSize:'30px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
+      <div style={{paddingTop:'100px',fontFamily:"Lato",fontWeight:'600',fontSize:'30px',color:'white'}}>EXPERT INSTRUCTION FROM FINKULP</div>
       </div>
       <div style={{display:'flex',justifyContent:'left',paddingLeft:'200px'}}>
       <div style={{paddingTop:'20px',fontFamily:"Lato",fontWeight:'600',fontSize:'23px',color:'white',width:'60%',textAlign:'left'}}>Self-paced, online courses that provide on-the-job skills—all from the world's leader in finance and investing education.</div>
       </div>
       </div>
-      <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex',position:'absolute',top:'110px',left:"800px"}}>
-        <div >
+      <div className="max-w-md mx-auto" style={{ marginLeft: "300px",display:'flex',position:'absolute',top:'50px',left:"700px"}}>
+        <div style={{width:'400px'}} >
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div className="relative" style={{width:'500px'}}>
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -86,7 +86,7 @@ export default function ExploreCourses(props) {
       </div>
       {/* <div style={{textAlign:'center',fontFamily:"Lato",fontWeight:"400",fontSize:'32px',paddingTop:"20px"}}>POPULAR COURSES</div> */}
       <div style={{fontFamily:"Lato",fontWeight:'400',fontSize:'30px',color:"black",textAlign:'center',paddingTop:'10px'}}>POPULAR COURSES</div>
-      <div style={{ display: "flex", gap: "10px", flexWrap: 'wrap', width: "98%", marginTop: "50px", paddingLeft: "30px",  }}>
+      <div style={{ display: "flex", gap: "10px", flexWrap: 'wrap', width: "98%", marginTop: "50px", paddingLeft: "30px",display:'flex',justifyContent:'center' }}>
         {filteredData.map(course => (
             <div style={{width:'350px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px',marginBottom:'10px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
             <div><img src={course.image} style={{width:"400px",height:'300px',borderRadius:'3px'}}></img></div>

@@ -3,6 +3,7 @@ import Lottie from 'lottie-react';
 import { MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../../../CSS/Algoshopping.css';
+import TradingBackground from '../../../Animations/TradingBackground.jpg'
 import loadingAnimation from '../../../Animations/loadingAnimation.json';
 
 export default function Algoshopping(props) {
@@ -82,22 +83,30 @@ export default function Algoshopping(props) {
   }
   return (
     <>
-      {loading && <div style={{ display: "flex", justifyContent: 'center' }}>
+    <div>
+      <div style={{height:'300px',overflow:'hidden'}}><img src={TradingBackground} style={{width:'100%'}}></img></div>
+      {loading && <div style={{ display: "flex", justifyContent: 'center' ,width:"1300px",height:'500px',alignItems:'center'}}>
         <Lottie animationData={loadingAnimation} style={{ width: '300px' }}></Lottie>
       </div>}
       {!loading && (
         <div>
-          <div style={{ display: 'flex', justifyContent: 'right', position: 'relative', top: '-50px' }}>
-            <TextField
-              label="Search by Strategist"
-              variant="outlined"
-              onChange={handleStrategistFilterChange}
-              style={{ marginRight: "30px", width: "300px", height: '10px' }}
-            />
-          </div>
-          <div style={{ display: 'flex', gap: '15px', flexWrap: "wrap", paddingLeft: '30px', paddingRight: '20px', paddingBottom: '25px' }}>
+          <div style={{ display: 'flex', marginBottom: '50px',position:'absolute',top:"30px",left:'75%' }}>
+          <TextField
+            label="Search by Strategy name"
+            variant="outlined"
+            onChange={handleStrategistFilterChange}
+            style={{ marginRight: '30px', width: '300px',borderRadius:'5px' }}
+            InputProps={{ style: { height: '40px',borderRadius:'10px',background:'white' } }} // Adjust the height as needed
+          />
+        </div>
+        <div style={{position:"absolute",top:'100px',left:"15%",width:'50%',textAlign:'left'}}>
+          <div style={{fontFamily: "Lato",fontSize:'25px',paddingBottom:'30px',fontWeight:'700px',color:'white'}}>Empowering your investments with intelligent, automated precision.</div>
+          <div style={{fontFamily: "Lato",fontSize:'20px',paddingBottom:'30px',fontWeight:'600px',color:'white'}}>Automated trading strategies designed to maximize your investment returns with precision and efficiency, leveraging advanced algorithms to make informed decisions in real-time.</div>
+        </div>
+          <div style={{textAlign:'center',fontFamily: "Lato",fontSize:'30px',paddingTop:'20px',paddingBottom:'30px',fontWeight:'900px'}}>Explore Strategies</div>
+          <div style={{ display: 'flex',justifyContent:'center', gap: '10px', flexWrap: "wrap", paddingLeft: '30px', paddingBottom: '20px' }}>
             {filteredStrategies.map((algo, index) => (
-              <div key={index} style={{ width: '350px', border: "solid", height: '575px', borderWidth: '1px', borderColor: "rgb(204, 205, 207)", borderRadius: '3px', marginBottom: '10px' }} className='hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard'>
+              <div key={index} style={{ width: '350px', border: "solid", height: '600px', borderWidth: '1px', borderColor: "rgb(204, 205, 207)", borderRadius: '3px', marginBottom: '10px' }} className='hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard'>
                 <div>
                   <img src={algo.image} style={{ width: "400px", height: '300px' }} alt="strategy" />
                 </div>
@@ -108,7 +117,7 @@ export default function Algoshopping(props) {
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <div style={{ paddingLeft: '20px' }}>
                       <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '100px', color: "#0047AB", textAlign: 'center' }}>NSE</div>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: "130px", paddingLeft: '20px', color: 'gray' }}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: "130px",  color: 'gray' ,justifyContent:'center',display:'flex'}}>
                         {algo.StrategyDescription?.NSE}
                       </div>
                     </div>
@@ -132,7 +141,7 @@ export default function Algoshopping(props) {
                     </div>
                   </div>
                 </div>
-                <hr style={{ color: 'gray', paddingBottom: '20px', width: "100%", position: 'relative', top: '20px' }}></hr>
+                <hr style={{ color: 'gray', paddingBottom: '40px', width: "100%", position: 'relative', top: '20px' }}></hr>
                 <div style={{ display: 'flex', justifyContent: 'right', marginRight: '20px', paddingTop: "13px" }}>
                   <div>
                     <Link to='/loggedhome/MarketPlace/AlgoDescription'>
@@ -147,6 +156,7 @@ export default function Algoshopping(props) {
           </div>
         </div>
       )}
+      </div>
     </>
   );
 }

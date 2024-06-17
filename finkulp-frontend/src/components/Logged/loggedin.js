@@ -20,8 +20,10 @@ export default function Loggedin() {
   }, [navigate]);
   return (
     <>
-    <NevBar></NevBar>
-    <Outlet></Outlet>
+    <div style={{display:"flex",width:'100%'}}>
+    <div ><NevBar></NevBar></div>
+    <div ><Outlet></Outlet></div>
+    </div>
     </>
   )
 }
