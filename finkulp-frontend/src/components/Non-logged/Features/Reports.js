@@ -49,7 +49,7 @@ const Reports = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ margin: '0 auto 25px', display: 'inline-block' }}>
-            <img src="/img/tweak-icon.svg" alt="Tweak Icon" />
+            <img src="/img/reports-icon.svg" alt="Reports Icon" />
           </div>
           <h2 style={{ fontSize: '2.5em', marginBottom: '20px' }}>Comprehensive Reports</h2>
           <p style={{ maxWidth: '770px', margin: '0 auto 25px', fontSize: '1.2em' }}>
@@ -58,7 +58,7 @@ const Reports = () => {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap:'30px' }}>
           <div style={{ flex: '1' }}>
-            <TweakDots activeSlide={activeSlide} handleSlideChange={handleSlideChange} progress={progress} />
+            <ReportsDots activeSlide={activeSlide} handleSlideChange={handleSlideChange} progress={progress} />
           </div>
           <div style={{ flex: '2', position: 'relative' }}>
             <div style={{ position: 'relative' }}>
@@ -68,7 +68,7 @@ const Reports = () => {
               </div>
               <div>
                 {slidesData.map((slide, index) => (
-                  <SingleTweakSlide
+                  <SingleReportsSlide
                     key={index}
                     imgSrc={slide.imgSrc}
                     text={slide.text}
@@ -84,11 +84,11 @@ const Reports = () => {
   );
 };
 
-const TweakDots = ({ activeSlide, handleSlideChange, progress }) => {
+const ReportsDots = ({ activeSlide, handleSlideChange, progress }) => {
   return (
     <div style={{display:'flex', flexDirection:'row', gap:'30px'}}>
       {slidesData.map((slide, index) => (
-        <TweakButton
+        <ReportsButton
           key={index}
           imgSrc={slide.iconSrc}
           heading={slide.heading}
@@ -102,7 +102,7 @@ const TweakDots = ({ activeSlide, handleSlideChange, progress }) => {
   );
 };
 
-const TweakButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => {
+const ReportsButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => {
   const activeButtonStyle = isActive
     ? { background: `#d3d3d3` ,border:'3px solid #00f' }
 
@@ -121,7 +121,7 @@ const TweakButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => 
   );
 };
 
-const SingleTweakSlide = ({ imgSrc, text, isActive }) => {
+const SingleReportsSlide = ({ imgSrc, text, isActive }) => {
   return (
     <div style={{ display: isActive ? 'flex' : 'none', textAlign: 'center' }}>
       <img src={imgSrc} alt="" style={{ width: '100%', marginBottom: '20px' }} />
@@ -151,10 +151,10 @@ const arrowStyle = {
 
 const slidesData = [
   {
-    iconSrc: '/img/strategy-tweak-icon.svg',
-    heading: 'Strategy tweaks',
+    iconSrc: '/img/strategy-reports-icon.svg',
+    heading: 'Strategy reportss',
     buttonText: 'We give you the freedom to change the strategy parameters which define the functionality of the strategy and create your own unique way of building a trading algo that centers on your specific needs.',
-    imgSrc: '/img/strategy-tweaks-new.png',
+    imgSrc: '/img/strategy-reportss-new.png',
     text: 'We give you the freedom to change the strategy parameters which define the functionality of the strategy and create your own unique way of building a trading algo that centers on your specific needs.'
   },
   {
