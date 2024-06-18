@@ -59,6 +59,7 @@ export default function FeaturesHome() {
    <Featurespage1></Featurespage1>
    <TweakSection/>
    <Reports/>
+   <Story></Story>
    </div>
    </>
   )
