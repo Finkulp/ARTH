@@ -30,14 +30,14 @@ export default function MyCourses(props) {
 
   return (
     <>
-    <div style={{boxShadow:'1px 1px 10px black',width:'100%',paddingBottom:'20px',paddingTop:'20px'}}>
-      <div className="max-w-md mx-auto" style={{ marginLeft: "500px",display:'flex',gap:'380px'}}>
-        <div  >
-          <div style={{width:'200px',fontFamily:'poppins',color:'	#4285F4',fontSize:'23px',textDecoration:'underline'}}>My Courses</div>
+    <div style={{boxShadow:'1px 1px 10px black',width:'99%',paddingBottom:'20px',paddingTop:'10px',marginLeft:'5px'}}>
+      <div className="max-w-md mx-auto">
+        <div style={{display:'flex',justifyContent:'center'}} >
+          <div style={{width:'200px',fontFamily:'Lato',fontWeight:'600',color:'	#4285F4',fontSize:'30px'}}>My Courses</div>
         </div>
         <div >
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-        <div className="relative" style={{width:'300px'}}>
+        <div  style={{width:'300px',position:'absolute',top:'50px',left:'80%'}}>
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -75,16 +75,16 @@ export default function MyCourses(props) {
         </select>
       </div> */}
       </div>
-      <div style={{ display: "flex", gap: "40px",paddingLeft:'40px', flexWrap: 'wrap', width: "100%", marginTop: "50px"}}>
+      <div style={{ display: "flex", gap: "10px",paddingLeft:'20px', flexWrap: 'wrap', width: "100%", marginTop: "50px"}}>
         {filteredData.map(course => (
-          <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard' style={{boxShadow:'1px 1px 5px black' }}>
-          <div style={{width:'400px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207",borderRadius:'3px'}}>
-          <div><img src={course.image} style={{width:"400px",height:'300px',borderRadius:'3px'}}></img></div>
+          <div className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard' style={{boxShadow:'1px 1px 5px black',marginBottom:'10px' }}>
+          <div style={{width:'300px',border:"solid",height:'620px',borderWidth:'1px',borderColor:"rgb(204, 205, 207",borderRadius:'3px'}}>
+          <div><img src={course.image} style={{width:"300px",height:'300px',borderRadius:'3px'}}></img></div>
           <div style={{paddingLeft:'40px',paddingRight:'30px'}}>
           <div style={{fontSize:'23px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',height:"70px"}}>{course.title}</div>
-          <div style={{paddingTop:'30px',paddingBottom:'20px',height:'100px',fontFamily:"Lato",color:'gray'}}>{course.description}</div>
+          <div style={{paddingTop:'60px',paddingBottom:'20px',height:'100px',fontFamily:"Lato",color:'gray'}}>{course.description}</div>
           </div>
-          <hr style={{color:'gray',paddingBottom:'20px',width:"100%"}}></hr>
+          <hr style={{color:'gray',paddingBottom:'70px',width:"100%",position:'relative',top:'70px'}}></hr>
           <div style={{display:'flex',justifyContent:'right',marginRight:'20px',paddingTop:"13px"}}>
           <div><Link ><button style={{padding:'10px',fontFamily:'Lato',color:'white',background:"rgb(44, 90, 163)",fontSize:'15px',fontWeight:'350',paddingLeft:'20px',paddingRight:'20px',borderRadius:'3px'}}>View All course</button></Link></div>
           </div>

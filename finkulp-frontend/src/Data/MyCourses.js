@@ -37,6 +37,96 @@ export const data = [
       availability: true,
       author: 'Sarah Davis',
       previousPrice: 200
+    },
+    {
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
+    },
+    {
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
+    },
+    {
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
+    },
+    {
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
+    },
+    {
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
+    } ,{
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
+    },
+    {
+      id: 8,
+      title: "Trading Psychology: Mastering Your Mindset",
+      image: "https://media.istockphoto.com/id/943292690/photo/financial-and-technical-data-analysis-graph-showing-stock-market-trends.webp?b=1&s=170667a&w=0&k=20&c=spa_KP9Cm1azKSwOTOYbbd4Gore_TqhPkSDheswJlnU=",
+      description: "Understand the psychological aspects of trading and how to maintain discipline and emotional control.",
+      address: "Online",
+      category: "Trading",
+      price: 100,
+      courseCompleted: "15% completed",
+      availability: true,
+      author: 'Sarah Davis',
+      previousPrice: 200
     }
   ];
   

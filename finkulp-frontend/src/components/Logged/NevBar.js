@@ -69,8 +69,8 @@ const Navbar = () => {
                                     <div style={getLinkStyle('/loggedhome/Dashboard/Trade')}>
                                         <Link to='/loggedhome/Dashboard/Trade' style={getLinkStyle('/loggedhome/Dashboard/Trade')}>Trade History</Link>
                                     </div>
-                                    <div style={getLinkStyle('/loggedhome/Dashboard/')}>
-                                        <Link to='/loggedhome/Dashboard/' style={getLinkStyle('/loggedhome/Dashboard/')}>Details</Link>
+                                    <div style={getLinkStyle('/loggedhome/Dashboard')}>
+                                        <Link to='/loggedhome/Dashboard' style={getLinkStyle('/loggedhome/Dashboard')}>Details</Link>
                                     </div>
                                     <div style={getLinkStyle('/loggedhome/Dashboard/my-courses')}>
                                         <Link to='/loggedhome/Dashboard/my-courses' style={getLinkStyle('/loggedhome/Dashboard/my-courses')}>My Courses</Link>
@@ -80,11 +80,11 @@ const Navbar = () => {
                             <div style={getLinkStyle('/loggedhome/MarketPlace')}>
                                 <Link to='/loggedhome/MarketPlace' style={getLinkStyle('/loggedhome/MarketPlace')}>MarketPlace</Link>
                             </div>
-                            <div style={getLinkStyle('/loggedhome/BrokingPartner')}>
-                                <Link to='/loggedhome/BrokingPartner' style={getLinkStyle('/loggedhome/BrokingPartner')}>Broking Partner</Link>
-                            </div>
                             <div style={getLinkStyle('/loggedhome/Add-Broker')}>
-                                <Link to='/loggedhome/Add-Broker' style={getLinkStyle('/loggedhome/Add-Broker')}>My Portfolio</Link>
+                                <Link to='/loggedhome/Add-Broker' style={getLinkStyle('/loggedhome/Add-Broker')}>Broking Partner</Link>
+                            </div>
+                            <div style={getLinkStyle('/loggedhome/my_profile')}>
+                                <Link to='/loggedhome/my_profile' style={getLinkStyle('/loggedhome/my_profile')}>My Portfolio</Link>
                             </div>
                             <div style={getLinkStyle('/loggedhome/Reports')}>
                                 <Link to='/loggedhome/Reports' style={getLinkStyle('/loggedhome/Reports')}>Reports</Link>
@@ -94,9 +94,6 @@ const Navbar = () => {
                             </div>
                             <div style={getLinkStyle('/loggedhome/courses')}>
                                 <Link to='/loggedhome/courses' style={getLinkStyle('/loggedhome/courses')}>Courses</Link>
-                            </div>
-                            <div style={getLinkStyle('/loggedhome/FAQ')}>
-                                <Link to='/loggedhome/FAQ' style={getLinkStyle('/loggedhome/FAQ')}>FAQ</Link>
                             </div>
                             <div style={getLinkStyle('/loggedhome/Resources')}>
                                 <Link to='/loggedhome/Resources' style={getLinkStyle('/loggedhome/Resources')}>Resources</Link>
@@ -110,7 +107,7 @@ const Navbar = () => {
                             <div style={getLinkStyle('/loggedhome/Setting')}>
                                 <Link to='/loggedhome/Setting' style={getLinkStyle('/loggedhome/Setting')}>Setting</Link>
                             </div>
-                            <div className="rounded-lg bg-primary py-3 text-base font-medium text-white hover:bg-opacity-90" onClick={logout} style={{ marginTop: '40px', width: '100px', textAlign: 'center' }}>
+                            <div className="rounded-lg bg-primary py-3 text-base font-medium text-white hover:bg-opacity-90" onClick={logout} style={{ marginTop: '40px', width: '100px', textAlign: 'center',marginLeft:'20px' }}>
                                 <Link to='/'>Logout</Link>
                             </div>
                         </div>
