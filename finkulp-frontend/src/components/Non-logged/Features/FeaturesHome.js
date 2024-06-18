@@ -5,6 +5,7 @@ import Bluebackground from '../../../Animations/BlueBackground1.jpg'
 import { useState } from 'react'
 import Featurespage1 from './Featurespage1'
 import ResourcesHome from '../Resources/ResourcesHome'
+import TweakSection from './Tweak'
 export default function FeaturesHome() {
   const[list,setlist]=useState(false);
   return (
@@ -54,6 +55,7 @@ export default function FeaturesHome() {
     </div>
     <div style={{justifyContent:'center'}}> 
    <Featurespage1></Featurespage1>
+   <TweakSection/>
    </div>
    </>
   )
