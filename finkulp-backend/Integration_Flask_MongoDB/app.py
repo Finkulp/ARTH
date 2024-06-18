@@ -26,14 +26,14 @@ def run_script():
     # documents = list(collection.find(query))
 
     # Call the script
-    result = run_action_script()
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(func=run_action_script, trigger="interval", seconds=10)
+    scheduler.start()
 
     return jsonify({"result": result})
 
 # Schedule tasks
-# scheduler = BackgroundScheduler()
-# scheduler.add_job(func=run_action_script, trigger="interval", seconds=10)
-# scheduler.start()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
