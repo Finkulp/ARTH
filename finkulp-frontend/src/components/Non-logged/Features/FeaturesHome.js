@@ -4,6 +4,7 @@ import '../../../CSS/Algoshopping.css'
 import Bluebackground from '../../../Animations/BlueBackground1.jpg'
 import { useState } from 'react'
 import Featurespage1 from './Featurespage1'
+import Story from './Stroy'
 import ResourcesHome from '../Resources/ResourcesHome'
 export default function FeaturesHome() {
   const[list,setlist]=useState(false);
@@ -54,6 +55,7 @@ export default function FeaturesHome() {
     </div>
     <div style={{justifyContent:'center'}}> 
    <Featurespage1></Featurespage1>
+   <Story></Story>
    </div>
    </>
   )
