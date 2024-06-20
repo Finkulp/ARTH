@@ -41,7 +41,7 @@ const StepPage = () => {
     <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1000px",left:'615px',fontSize:"25px"}}></i>
     <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1300px",left:'815px',fontSize:"25px"}}></i>
     <i class="fa-solid fa-angle-down" style={{color:'blue',zIndex:'3',position:'absolute',marginTop:"1550px",left:'615px',fontSize:"25px"}}></i>
-    <div style={{boxShadow:"1px 1px 20px black",width:'100%',position:'absolute',height:'1550px',top:'1300px',zIndex:'200',width:'90%',left:'75px',}}></div>
+    <div style={{boxShadow:"1px 1px 20px black",width:'100%',position:'absolute',height:'1505px',top:'1300px',zIndex:'200',width:'90%',left:'75px',}}></div>
     <div  style={{background:`url(${BlueBackground2})`,zIndex:"1"}}>
     <div style={{display:"flex",justifyContent:"center"}}>
       <div style={{fontSize:'30px',marginTop:'270px',fontWeight:'600', fontFamily:'poppins',color:'rgb(10,255,0)'}}>Step-by-Step Guide to Wealth Creation!</div>

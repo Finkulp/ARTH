@@ -44,7 +44,7 @@ const brokers = [
     name: 'Upstox',
     description: 'Upstox is a leading Indian brokerage firm, offering low-cost trading services and a user-friendly trading platform for stocks, mutual funds, and derivatives.',
     img: upstocksIcon,
-    link: '/loggedhome/Upstox',
+    link: '/loggedhome/Upstocks',
   },
 ];
 

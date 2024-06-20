@@ -1,55 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import ai from './Images for Story/AI Leverage.png';
+import aibw from './Images for Story/AI Leverage black and white.png';
+import broker from './Images for Story/broker.png';
+import brokerbw from './Images for Story/broker black white.png';
+import flexiblesubsbw from './Images for Story/flexible subscription black and white.png';
+import flexiblesubs from './Images for Story/flexible subscription.png';
+import fullyautomatedbw from './Images for Story/fully automated trading black and white.png';
+import fullyautomated from './Images for Story/fully automated trading.png';
+import selfdevelop from './Images for Story/develop and trade.png';
+import selfdevelopbw from './Images for Story/develop and trade black and white.png';
+import secleting from './Images for Story/secleting multiple stratgies.png';
+import slcletingbw from './Images for Story/secleting multiple stratgies black and white.png';
 
 const Story = () => {
-  const [position, setPosition] = useState(50); // Initial position at 50vh
+  const [position, setPosition] = useState(40); // Initial position in percentage
   const [passedIcons, setPassedIcons] = useState([]);
+  const dragging = useRef(false);
 
-  const moveLeft = () => {
-    setPosition((prevPosition) => {
-      const newPosition = Math.max(prevPosition - 10, 40); // Decrease position by 10vh but not less than 40vh
-      updatePassedIcons(newPosition);
-      return newPosition;
-    });
-  };
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      if (dragging.current) {
+        const newPosition = Math.min(Math.max(event.clientX / window.innerWidth * 100, 0), 100);
+        setPosition(newPosition);
+        updatePassedIcons(newPosition);
+      }
+    };
 
-  const moveRight = () => {
-    setPosition((prevPosition) => {
-      const newPosition = Math.min(prevPosition + 10, 170); // Increase position by 10vh but not more than 170vh
-      updatePassedIcons(newPosition);
-      return newPosition;
-    });
+    const handleMouseUp = () => {
+      dragging.current = false;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
+  const handleMouseDown = () => {
+    dragging.current = true;
   };
 
   const updatePassedIcons = (newPosition) => {
     const newPassedIcons = [];
-    
-    // Check which icons are passed based on newPosition
     setOnePositions.forEach((pos, index) => {
       if (newPosition >= pos) {
         newPassedIcons.push(index);
       }
     });
-    
     setPassedIcons(newPassedIcons);
   };
 
-  const setOnePositions = [45, 65, 85, 105, 125, 145]; // Icon positions in vh
-  
+  const setOnePositions = [10, 30, 50, 70, 90]; // Icon positions in percentage
+  const icons = [
+    { color: ai, bw: aibw },
+    { color: broker, bw: brokerbw },
+    { color: flexiblesubs, bw: flexiblesubsbw },
+    { color: fullyautomated, bw: fullyautomatedbw },
+    { color: selfdevelop, bw: selfdevelopbw },
+    { color: secleting, bw: slcletingbw }
+  ];
+
   return (
     <div style={{ position: 'relative', height: '100vh', width: '100vw' }}>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px' ,position:"relative",top:"250px"}}>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px', position: 'relative', top: '250px' }}>
         <button
-          onClick={moveLeft}
           style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '10vh' }}
-          className='bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'
+          className='bg-dark border-dark border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:disabled'
         >
           Left
         </button>
-        <div style={{ width: '5px', height: '300px', background: 'blue', position: 'absolute', left: `${position}vh` }}></div>
+        <div
+          onMouseDown={handleMouseDown}
+          style={{ width: '5px', height: '550px', background: 'blue', position: 'absolute', left: `${position}%`, cursor: 'ew-resize' }}
+        ></div>
         <button
-          onClick={moveRight}
-          style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '180vh' }}
-          className='bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'
+          style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '90vh' }}
+          className='bg-dark border-dark border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:disabled'
         >
           Right
         </button>
@@ -58,16 +87,17 @@ const Story = () => {
         <div className='setone'>
           {setOnePositions.map((pos, index) => (
             <div key={index}>
-              <i
-                className={`fa-solid fa-city ${passedIcons.includes(index) ? 'text-blue' : ''}`}
+              <img
+                src={passedIcons.includes(index) ? icons[index].color : icons[index].bw}
+                alt={`icon-${index}`}
                 style={{
                   position: 'absolute',
-                  left: `${pos}vh`,
-                  top: index % 2 === 0 ? '20vh' : '30vh',
-                  fontSize: '40px',
-                  color: passedIcons.includes(index) ? 'blue' : 'black'
+                  left: `${pos}%`,
+                  top: index % 2 === 0 ? '10vh' : '40vh',
+                  width: '150px',
+                  height: '150px'
                 }}
-              ></i>
+              />
             </div>
           ))}
         </div>

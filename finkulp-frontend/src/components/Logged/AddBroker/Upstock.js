@@ -76,7 +76,7 @@ const Upstocks = () => {
   }
   return (
     <>
-      <section className="relative z-10 "style={{width:'130%',marginTop:'50px',marginLeft:'20px',marginBottom:'20px'}}>
+      <section className="relative z-10 "style={{width:'90%',marginTop:'50px',marginLeft:'20px',marginBottom:'20px'}}>
         <div >
           <div className="-mx-4 flex flex-wrap lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">

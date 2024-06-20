@@ -59,7 +59,7 @@ const Navbar = () => {
                     <div className="w-full">
                         <div className="block" style={{ gap: "30px" }}>
                             <div onClick={toggleDashboardDropdown} style={getLinkStyle('/loggedhome/Dashboard')}>
-                                <Link to='/loggedhome/Dashboard' style={getLinkStyle('/loggedhome/Dashboard')}>Dashboard<span style={{paddingLeft:'10px'}}><i class="fa-solid fa-square-caret-down"></i></span></Link>
+                                <Link style={getLinkStyle('/loggedhome/Dashboard')}>Dashboard<span style={{paddingLeft:'10px'}}><i class="fa-solid fa-square-caret-down"></i></span></Link>
                             </div>
                             {isDashboardDropdownOpen && (
                                 <div style={{ paddingLeft: '30px' }}>
