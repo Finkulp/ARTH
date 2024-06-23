@@ -106,7 +106,7 @@ export default function Algoshopping(props) {
           <div style={{textAlign:'center',fontFamily: "Lato",fontSize:'30px',paddingTop:'20px',paddingBottom:'30px',fontWeight:'900px'}}>Explore Strategies</div>
           <div style={{ display: 'flex',justifyContent:'center', gap: '10px', flexWrap: "wrap", paddingLeft: '30px', paddingBottom: '20px' }}>
             {filteredStrategies.map((algo, index) => (
-              <div key={index} style={{ width: '300px', background:'white',border: "solid", height: '625px', borderWidth: '1px', borderColor: "rgb(204, 205, 207)", borderRadius: '3px', marginBottom: '10px' }} className='hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard'>
+              <div key={index} style={{ width: '400px', background:'white',border: "solid", height: '700px', borderWidth: '1px', borderColor: "rgb(204, 205, 207)", borderRadius: '3px', marginBottom: '10px' }} className='hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard'>
                 <div>
                   <img src={algo.image} style={{ width: "400px", height: '300px' }} alt="strategy" />
                 </div>
@@ -114,7 +114,7 @@ export default function Algoshopping(props) {
                   <div style={{ fontSize: '23px', fontFamily: "Lato", fontWeight: '400', paddingTop: '22px', height: "70px", paddingLeft: '20px', color: '' }}>
                     {algo.StrategyDescription?.Strategist}
                   </div>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex',flexWrap: 'wrap',lineHeight:'30px' }}>
                     <div style={{ paddingLeft: '20px' }}>
                       <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '100px', color: "#0047AB", textAlign: 'center' }}>NSE</div>
                       <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: "100px",  color: 'gray' ,justifyContent:'center',display:'flex'}}>
@@ -134,15 +134,27 @@ export default function Algoshopping(props) {
                       </div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: "#0047AB" }}>Price</div>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: "#0047AB" }}>Fee With subscription</div>
                       <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: 'gray' }}>
-                        {algo.StrategyDescription?.price}
+                        {algo.StrategyDescription?.Fee.Subscription}
+                      </div>
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: "#0047AB" }}>Fee Without subscription</div>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: 'gray' }}>
+                        {algo.StrategyDescription?.Fee.Pay }
+                      </div>
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: "#0047AB" }}>NSE</div>
+                      <div style={{ fontSize: '15px', fontFamily: "Lato", fontWeight: '400', width: '130px', color: 'gray' }}>
+                        {algo.StrategyDescription?.NSE}
                       </div>
                     </div>
                   </div>
                 </div>
-                <hr style={{ color: 'gray', paddingBottom: '40px', width: "100%", position: 'relative', top: '20px' }}></hr>
-                <div style={{ display: 'flex', justifyContent: 'right', marginRight: '20px', paddingTop: "13px" }}>
+                <hr style={{ color: 'gray', paddingBottom: '50px', width: "100%", position: 'relative', top: '40px' }}></hr>
+                <div style={{ display: 'flex', justifyContent: 'right', marginRight: '50px', paddingTop: "30px" }}>
                   <div>
                     <Link to='/loggedhome/MarketPlace/AlgoDescription'>
                       <button style={{ padding: '10px', fontFamily: 'Lato', color: 'white', background: "rgb(44, 90, 163)", fontSize: '15px', fontWeight: '350', paddingLeft: '20px', paddingRight: '20px', borderRadius: '3px', marginRight: '30px' }} onClick={() =>description(algo)}>

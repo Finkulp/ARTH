@@ -70,40 +70,41 @@ export default function DashboardH() {
     }, []);
   return (
     <div style={{background:"rgb(252,252,255)",width:'95%',position:'relative',left:'20px'}}>
+      <div style={{textAlign:'center',paddingTop:'20px',paddingBottom:'20px',fontSize:"23px",color:'green'}}>Dashboard</div>
           {loading?<div style={{width:'90%',height:'400px',display:"flex",justifyContent:"center",alignItems:'center'}}><Lottie animationData={lLoading} style={{width:"20%"}}/></div>:
       <div>
             <div style={{display:'flex',gap:'1%',width:'100%'}}>
-                <div style={{width:"65%",border:'solid',borderWidth:'1px',borderColor:'black',background:'white'}}>
+                <div style={{width:"65%",border:'solid',borderWidth:'1px',borderColor:'#4285F4',borderRadius:'5px',background:'white'}}>
                     <div style={{display:'flex',gap:"20px"}}>
                         <div style={{overflowY:"auto",height:"400px",width:'250px',overflowX:'hidden'}}>
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',background:'cyan'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',background:'lightgreen',marginBottom:'20px',borderColor:'#4285F4'}}>
                                   <div>Strategy1</div>
                               </div>
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy2</div>
                               </div>    
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy3</div>
                               </div>  
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy4</div>
                               </div>
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy5</div>
                               </div>   
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy6</div>
                               </div> 
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy7</div>
                               </div> 
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy8</div>
                               </div> 
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy9</div>
                               </div> 
-                              <div className='DashboardDetails1 border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px'}}>
+                              <div className='DashboardDetails1 border-darkgreen border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{paddingLeft:"20px",paddingRight:'20px',width:'200px',marginBottom:'20px',borderColor:'#4285F4'}}>
                               <div>Strategy10</div>
                               </div> 
                         </div>
@@ -122,21 +123,21 @@ export default function DashboardH() {
                         </div>
                     </div>
                     <div style={{display:"flex", overflowX:'auto',gap:'30px',marginBottom:'20px',marginTop:'10px',paddingLeft:'20px'}}>
-                            <div className=' border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{width:'160px'}}>
+                            <div className=' dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{width:'160px',borderColor:'#4285F4'}}>
                                   <div>Information1</div>
                               </div>  
-                              <div className=' border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{width:'160px'}}>
+                              <div className=' dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{width:'160px',borderColor:'#4285F4'}}>
                                   <div>Information2</div>
                               </div>
-                              <div className=' border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{width:'160px'}}>
+                              <div className=' dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{width:'160px',borderColor:'#4285F4'}}>
                                   <div>Information3</div>
                               </div>
-                              <div className=' border-green dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-green' style={{width:'160px'}}>
+                              <div className=' dark:border-dark-2 border rounded-md  py-3 px-7 text-center text-base font-medium text-black' style={{width:'160px',borderColor:'#4285F4'}}>
                                   <div>Information4</div>
                               </div>     
                       </div>
                 </div>
-                <div style={{width:'38%',border:'solid',borderWidth:'1px',borderColor:'black',background:'white',paddingTop:'20px'}}>
+                <div style={{width:'38%',border:'solid',borderWidth:'1px',borderColor:'#4285F4',borderRadius:'5px',background:'white',paddingTop:'20px'}}>
                 {profit &&
                       <div >
                         
@@ -186,28 +187,28 @@ export default function DashboardH() {
                 </div>
             </div>
             <div style={{width:"100%",marginTop:'20px',marginBottom:'20px',display:'flex',gap:'8%',background:'white',paddingTop:'13px',paddingBottom:'13px',borderRadius:'5px',paddingLeft:'30px'}}>
-      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'black',paddingRight:'10px',width:'250px'}}>
+      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-black' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'#4285F4',paddingRight:'10px',width:'250px'}}>
         <div>Net Capital</div>
         <div  style={{fontSize:"25px"}}>{userDetails.netCaptialValue}</div>
       </div>
-      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'black',paddingRight:'10px',width:'250px'}}>
+      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-black' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'#4285F4',paddingRight:'10px',width:'250px'}}>
         <div>Profit Loss</div>
         <div  style={{fontSize:"25px"}}>{userDetails.PandL}</div>
       </div>
-      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'black',paddingRight:'10px',width:'250px'}}>
+      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-black' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'#4285F4',paddingRight:'10px',width:'250px'}}>
         <div>Trading Volume</div>
         <div  style={{fontSize:"25px"}}>{userDetails.TradingVolume}</div>
       </div>
-      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-cyan' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'black',paddingRight:'10px',width:'250px'}}>
+      <div className='DashboardDetails1 border-cyan dark:border-dark-2 border rounded-md  py-3 px-3 text-center text-base font-medium text-black' style={{paddingLeft:"10px",border:'solid',borderWidth:'1px',borderColor:'#4285F4',paddingRight:'10px',width:'250px'}}>
         <div>Profit/Loss%</div>
         <div  style={{fontSize:"25px"}}>{userDetails.PandL}</div>
       </div>
       </div>
             <div style={{display:'flex',gap:"1%",height:'500px',width:'180vh'}}>
-                <div style={{width:'500px',border:'solid',borderWidth:'1px',borderColor:'black',background:'white'}}>
+                <div style={{width:'500px',border:'solid',borderWidth:'1px',borderColor:'#4285F4',borderRadius:'5px',background:'white'}}>
                    <MyStrategy userDetails={userDetails}></MyStrategy>
                 </div>
-                <div style={{width:'70%',border:'solid',borderWidth:'1px',borderColor:'black',background:'white'}}>
+                <div style={{width:'70%',border:'solid',borderWidth:'1px',borderColor:'#4285F4',borderRadius:'5px',background:'white'}}>
                       <Trades></Trades>
                 </div>
             </div>

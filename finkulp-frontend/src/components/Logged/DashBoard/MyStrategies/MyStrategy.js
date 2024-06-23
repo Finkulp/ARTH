@@ -19,7 +19,7 @@ export default function MyStrategy(props) {
   const [Duration, setDuration] = useState('');
   const [instrumentFilter, setInstrumentFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
-
+  const[mystrategyloading,setmystrategyloading]=useState(false);
   const handleStrategistFilterChange = (event) => {
     setStrategistFilter(event.target.value);
   };
@@ -58,7 +58,12 @@ export default function MyStrategy(props) {
     });
     return authToken;
   }
-  
+  useEffect(() => {
+    setmystrategyloading(true);
+    console.log('Component mounted');
+    // setLoading(true); // This line is redundant as setLoading(true) is already called above.
+    getDetails().finally(() => setmystrategyloading(false));
+  }, []);
  async function deletestrategy(algo){
   const authToken = getTokenFromCookie();
   if (!authToken) {
@@ -169,7 +174,9 @@ async function startstrategy(algo){
 }
   return (
     <>
-    <div style={{boxShadow:'1px 1px 10px black',marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto',height:'100vh',marginLeft:'15px'}}>
+    {mystrategyloading&&<div>Please Wait</div>}
+    {!mystrategyloading&&
+    <div style={{marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto',height:'100vh',marginLeft:'15px'}}>
       <div style={{display:'flex',justifyContent:'center'}}>
         <div style={{width:'200px',fontFamily:'poppins',color:'	#4285F4',fontSize:'23px',textDecoration:'underline',paddingBottom:'20px'}}>My Strategies</div>
       </div>
@@ -274,6 +281,7 @@ async function startstrategy(algo){
         </TableContainer>
       </div>
       </div>
+    }
     </>
   );
 }

@@ -57,9 +57,9 @@ export default function FeaturesHome() {
     </div>
     <div style={{justifyContent:'center'}}> 
    <Featurespage1></Featurespage1>
-   <TweakSection/>
-   <Reports/>
-   <Story></Story>
+   {/* <TweakSection/>
+   <Reports/>s
+   <Story></Story> */}
    </div>
    </>
   )

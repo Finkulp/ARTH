@@ -10,25 +10,24 @@ import FAQlogged from './FAQ';
 const Pricing = () => {
   return (
     <>
-    <div style={{display:'flex',justifyContent:'center',width:'98%',border:'soild'}}>
+    <div style={{display:'flex',justifyContent:'center'}}>
     <section className="relative z-10  bg-white pb-12 pt-20 dark:bg-dark ">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] text-center">
-              <h2 className="mb-3 text-3xl font-bold leading-[1.208] text-dark dark:text-white sm:text-4xl md:text-[40px]" style={{paddingTop:"50px"}}>
+              <h2 className="mb-3  leading-[1.208] text-dark dark:text-white sm:text-4xl md:text-[40px]" style={{fontSize:'25px'}}>
                 Our Pricing Plan
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+              Choose the Perfect Plan for Your Needs
               </p>
             </div>
           </div>
         </div>
       </div>
       <div style={{display:'flex',justifyContent:'center'}}>
-      <TableContainer component={Paper} style={{ maxWidth: '100%', marginBottom: '' ,boxShadow:"1px 1px 10px black"}}>
+      <TableContainer component={Paper} style={{ maxWidth: '100%'}}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead className='sticky top-0'>
             <TableRow>
@@ -114,7 +113,7 @@ const Pricing = () => {
         </Table>
       </TableContainer>
       </div>
-      <div style={{marginTop:'20px',boxShadow:'1px 1px 10px black'}}>
+      <div style={{marginTop:'20px'}}>
       <FAQlogged ></FAQlogged>
       </div>
     </section>

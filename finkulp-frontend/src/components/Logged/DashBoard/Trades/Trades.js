@@ -37,9 +37,9 @@ export default function Trades(props) {
       console.log(filteredAlgos)
   return (
     <>
-      <div style={{ width: '100%', paddingBottom: '20px', boxShadow: '1px 1px 10px black', marginRight: '20px', paddingTop: '20px', height: '100vh',marginLeft:'15px', overflowY: 'auto' }}>
+      <div style={{ width: '100%', paddingBottom: '20px', marginRight: '20px', paddingTop: '20px', height: '100vh',marginLeft:'15px', overflowY: 'auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <div style={{ fontSize: '25px', fontFamily: 'poppins', fontWeight: '400', color: 'green', textAlign: 'center', width: '100%' }}>Trade History</div>
+          <div style={{ fontSize: '23px',  color: 'green', textAlign: 'center', width: '100%' }}>Trade History</div>
           <div style={{ display: 'flex', alignItems: 'center', height: "30px", border: '10px' }}>
             <TextField
               label="Search by Strategist"

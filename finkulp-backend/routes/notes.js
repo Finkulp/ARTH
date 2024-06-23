@@ -144,7 +144,7 @@ app.post("/addStrategytouser", fetchuser, async (req, res) => {
     const output = req.token;
     const jfy = jwt.verify(output, serect_data);
 
-    const { addedStrategy } = req.body; // Expecting an object for the broker
+    const { addedStrategy } = req.body; // Expecting an object for the strategy
     const userid = jfy.id;
     const user = await User.findById(userid);
     if (!user) {
@@ -153,6 +153,13 @@ app.post("/addStrategytouser", fetchuser, async (req, res) => {
 
     if (!user.addedStrategies) {
       user.addedStrategies = [];
+    }
+
+    // Check if the strategy already exists
+    const strategyExists = user.addedStrategies.some(strategy => strategy.Strategist === addedStrategy.Strategist);
+
+    if (strategyExists) {
+      return res.status(400).json({ error: "Strategy already added" });
     }
 
     user.addedStrategies.push(addedStrategy);

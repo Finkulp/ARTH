@@ -57,8 +57,8 @@ export default function AddedBroker() {
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
         {brokers.map((broker, index) => (
-          <div key={index} style={{ width: '300px', border: 'solid', height: '625px', borderWidth: '1px', borderColor: 'rgb(204, 205, 207)', borderRadius: '3px', marginBottom: '10px' ,background:"rgb(253,253,255)"}} className="hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard">
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '300px', height: '250px', background: 'rgb(244, 249, 255)' }}>
+          <div key={index} style={{ width: '400px', border: 'solid', height: '625px', borderWidth: '1px', borderColor: 'rgb(204, 205, 207)', borderRadius: '3px', marginBottom: '10px' ,background:"rgb(253,253,255)"}} className="hover:scale-105 transition-transform duration-500 ease-in-out explorecourescard">
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '400px', height: '250px', background: 'rgb(244, 249, 255)' }}>
               <img src={broker.img} style={{ width: '200px', height: '80px', borderRadius: '3px' }} alt={broker.name} />
             </div>
             <div style={{ paddingLeft: '40px', paddingRight: '30px' }}>

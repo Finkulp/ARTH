@@ -88,8 +88,8 @@ export default function ExploreCourses(props) {
       <div style={{fontFamily:"Lato",fontWeight:'400',fontSize:'30px',color:"black",textAlign:'center',paddingTop:'10px'}}>POPULAR COURSES</div>
       <div style={{ display: "flex", gap: "10px", flexWrap: 'wrap', width: "98%", marginTop: "50px", paddingLeft: "30px",display:'flex',justifyContent:'center' }}>
         {filteredData.map(course => (
-            <div style={{width:'300px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px',marginBottom:'10px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
-            <div><img src={course.image} style={{width:"400px",height:'300px',borderRadius:'3px'}}></img></div>
+            <div style={{width:'400px',border:"solid",height:'575px',borderWidth:'1px',borderColor:"rgb(204, 205, 207)",borderRadius:'3px',marginBottom:'10px'}}className='hover:scale-105  transition-transform duration-500 ease-in-out explorecourescard'>
+            <div><img src={course.image} style={{width:"425px",height:'300px',borderRadius:'3px'}}></img></div>
             <div style={{paddingLeft:'40px',paddingRight:'30px'}}>
             <div style={{fontSize:'23px',fontFamily:"Lato",fontWeight:'400',paddingTop:'22px',height:"70px"}}>{course.title}</div>
             <div style={{paddingTop:'20px',paddingBottom:'20px',height:'100px',fontFamily:"Lato",color:'gray'}}>{course.description}</div>

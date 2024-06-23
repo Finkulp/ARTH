@@ -9,22 +9,16 @@ const Navbar = () => {
     const linkStyle = {
         color: 'black',
         textDecoration: 'none',
-        paddingBottom: '10px',
         paddingTop:'10px',
         fontSize: '15px',
-        fontWeight: '600',
-        fontFamily: 'Poppins',
         paddingLeft: '20px' 
     };
 
     const activeLinkStyle = {
         color: 'white',
         textDecoration: 'none',
-        paddingBottom: '20px',
         fontSize: '15px',
         paddingTop:'10px',
-        fontWeight: '600',
-        fontFamily: 'Poppins',
         background:"blue",
         paddingLeft: '20px' 
     };
@@ -107,7 +101,7 @@ const Navbar = () => {
                             <div style={getLinkStyle('/loggedhome/Setting')}>
                                 <Link to='/loggedhome/Setting' style={getLinkStyle('/loggedhome/Setting')}>Setting</Link>
                             </div>
-                            <div className="rounded-lg bg-primary py-3 text-base font-medium text-white hover:bg-opacity-90" onClick={logout} style={{ marginTop: '40px', width: '100px', textAlign: 'center',marginLeft:'20px' }}>
+                            <div className="rounded-lg bg-primary py-3 text-base font-medium text-white hover:bg-opacity-90" onClick={logout} style={{ width: '100px', textAlign: 'center',marginLeft:'20px'}}>
                                 <Link to='/'>Logout</Link>
                             </div>
                         </div>

@@ -47,6 +47,7 @@ export default function AlgoshoppingDescription(props) {
 
   async function buyStrategy(algo) {
     try {
+      addToCartArray();
       const authToken = getTokenFromCookie();
   
       // Create a copy of the algo object and remove the image property
@@ -85,17 +86,14 @@ export default function AlgoshoppingDescription(props) {
   }
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: "center" }}>
-        <div style={{ paddingTop: '200px', border: "solid", borderColor: "blue", borderWidth: '1px' }}>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ marginTop: "-200px" }}>
-              <h1 style={{ fontWeight: "500", fontSize: '25px', paddingLeft: "100px", paddingRight: '100px', color: "blue", textAlign: 'center' }}>Strategy Details</h1>
+        <div style={{ paddingTop: '20px',border:'solid',borderWidth:'1px',width:'100%',marginTop:'-20px'}}>
+        <h1 style={{  fontSize: '25px',color: "blue", textAlign: 'center',paddingBottom:'20px' }}>Strategy Details</h1>
+          <div style={{ display: 'flex', justifyContent: 'center',width:'100%'}}>
               <AgloshoppingTemplateStats Algos={props.VeiwAlgo}></AgloshoppingTemplateStats>
-            </div>
           </div>
           <div style={{ paddingLeft: '100px', paddingRight: '50px', marginTop: '-40px' }}>
             <h1 style={{ fontWeight: '400', fontSize: '30px', paddingRight: '100px', color: 'blue' }}>Description</h1>
-            <div style={{ position: 'relative', overflow: 'hidden', display: 'flex',gap:'50px' }}>
+            <div style={{ position: 'relative', overflow: 'hidden', display: 'flex',gap:'0px' }}>
               <div style={{width:'700px'}}>
             <div style={{ padding: '10px', marginLeft: '-1px' }}>
                 {props.VeiwAlgo.smalloverview.split('\n').map((line, index) => (
@@ -108,11 +106,11 @@ export default function AlgoshoppingDescription(props) {
                 ))}
               </div>
               </div>
-              <div style={{width: '500px', height: '400px' }}>
+              <div>
               <img
                 src={props.image}
                 alt="Strategy"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '500px', height: '500px'}}
               />
             </div>
             </div>
@@ -139,6 +137,5 @@ export default function AlgoshoppingDescription(props) {
           </div>
         </div>
       </div>
-    </div>
   );
 }
