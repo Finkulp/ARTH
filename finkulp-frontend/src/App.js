@@ -113,7 +113,7 @@ function App() {
             <Route path='edit-Strategy' element={<TradingStrategyfrom tradingStrategy={tradingStrategy} settradingStrategy={settradingStrategy}></TradingStrategyfrom>}></Route>
             <Route path='addnewstrategy' element={<AddNewStrategy></AddNewStrategy>}></Route>
             <Route path='updatingAlgo' element={<UpdatingAlgo seteditAlgo={seteditAlgo} setVeiwAlgoAdmin={setVeiwAlgoAdmin}></UpdatingAlgo>}></Route>
-            <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo}></UpdateAlgo>}></Route>
+            <Route path="UpdateAlgo" element={<UpdateAlgo editAlgo={editAlgo} ></UpdateAlgo>}></Route>
             <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
             <Route path='Members' element={<Members setMember={setMember} setMemberDetails={setMemberDetails}></Members>}></Route>
             <Route path="Member_Details" element={<MemberDetailsPage member={member}></MemberDetailsPage>}></Route>
