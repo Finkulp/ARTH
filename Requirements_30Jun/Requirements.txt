@@ -1,0 +1,3 @@
+The following data is needed to complete the analysis:
+1. Data Required for Tweaks and Reports Section of Features page. (They have been taken from the reference of Algobulls)
+2. Data required for Subscription Plans page. 
