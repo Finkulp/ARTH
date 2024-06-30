@@ -10,7 +10,7 @@ def main():
     for strategy in strategies.find():
         for user_id in strategy['Users']:
             user = users.find_one({'_id': ObjectId(user_id)})
-            result = subprocess.run([sys.executable, f"../Strategies/{strategy.get('filename')}.py"], capture_output=True, text=True)
+            result = subprocess.run([sys.executable, f"../Strategies/{strategy.get('Strategy_name')}.py", user.get(''), user.get()], capture_output=True, text=True)
             print(user.get('_id'), " ", user.get('added_broker'))
 
         
