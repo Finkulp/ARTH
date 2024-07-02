@@ -13,7 +13,7 @@ import secleting from './Images for Story/secleting multiple stratgies.png';
 import slcletingbw from './Images for Story/secleting multiple stratgies black and white.png';
 
 const Story = () => {
-  const [position, setPosition] = useState(40); // Initial position in percentage
+  const [position, setPosition] = useState(10); // Initial position in percentage
   const [passedIcons, setPassedIcons] = useState([]);
   const dragging = useRef(false);
 
@@ -53,7 +53,7 @@ const Story = () => {
     setPassedIcons(newPassedIcons);
   };
 
-  const setOnePositions = [10, 30, 50, 70, 90]; // Icon positions in percentage
+  const setOnePositions = [20, 35, 50, 65, 80]; // Icon positions in percentage
   const icons = [
     { color: ai, bw: aibw },
     { color: broker, bw: brokerbw },
@@ -62,26 +62,39 @@ const Story = () => {
     { color: selfdevelop, bw: selfdevelopbw },
     { color: secleting, bw: slcletingbw }
   ];
+  const content=[
+    "Leverage AI",
+      "Investor/Trader",
+      "Flexible Subscription Pricing",
+      "Automated Trading ",
+      "Develop & Trade Your Strategies",
+      "Select Customized Strategies",
+  ]
 
   return (
     <div style={{ position: 'relative', height: '100vh', width: '100vw' }}>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px', position: 'relative', top: '250px' }}>
-        <button
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px', position: 'relative', top: '300px' }}>
+        {/* <button
           style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '10vh' }}
           className='bg-dark border-dark border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:disabled'
         >
           Left
-        </button>
+        </button> */}
         <div
           onMouseDown={handleMouseDown}
-          style={{ width: '5px', height: '550px', background: 'blue', position: 'absolute', left: `${position}%`, cursor: 'ew-resize' }}
-        ></div>
-        <button
+          style={{ width: '5px', height: '450px', background: 'blue', position: 'absolute', left: `${position}%`, cursor: 'ew-resize' }}
+        >
+          <div style={{width:"50px",height:'50px',borderRadius:"50%",background:'blue',position:'relative',top:"250px",left:"-25px",cursor:"grab",display:"flex",justifyContent:'center',alignItems:'center'}}>
+          <i class="fa-solid fa-pause" style={{fontSize:'25px',color:'white'}}></i>
+          </div>
+        </div>
+        
+        {/* <button
           style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '90vh' }}
           className='bg-dark border-dark border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:disabled'
         >
           Right
-        </button>
+        </button> */}
       </div>
       <div style={{ marginTop: '100px', position: 'relative' }}>
         <div className='setone'>
@@ -98,6 +111,7 @@ const Story = () => {
                   height: '150px'
                 }}
               />
+              <div>contnet</div>
             </div>
           ))}
         </div>

@@ -4,7 +4,8 @@ const StrategyInfo =require("../modles/strategyinfo");
 const AdminData=require('../modles/adminauth')
 const bycrypt=require("bcryptjs");
 const jsonweb=require("jsonwebtoken");
-const serect_data="This is very confidentail";
+require('dotenv').config();
+const serect_data=process.env.SECRETDATA;
 const fetchuser=require("../middleware/fetchuser");
 const multer=require('multer')
 const app=express();
@@ -28,9 +29,7 @@ app.post("/addStrategyInfo", fetchuser, upload.single('strategyFile'), async (re
       return res.status(403).send("Invalid token");
     } else {
       try {
-        console.log("AuthData ID:", authData.id);
         const findUser = await AdminData.findOne({ _id: authData.id });
-        console.log("Found User:", findUser);
 
         if (!findUser) {
           return res.status(404).send("User not found");
@@ -85,9 +84,7 @@ app.post("/checkStrategyName", fetchuser, async (req, res) => {
       return res.status(403).send("Invalid token");
     } else {
       try {
-        console.log("AuthData ID:", authData.id);
         const findUser = await AdminData.findOne({ _id: authData.id });
-        console.log("Found User:", findUser);
 
         if (!findUser) {
           return res.status(404).send("User not found");
@@ -173,7 +170,6 @@ app.post("/login", async (req, res) => {
       }
 
       const isPasswordValid = await bycrypt.compare(password, findUser.password); // Await the bcrypt.compare function
-        console.log(isPasswordValid);
       if (!isPasswordValid) {
           res.json({ success: false,statment:"password is wrong"});
           return;
@@ -195,9 +191,7 @@ app.post("/fetchuser", fetchuser, async (req, res) => {
         res.status(403).send("Invalid token");
       } else {
         try {
-          console.log(authData.id);
           const findUser = await AdminData.findOne({ _id:authData.id });
-          console.log(findUser);
           if (findUser) {
             res.json({findUser,success:true});
           } else {

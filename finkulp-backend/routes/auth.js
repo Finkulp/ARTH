@@ -2,7 +2,8 @@ const express=require('express');
 const user=require('../modles/auth');
 const bycrypt=require("bcryptjs");
 const jsonweb=require("jsonwebtoken");
-const serect_data="This is very confidentail";
+require('dotenv').config();
+const serect_data=process.env.SECRETDATA;
 const fetchuser=require("../middleware/fetchuser");
 const app=express();
 
@@ -74,9 +75,7 @@ app.post("/fetchuser", fetchuser, async (req, res) => {
       res.status(403).send("Invalid token");
     } else {
       try {
-        console.log(authData.id);
         const findUser = await user.findOne({ _id:authData.id });
-        console.log(findUser);
         if (findUser) {
           res.json(findUser);
         } else {

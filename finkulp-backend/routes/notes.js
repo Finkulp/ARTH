@@ -55,7 +55,6 @@ app.post("/phonepepayment", fetchuser, async (req, res) => {
     };
 
     const response = await axios.request(options);
-    console.log(response.data);
     res.json(response.data);
   } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message);
@@ -198,7 +197,6 @@ app.post("/updatestrategystatus", fetchuser, async (req, res) => {
       await user.save();
 
       // Logging user strategies after modification
-      console.log('After update:',strategy.status);
 
       return res.json(user);
     } else {
@@ -233,22 +231,18 @@ app.get("/getAllStrategyInfo", fetchuser, async (req, res) => {
 
 app.get('/:scriptName', (req, res) => {
   const scriptName = req.params.scriptName;
-  console.log(scriptName);
   const childPython = spawn('python', [`Brokers/${scriptName}`]);
   // Listen for data event to capture stdout
   childPython.stdout.on('data', (data) => {
-    console.log(`stderr:${data}`);
     res.send(data);
   });
 
   // Listen for error event to handle stderr
   childPython.stderr.on('data', (data) => {
-    console.error(`stderr:${data}`);
   });
 
   // Listen for close event to send the response
   childPython.on('close', (code) => {
-   console.log(`child process exited with code ${code}`);
   });
 });
 
@@ -257,7 +251,7 @@ app.get('/:scriptName', (req, res) => {
 //   const childPython = spawn('python', [`${scriptName}`]);
 //   // Listen for data event to capture stdout
 //   childPython.stdout.on('data', (data) => {
-//     console.log(`stderr:${data}`);
+//     
 //     res.send(data);
 //   });
 
@@ -268,7 +262,7 @@ app.get('/:scriptName', (req, res) => {
 
   // Listen for close event to send the response
 //   childPython.on('close', (code) => {
-//    console.log(`child process exited with code ${code}`);
+//   
 //   });
 // });
 
@@ -340,7 +334,6 @@ app.post("/addBroker", fetchuser, async (req, res) => {
   try {
     const output = req.token;
     const jfy = jwt.verify(output, serect_data);
-    console.log(jfy);
 
     const { addedBroker } = req.body; // Expecting an object for the broker
     const userid = jfy.id;
@@ -362,79 +355,4 @@ app.post("/addBroker", fetchuser, async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-
-
-// app.post("/",async(req,res)=>{
-//   const{title,description}=req.body;
-//   console.log(title);
-//   console.log(description);
-//   if(await notes.findOne({title:title})){
-//     res.send("book with same title alredy exist");
-//   }
-//   else{
-//     const Newbok=new notes({
-//       title:title,
-//       description:description
-//     });
-//     await Newbok.save();
-//     res.send(`New Notes are added`);
-//   }
-// })
-
-// app.get('/getnotes', fetchuser, async (req, res) => {
-//   if (req.token) {
-//       try {
-//           const output = req.token;
-//           const jfy=jwt.verify(output,serect_data);
-//           console.log(jfy);
-//           const note = await notes.find({ user:jfy.id });
-//           if (note) {
-//               res.json(note);
-//           } else {
-//               res.status(404).json({ error: "Note not found" });
-//           }
-//       } catch (error) {
-//           res.status(500).json({ error: error.message });
-//       }
-//   } else {
-//       res.status(401).json({ error: "Access denied" });
-//   }
-// });
-//posting the notes on the same user id
-
-
-
-// //update the existing note
-// app.put('/updatenote/:id',fetchuser,async(req,res)=>{
-//   const output=req.token;
-//   const jfy=jwt.verify(output,serect_data);
-//   if(jfy){
-//     const{title,description}=req.body;
-//     const Newnote={};
-//     if(title){Newnote.title=title};
-//     if(description){Newnote.description=description}
-//     console.log(req.params.id);
-//     const nnote=await notes.findById(req.params.id);
-//     if(!nnote){return res.status(404).send("not found")}
-//     const note=await notes.findByIdAndUpdate(req.params.id,{$set:Newnote});
-//     res.json("Updated succesfully");
-//   }
-
-// })
-
-
-// app.delete('/deletenote/:id',fetchuser,async(req,res)=>{
-//   const output=req.token;
-//   const jfy=jwt.verify(output,serect_data);
-//   if(jfy){
-//     console.log(req.params.id);
-//     const nnote=await notes.findById(req.params.id);
-//     if(!nnote){return res.status(404).send("not found")}
-//     const note=await notes.findByIdAndDelete(req.params.id);
-//     res.json("Deleted succesfully");
-//   }
-
-// })
-
 module.exports=app;

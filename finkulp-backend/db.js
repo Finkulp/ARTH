@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://arunrathaur985:Aa9406789323@finkulpdatabase.eefv0im.mongodb.net/?retryWrites=true&w=majority&appName=FinkulpDataBase"; // Replace 'yourDatabaseName' with your actual database name
+require('dotenv').config();
+const uri=process.env.MONGOURI;
 const connect = async () => {
   await mongoose.connect(uri, {
     useNewUrlParser: true,

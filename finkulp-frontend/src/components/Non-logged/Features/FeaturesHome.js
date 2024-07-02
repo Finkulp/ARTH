@@ -4,6 +4,7 @@ import '../../../CSS/Algoshopping.css'
 import Bluebackground from '../../../Animations/BlueBackground1.jpg'
 import { useState } from 'react'
 import Featurespage1 from './Featurespage1'
+import AIBased from './AIBased'
 import Story from './Stroy'
 import ResourcesHome from '../Resources/ResourcesHome'
 import TweakSection from './Tweak'
@@ -56,10 +57,11 @@ export default function FeaturesHome() {
         </div>
     </div>
     <div style={{justifyContent:'center'}}> 
-   <Featurespage1></Featurespage1>
-   {/* <TweakSection/>
-   <Reports/>s
-   <Story></Story> */}
+   {/* <Featurespage1></Featurespage1> */}
+   <TweakSection/>
+   <Reports/>
+   <Story></Story>
+   <AIBased></AIBased>
    </div>
    </>
   )
