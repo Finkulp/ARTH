@@ -45,7 +45,7 @@ const TweakSection = () => {
   };
 
   return (
-    <section ref={sectionRef} style={{ backgroundColor: '#ADD8E6', padding: '100px 0' }}>
+    <section ref={sectionRef} style={{ backgroundColor: '#efefef', padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ margin: '0 auto 25px', display: 'inline-block' }}>
@@ -57,7 +57,7 @@ const TweakSection = () => {
           </p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', gap:'30px' }}>
-          <div style={{ flex: '1'}}>
+          <div style={{ flex: '1', height:'500px'}}>
             <TweakDots activeSlide={activeSlide} handleSlideChange={handleSlideChange} progress={progress} />
           </div>
           <div style={{ flex: '2', position: 'relative' }}>
@@ -104,18 +104,18 @@ const TweakDots = ({ activeSlide, handleSlideChange, progress }) => {
 
 const TweakButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => {
   const activeButtonStyle = isActive
-    ? { background: `linear-gradient(to right, #00ffff ${progress}%, #fff ${progress}%)` ,border:'3px solid #00f' }
+    ? { background: `linear-gradient(to right, #99EDEF ${progress}%, #fff ${progress}%)` ,border:'3px solid #6581FE' }
 
     : { backgroundColor: '#fff' };
 
   return (
-    <button onClick={onClick} style={{ ...buttonStyle, ...activeButtonStyle, borderRadius:'10px', height:'200px'}}>
+    <button onClick={onClick} style={{ ...buttonStyle, ...activeButtonStyle, borderRadius:'10px'}}>
       <div style={{ marginBottom: '10px' }}>
         <img src={imgSrc} alt="" />
       </div>
       <div>
         <h3 style={{ fontSize: '1.5em' }}>{heading}</h3>
-        <p>{text}</p>
+        <p>{isActive?text:''}</p>
       </div>
     </button>
   );

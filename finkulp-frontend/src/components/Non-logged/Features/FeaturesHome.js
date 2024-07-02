@@ -36,7 +36,7 @@ export default function FeaturesHome() {
                 </div>
 
             </div>
-            <div style={{display:'flex',justifyContent:'center',textAlign:'center',marginTop:'-25px'}}>
+          <div style={{display:'flex',justifyContent:'center',textAlign:'center',marginTop:'-25px'}}>
             <div style={{width:"80%",textAlign:'center',paddingTop:'40px',fontFamily:'poppins',fontSize:'20',fontWeight:'500',color:'seagreen'}}
              data-aos="fade-up"
              data-aos-offset="50"
@@ -57,11 +57,18 @@ export default function FeaturesHome() {
         </div>
     </div>
     <div style={{justifyContent:'center'}}> 
+<<<<<<< HEAD
    {/* <Featurespage1></Featurespage1> */}
    <TweakSection/>
    <Reports/>
    <Story></Story>
    <AIBased></AIBased>
+=======
+  {/* <Featurespage1></Featurespage1>*/}
+   <TweakSection/>
+   <Reports/>s
+   <Story></Story>
+>>>>>>> 60f9f6ecc1a6f9187e28a29ccb8cb23670ab67e5
    </div>
    </>
   )
