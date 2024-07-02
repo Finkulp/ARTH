@@ -57,18 +57,17 @@ export default function FeaturesHome() {
         </div>
     </div>
     <div style={{justifyContent:'center'}}> 
-<<<<<<< HEAD
+
    {/* <Featurespage1></Featurespage1> */}
+   {/* <TweakSection/>
+   <Reports/>
+   <Story></Story>
+   <AIBased></AIBased> */}
+
+  {/* <Featurespage1></Featurespage1>*/}
    <TweakSection/>
    <Reports/>
    <Story></Story>
-   <AIBased></AIBased>
-=======
-  {/* <Featurespage1></Featurespage1>*/}
-   <TweakSection/>
-   <Reports/>s
-   <Story></Story>
->>>>>>> 60f9f6ecc1a6f9187e28a29ccb8cb23670ab67e5
    </div>
    </>
   )
