@@ -62,60 +62,57 @@ const Story = () => {
     { color: selfdevelop, bw: selfdevelopbw },
     { color: secleting, bw: slcletingbw }
   ];
-  const content=[
+  const content = [
     "Leverage AI",
-      "Investor/Trader",
-      "Flexible Subscription Pricing",
-      "Automated Trading ",
-      "Develop & Trade Your Strategies",
-      "Select Customized Strategies",
-  ]
+    "Investor/Trader",
+    "Flexible Subscription Pricing",
+    "Automated Trading ",
+    "Develop & Trade Your Strategies",
+    "Select Customized Strategies",
+  ];
+  const contentbw = [
+    'Human Trading',
+    "Broker Issues",
+    "High Subscription",
+    "Manual Trading",
+    "No Selection of Strategies",
+    'Limited Customization Options'
+  ];
 
   return (
+    <div>
+      <div style={{textAlign:"center",fontSize:'25px',fontWeight:'600'}}>Advatage of Finkulp</div>
     <div style={{ position: 'relative', height: '100vh', width: '100vw' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px', position: 'relative', top: '300px' }}>
-        {/* <button
-          style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '10vh' }}
-          className='bg-dark border-dark border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:disabled'
-        >
-          Left
-        </button> */}
         <div
           onMouseDown={handleMouseDown}
           style={{ width: '5px', height: '450px', background: 'blue', position: 'absolute', left: `${position}%`, cursor: 'ew-resize' }}
         >
-          <div style={{width:"50px",height:'50px',borderRadius:"50%",background:'blue',position:'relative',top:"250px",left:"-25px",cursor:"grab",display:"flex",justifyContent:'center',alignItems:'center'}}>
-          <i class="fa-solid fa-pause" style={{fontSize:'25px',color:'white'}}></i>
+          <div style={{ width: "50px", height: '50px', borderRadius: "50%", background: 'blue', position: 'relative', top: "250px", left: "-25px", cursor: "grab", display: "flex", justifyContent: 'center', alignItems: 'center' }}>
+            <i className="fa-solid fa-pause" style={{ fontSize: '25px', color: 'white' }}></i>
           </div>
         </div>
-        
-        {/* <button
-          style={{ border: 'solid', margin: '0 20px', position: 'absolute', left: '90vh' }}
-          className='bg-dark border-dark border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:disabled'
-        >
-          Right
-        </button> */}
       </div>
       <div style={{ marginTop: '100px', position: 'relative' }}>
         <div className='setone'>
           {setOnePositions.map((pos, index) => (
-            <div key={index}>
+            <div key={index} style={{ position: 'absolute', left: `${pos}%`, textAlign: 'center', transform: 'translateX(-50%)' }}>
               <img
                 src={passedIcons.includes(index) ? icons[index].color : icons[index].bw}
                 alt={`icon-${index}`}
                 style={{
-                  position: 'absolute',
-                  left: `${pos}%`,
-                  top: index % 2 === 0 ? '10vh' : '40vh',
                   width: '150px',
-                  height: '150px'
+                  height: '150px',
                 }}
               />
-              <div>contnet</div>
+              <div style={{ marginTop: '10px', fontWeight: 'bold' }}>
+                {passedIcons.includes(index) ? content[index] : contentbw[index]}
+              </div>
             </div>
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -37,7 +37,6 @@ const AdminNavbar = () => {
                 } `}
               >
                 <ul className="block lg:flex">
-                  <Link to='/adminhome/'><ListItem>Trading Strategy</ListItem></Link>
                   <ListItem >courses</ListItem>
                   <Link to='/adminhome/Members'><ListItem>Members</ListItem></Link>
                   <Link to='/adminhome/updatingAlgo'> <ListItem >Algo</ListItem></Link>
