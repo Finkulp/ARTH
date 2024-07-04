@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import Tweak from './Images for Story/Tweak.png'
+import tradesetting from './Images for Story/Instrumeent modification.gif'
+import ordersetting from './Images for Story/trading4.fig.gif'
+import Tradingsettings from './Images for Story/Tradinggif3.gif'
+import Tweekimage from './Images for Story/Tradingsettings.gif'
 const TweakSection = () => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [progress, setProgress] = useState(0);
@@ -49,7 +53,7 @@ const TweakSection = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ margin: '0 auto 25px', display: 'inline-block' }}>
-            <img src="/img/tweak-icon.svg" alt="Tweak Icon" />
+            <img src={Tweak}alt="Tweak Icon"  style={{width:'100px'}}/>
           </div>
           <h2 style={{ fontSize: '2.5em', marginBottom: '20px' }}>Tweak</h2>
           <p style={{ maxWidth: '770px', margin: '0 auto 25px', fontSize: '1.2em' }}>
@@ -153,28 +157,28 @@ const slidesData = [
     iconSrc: '/img/strategy-tweak-icon.svg',
     heading: 'Strategy tweaks',
     buttonText: 'We give you the freedom to change the strategy parameters which define the functionality of the strategy and create your own unique way of building a trading algo that centers on your specific needs.',
-    imgSrc: '/img/strategy-tweaks-new.png',
+    imgSrc:Tweekimage,
     text: 'We give you the freedom to change the strategy parameters which define the functionality of the strategy and create your own unique way of building a trading algo that centers on your specific needs.'
   },
   {
     iconSrc: '/img/instrument-modification-icon.svg',
     heading: 'Instrument Modification',
     buttonText: 'As a user, you can easily change the instrument that is traded on our platform with a simple click.',
-    imgSrc: '/img/instrument-modification-new.png',
+    imgSrc: tradesetting,
     text: 'As a user, you can easily change the instrument that is traded on our platform with a simple click.'
   },
   {
     iconSrc: '/img/rms-icon.svg',
     heading: 'Strategy Settings',
     buttonText: 'A comprehensive in-built Risk Management System where you can set all the risk factors, from Credit Exposure to Target to Stoploss, giving you the freedom to define risk settings as per your comfort.',
-    imgSrc: '/img/rms-new.png',
+    imgSrc: Tradingsettings,
     text: 'A comprehensive in-built Risk Management System where you can set all the risk factors, from Credit Exposure to Target to Stoploss, giving you the freedom to define risk settings as per your comfort.'
   },
   {
     iconSrc: '/img/miscellaneous-icon.svg',
     heading: 'Order Settings',
     buttonText: 'Be it allowing multiple orders from the same script or defining the maximum orders you want to include in your strategy; a host of customizable options which you can set to the levels you like.',
-    imgSrc: '/img/miscellaneous-new.png',
+    imgSrc: ordersetting,
     text: 'Be it allowing multiple orders from the same script or defining the maximum orders you want to include in your strategy; a host of customizable options which you can set to the levels you like.'
   }
 ];
