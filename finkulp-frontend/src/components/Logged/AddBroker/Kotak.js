@@ -59,18 +59,7 @@ const  Kotak= () => {
     return '';
   }
   async function handleSubmit() {
-    console.log({
-      tradingPlatform,
-      loginId,
-      loginPassword,
-      mpin,
-      phone,
-      consumerKey,
-      apiUserId,
-      apiPassword,
-      consumerSecret,
-      nickname,
-    });
+   
     const authToken = getCookie('authToken');
     const requestOptions = {
       method: 'POST',
@@ -100,8 +89,7 @@ const  Kotak= () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
+      // const data = await response.json();
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -119,7 +107,7 @@ const  Kotak= () => {
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
                 Agar magar se aage badho
                 </p>
-                <img src={KotakImage}></img>
+                <img src={KotakImage} alt="Kotak"></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12" style={{marginTop:'30px'}}>

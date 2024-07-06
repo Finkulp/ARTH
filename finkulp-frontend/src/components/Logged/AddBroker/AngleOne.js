@@ -43,14 +43,7 @@ const AngleOne = () => {
     return '';
   }
   async function handleSubmit() {
-      console.log({
-        tradingPlatform,
-        loginId,
-        mpin,
-        totpKey,
-        apiKey,
-        nickname,
-      });
+      
     const authToken = getCookie('authToken');
     const requestOptions = {
       method: 'POST',
@@ -76,8 +69,7 @@ const AngleOne = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
+      // const data = await response.json();
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -95,7 +87,7 @@ const AngleOne = () => {
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
                 Legacy of Committed Excellence
                 </p>
-                <img src={AngleOne_image}></img>
+                <img src={AngleOne_image} alt="Angle One"></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">

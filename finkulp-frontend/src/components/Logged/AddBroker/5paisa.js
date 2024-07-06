@@ -21,15 +21,12 @@ const  Paisa= () => {
     }));
   };
   function getCookie(name) {
-    console.log(formValues);
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
     return '';
   }
   async function handleSubmit() {
-    console.log("hello")
-    console.log(formValues)
     const authToken = getCookie('authToken');
     const requestOptions = {
       method: 'POST',
@@ -56,8 +53,6 @@ const  Paisa= () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -75,7 +70,7 @@ const  Paisa= () => {
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
                 To uncomplicate investments and make them a breeze for you.
                 </p>
-                <img src={Paisa_image}></img>
+                <img src={Paisa_image} alt="5Paisa"></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">

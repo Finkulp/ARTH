@@ -39,13 +39,6 @@ const  AliceBlu= () => {
     return '';
   }
   async function handleSubmit() {
-    console.log({
-      tradingPlatform,
-      loginId,
-      password,
-      totpKey,
-      apiKey,
-    });
     const authToken = getCookie('authToken');
     const requestOptions = {
       method: 'POST',
@@ -71,8 +64,6 @@ const  AliceBlu= () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -90,7 +81,7 @@ const  AliceBlu= () => {
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
                 Alice Blue is a technology-driven financial services company that offers a range of intuitive and user-friendly web and app-based trading tools
                 </p>
-                <img src={AliceBlue}></img>
+                <img src={AliceBlue} alt="Alice Blue"></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
@@ -972,21 +963,21 @@ const  AliceBlu= () => {
 
 export default AliceBlu;
 
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
-  return (
-    <>
-      <div className="mb-6">
-        <textarea
-          rows={row}
-          placeholder={placeholder}
-          name={name}
-          className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
-          defaultValue={defaultValue}
-        />
-      </div>
-    </>
-  );
-};
+// const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
+//   return (
+//     <>
+//       <div className="mb-6">
+//         <textarea
+//           rows={row}
+//           placeholder={placeholder}
+//           name={name}
+//           className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"
+//           defaultValue={defaultValue}
+//         />
+//       </div>
+//     </>
+//   );
+// };
 
 const ContactInputBox = ({ type, placeholder, name,value, onChange  }) => {
   return (

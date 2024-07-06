@@ -30,17 +30,16 @@ const Upstocks = () => {
     return '';
   }
   async function handleSubmit() {
-    const addedBroker = {
-      tradingPlatform,
-      loginId,
-      faPin,
-      totpKey,
-      phone,
-      apiKey,
-      apiSecret,
-      nickname
-    };
-    console.log(JSON.stringify({ addedBroker }, null, 2));
+    // const addedBroker = {
+    //   tradingPlatform,
+    //   loginId,
+    //   faPin,
+    //   totpKey,
+    //   phone,
+    //   apiKey,
+    //   apiSecret,
+    //   nickname
+    // };
     const authToken = getCookie('authToken');
     const requestOptions = {
       method: 'POST',
@@ -68,8 +67,7 @@ const Upstocks = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
+      // const data = await response.json();
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -87,7 +85,7 @@ const Upstocks = () => {
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
                 Invest Right, Invest Now
                 </p>
-                <img src={Upstock_Image}></img>
+                <img src={Upstock_Image} alt="Upstock"></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12" style={{marginTop:"100px"}}>

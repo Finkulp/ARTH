@@ -24,12 +24,6 @@ const  Motilal= () => {
     return '';
   }
   async function handleSubmit() {
-    console.log("Trading Platform:", tradingPlatform);
-    console.log("Login ID:", loginId);
-    console.log("Login Password:", loginPassword);
-    console.log("TOTP Key:", totpKey);
-    console.log("Date of Birth:", dob);
-    console.log("Nickname:", nickname);
     const authToken = getCookie('authToken');
     const requestOptions = {
       method: 'POST',
@@ -56,8 +50,7 @@ const  Motilal= () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data);
+      // const data = await response.json();
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
@@ -75,7 +68,7 @@ const  Motilal= () => {
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
                 Knowledge First
                 </p>
-                <img src={Motilal_Image}></img>
+                <img src={Motilal_Image} alt="Motilal"></img>
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12" style={{marginTop:'50px'}}>

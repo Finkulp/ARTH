@@ -19,6 +19,7 @@ function DetailsState(props) {
     }
     async function getDetails() {
         setLoading(true);
+        console.log("hello")
         const url = "http://localhost:5000/auth/fetchuser";
         const authToken=getTokenFromCookie();
         try {

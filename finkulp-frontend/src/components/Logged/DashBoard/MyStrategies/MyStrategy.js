@@ -63,6 +63,7 @@ export default function MyStrategy(props) {
     console.log('Component mounted');
     // setLoading(true); // This line is redundant as setLoading(true) is already called above.
     getDetails().finally(() => setmystrategyloading(false));
+    console.log("hello");
   }, []);
  async function deletestrategy(algo){
   const authToken = getTokenFromCookie();
