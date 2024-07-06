@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Reports_icon from '../../../Images/Reports.png';
+import dashboard from '../../../Images/dashboard.png';
+import history from '../../../Images/history.png';
+import chain from '../../../Images/Option_chain.png';
+import orders from '../../../Images/orders.png';
 
 const Reports = () => {
   const [activeSlide, setActiveSlide] = useState(1);
@@ -45,15 +50,15 @@ const Reports = () => {
   };
 
   return (
-    <section ref={sectionRef} style={{ backgroundColor: '#fff', padding: '100px 0' }}>
+    <section ref={sectionRef} style={{ backgroundColor: '#eff', padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ margin: '0 auto 25px', display: 'inline-block' }}>
-            <img src="/img/reports-icon.svg" alt="Reports Icon" />
+          <div style={{ margin: '0 auto', display: 'inline-block' }}>
+            <img src={Reports_icon} style={{height: '50px' }}></img>
           </div>
           <h2 style={{ fontSize: '2.5em', marginBottom: '20px' }}>Comprehensive Reports</h2>
           <p style={{ maxWidth: '770px', margin: '0 auto 25px', fontSize: '1.2em' }}>
-            Finkulp gives you the freedom to not just choose among our pre-defined strategies, but also customize them according to your personal preferences and make countless new strategies that can be used by you and your fellows.
+            Finkulp gives you detailed performance reports of market, instruments and strategies.
           </p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap:'30px' }}>
@@ -104,7 +109,7 @@ const ReportsDots = ({ activeSlide, handleSlideChange, progress }) => {
 
 const ReportsButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => {
   const activeButtonStyle = isActive
-    ? { background: `#d3d3d3` ,border:'3px solid #00f' }
+    ? { background: `#dedeff` ,border:'3px solid #00f' }
 
     : { backgroundColor: '#fff' };
 
@@ -123,10 +128,9 @@ const ReportsButton = ({ imgSrc, heading, text, isActive, onClick, progress }) =
 
 const SingleReportsSlide = ({ imgSrc, text, isActive }) => {
   return (
-    <div style={{ display: isActive ? 'flex' : 'none', textAlign: 'center' }}>
-      <img src={imgSrc} alt="" style={{ width: '100%', marginBottom: '20px' }} />
-      <p>{text}</p>
+    <div style={{ display: isActive ? 'flex' : 'none', textAlign: 'center', alignContent: 'center', justifyContent: 'center' }}>
 
+      <img src={imgSrc} alt="" style={{ width: '80%',height:'400px', marginBottom: '20px' }} />
     </div>
   );
 };
@@ -152,31 +156,27 @@ const arrowStyle = {
 const slidesData = [
   {
     iconSrc: '/img/strategy-reports-icon.svg',
-    heading: 'Strategy reportss',
-    buttonText: 'We give you the freedom to change the strategy parameters which define the functionality of the strategy and create your own unique way of building a trading algo that centers on your specific needs.',
-    imgSrc: '/img/strategy-reportss-new.png',
-    text: 'We give you the freedom to change the strategy parameters which define the functionality of the strategy and create your own unique way of building a trading algo that centers on your specific needs.'
+    heading: 'Live Market Updates',
+    buttonText: 'Monitor your performance throughout the market in real time and make quick decisions',
+    imgSrc: dashboard,
   },
   {
     iconSrc: '/img/instrument-modification-icon.svg',
-    heading: 'Instrument Modification',
-    buttonText: 'As a user, you can easily change the instrument that is traded on our platform with a simple click.',
-    imgSrc: '/img/instrument-modification-new.png',
-    text: 'As a user, you can easily change the instrument that is traded on our platform with a simple click.'
+    heading: 'Flexible Strategies',
+    buttonText: 'Use and make strategies based on anything from basic options data to advanced AI/ML models',
+    imgSrc: chain,
   },
   {
     iconSrc: '/img/rms-icon.svg',
-    heading: 'Strategy Settings',
-    buttonText: 'A comprehensive in-built Risk Management System where you can set all the risk factors, from Credit Exposure to Target to Stoploss, giving you the freedom to define risk settings as per your comfort.',
-    imgSrc: '/img/rms-new.png',
-    text: 'A comprehensive in-built Risk Management System where you can set all the risk factors, from Credit Exposure to Target to Stoploss, giving you the freedom to define risk settings as per your comfort.'
+    heading: 'Historical References',
+    buttonText: 'Keep a track of historical data to predict the future, learn from past, apply in future',
+    imgSrc: history,
   },
   {
     iconSrc: '/img/miscellaneous-icon.svg',
-    heading: 'Order Settings',
-    buttonText: 'Be it allowing multiple orders from the same script or defining the maximum orders you want to include in your strategy; a host of customizable options which you can set to the levels you like.',
-    imgSrc: '/img/miscellaneous-new.png',
-    text: 'Be it allowing multiple orders from the same script or defining the maximum orders you want to include in your strategy; a host of customizable options which you can set to the levels you like.'
+    heading: 'Details of Past Orders',
+    buttonText: 'Return anytime to view all your past orders to review the execution of applied strategies',
+    imgSrc: orders,
   }
 ];
 

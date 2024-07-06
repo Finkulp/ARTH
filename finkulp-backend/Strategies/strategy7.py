@@ -7,4 +7,4 @@ else:
     user_id  = sys.argv[1]
     api_key = sys.argv[2]       
 
-print("Strategy 6 User ID: ", user_id, " API key: ", api_key)
+print("Strategy 7 User ID: ", user_id, " API key: ", api_key)

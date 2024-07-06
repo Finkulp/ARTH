@@ -23,7 +23,7 @@ export default function FeaturesHome() {
             <div>
             <div class="flex justify-center">
             <div 
-             style={{fontFamily:"poppins",fontSize:'26px',fontWeight:'600'}}>
+             style={{fontFamily:"poppins",fontSize:'45px',fontWeight:'600'}}>
               <span style={{color:"blue"}}
                data-aos="fade-up"
                data-aos-offset="50"
@@ -37,7 +37,7 @@ export default function FeaturesHome() {
 
             </div>
           <div style={{display:'flex',justifyContent:'center',textAlign:'center',marginTop:'-25px'}}>
-            <div style={{width:"80%",textAlign:'center',paddingTop:'40px',fontFamily:'poppins',fontSize:'20',fontWeight:'500',color:'seagreen'}}
+            <div style={{width:"80%",textAlign:'center',paddingTop:'40px',fontFamily:'poppins',fontSize:'20',fontWeight:'500',color:'#000000'}}
              data-aos="fade-up"
              data-aos-offset="50"
              data-aos-delay="50"
