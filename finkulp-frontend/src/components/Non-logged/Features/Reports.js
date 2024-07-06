@@ -50,7 +50,7 @@ const Reports = () => {
   };
 
   return (
-    <section ref={sectionRef} style={{ backgroundColor: '#eff', padding: '100px 0' }}>
+    <section ref={sectionRef} style={{ backgroundColor: '#eefeff', padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ margin: '0 auto', display: 'inline-block' }}>
@@ -109,9 +109,9 @@ const ReportsDots = ({ activeSlide, handleSlideChange, progress }) => {
 
 const ReportsButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => {
   const activeButtonStyle = isActive
-    ? { background: `#dedeff` ,border:'3px solid #00f' }
+    ? { background: ` #99EDEF` ,border:'3px solid #00f' }
 
-    : { backgroundColor: '#fff' };
+    : { backgroundColor: '#fff', border: '3px solid #ddd' };
 
   return (
     <button onClick={onClick} style={{ ...buttonStyle, ...activeButtonStyle, borderRadius:'10px', height:'200px'}}>

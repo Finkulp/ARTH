@@ -81,7 +81,7 @@ const Story = () => {
 
   return (
     <div>
-      <div style={{textAlign:"center",fontSize:'25px',fontWeight:'600'}}>Advatage of Finkulp</div>
+      <div style={{textAlign:"center",fontSize:'25px',fontWeight:'600'}}>Advantages of Finkulp</div>
     <div style={{ position: 'relative', height: '100vh', width: '100vw' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '30px', position: 'relative', top: '300px' }}>
         <div

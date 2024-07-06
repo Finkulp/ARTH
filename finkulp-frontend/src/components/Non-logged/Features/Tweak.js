@@ -128,7 +128,7 @@ const TweakButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => 
 const SingleTweakSlide = ({ imgSrc, text, isActive }) => {
   return (
     <div style={{ display: isActive ? 'block' : 'none', textAlign: 'center' }}>
-      <img src={imgSrc} alt="" style={{ width: '100%', marginBottom: '20px' }} />
+      <img src={imgSrc} alt="" style={{ width: '100%',height: '400px', marginBottom: '20px' }} />
       <p>{text}</p>
     </div>
   );
