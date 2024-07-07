@@ -49,11 +49,11 @@ const TweakSection = () => {
   };
 
   return (
-    <section ref={sectionRef} style={{ backgroundColor: '#efefef', padding: '100px 0' }}>
+    <section ref={sectionRef} style={{ backgroundColor: '#ffffff', padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ margin: '0 auto 25px', display: 'inline-block' }}>
-            <img src={Tweak}alt="Tweak Icon"  style={{width:'100px'}}/>
+          <div style={{ margin: '0 auto 25px', display: 'inline-block', marginBottom:'0px' }}>
+            <img src={Tweak}alt="Tweak Icon"  style={{width:'70px'}}/>
           </div>
           <h2 style={{ fontSize: '2.5em', marginBottom: '20px' }}>Tweak</h2>
           <p style={{ maxWidth: '770px', margin: '0 auto 25px', fontSize: '1.2em' }}>
@@ -128,7 +128,7 @@ const TweakButton = ({ imgSrc, heading, text, isActive, onClick, progress }) => 
 const SingleTweakSlide = ({ imgSrc, text, isActive }) => {
   return (
     <div style={{ display: isActive ? 'block' : 'none', textAlign: 'center' }}>
-      <img src={imgSrc} alt="" style={{ width: '100%', marginBottom: '20px' }} />
+      <img src={imgSrc} alt="" style={{ width: '100%',height: '400px', marginBottom: '20px' }} />
       <p>{text}</p>
     </div>
   );

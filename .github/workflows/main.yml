@@ -2,7 +2,8 @@ name: Run Python Script Daily
 
 on:
   schedule:
-    - cron: '16 9 * * *' # This runs at 9:16 AM UTC every day
+    - cron: '16 9 * * *' 
+  workflow_dispatch:  
 
 jobs:
   run-script:
