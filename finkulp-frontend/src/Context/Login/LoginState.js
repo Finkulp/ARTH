@@ -24,8 +24,6 @@ const LoginState=(props)=>{
     }
     async function handlesubmit() {
         setwait(true);
-        console.log(email);
-        console.log(password);
     
         await fetch("http://localhost:5000/auth/login", {
             method: "POST",
@@ -44,7 +42,7 @@ const LoginState=(props)=>{
             return response.json();
         })
         .then(data => {
-            console.log(data.authToken);
+            
             // Set the token in a cookie
             document.cookie = `authToken=${data.authToken}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;
         })
@@ -53,7 +51,7 @@ const LoginState=(props)=>{
         });
           const authToken = getTokenFromCookie();
           if (authToken) {
-          console.log('Authentication token:', authToken);
+          
           setLoading(true);
           Navigate('/loggedhome/Dashboard');
           await getDetails();

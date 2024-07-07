@@ -30,7 +30,7 @@ export default function MyCourses(props) {
 
   return (
     <>
-    <div style={{boxShadow:'1px 1px 10px black',width:'99%',paddingBottom:'20px',paddingTop:'10px',marginLeft:'5px'}}>
+    <div style={{width:'99%',paddingBottom:'20px',paddingTop:'10px',marginLeft:'5px'}}>
       <div className="max-w-md mx-auto">
         <div style={{display:'flex',justifyContent:'center'}} >
           <div style={{width:'200px',fontFamily:'Lato',color:'	#4285F4',fontSize:'30px'}}>My Courses</div>

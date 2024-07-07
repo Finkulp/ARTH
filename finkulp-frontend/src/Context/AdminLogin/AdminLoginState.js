@@ -10,7 +10,6 @@ function AdminLoginState(props) {
     const[key,setkey]=useState("");
     async function Login(){
         if(key==="secretData"){
-            console.log(email,password,key)
             await fetch("http://localhost:5000/admin/login", {
                 method: "POST",
                 body: JSON.stringify({
@@ -28,7 +27,6 @@ function AdminLoginState(props) {
                 return response.json();
             })
             .then(data => {
-                console.log(data.authToken);
                 Navigate('/adminhome');
                 // Set the token in a cookie
                 document.cookie = `authToken=${data.authToken}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;

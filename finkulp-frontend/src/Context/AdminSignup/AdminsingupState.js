@@ -42,7 +42,6 @@ function AdminSignupstate(props){
                 return response.json();
             })
             .then(data => {
-                console.log(data.authToken);
                 Navigate('/adminhome');
                 // Set the token in a cookie
                 document.cookie = `authToken=${data.authToken}; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/`;
@@ -52,7 +51,7 @@ function AdminSignupstate(props){
             });
               const authToken = getTokenFromCookie();
               if (authToken) {
-              console.log('Authentication token:', authToken);
+             
             //   getDetails();
               } else {
               console.log('Authentication token not found in the cookie.');

@@ -7,7 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Algos } from '../../../../Data/MyStrategy';
-import { ClickAwayListener, MenuItem, TextField } from '@mui/material';
+import Lottie from 'lottie-react';
+import loadingAnimation from '../../../../Animations/loadingAnimation.json';
+import {MenuItem, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import DetailContext from '../../../../Context/Details/DetailsContext';
 import { useContext } from 'react';
@@ -39,7 +41,12 @@ export default function MyStrategy(props) {
   const handleStatusFilterChange = (event) => {
     setStatusFilter(event.target.value);
   };
-
+  useEffect(() => {
+    setLoading(true);
+    console.log('Component mounted');
+    // setLoading(true); // This line is redundant as setLoading(true) is already called above.
+    getDetails().finally(() => setLoading(false));
+  }, []);
   const filteredAlgos = Algos.filter((algo) =>
     algo.Strategist.toLowerCase().includes(strategistFilter.toLowerCase()) &&
     (categoryFilter === '' || algo.Category.toLowerCase() === categoryFilter.toLowerCase()) &&
@@ -175,7 +182,9 @@ async function startstrategy(algo){
 }
   return (
     <>
-    {mystrategyloading&&<div>Please Wait</div>}
+    {mystrategyloading&&<div style={{ display: "flex", justifyContent: 'center' ,width:"1300px",height:'500px',alignItems:'center'}}>
+        <Lottie animationData={loadingAnimation} style={{ width: '300px' }}></Lottie>
+      </div>}
     {!mystrategyloading&&
     <div style={{marginRight:'20px',paddingTop:'20px',width:"100%",overflowY:'auto',height:'100vh',marginLeft:'15px'}}>
       <div style={{display:'flex',justifyContent:'center'}}>

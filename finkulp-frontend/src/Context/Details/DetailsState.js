@@ -19,7 +19,6 @@ function DetailsState(props) {
     }
     async function getDetails() {
         setLoading(true);
-        console.log("hello")
         const url = "http://localhost:5000/auth/fetchuser";
         const authToken=getTokenFromCookie();
         try {
@@ -37,7 +36,6 @@ function DetailsState(props) {
 
             const data = await response.json();
                  setUserDetails(data);
-            console.log(data._id);
             setid(data._id);
         } catch (err) {
             console.error('Error fetching user details:', err);

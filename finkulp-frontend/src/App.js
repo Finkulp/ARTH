@@ -33,9 +33,7 @@ import UpdateAlgo from "./components/Admin/Algo/UpdateAlgo";
 import CreateNewAlgo from "./components/Admin/+Algo.js/CreateNewAlgo";
 import Members from "./components/Admin/Members/Memberss";
 import MemberDetailsPage from "./components/Admin/Members/MembersDetails";
-import AddnewMember from "./components/Admin/Members/Add_new_Member";
 import { useState } from "react";
-import EditDetails from "./components/Admin/Members/Edit_Details";
 import Checkout from "./components/Logged/Checkout/checkout";
 import LoginState from "./Context/Login/LoginState";
 import SignUpState from "./Context/SignUp/SignUpState";
@@ -117,8 +115,6 @@ function App() {
             <Route path='CreateNewAlgo' element={<CreateNewAlgo></CreateNewAlgo>}></Route>
             <Route path='Members' element={<Members setMember={setMember} setMemberDetails={setMemberDetails}></Members>}></Route>
             <Route path="Member_Details" element={<MemberDetailsPage member={member}></MemberDetailsPage>}></Route>
-            <Route path='addnewmember' element={<AddnewMember></AddnewMember>}></Route>
-            <Route path='editdetails' element={<EditDetails member={MemberDetails}></EditDetails>}></Route>
             <Route path="description" element={<AlgoshoppingDescriptionAdmin VeiwAlgoAdmin={VeiwAlgoAdmin}></AlgoshoppingDescriptionAdmin>}></Route>
           </Route>
         </Routes>

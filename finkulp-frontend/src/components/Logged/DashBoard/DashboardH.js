@@ -1,6 +1,15 @@
 import React from 'react'
-
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import DetailContext from '../../../Context/Details/DetailsContext';
 export default function DashboardH() {
+  const{getDetails,setLoading}=useContext(DetailContext);
+  useEffect(() => {
+    setLoading(true);
+    console.log('Component mounted');
+    // setLoading(true); // This line is redundant as setLoading(true) is already called above.
+    getDetails().finally(() => setLoading(false));
+  }, []);
   return (
     <div>
       <div style={{paddingLeft:'50px',fontWeight:'600',fontSize:'25px',paddingBottom:'20px'}}>Dashboard</div>

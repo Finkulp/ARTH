@@ -78,8 +78,6 @@ export default function UpdateAlgo(props) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            const data = await response.json();
-            console.log(data._id);
         } catch (err) {
             console.error('Error fetching user details:', err);
         } finally {
