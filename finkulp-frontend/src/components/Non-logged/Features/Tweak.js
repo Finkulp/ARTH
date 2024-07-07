@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Tweak from './Images for Story/Tweak.png'
-import tradesetting from './Images for Story/Instrumeent modification.gif'
-import ordersetting from './Images for Story/trading4.fig.gif'
-import Tradingsettings from './Images for Story/Tradinggif3.gif'
-import Tweekimage from './Images for Story/Tradingsettings.gif'
+import tradesetting from './Images for Story/trading2.gif'
+import ordersetting from './Images for Story/trading4.gif'
+import Tradingsettings from './Images for Story/trading3.gif'
+import Tweekimage from './Images for Story/trading1.gif'
 const TweakSection = () => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [progress, setProgress] = useState(0);

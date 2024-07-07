@@ -65,9 +65,10 @@ export default function FeaturesHome() {
    <AIBased></AIBased> */}
 
   {/* <Featurespage1></Featurespage1>*/}
+  <Story></Story>
    <TweakSection/>
    <Reports/>
-   <Story></Story>
+   
    </div>
    </>
   )

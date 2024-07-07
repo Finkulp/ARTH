@@ -18,7 +18,6 @@ import Kotak from "./components/Logged/AddBroker/Kotak";
 import Motilal from "./components/Logged/AddBroker/Motilal";
 import Upstocks from "./components/Logged/AddBroker/Upstock";
 import AddedBroker from "./components/Logged/AddBroker/AddedBroker";
-import TradingStrategy from "./components/Logged/TradingStrategy";
 import Algoshopping from "./components/Logged/AlgoShopping/Algoshopping";
 import AlgoshoppingDescription from "./components/Logged/AlgoShopping/AlgoshoppingDescription";
 import MyStrategy from "./components/Logged/DashBoard/MyStrategies/MyStrategy";
@@ -46,9 +45,8 @@ import SignUPAdmin from "./components/Admin/SignUP";
 import AdminSignupstate from "./Context/AdminSignup/AdminsingupState";
 import AdminLoginState from "./Context/AdminLogin/AdminLoginState";
 import AdminLogin from "./components/Admin/AdminLogin";
+import MyStrategyDescription from "./components/Logged/DashBoard/MyStrategies/MyStrategyDescription";
 import AlgoshoppingDescriptionAdmin from "./components/Admin/Algo/AlgoDescription";
-        // "axios": "^1.7.2",
-        // "axios": "^1.7.2",
 function App() {
   const[image,setimage]=useState('');
   const [checkout, setchekout] = useState([]);
@@ -56,6 +54,7 @@ function App() {
   const[VeiwAlgo,setViewAlgo]=useState("");
   const[editAlgo,seteditAlgo]=useState("");
   const[member,setMember]=useState("");
+  const[mystraetgy,setmystraetgy]=useState("");
   const[MemberDetails,setMemberDetails]=useState("");
   const[exploreCourses,setExploreCourses]=useState("");
   const[sum,setsum]=useState(0);
@@ -78,7 +77,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUP />}></Route>
           <Route path='/loggedhome' element={<Loggedin />}>
-            <Route path="tradingStrategy" element={<TradingStrategy></TradingStrategy>}></Route>
+            
             <Route path="subscription" element={<Pricing />}></Route>
             <Route path="faqlogged" element={<FAQlogged />}></Route>
             <Route path='courses' element={<Courses></Courses>}>
@@ -101,7 +100,8 @@ function App() {
             <Route path='Dashboard' element={<MainDashbord ></MainDashbord>}>
               <Route path="" element={<DashboardH></DashboardH>}></Route>
               <Route path="my-courses" element={<Mycouresmain />}></Route>
-              <Route path="MyStrategy" element={<MyStrategy setViewAlgo={setViewAlgo} ></MyStrategy>}></Route>
+              <Route path="MyStrategy" element={<MyStrategy setmystraetgy={setmystraetgy} ></MyStrategy>}></Route>
+              <Route path='StrategyDescription' element={<MyStrategyDescription mystraetgy={mystraetgy}></MyStrategyDescription>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>

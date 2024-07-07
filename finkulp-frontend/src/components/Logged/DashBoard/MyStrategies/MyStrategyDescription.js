@@ -7,17 +7,24 @@ export default function MyStrategyDescription(props) {
       <div style={{display:'flex',justifyContent:'center'}}>
       <div style={{marginTop:"-200px"}}>
       <h1 style={{fontWeight:"500",fontSize:'25px',paddingLeft:"100px",paddingRight:'100px',color:"blue",textAlign:'center'}}>Strategy Details</h1>
-      <MyStrategyTemplateStats Algos={props.viewMyAlog}></MyStrategyTemplateStats>
+      <MyStrategyTemplateStats Algos={props.mystraetgy}></MyStrategyTemplateStats>
       </div>
       </div>
           <div style={{ paddingLeft: '100px', paddingRight: '50px', marginTop: '-40px' }}>
       <h1 style={{ fontWeight: '400', fontSize: '30px', paddingRight: '100px',color:'blue' }}>Description</h1>
       <div style={{  position: 'relative', overflow: 'hidden' }}>
-        <div style={{  padding: '10px', marginLeft: '-1px' }}>
-          {props.viewMyAlog.description.split('\n').map((line, index) => (
-            <p key={index}>{line}</p>
-          ))}
-        </div>
+      <div style={{width:'700px'}}>
+            <div style={{ padding: '10px', marginLeft: '-1px' }}>
+                {props.mystraetgy.smalloverview.split('\n').map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </div>
+              <div style={{ padding: '10px', marginLeft: '-1px' }}>
+                {props.mystraetgy.description.split('\n').map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </div>
+              </div>
       </div>
     </div>
   </div>

@@ -1,62 +1,46 @@
 import React from "react";
 
-const MyStrategiesStats = (props) => {
+const MyStrategyTemplateStats = (props) => {
   return (
-    <section className="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
-      <div className="container mx-auto">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
-            <div className="mx-auto mb-[60px] max-w-[510px] text-center">
-            <span className="mb-2 block text-lg font-semibold text-primary"style={{marginTop:"-100px"}}>
-                {props.strategy.name}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className=" flex flex-wrap " style={{marginTop:""}}>
-          <TeamCard
-             value="Name"
-             title={props.strategy.name}
-          />
-          <TeamCard
-              value="Risk Level"
-             title={props.strategy.riskLevel}
-          />
-          <TeamCard
-            value="Benchmark"
-            title={props.strategy.benchmark}
-            
-          />
-          <TeamCard
-            value="Earning Potential"
-            title={props.strategy.earningPotential}
-          />
-          <TeamCard
-            value="Recommended Duration"
-            title={props.strategy.recommendedDuration}
-          />
+    <div className="pb-10 pt-10 md:pt-20 dark:bg-dark" style={{ width: "95%", margin: "0 auto" }}>
+      <div className="container mx-auto" style={{position:'relative',marginBottom:"-100px"}}>
+        <div className="flex flex-wrap " style={{alignContent:"center",alignItems:'center'}} icons="fa-brands fa-font-awesome" >
+          <TeamCard value="Name" title={props.Algos.Strategist} colorname={"#ccddff"} bordercolor={"#004de6"} icons={'fa-solid fa-lightbulb'}/>
+          <TeamCard value="NSE" title={props.Algos.NSE} colorname={"#e6ffff"}  bordercolor={"#00e6e6"} icons={"fa-solid fa-boxes-stacked"}/>
+          <TeamCard value="Category" title={props.Algos.Category} colorname={"#eee6ff"} bordercolor={"#661aff"}icons={"fa-solid fa-calendar-day"}/>
+          <TeamCard value="Recommended Duration" title={props.Algos.Recommended_Duration} colorname={"#e6ffee"} bordercolor={"#00ff55"} icons={"fa-regular fa-clock"}/>
+          <TeamCard value="Subscription Fee" title={props.Algos.Fee.Subscription} colorname={"#ffffe6"} bordercolor={"#ffff00"} icons={"fa-solid fa-wallet"}/>
+          <TeamCard value="Pay-as-you-go Fee" title={props.Algos.Fee.Pay} colorname={"#ffe6f3"}  bordercolor={"#e60077"} icons={"fa-solid fa-wallet"}/>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default MyStrategiesStats;
+export default MyStrategyTemplateStats;
 
-const TeamCard = ({ title, value }) => {
+
+const TeamCard = ({ title, value ,colorname,bordercolor,icons}) => {
   return (
     <>
-      <div className="w-full px-5 md:w-1/2 xl:w-1/4" style={{marginTop:"30px", height:"100px",padding:"20px"}}>
-        <div className=" mb-10 w-full max-w-[500px]">
+      <div className="w-full " style={{marginTop:"30px", height:"80px",width:"240px"}}>
+        <div className=" mb-10 w-full">
           <div className="relative  rounded-lg">
-            <div className="absolute bottom-5  w-full text-center">
-              <div className="relative  rounded-lg bg-white " style={{width:"200px",padding:"20px"}}>
-                <h3 className="text-base font-semibold text-dark ">
+            <div className="absolute bottom-5  w-full ">
+              <div className="relative  rounded-lg  " style={{width:"230px",height:"80px" ,background:`${colorname}`,paddingTop:"10px",border:'solid',borderColor:`${bordercolor}`}}>
+                <div style={{display:"flex"}}>
+                  <div style={{paddingLeft:"20px",paddingRight:"20px"}}>
+                  <i className={`${icons}`} style={{fontSize:"50px", color:`${bordercolor}`}} ></i>
+                  </div>
+                  <div>
+                <h3 className="text-base font-semibold  " style={{fontSize:'25px',color:`${bordercolor}`}}>
                   {title}
                 </h3>
-                <p className="text-xs text-body-color dark:text-dark-6">
+                <p className="text-xs text-body-color dark:text-dark-6" style={{fontSize:'15px',paddingTop:'5px'}}>
                   {value}
                 </p>
+                </div>
+                </div>
                 <div>
                   <span className="absolute bottom-0 left-0">
                     <svg
@@ -70,8 +54,8 @@ const TeamCard = ({ title, value }) => {
                         cx={16}
                         cy={45}
                         r={45}
-                        fill="green"
-                        fillOpacity="0.5"
+                        fill="white"
+                        fillOpacity="0.0"
                       />
                     </svg>
                   </span>
