@@ -1,75 +1,82 @@
-import React from "react";
-const ExploreCoursesDetails = (props) => {
-  return (
-      <>
-      <div class="bg-gray-100 dark:bg-gray-800 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row -mx-4">
-            <div class="md:flex-1 px-4">
-                <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                    <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image"/>
-                </div>
-                <div class="flex -mx-2 mb-4">
-                    <div class="w-1/2 px-2">
-                        <button class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
-                    </div>
-                    <div class="w-1/2 px-2">
-                        <button class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Add to Wishlist</button>
-                    </div>
-                </div>
-            </div>
-            <div class="md:flex-1 px-4">
-                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Product Name</h2>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-                    ante justo. Integer euismod libero id mauris malesuada tincidunt.
-                </p>
-                <div class="flex mb-4">
-                    <div class="mr-4">
-                        <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                        <span class="text-gray-600 dark:text-gray-300">$29.99</span>
-                    </div>
-                    <div>
-                        <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
-                        <span class="text-gray-600 dark:text-gray-300">In Stock</span>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <span class="font-bold text-gray-700 dark:text-gray-300">Select Color:</span>
-                    <div class="flex items-center mt-2">
-                        <button class="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
-                        <button class="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                        <button class="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                        <button class="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <span class="font-bold text-gray-700 dark:text-gray-300">Select Size:</span>
-                    <div class="flex items-center mt-2">
-                        <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">S</button>
-                        <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">M</button>
-                        <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">L</button>
-                        <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XL</button>
-                        <button class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XXL</button>
-                    </div>
-                </div>
-                <div>
-                    <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
-                        lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
-                        ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
-                        sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+import React from 'react';
+import '../../../../CSS/CourseBlock.css'; // Import the CSS file for styling
 
-      </>
+const CoursePage = () => {
+  return (
+    <div className="course-page">
+      <div className="course-block">
+        <div className="course-block-info">
+          <h1 className="course-block-title">Course Name</h1>
+          <p className="course-block-description">This is a small description of the course.</p>
+          <button className="course-block-get-started-btn">Get Started</button>
+          <div className="course-block-rating">
+            ⭐⭐⭐⭐⭐ 4.5
+          </div>
+        </div>
+        <div className="course-block-image" style={{border:'solid',width:'300px',height:'300px',borderWidth:'1px'}}>
+          <img src="https://via.placeholder.com/150" alt="Course" />
+        </div>
+      </div>
+
+      <div className="course-details">
+        <div className="course-info">
+          <h2 className="course-info-title">What You'll Learn</h2>
+          <p className="course-info-description">This section provides an overview of what you will learn in this course. The content is designed to help you gain essential skills and knowledge in the topic area.</p>
+          
+          <h2 className="course-content-title">Course Content</h2>
+          <details className="course-content-item">
+            <summary>Course Fundamentals</summary>
+            <p>Learn the basics of the course topic, including foundational concepts and principles.</p>
+          </details>
+          <details className="course-content-item">
+            <summary>Develop Skills</summary>
+            <p>Gain practical skills through hands-on exercises and real-world examples.</p>
+          </details>
+          <details className="course-content-item">
+            <summary>Setup Course Description</summary>
+            <p>Understand how to set up and navigate the course materials effectively.</p>
+          </details>
+
+          <h2 className="instructor-title">Instructor Details</h2>
+          <div className="instructor-details">
+            <div className="instructor-info">
+              <h3 className="instructor-name">John Doe</h3>
+              <p className="instructor-description">John Doe is an expert in the field with over 20 years of experience. He has taught numerous courses and has a passion for sharing knowledge.</p>
+              <ul className="instructor-key-points">
+                <li>PhD in Computer Science</li>
+                <li>Author of 3 best-selling books</li>
+                <li>Over 100 published papers</li>
+                <li>20 years of teaching experience</li>
+              </ul>
+            </div>
+            <div style={{width:'200px',height:'200px',border:"solid",borderWidth:'1px',margin:'30px'}}><img src="" alt="Instructor" className="instructor-image"/></div>
+          </div>
+        </div>
+
+        <div className="course-payment">
+          <h2 className="course-payment-title">Course Fee</h2>
+          <p className="course-payment-amount">$299</p>
+          
+          <div className="course-start-date">
+            <h3>Start Date</h3>
+            <p>August 1, 2024</p>
+          </div>
+          
+          <div className="course-contact">
+            <h3>Contact Us</h3>
+            <p>Call: 123-456-7890</p>
+          </div>
+          
+          <div className="course-social-media">
+            <h3>Follow Us</h3>
+            <button className="social-media-btn">Facebook</button>
+            <button className="social-media-btn">Twitter</button>
+            <button className="social-media-btn">LinkedIn</button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default ExploreCoursesDetails;
+export default CoursePage;

@@ -1,0 +1,49 @@
+
+  
+  .report-trading-report {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+  }
+  
+  .report-h1 {
+    text-align: center;
+    color:rgb(0, 178, 0);
+    font-size: 30px;
+  }
+  
+  .report-h2 {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 23px;
+  }
+  
+  .report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .report-th,
+  .report-td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .report-th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .report-profit {
+    color: green;
+  }
+  
+  .report-loss {
+    color: red;
+  }
+  

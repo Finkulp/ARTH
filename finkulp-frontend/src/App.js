@@ -45,6 +45,7 @@ import SignUPAdmin from "./components/Admin/SignUP";
 import AdminSignupstate from "./Context/AdminSignup/AdminsingupState";
 import AdminLoginState from "./Context/AdminLogin/AdminLoginState";
 import AdminLogin from "./components/Admin/AdminLogin";
+import TradingReport from "./components/Logged/Reports/Report";
 import MyStrategyDescription from "./components/Logged/DashBoard/MyStrategies/MyStrategyDescription";
 import AlgoshoppingDescriptionAdmin from "./components/Admin/Algo/AlgoDescription";
 function App() {
@@ -104,6 +105,7 @@ function App() {
               <Route path='StrategyDescription' element={<MyStrategyDescription mystraetgy={mystraetgy}></MyStrategyDescription>}></Route>
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
+            <Route path='Reports' element={<TradingReport></TradingReport>}></Route>
             <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>
