@@ -5,7 +5,7 @@ const AdminData=require('../modles/adminauth')
 const bycrypt=require("bcryptjs");
 const jsonweb=require("jsonwebtoken");
 require('dotenv').config();
-const serect_data=process.env.SECRETDATA;
+const serect_data="This is very confidential"
 const fetchuser=require("../middleware/fetchuser");
 const multer=require('multer')
 const app=express();

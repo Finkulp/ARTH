@@ -6,7 +6,7 @@ const fetchuser=require('../middleware/fetchuser');
 const jwt=require("jsonwebtoken");
 const { spawn } = require('child_process');
 require('dotenv').config();
-const serect_data=process.env.SECRETDATA;
+const serect_data="This is very confidential"
 const app=express();
 app.use(express.json());
 app.post("/addStrategy", fetchuser, async (req, res) => {
