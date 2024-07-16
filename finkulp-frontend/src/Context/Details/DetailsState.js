@@ -44,10 +44,6 @@ function DetailsState(props) {
             setLoading(false);
         }
     }
-    // useEffect(() => {
-    //  getDetails();
-    // }, [])
-    
     return (
         <DetailContext.Provider value={{ getDetails,setUserDetails,setUserDetails,userDetails,loading,setLoading,id }}>
             {props.children}
