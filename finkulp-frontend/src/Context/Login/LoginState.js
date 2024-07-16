@@ -54,7 +54,7 @@ const LoginState=(props)=>{
           
           setLoading(true);
           Navigate('/loggedhome/Dashboard');
-          await getDetails();
+        //   await getDetails();
         //     setLoading(false);
           } else {
           console.log('Authentication token not found in the cookie.');
