@@ -34,71 +34,124 @@ const Pricing = () => {
               <TableCell style={{ fontWeight: '600' }}></TableCell>
               <TableCell align="right" style={{ fontWeight: '600' }}> 
                <PricingCard
-              type="Free"
-              buttonText="Subscribe"
-              price={99}
+              type="For individuals/bussiness starting their trading journey"
+              buttonText="Try For Free"
+              price={1200}
             >
             </PricingCard></TableCell>
               <TableCell align="right" style={{ fontWeight: '600' }}>
               <PricingCard
-              type="Beginner"
-              buttonText="Subscribe"
-              price={99}
+              type="For 1-3 Years experienced trading professionals"
+              buttonText="Try For Free"
+              price={2100}
             >
                </PricingCard>
               </TableCell>
               <TableCell align="right" style={{ fontWeight: '600' }}>
               <PricingCard
-              type="Intermediate"
-            buttonText="Subscribe"
-            price={99}
+              type="For Growing & establised trading professionals/businesses"
+            buttonText="Try For Free"
+            price={3200}
             >
-            </PricingCard>
-              </TableCell>
-              <TableCell align="right" style={{ fontWeight: '600' }}>
-            <PricingCard
-              type="Expert"
-              price={99}
-            buttonText="Subscribe">
             </PricingCard>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell >Access to Free courses</TableCell>
-              <TableCell align="center" ><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell >Number of Strategies Users can save</TableCell>
+              <TableCell align="center" >10</TableCell>
+              <TableCell align="center">30</TableCell>
+              <TableCell align="center">50</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Access to Free courses</TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell>Number of Strategies User can Execuate in Parallel</TableCell>
+              <TableCell align="center">3</TableCell>
+              <TableCell align="center">5</TableCell>
+              <TableCell align="center">10</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Access to Free courses</TableCell>
-              <TableCell align="center"><i className="fa-solid fa-x" style={{ color: 'red' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-x" style={{ color: 'red' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell>Real Time Dashboard for Trade Reports</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Access to Free courses</TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
-              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'blue' }}></i></TableCell>
+              <TableCell>Minimum Capital Requirement</TableCell>
+              <TableCell align="center">5 Lakhs</TableCell>
+              <TableCell align="center">5-10 Lakhs</TableCell>
+              <TableCell align="center">10 Lakhs</TableCell>
             </TableRow>
             <TableRow>
+              <TableCell>Live Trading Allowed in Segments of India</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Live Deployment</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>NSE/BSE Market - Equity</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>NSE/BSE - F&O</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>MCX - Commodity</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Brokers - Standard</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Real Time Analytics Dashboard</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>AI Based Strategies</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Multileg Strategies</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Strategy Watchlist</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Strategy Watchlist</TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+              <TableCell align="center"><i className="fa-solid fa-check" style={{ color: 'green' }}></i></TableCell>
+            </TableRow>
+            <TableRow>
+              
             <TableCell></TableCell>
               <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
-              Subscribe
-            </button></TableCell>
-            <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
               Subscribe
             </button></TableCell>
             <TableCell align="center"> <button className='border-blue-600 dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-blue dark:text-white hover:bg-blue-300 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5'>
@@ -128,24 +181,36 @@ const PricingCard = ({
   children,
   description,
   price,
-  type,
   subscription,
+  type,
   buttonText,
   active,
 }) => {
   return (
     <>
-      <div className="w-full  " style={{width:"200px",height:"100px"}}>
-        <div className="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing dark:border-dark-3 dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 " style={{width:"200px",height:"100px",textAlign:"left"}}>
-          <span className="mb-3 block text-lg font-semibold text-primary" style={{marginTop:"-20px"}}>
+     {/* <PricingCard
+              type="For Growing & establised trading professionals/businesses"
+            buttonText="Try For Free"
+            price={3200}
+            >
+            </PricingCard> */}
+      <div className="w-full  ">
+        <div className="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing dark:border-dark-3 dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 " style={{width:"300px",height:"200px",textAlign:"left"}}>
+          <div className="mb-3 block text-lg font-semibold text-primary" style={{marginTop:"-20px",fontSize:"15px"}}>
             {type}
-          </span>
-          <h4 className="mb-5  font-bold text-dark dark:text-white" style={{fontSize:"25px"}}>
-            {price}
-            <span className="text-base font-medium text-body-color dark:text-dark-6">
-              / {subscription}
+          </div>
+          <h4 className="mb-5  font-bold text-dark dark:text-white" style={{fontSize:"20px"}}>
+          <span className="text-base font-medium text-body-color dark:text-dark-6"style={{color:'black'}}>
+              ₹
             </span>
+            {price}/
+            
           </h4>
+          <div>
+          <span className="text-base font-medium text-body-color dark:text-dark-6"style={{color:'black'}}>
+          per month (excluding GST)
+            </span>
+          </div>
           <a
             href="/#"
             className={` ${

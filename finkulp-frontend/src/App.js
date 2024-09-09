@@ -63,7 +63,7 @@ function App() {
   const[added,setadded]=useState(false);
   return (
     <>
-
+    
       <BrowserRouter>
       <DetailsState>
       <SignUpState>
