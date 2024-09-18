@@ -1,4 +1,6 @@
 const express=require("express");
+const { execFile } = require('child_process');
+const path = require('path'); 
 const Strategy=require("../modles/Strategy");
 const StrategyInfo=require('../modles/strategyinfo')
 const User=require("../modles/auth");
@@ -280,4 +282,58 @@ app.post("/addBroker", fetchuser, async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+//Alcie blue broker
+app.post("/getAliceBlueBroker", fetchuser, async (req, res) => {
+  try {
+    const output = req.token;
+    const jfy = jwt.verify(output, serect_data);
+    const userid = jfy.id;
+
+    const user = await User.findById(userid);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check if user has added any brokers
+    if (!user.added_broker || user.added_broker.length === 0) {
+      return res.status(404).json({ error: "No brokers found" });
+    }
+
+    // Find the Alice-Blue broker
+    const aliceBlueBroker = user.added_broker.find(
+      (broker) => broker.name === "Alice-Blue"
+    );
+
+    if (!aliceBlueBroker) {
+      return res.status(404).json({ error: "Alice-Blue broker not found" });
+    }
+
+    const apiKey = aliceBlueBroker.apiKey;
+    const loginId = aliceBlueBroker.loginId;
+
+    // Define the path to the Python script
+    const scriptPath = path.join(__dirname, 'python/main.py');
+
+    // Execute the Python script with apiKey and loginId as arguments
+    execFile('python', [scriptPath, apiKey, loginId], (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error executing Python script:', error);
+        return res.status(500).json({ error: 'Error executing script' });
+      }
+      try {
+        // Parse the JSON response from the Python script
+        const jsonResponse = JSON.parse(stdout);
+        res.json(jsonResponse);
+      } catch (parseError) {
+        console.error('Error parsing JSON from script output:', parseError);
+        res.status(500).json({ error: 'Error processing script output' });
+      }
+    });
+
+  } catch (error) {
+    console.error('Internal server error:', error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 module.exports=app;
