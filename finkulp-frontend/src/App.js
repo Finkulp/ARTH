@@ -48,6 +48,7 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import TradingReport from "./components/Logged/Reports/Report";
 import MyStrategyDescription from "./components/Logged/DashBoard/MyStrategies/MyStrategyDescription";
 import AlgoshoppingDescriptionAdmin from "./components/Admin/Algo/AlgoDescription";
+import Output from "./components/Logged/output/Output";
 function App() {
   const[image,setimage]=useState('');
   const [checkout, setchekout] = useState([]);
@@ -106,6 +107,7 @@ function App() {
               <Route path="Trade" element={<Trades></Trades>}></Route>
             </Route>
             <Route path='Reports' element={<TradingReport></TradingReport>}></Route>
+            <Route path='output' element={<Output></Output>}></Route>
             <Route path='Checkout' element={<Checkout checkout={checkout} setsum={setsum} sum={sum} setchekout={setchekout} added={added} setadded={setadded} ></Checkout>}></Route>
           </Route>
           <Route path='/adminhome' element={<AdminHome />}>

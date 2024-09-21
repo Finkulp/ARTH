@@ -315,7 +315,7 @@ app.post("/getAliceBlueBroker", fetchuser, async (req, res) => {
     const scriptPath = path.join(__dirname, 'python/main.py');
 
     // Execute the Python script with apiKey and loginId as arguments
-    execFile('python', [scriptPath, apiKey, loginId], (error, stdout, stderr) => {
+    execFile('python', [scriptPath], (error, stdout, stderr) => {
       if (error) {
         console.error('Error executing Python script:', error);
         return res.status(500).json({ error: 'Error executing script' });

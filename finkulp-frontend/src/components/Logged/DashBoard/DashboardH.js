@@ -1,18 +1,43 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import DetailContext from '../../../Context/Details/DetailsContext';
+import HoldingPosition from './HoldingPosition';
+import BalanceDetails from './BalanceDetails';
 export default function DashboardH() {
-  const{getDetails,setLoading}=useContext(DetailContext);
+  const [counter, setCounter] = useState(0);
+  const { getDetails, setLoading, brokerDetails, getAliceBlueBrokerDetails } = useContext(DetailContext);
+
   useEffect(() => {
-    setLoading(true);
-    console.log('Component mounted');
-    // setLoading(true); // This line is redundant as setLoading(true) is already called above.
-    getDetails().finally(() => setLoading(false));
-  }, []);
+    const fetchData = async () => {
+      setLoading(true); // Assuming you want to show loading status
+      await getDetails();
+      await fetchBrokerDetails();
+      setLoading(false); // Hide loading status after fetching
+    };
+
+    const fetchBrokerDetails = async () => {
+      await getAliceBlueBrokerDetails();
+      console.log('Broker Details Fetched:', brokerDetails);
+    };
+
+    // Initial fetch
+    fetchData();
+
+    // Set interval to fetch every 10 seconds
+    const interval = setInterval(async () => {
+      await fetchBrokerDetails();
+      setCounter((prevCounter) => prevCounter + 1); // Increment the counter
+    }, 10000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, [getDetails, getAliceBlueBrokerDetails]); // Dependency array
+
+
   return (
+    
     <div>
-      <div style={{paddingLeft:'50px',fontWeight:'600',fontSize:'25px',paddingBottom:'20px'}}>Dashboard</div>
+      {!brokerDetails&&<div>Loading Please wait</div>}
+    {brokerDetails&&<div> <div style={{paddingLeft:'50px',fontWeight:'600',fontSize:'25px',paddingBottom:'20px'}}>Dashboard</div>
     <div style={{display:'flex',justifyContent:'space-between',marginLeft:'20px',marginRight:'20px',gap:'50px'}}>
       <div style={{border:'solid',width:'50vh',borderColor:'rgb(232, 232, 232)',borderWidth:'1px',paddingLeft:'20px',borderRadius:'10px'}}>
         <div style={{fontWeight:"500",fontSize:'22px',paddingLeft:'20px'}}>Finkulp Money</div>
@@ -24,31 +49,7 @@ export default function DashboardH() {
         </div>
       </div>
       <div style={{border:'solid',borderColor:'rgb(232, 232, 232)',borderWidth:'1px',display:'flex',overflowX:'auto',gap:'50px',width:'800px', whiteSpace: 'nowrap',borderRadius:'10px'}}>
-        <div style={{width:'250px',paddingLeft:'20px',paddingRight:'20px',padding:'5px',textAlign:'center',lineHeight:'30px',color:'gray',paddingTop:'20px'}}>
-          <div style={{textAlign:'center'}}><i class="fa-solid fa-check" style={{fontSize:'25px',color:'green',textAlign:'center'}}></i></div>
-          <div>Finkulp Funds Insufficient</div>
-          <div style={{color:'blue'}}>Click to add</div>
-        </div>
-        <div style={{width:'250px',paddingLeft:'20px',paddingRight:'20px',padding:'5px',lineHeight:'30px',color:'gray',paddingTop:'20px'}}>
-          <div style={{textAlign:'center'}}><i class="fa-solid fa-xmark"style={{fontSize:'25px',color:'red',textAlign:'center'}}></i></div>
-          <div>Subscription Plan Inactive</div>
-          <div style={{color:'blue'}}>Subscribe a Plan</div>
-        </div>
-        <div style={{width:'250px',paddingLeft:'20px',paddingRight:'20px',padding:'5px',lineHeight:'30px',color:'gray',paddingTop:'20px'}}>
-          <div style={{textAlign:'center'}}><i class="fa-solid fa-xmark"style={{fontSize:'25px',color:'red',textAlign:'center'}} ></i></div>
-          <div>Broking Account not Connected</div>
-          <div style={{color:'blue'}}>Connect a Broking account</div>
-        </div>
-        <div style={{width:'250px',paddingLeft:'20px',paddingRight:'20px',padding:'5px',lineHeight:'30px',color:'gray',paddingTop:'20px'}}>
-          <div style={{textAlign:'center'}}><i class="fa-solid fa-xmark"style={{fontSize:'25px',color:'red',textAlign:'center'}}></i></div>
-          <div>Portfolio Strategy Added</div>
-          <div style={{color:'blue'}}>Click to add more</div>
-        </div>
-        <div style={{width:'250px',paddingLeft:'20px',paddingRight:'20px',padding:'5px',lineHeight:'30px',color:'gray',paddingTop:'20px'}}>
-          <div style={{textAlign:'center'}}><i class="fa-solid fa-check"style={{fontSize:'25px',color:'green',textAlign:'center'}}></i></div>
-          <div>Finkulp Funds Insufficient</div>
-          <div style={{color:'blue'}}>Click to add</div>
-        </div>
+       <div><BalanceDetails balance={brokerDetails.Balance} /></div>
       </div>
     </div>
     <div>
@@ -98,35 +99,24 @@ export default function DashboardH() {
     </div>
     </div>
     <div style={{border:'solid',borderColor:"rgb(232, 232, 232)",borderWidth:'1px',width:'600px',marginTop:'20px',borderRadius:'5px'}}>
-      <div style={{display:'flex',justifyContent:'space-between',marginTop:'20px',padding:'10px'}}>
-      <div style={{fontSize:'20px',fontWeight:'700'}}>Profit & Loss & Trading Volume</div>
-      <div style={{display:'flex',gap:'20px'}}>
-        <div><i class="fa-solid fa-rotate-right"></i></div>
-        <div><i class="fa-solid fa-gear"></i></div>
-        <div><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+      <div>
+      <HoldingPosition holdings={brokerDetails['Holding Position']} />
       </div>
-      </div>
-      <div style={{background:"#6CB4EE" ,width:'100%'}}>
-      <div style={{display:'flex',justifyContent:'space-between',fontSize:'19px',fontWeight:'500',paddingTop:'20px',paddingBottom:'20px',marginTop:'10px',padding:'20px'}}>
-        <div>Strategy Name</div>
-        <div>Total Txns.</div>
-        <div>Volume(rupee)</div>
-        <div>P&L(rupee)</div>
-      </div>
-      </div>
-      <div style={{width:'600px',height:'300px',display:'flex',justifyContent:"center",alignItems:'center'}}>
-        <div style={{lineHeight:'30px'}}>
-          <div style={{textAlign:'center'}}><i class="fa-solid fa-box-open" style={{fontSize:'30px',color:'gray'}}></i></div>
-        <div  style={{textAlign:'center'}}>No Profit and Loss data found</div>
-        <div style={{textAlign:'center'}}>Rum some strategies to visualize data here</div>
-        <div  style={{textAlign:'center'}}><a
-      class="bg-blue dark:bg-dark-2  dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-rgb(232, 232, 232)-3 disabled:border-rgb(232, 232, 232)-3 disabled:text-dark-5"
-      >Explore Marketplace</a></div>
-      </div>
-        </div>
     </div>
     </div>
     </div>
+    </div>}
     </div>
   )
 }
+
+const OrderHistory = ({ orderHistory }) => {
+  return (
+    <div className="order-history">
+      <h2>Order History</h2>
+      <p><strong>Status:</strong> {orderHistory.stat}</p>
+      <p><strong>Message:</strong> {orderHistory.emsg}</p>
+      <p><strong>EncKey:</strong> {orderHistory.encKey || 'None'}</p>
+    </div>
+  );
+};
