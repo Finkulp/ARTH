@@ -313,7 +313,6 @@ app.post("/getAliceBlueBroker", fetchuser, async (req, res) => {
 
     // Define the path to the Python script
     const scriptPath = path.join(__dirname, 'python/main.py');
-
     // Execute the Python script with apiKey and loginId as arguments
     execFile('python', [scriptPath], (error, stdout, stderr) => {
       if (error) {

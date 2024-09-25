@@ -14,7 +14,7 @@ const HoldingPosition = ({ holdings }) => {
   return (
     <TableContainer component={Paper} style={{padding:"10px"}}>
       <Typography variant="h6" component="h2" gutterBottom>
-        Holding Position
+       <div style={{textAlign:'center',fontFamily:'poppins',fontWeight:'500',color:'blue'}}>Holding Position</div>
       </Typography>
       <Table>
         <TableHead>

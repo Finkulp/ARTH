@@ -5,34 +5,24 @@ import BalanceDetails from './BalanceDetails';
 export default function DashboardH() {
   const [counter, setCounter] = useState(0);
   const { getDetails, setLoading, brokerDetails, getAliceBlueBrokerDetails } = useContext(DetailContext);
-
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true); // Assuming you want to show loading status
+      setLoading(true); // Show loading status
       await getDetails();
-      await fetchBrokerDetails();
       setLoading(false); // Hide loading status after fetching
     };
-
+  
     const fetchBrokerDetails = async () => {
       await getAliceBlueBrokerDetails();
       console.log('Broker Details Fetched:', brokerDetails);
     };
-
-    // Initial fetch
-    fetchData();
-
-    // Set interval to fetch every 10 seconds
     const interval = setInterval(async () => {
       await fetchBrokerDetails();
-      setCounter((prevCounter) => prevCounter + 1); // Increment the counter
-    }, 10000);
-
-    // Cleanup interval on component unmount
+      fetchData();
+    }, 12000); 
     return () => clearInterval(interval);
-  }, [getDetails, getAliceBlueBrokerDetails]); // Dependency array
-
-
+  }, [getAliceBlueBrokerDetails]); 
+  
   return (
     
     <div>
